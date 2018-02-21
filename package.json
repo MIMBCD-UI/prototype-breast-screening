@@ -1,0 +1,61 @@
+{
+  "name": "prototype-cornerstone",
+  "version": "0.1.0",
+  "description": "MIMBCD-UI Prototype Cornerstone",
+  "keywords": [
+    "DICOM",
+    "WADO",
+    "cornerstone",
+    "medical",
+    "imaging"
+  ],
+  "author": "Francisco Maria Calisto",
+  "homepage": "https://github.com/MIMBCD-UI/prototype-cornerstone",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MIMBCD-UI/prototype-cornerstone"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cd src npm install",
+    "build": "webpack",
+    "start": "node node_modules/http-server/bin/http-server -o &",
+    "dicom-server": "./dicom-server/orthancAndPluginsOSX.stable/startOrthanc.command &",
+    "webpack": "webpack &",
+    "webpack-dev-server": "webpack-dev-server &"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "browserify": "^14.3.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-concat": "^0.3.0",
+    "grunt-contrib-copy": "0.4.x",
+    "grunt-contrib-jshint": "^0.8.0",
+    "grunt-contrib-qunit": "^0.4.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "gulp-gh-pages": "^0.5.4",
+    "jshint": "^2.9.5",
+    "jshint-loader": "^0.8.4",
+    "load-grunt-tasks": "^0.2.1",
+    "node-libs-browser": "^2.1.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "catta": "^2.1.1",
+    "common-js": "^0.3.8",
+    "cors": "^2.8.4",
+    "corsproxy": "^1.5.0",
+    "ecstatic": "^3.1.1",
+    "express": "^4.16.2",
+    "grunt": "^0.4.5",
+    "gulp-util": "^3.0.8",
+    "http-server": "^0.9.0",
+    "semver": "^5.5.0"
+  }
+}
