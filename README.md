@@ -2,11 +2,11 @@
 
 <img src="assets/banner.png"/>
 
-[MIMBCD-UI](https://mimbcd-ui.github.io/) is a Research Project that deals with the use of a recently proposed technique in literature: [Deep Convolutional Neural Networks (CNNs)](https://en.wikipedia.org/wiki/Convolutional_neural_network). These deep networks will incorporate information from several different modes by a User Interface (UI) implemented using the [Cornerstone Library](https://github.com/chafey/cornerstone). The [Cornerstone](https://github.com/chafey/cornerstone) is an Open Source Project with a goal to deliver a complete web based medical imaging platform.
+[MIMBCD-UI](https://mimbcd-ui.github.io/) is a Research Project that deals with the use of a recently proposed technique in literature: [Deep Convolutional Neural Networks (CNNs)](https://en.wikipedia.org/wiki/Convolutional_neural_network). These deep networks will incorporate information from several different modes by a User Interface (UI) implemented based on our [Prototype Cornerstone](https://github.com/MIMBCD-UI/prototype-cornerstone) repository. The [Prototype Cornerstone](https://github.com/MIMBCD-UI/prototype-cornerstone) repository is an Open Source Project with a goal to deliver an example of web based medical imaging platform.
 
 ## Instructions
 
-First of all, you will need [NodeJS](https://github.com/MIMBCD-UI/prototype-cornerstone) installed locally on your machine. This project needs both [`npm`](https://www.npmjs.com/) and [`http-server`](https://github.com/indexzero/http-server) dependencies to install and run the core project. If you do not have those installed please follow the [`INSTALL`](src/INSTALL.md) instructions.
+First of all, you will need [NodeJS](https://nodejs.org/) installed locally on your machine. This project needs both [`npm`](https://www.npmjs.com/) and [`http-server`](https://github.com/indexzero/http-server) dependencies to install and run the core project. If you do not have those installed please follow the [`INSTALL`](src/INSTALL.md) instructions.
 
 ### Clone
 
@@ -15,13 +15,13 @@ The following assumes you will be using a [git](https://git-scm.com/) version co
 1.1. Clone the project repository:
 
 ```
-git clone git@github.com:MIMBCD-UI/prototype-cornerstone.git
+git clone git@github.com:MIMBCD-UI/prototype-breast-screening.git
 ```
 
 1.2. Go to the project folder:
 
 ```
-cd prototype-cornerstone/
+cd prototype-breast-screening/
 ```
 
 ### Install
@@ -32,13 +32,13 @@ cd prototype-cornerstone/
 npm install
 ```
 
-2.2. You can now **Run** the project, just follow the [next section](https://github.com/MIMBCD-UI/prototype-cornerstone#run).
+2.2. You can now **Run** the project, just follow the [next section](https://github.com/MIMBCD-UI/prototype-breast-screening#run).
 
 ### Run
 
 3.1. Inside the project folder:
 
-`cd prototype-cornerstone/`
+`cd prototype-breast-screening/`
 
 3.2. Start the DICOM Server (Orthanc) for [MacOS](https://www.orthanc-server.com/static.php?page=download-mac):
 
@@ -66,7 +66,7 @@ NOTE: If you need some help see the [Demo](https://youtu.be/tkzpT3KpY2A).
 3.4. Inside the project folder:
 
 ```
-cd prototype-cornerstone/
+cd prototype-breast-screening/
 ```
 
 3.5. Run the code:
@@ -98,13 +98,13 @@ open /Applications/Google\ Chrome.app --args --disable-web-security --user-data-
 
 ## About
 
-For more information about the [MIMBCD-UI](https://mimbcd-ui.github.io/) Project just follow the [link](https://github.com/MIMBCD-UI/meta). Pieces of information about details of this repository are also in a [wiki](https://github.com/MIMBCD-UI/prototype-cornerstone/wiki). This prototype was developed using several libraries and dependencies. Despite that all libraries had their importance and supported the development, one of it was of chief importance. The [CornerstoneJS](https://cornerstonejs.org/) library and [secondary libraries](https://github.com/cornerstonejs), respectively, are supporting this prototype. We [Acknowledge](https://github.com/MIMBCD-UI/prototype-cornerstone/blob/master/README.md#acknowledgments) all people involved in the path.
+For more information about the [MIMBCD-UI](https://mimbcd-ui.github.io/) Project just follow the [link](https://github.com/MIMBCD-UI/meta). Pieces of information about details of this repository are also in a [wiki](https://github.com/MIMBCD-UI/prototype-breast-screening/wiki). This prototype was developed using several libraries and dependencies. Despite that all libraries had their importance and supported the development, one of it was of chief importance. The [CornerstoneJS](https://cornerstonejs.org/) library and [secondary libraries](https://github.com/cornerstonejs), respectively, are supporting this prototype. We [Acknowledge](https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/README.md#acknowledgments) all people involved in the path.
 
 ### License
 
 Copyright © 2017 [Instituto Superior Técnico (IST)](https://tecnico.ulisboa.pt/en/)
 
-The [`prototype-cornerstone`](https://github.com/MIMBCD-UI/prototype-cornerstone) repository is distributed under the terms of both [Academic License](https://github.com/MIMBCD-UI/prototype-cornerstone/blob/master/ACADEMIC.md) and [Commercial License](https://github.com/MIMBCD-UI/prototype-cornerstone/blob/master/COMMERCIAL.md), for academic and commercial purpose, respectively. For more information regarding the [License](https://github.com/MIMBCD-UI/prototype-cornerstone/blob/master/LICENSE.md) of the hereby repository, just follow both [ACADEMIC](https://github.com/MIMBCD-UI/prototype-cornerstone/blob/master/ACADEMIC.md) and [COMMERCIAL](https://github.com/MIMBCD-UI/prototype-cornerstone/blob/master/COMMERCIAL.md) files.
+The [`prototype-breast-screening`](https://github.com/MIMBCD-UI/prototype-breast-screening) repository is distributed under the terms of both [Academic License](https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/ACADEMIC.md) and [Commercial License](https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/COMMERCIAL.md), for academic and commercial purpose, respectively. For more information regarding the [License](https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/LICENSE.md) of the hereby repository, just follow both [ACADEMIC](https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/ACADEMIC.md) and [COMMERCIAL](https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/COMMERCIAL.md) files.
 
 ### Acknowledgments
 
