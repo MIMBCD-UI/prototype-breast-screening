@@ -1,0 +1,149 @@
+{
+    "studyId": "usmgbreaststudy",
+    "modality": "US",
+    "stacks": [
+        {
+            "seriesDescription": "MLO",
+            "stackId": "3",
+            "imageIds": [
+                "wadouri://localhost:8042/instances/89f90986-52a79581-81d5cfef-f0a594b3-f33df53c/file"
+            ],
+            "seriesIndex": 0,
+            "currentImageIdIndex": 0,
+            "freehand": [
+                {
+                    "visible": true,
+                    "active": false,
+                    "handles": [
+                        {
+                            "x": 878.9466666666669,
+                            "y": 2910.266666666667,
+                            "highlight": true,
+                            "active": true,
+                            "lines": [
+                                {
+                                    "x": 1237.7466666666667,
+                                    "y": 2384.0266666666666
+                                }
+                            ]
+                        },
+                        {
+                            "x": 1237.7466666666667,
+                            "y": 2384.0266666666666,
+                            "highlight": true,
+                            "active": true,
+                            "lines": [
+                                {
+                                    "x": 1827.7733333333333,
+                                    "y": 2774.7200000000003
+                                }
+                            ]
+                        },
+                        {
+                            "x": 1827.7733333333333,
+                            "y": 2774.7200000000003,
+                            "highlight": true,
+                            "active": true,
+                            "lines": [
+                                {
+                                    "x": 878.9466666666669,
+                                    "y": 2910.266666666667,
+                                    "highlight": true,
+                                    "active": true,
+                                    "lines": [
+                                        {
+                                            "x": 1237.7466666666667,
+                                            "y": 2384.0266666666666
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "highlight": false
+                }
+            ]
+        },
+        {
+            "seriesDescription": "CC",
+            "stackId": "1",
+            "imageIds": [
+                "wadouri://localhost:8042/instances/3ea91193-d664157d-cdc5e876-fd2b7010-8b9f462f/file"
+            ],
+            "seriesIndex": 1,
+            "currentImageIdIndex": 0,
+            "freehand": [
+                {
+                    "visible": true,
+                    "active": false,
+                    "handles": [
+                        {
+                            "x": 253.65319426336373,
+                            "y": 98.18970013037809,
+                            "highlight": true,
+                            "active": true,
+                            "lines": [
+                                {
+                                    "x": 327.76271186440675,
+                                    "y": 58.46088657105605
+                                }
+                            ]
+                        },
+                        {
+                            "x": 327.76271186440675,
+                            "y": 58.46088657105605,
+                            "highlight": true,
+                            "active": true,
+                            "lines": [
+                                {
+                                    "x": 330.81877444589304,
+                                    "y": 118.0541069100391
+                                }
+                            ]
+                        },
+                        {
+                            "x": 330.81877444589304,
+                            "y": 118.0541069100391,
+                            "highlight": true,
+                            "active": true,
+                            "lines": [
+                                {
+                                    "x": 253.65319426336373,
+                                    "y": 98.18970013037809,
+                                    "highlight": true,
+                                    "active": true,
+                                    "lines": [
+                                        {
+                                            "x": 327.76271186440675,
+                                            "y": 58.46088657105605
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "highlight": false
+                }
+            ]
+        },
+        {
+            "seriesDescription": "MLO",
+            "stackId": "4",
+            "imageIds": [
+                "wadouri://localhost:8042/instances/fddde464-e57f3f55-fc5c0b82-5ee8ea9c-afa8acc4/file"
+            ],
+            "seriesIndex": 2,
+            "currentImageIdIndex": 0
+        },
+        {
+            "seriesDescription": "CC",
+            "stackId": "2",
+            "imageIds": [
+                "wadouri://localhost:8042/instances/7aae3a41-051f2909-3e1bc940-1b75e78a-55915f67/file"
+            ],
+            "seriesIndex": 3,
+            "currentImageIdIndex": 0
+        }
+    ],
+    "currentStack": 1
+}

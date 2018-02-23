@@ -1,0 +1,69 @@
+{
+    "studyId": "usbreaststudy",
+    "modality": "US",
+    "stacks": [
+        {
+            "seriesDescription": "Breast",
+            "stackId": "1",
+            "imageIds": [
+                "wadouri://localhost:8042/instances/26eb8b88-ff7afef9-e4d3ef85-5fbe799c-3082da71/file"
+            ],
+            "seriesIndex": 0,
+            "currentImageIdIndex": 0,
+            "freehand": [
+                {
+                    "visible": true,
+                    "active": false,
+                    "handles": [
+                        {
+                            "x": 242.95697522816164,
+                            "y": 97.42568448500651,
+                            "highlight": true,
+                            "active": true,
+                            "lines": [
+                                {
+                                    "x": 314.77444589308993,
+                                    "y": 59.22490221642764
+                                }
+                            ]
+                        },
+                        {
+                            "x": 314.77444589308993,
+                            "y": 59.22490221642764,
+                            "highlight": true,
+                            "active": true,
+                            "lines": [
+                                {
+                                    "x": 391.94002607561924,
+                                    "y": 123.40221642764014
+                                }
+                            ]
+                        },
+                        {
+                            "x": 391.94002607561924,
+                            "y": 123.40221642764014,
+                            "highlight": true,
+                            "active": true,
+                            "lines": [
+                                {
+                                    "x": 242.95697522816164,
+                                    "y": 97.42568448500651,
+                                    "highlight": true,
+                                    "active": true,
+                                    "lines": [
+                                        {
+                                            "x": 314.77444589308993,
+                                            "y": 59.22490221642764
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "highlight": false
+                }
+            ]
+        }
+    ],
+    "currentStack": 0
+}
