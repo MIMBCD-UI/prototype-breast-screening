@@ -8,9 +8,9 @@ Copyright © 2017 [Instituto Superior Técnico (IST)](https://tecnico.ulisboa.pt
 * Can not modify source-code for any purpose (can not create derivative works).
 
 
-# MIMBCD-UI Prototype Cornerstone - Terms and conditions
+# MIMBCD-UI Prototype Breast Screening - Terms and conditions
 
-1. **Preamble**: This Agreement, signed on Jan 31, 2018 (hereinafter: Effective Date) governs the relationship between Licensee, a Business Entity, (hereinafter: Licensee) and [Instituto Superior Técnico (IST)](https://tecnico.ulisboa.pt/en/) (hereinafter: Licensor). This Agreement sets the terms, rights, restrictions and obligations on using [MIMBCD-UI Prototype Cornerstone](https://github.com/MIMBCD-UI/prototype-cornerstone) (hereinafter: The Software) created and owned by Licensor, as detailed herein.
+1. **Preamble**: This Agreement, signed on Jan 31, 2018 (hereinafter: Effective Date) governs the relationship between Licensee, a Business Entity, (hereinafter: Licensee) and [Instituto Superior Técnico (IST)](https://tecnico.ulisboa.pt/en/) (hereinafter: Licensor). This Agreement sets the terms, rights, restrictions and obligations on using [MIMBCD-UI Prototype Breast Screening](https://github.com/MIMBCD-UI/prototype-breast-screening) (hereinafter: The Software) created and owned by Licensor, as detailed herein.
 
 2. **License Grant**: Licensor hereby grants Licensee a Personal, Non-assignable & non-transferable, Pepetual, Non-commercial, Without the rights to create derivative works, Non-exclusive license, all with accordance with the terms set forth and other legal restrictions set forth in 3rd party software used while running Software.
 
@@ -64,7 +64,7 @@ Copyright © 2017 [Instituto Superior Técnico (IST)](https://tecnico.ulisboa.pt
 
     (i) Licensee shall waive any claim or right in such feature should feature be developed by Licensor;
 
-    (ii) Licensee shall be prohibited from developing the feature, or disclose such feature request, or feature, to any 3rd party directly competing with Licensor or any 3rd party which may be, following the development of such feature, in direct competition with Licensor; 
+    (ii) Licensee shall be prohibited from developing the feature, or disclose such feature request, or feature, to any 3rd party directly competing with Licensor or any 3rd party which may be, following the development of such feature, in direct competition with Licensor;
 
     (iii) Licensee warrants that feature does not infringe any 3rd party patent, trademark, trade-secret or any other intellectual property right;
 
