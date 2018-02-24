@@ -1,17 +1,24 @@
 // Load in HTML templates
+var viewportPath = "templates/viewport.html";
+var studyViewerPath = "templates/studyViewer.html";
+
+// The file with the list of all studies.
+var fileName = 'studyList';
+var fileFormat = '.json';
+var studyListFile = fileName + fileFormat;
 
 var viewportTemplate; // the viewport template
-loadTemplate("templates/viewport.html", function(element) {
+loadTemplate(viewportPath, function(element) {
     viewportTemplate = element;
 });
 
 var studyViewerTemplate; // the study viewer template
-loadTemplate("templates/studyViewer.html", function(element) {
+loadTemplate(studyViewerPath, function(element) {
     studyViewerTemplate = element;
 });
 
 // Get study list from JSON manifest
-$.getJSON('studyList.json', function(data) {
+$.getJSON(studyListFile, function(data) {
   data.studyList.forEach(function(study) {
 
     // Create one table row for each study in the manifest
@@ -62,7 +69,7 @@ $.getJSON('studyList.json', function(data) {
       };
 
       // Now load the study.json
-      loadStudy(studyViewerCopy, viewportTemplate, study.studyId + ".json");
+      loadStudy(studyViewerCopy, viewportTemplate, study.studyId + fileFormat);
     });
   });
 });
