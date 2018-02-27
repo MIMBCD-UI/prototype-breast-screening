@@ -20,10 +20,24 @@ async function getStudyList(callback) {
 
     return Promise.all(p).then(result => {
         callback(result);
-        console.log("Promise Result: " + result);
     })
 }
 
 getStudyList((studyList) => {
-    console.log("Get Study List From: " + studyList);
+    const studyListPatientName = studyList[0].PatientMainDicomTags.PatientName;
+    const studyListPatientId = studyList[0].PatientMainDicomTags.PatientID;
+    const studyListStudyDate = studyList[0].MainDicomTags.StudyDate;
+    const studyListModality = studyList[0].MainDicomTags.StudyDescription;
+    const studyListStudyDescription = studyList[0].MainDicomTags.StudyDescription;
+    const studyListNumImages = 0;
+    const studyListStudyId = studyList[0].PatientMainDicomTags.PatientID;
+
+    console.log("Get Study List From: ", JSON.stringify(studyList[0]));
+    console.log("studyListPatientName: ", JSON.stringify(studyListPatientName));
+    console.log("studyListPatientId: ", JSON.stringify(studyListPatientId));
+    console.log("studyListStudyDate: ", JSON.stringify(studyListStudyDate));
+    console.log("studyListModality: ", JSON.stringify(studyListModality));
+    console.log("studyListStudyDescription: ", JSON.stringify(studyListStudyDescription));
+    console.log("studyListNumImages: ", JSON.stringify(studyListNumImages));
+    console.log("studyListStudyId: ", JSON.stringify(studyListStudyId));
 })
