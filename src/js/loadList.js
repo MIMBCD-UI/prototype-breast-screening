@@ -29,7 +29,7 @@ getStudyList((studyList) => {
     const studyListStudyDate = studyList[0].MainDicomTags.StudyDate;
     const studyListModality = studyList[0].MainDicomTags.StudyDescription;
     const studyListStudyDescription = studyList[0].MainDicomTags.StudyDescription;
-    const studyListNumImages = 0;
+    const studyListNumImages = 1;
     const studyListStudyId = studyList[0].PatientMainDicomTags.PatientID;
 
     console.log("Get Study List From: ", JSON.stringify(studyList[0]));
