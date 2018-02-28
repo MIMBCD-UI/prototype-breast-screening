@@ -1,6 +1,7 @@
 {
   "name": "prototype-cornerstone",
   "version": "0.1.0",
+  "main": "src/index.html",
   "description": "MIMBCD-UI Prototype Cornerstone",
   "keywords": [
     "DICOM",

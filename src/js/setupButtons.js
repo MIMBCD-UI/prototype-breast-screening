@@ -57,23 +57,15 @@ function setupButtons(studyViewer) {
     });
   });
 
-  // Length measurement
-  $(buttons[5]).on('click touchstart', function() {
-    disableAllTools();
-    forEachViewport(function(element) {
-      cornerstoneTools.length.activate(element, 1);
-    });
-  });
-
   // Freehand ROI draw
-  $(buttons[6]).on('click touchstart', function() {
+  $(buttons[5]).on('click touchstart', function() {
     forEachViewport(function(element) {
       cornerstoneTools.freehand.activate(element, 1);
     });
   });
 
   // JSON Save Button
-  $(buttons[7]).on('click touchstart', function() {
+  $(buttons[6]).on('click touchstart', function() {
     disableAllTools();
     forEachViewport(function(element) {
 
@@ -149,8 +141,7 @@ function setupButtons(studyViewer) {
   $(buttons[3]).tooltip();
   $(buttons[4]).tooltip();
   $(buttons[5]).tooltip();
-  $(buttons[7]).tooltip();
-  $(buttons[8]).tooltip();
+  $(buttons[6]).tooltip();
 
   function download(data, name, type) {
     var link = document.createElement("a");
