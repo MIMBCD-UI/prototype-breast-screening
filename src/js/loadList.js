@@ -1,43 +1,56 @@
 function callAPI(url) {
-    return new Promise((resolve, reject) => {
-        $.getJSON(url + '&_=' + new Date().getTime(), function(data) {
-            resolve(data);
-        },
-        function(err) {
-            reject(err);
-        })
-    })
+  return new Promise((resolve, reject) => {
+    $.getJSON(url + '&_=' + new Date().getTime(), function(data) {
+        resolve(data);
+      },
+      function(err) {
+        reject(err);
+      })
+  })
 }
 
 async function getStudyList(callback) {
-    const patients = await callAPI('http://localhost:8042/patients?expand')
-    const p = patients.reduce((prev, next) => {
-        return prev.concat(next.Studies);
-    }, []).map(studyId => {
-        const url = 'http://localhost:8042/studies/' + studyId + '?';
-        return callAPI(url).then(result => result);
-    })
+  const patients = await callAPI('http://localhost:8042/patients?expand')
+  const p = patients.reduce((prev, next) => {
+    return prev.concat(next.Studies);
+  }, []).map(studyId => {
+    const url = 'http://localhost:8042/studies/' + studyId + '?';
+    return callAPI(url).then(result => result);
+  })
 
-    return Promise.all(p).then(result => {
-        callback(result);
-    })
+  return Promise.all(p).then(result => {
+    callback(result);
+  })
 }
 
-getStudyList((studyList) => {
-    const studyListPatientName = studyList[0].PatientMainDicomTags.PatientName;
-    const studyListPatientId = studyList[0].PatientMainDicomTags.PatientID;
-    const studyListStudyDate = studyList[0].MainDicomTags.StudyDate;
-    const studyListModality = studyList[0].MainDicomTags.StudyDescription;
-    const studyListStudyDescription = studyList[0].MainDicomTags.StudyDescription;
-    const studyListNumImages = 1;
-    const studyListStudyId = studyList[0].PatientMainDicomTags.PatientID;
+// Study List -> sl
 
-    console.log("Get Study List From: ", JSON.stringify(studyList[0]));
-    console.log("studyListPatientName: ", JSON.stringify(studyListPatientName));
-    console.log("studyListPatientId: ", JSON.stringify(studyListPatientId));
-    console.log("studyListStudyDate: ", JSON.stringify(studyListStudyDate));
-    console.log("studyListModality: ", JSON.stringify(studyListModality));
-    console.log("studyListStudyDescription: ", JSON.stringify(studyListStudyDescription));
-    console.log("studyListNumImages: ", JSON.stringify(studyListNumImages));
-    console.log("studyListStudyId: ", JSON.stringify(studyListStudyId));
+getStudyList((studyList) => {
+
+  for (var i = 0; i < studyList.length; i++) {
+
+    const slEach = studyList[i];
+    const slPatientAttr = slEach.PatientMainDicomTags;
+    const slMainAttr = slEach.MainDicomTags;
+    const slSeries = slEach.Series;
+
+    const slPatientName = slPatientAttr.PatientName;
+    const slPatientId = slPatientAttr.PatientID;
+    const slStudyDate = slMainAttr.StudyDate;
+    const slModality = slMainAttr.StudyDescription;
+    const slStudyDescription = slMainAttr.StudyDescription;
+    const slNumImages = slSeries.length;
+    const slStudyId = slPatientAttr.PatientID;
+
+    console.log("Get Study List From: ", JSON.stringify(slEach));
+    console.log("Patient Name: ", JSON.stringify(slPatientName));
+    console.log("Patient ID: ", JSON.stringify(slPatientId));
+    console.log("Study Date: ", JSON.stringify(slStudyDate));
+    console.log("Modality: ", JSON.stringify(slModality));
+    console.log("Study Description: ", JSON.stringify(slStudyDescription));
+    console.log("Number of Images: ", JSON.stringify(slNumImages));
+    console.log("Study ID: ", JSON.stringify(slStudyId));
+
+  }
+
 })
