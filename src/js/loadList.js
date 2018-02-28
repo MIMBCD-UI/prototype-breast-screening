@@ -26,7 +26,6 @@ async function getStudyList(callback) {
 // Study List -> sl
 
 getStudyList((studyList) => {
-
   for (var i = 0; i < studyList.length; i++) {
     const slEach = studyList[i];
     const slPatientAttr = slEach.PatientMainDicomTags;
@@ -50,5 +49,4 @@ getStudyList((studyList) => {
     console.log("Number of Images: ", JSON.stringify(slNumImages));
     console.log("Study ID: ", JSON.stringify(slStudyId));
   }
-
 })
