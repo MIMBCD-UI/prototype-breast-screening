@@ -1,4 +1,4 @@
-function callAPI(url) {
+const callAPI = (url) => {
   return new Promise((resolve, reject) => {
     $.getJSON(url + '&_=' + new Date().getTime(), function(data) {
         resolve(data);

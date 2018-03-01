@@ -2,10 +2,10 @@
  var webpack = require('webpack');
 
 module.exports = {
-  entry: ["./src/utils/cors.js", "./src/app.js"],
+  entry: ["./src/js/index.js"],
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'main.bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'dev.bundle.js'
   },
   watch: true,
   devServer: {
@@ -16,8 +16,6 @@ module.exports = {
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
       "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
     },
-    // Display only errors to reduce the amount of output.
-    stats: "errors-only",
   },
   module: {
     loaders: [

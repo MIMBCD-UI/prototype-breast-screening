@@ -1,7 +1,7 @@
 {
   "name": "prototype-cornerstone",
   "version": "0.1.0",
-  "main": "src/index.html",
+  "main": "src/js/index.js",
   "description": "MIMBCD-UI Prototype Cornerstone",
   "keywords": [
     "DICOM",
@@ -20,18 +20,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "cd src npm install",
-    "build": "webpack",
-    "start": "node node_modules/http-server/bin/http-server -o &",
-    "dicom-server": "./dicom-server/orthancAndPluginsOSX.stable/startOrthanc.command &",
-    "webpack": "webpack &",
-    "webpack-dev-server": "webpack-dev-server &"
+    "build": "webpack-dev-server",
+    "build:prod": "webpack -p",
+    "start": "node node_modules/http-server/bin/http-server",
+    "dicom-server": "./dicom-server/orthancAndPluginsOSX.stable/startOrthanc.command"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "browserify": "^14.3.0",
+    "browserify": "^14.5.0",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-concat": "^0.3.0",
     "grunt-contrib-copy": "0.4.x",
@@ -54,6 +53,7 @@
     "corsproxy": "^1.5.0",
     "ecstatic": "^3.1.1",
     "express": "^4.16.2",
+    "fs": "0.0.1-security",
     "grunt": "^0.4.5",
     "gulp-util": "^3.0.8",
     "http-server": "^0.9.0",

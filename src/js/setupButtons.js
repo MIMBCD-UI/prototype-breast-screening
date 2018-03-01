@@ -1,4 +1,51 @@
-function setupButtons(studyViewer) {
+// const fs = require('fs');
+// //const content = JSON.stringify(output);
+
+// fs.writeFile("../../dataset/testingFile.json", 'testing', 'utf8', function (err) {
+//     if (err) {
+//         return console.log(err);
+//     }
+
+//     console.log("The file was saved!");
+// });
+
+
+
+
+
+
+
+// File Management
+var fileFormat = '.json';
+var pathToSave = '../../dataset/';
+
+// Time Stamp
+var currentDate = new Date();
+var year = currentDate.getFullYear();
+var yearString = year.toString();
+var month = currentDate.getMonth() + 1; //Be careful! January is 0 not 1
+var monthString = (month < 9 ? '0': '') + (month);
+var date = currentDate.getDate();
+var dateString = (date < 9 ? '0': '') + (date);
+var hours = currentDate.getHours();
+var hoursString = (hours < 9 ? '0': '') + (hours);
+var minutes = currentDate.getMinutes();
+var minutesString = (minutes < 9 ? '0': '') + (minutes);
+var seconds = currentDate.getSeconds();
+var secondsString = (seconds < 9 ? '0': '') + (seconds);
+var totalDate = yearString + monthString + dateString;
+var totalTime = hoursString + minutesString + secondsString;
+var timeStamp = totalDate + totalTime;
+
+// var http = require('http');
+
+// var server = http.createServer(function(req, res) {
+//   res.writeHead(200);
+//   res.end('Hello Http');
+// });
+// server.listen(8080);
+
+const setupButtons = (studyViewer) => {
   // Get the button elements
   var buttons = $(studyViewer).find('button');
 
@@ -81,30 +128,14 @@ function setupButtons(studyViewer) {
        *
        */
 
-      var currentDate = new Date();
-      var year = currentDate.getFullYear();
-      var yearString = year.toString();
-      //Be careful! January is 0 not 1
-      var month = currentDate.getMonth() + 1;
-      var monthString = (month < 9 ? '0': '') + (month);
-      var date = currentDate.getDate();
-      var dateString = (date < 9 ? '0': '') + (date);
-      var hours = currentDate.getHours();
-      var hoursString = (hours < 9 ? '0': '') + (hours);
-      var minutes = currentDate.getMinutes();
-      var minutesString = (minutes < 9 ? '0': '') + (minutes);
-      var seconds = currentDate.getSeconds();
-      var secondsString = (seconds < 9 ? '0': '') + (seconds);
-      var totalDate = yearString + monthString + dateString;
-      var totalTime = hoursString + minutesString + secondsString;
-      var timeStamp = totalDate + totalTime;
-
       var toolData = cornerstoneTools.getToolState(element, 'freehand');
       var studyRoiData = studyViewer.roiData;
       var studyCurrentStack = studyRoiData.currentStack;
       var stack = studyRoiData.stacks[studyCurrentStack];
       var dataStudyId = studyRoiData.studyId;
-      var fileNameToSave = timeStamp + dataStudyId + '.json';
+      var fileNameToSave = timeStamp + dataStudyId + fileFormat;
+
+      console.log("Study ROI Data:\n", studyRoiData);
 
       if (toolData === undefined) {
         return;
@@ -125,11 +156,21 @@ function setupButtons(studyViewer) {
       console.log(studyRoiData);
 
       // save json
-      download(
-        studyRoiData,
-        fileNameToSave,
-        'application/octet-stream'
-      );
+      // download(
+      //   studyRoiData,
+      //   fileNameToSave,
+      //   'application/octet-stream'
+      // );
+
+      var pathFileNameToSave = pathToSave + pathToSave;
+
+      fs.writeFile(pathFileNameToSave, studyRoiData, 'utf8', function (err) {
+        if (err) {
+          return console.log(err);
+        }
+
+        console.log("The file was saved!");
+      });
 
     });
   });
@@ -143,7 +184,7 @@ function setupButtons(studyViewer) {
   $(buttons[5]).tooltip();
   $(buttons[6]).tooltip();
 
-  function download(data, name, type) {
+  const download = (data, name, type) => {
     var link = document.createElement("a");
     var data = JSON.stringify(data, null, 4);
     var blob = new Blob([data], {
