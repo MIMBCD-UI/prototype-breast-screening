@@ -13,8 +13,6 @@
 
 
 
-
-
 // File Management
 var fileFormat = '.json';
 var pathToSave = '../../dataset/';

@@ -2,6 +2,14 @@
 var viewportPath = "templates/viewport.html";
 var studyViewerPath = "templates/studyViewer.html";
 
+/* ==================== TESTING THINGS!!!! ==================== */
+
+// var message = require('./setupButtons');
+
+// alert(message);
+
+/* ============================================================ */
+
 // The file with the list of all studies.
 var fileName = 'studyList';
 var fileFormat = '.json';

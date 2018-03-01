@@ -5,7 +5,7 @@ module.exports = {
   entry: ["./src/js/index.js"],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'dev.bundle.js',
+    filename: 'main.bundle.js',
     publicPath: '/dist'
   },
   watch: true,
@@ -17,19 +17,5 @@ module.exports = {
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
       "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
     },
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015']
-        }
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.es6']
   }
 }

@@ -4,3 +4,9 @@ loadTemplate("templates/about.html", function(element) {
         $("#aboutModal").modal();
     });
 });
+
+/* ==================== TESTING THINGS!!!! ==================== */
+
+// module.exports = "my message alert!";
+
+/* ============================================================ */
