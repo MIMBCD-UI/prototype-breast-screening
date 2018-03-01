@@ -72,7 +72,7 @@ cd prototype-breast-screening/
 3.5. Run the code:
 
 ```
-npm start
+npm run build
 ```
 
 3.6. Open the link:
