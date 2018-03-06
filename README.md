@@ -72,13 +72,19 @@ cd prototype-breast-screening/
 3.5. Run the code:
 
 ```
-npm run build
+npm run build:prod
 ```
 
-3.6. Open the link:
+3.6. Start the project:
 
 ```
-localhost:8080
+npm start
+```
+
+3.7. Open the link:
+
+```
+localhost:8080/src/index.html
 ```
 
 #### Allow-Control-Allow-Origin

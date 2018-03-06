@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 var serverConfig = {
-  entry: ["./start.js"],
+  entry: ["./src/server/index.js"],
   target:'node',
   output:{
     path: path.resolve(__dirname, 'dist'),

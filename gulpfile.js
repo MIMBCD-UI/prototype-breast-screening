@@ -1,6 +1,6 @@
-var gulp        = require('gulp');
-var sync        = require('gulp-npm-script-sync');
-var deploy      = require('gulp-gh-pages');
+var gulp = require('gulp');
+var sync = require('gulp-npm-script-sync');
+var deploy = require('gulp-gh-pages');
 
 /**
  * Push build to gh-pages
