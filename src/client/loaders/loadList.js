@@ -1,11 +1,3 @@
-/* ==================== TESTING THINGS!!!! ==================== */
-
-// var message = require('./about');
-
-// alert(message);
-
-/* ============================================================ */
-
 const callAPI = (url) => {
   return new Promise((resolve, reject) => {
     $.getJSON(url + '&_=' + new Date().getTime(), function(data) {

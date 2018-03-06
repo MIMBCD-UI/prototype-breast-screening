@@ -6,16 +6,16 @@ var serverConfig = {
   target:'node',
   output:{
     path: path.resolve(__dirname, 'dist'),
-    filename : 'backend-node.js'
+    filename : 'server.bundle.js'
   }
 };
 
 var clientConfig = {
-  entry: ["./src/js/index.js"],
+  entry: ["./src/client/index.js"],
   target:'web',
   output:{
     path: path.resolve(__dirname, 'dist'),
-    filename : 'main.bundle.js'
+    filename : 'client.bundle.js'
   },
   node:{
     'fs':'empty'

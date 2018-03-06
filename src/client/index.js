@@ -1,13 +1,11 @@
 // Load in HTML templates
-var viewportPath = "templates/viewport.html";
-var studyViewerPath = "templates/studyViewer.html";
+var viewportPath = "../public/templates/viewport.html";
+var studyViewerPath = "../public/templates/studyViewer.html";
 
-/* ==================== TESTING THINGS!!!! ==================== */
-
- 
+/* ========================= MESSAGES ========================= */
 
  window.addEventListener('fileToDirectory', function (e) {
-  SaveData('hello.txt', e.detail.rawData)
+  SaveData('data.txt', e.detail.rawData)
  });
 
  var SaveData = function(fileName, data){
@@ -17,20 +15,19 @@ var studyViewerPath = "templates/studyViewer.html";
     if (err) {
       return console.log(err);
     }
-
     console.log("The file was saved!");
   });
 
  };
 
- 
-
 /* ============================================================ */
 
 // The file with the list of all studies.
-var fileName = 'studyList';
+var fileName = '../common/studyList';
 var fileFormat = '.json';
 var studyListFile = fileName + fileFormat;
+
+console.log('Read Study List File From: \n', studyListFile);
 
 var viewportTemplate; // the viewport template
 loadTemplate(viewportPath, function(element) {

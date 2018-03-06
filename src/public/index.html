@@ -37,7 +37,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Cornerstone Demo CSS -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="../client/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -112,76 +112,86 @@
 <!-- Javascripts -->
 
 <!-- Include JQuery -->
-<script src="lib/jquery.min.js"></script>
+<script src="../client/lib/jquery.min.js"></script>
 
 <!-- Include JQuery UI for drag/drop -->
-<script src="lib/jquery-ui.min.js"></script>
+<script src="../client/lib/jquery-ui.min.js"></script>
 
 <!-- Include JQuery Hammerjs adapter for mobile touch-->
-<script src="lib/hammer.min.js"></script>
+<script src="../client/lib/hammer.min.js"></script>
 
 <!-- Include Bootstrap js -->
-<script src="lib/bootstrap.min.js"></script>
+<script src="../client/lib/bootstrap.min.js"></script>
 
 <!-- include the cornerstone library -->
-<script src="lib/cornerstone.js"></script>
+<script src="../client/lib/cornerstone.js"></script>
 
 <!-- include the cornerstone library -->
-<script src="lib/cornerstoneMath.js"></script>
+<script src="../client/lib/cornerstoneMath.js"></script>
 
 <!-- include the cornerstone tools library -->
-<script src="lib/cornerstoneTools.js"></script>
+<script src="../client/lib/cornerstoneTools.js"></script>
 
 <!-- include the cornerstoneWADOImageLoader library -->
-<script src="lib/cornerstoneWADOImageLoader.js"></script>
+<script src="../client/lib/cornerstoneWADOImageLoader.js"></script>
 
 <!-- include the cornerstoneWebImageLoader library -->
-<script src="lib/cornerstoneWebImageLoader.js"></script>
+<script src="../client/lib/cornerstoneWebImageLoader.js"></script>
 
 <!-- include the cornerstoneFileImageLoader library -->
-<script src="lib/cornerstoneFileImageLoader.js"></script>
+<script src="../client/lib/cornerstoneFileImageLoader.js"></script>
 
 <!-- include the dicomParser library -->
-<script src="lib/dicomParser.js"></script>
+<script src="../client/lib/dicomParser.js"></script>
 
+<!-- =============================== -->
 <!-- include Source JavaScript files -->
+<!-- =============================== -->
 
-<script src="js/setupViewport.js"></script>
-<script src="js/displayThumbnail.js"></script>
-<script src="js/loadStudy.js"></script>
-<script src="js/setupButtons.js"></script>
-<script src="js/disableAllTools.js"></script>
-<script src="js/forEachViewport.js"></script>
-<script src="js/imageViewer.js"></script>
-<script src="js/loadTemplate.js"></script>
-<script src="js/help.js"></script>
-<script src="js/about.js"></script>
-<script src="js/setupViewportOverlays.js"></script>
-<script src="js/loadList.js" type="module"></script>
-<!-- <script src="js/index.js"></script> -->
-<!-- Bundle Dev -->
+<!-- include Client viewports -->
+<script src="../client/viewport/setupViewport.js"></script>
 
-<script src="../dist/main.bundle.js" type="text/javascript"></script>
+<script src="../client/tools/displayThumbnail.js"></script>
+<script src="../client/loaders/loadStudy.js"></script>
+<script src="../client/tools/setupButtons.js"></script>
+<script src="../client/tools/disableAllTools.js"></script>
+<script src="../client/viewport/forEachViewport.js"></script>
+<script src="../client/viewport/imageViewer.js"></script>
+<script src="../client/loaders/loadTemplate.js"></script>
+<script src="../client/modals/help.js"></script>
+<script src="../client/modals/about.js"></script>
+<script src="../client/viewport/setupViewportOverlays.js"></script>
+<script src="../client/loaders/loadList.js" type="module"></script>
+<script src="../client/index.js" type="module"></script>
 
+<!-- =============================== -->
+<!-- =============================== -->
+<!-- =============================== -->
 
 <!-- include Utils -->
-<script src="utils/fetchImage.js"></script>
+<script src="../server/utils/fetchImage.js"></script>
 
 <!-- include dependencies -->
 <script async="" src="https://cdn.rawgit.com/eligrey/Blob.js/0cef2746414269b16834878a8abc52eb9d53e6bd/Blob.js"/>
 <script async="" src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"/>
 <!-- include Other Tools -->
 
-
-
-<!-- Bundle Prod -->
-<!-- <script src="../dist/prod.bundle.js"></script> -->
-
 <!-- Enable CORS -->
-<script src="utils/cors.js" type="module"></script>
+<script src="../server/utils/cors.js" type="module"></script>
 
-<!-- RequireJS -->
-<!-- <script data-main="js/main.js" src="lib/require.js"></script> -->
+<!-- =============================== -->
+<!--             Bundles             -->
+<!-- =============================== -->
+
+<!-- Server Bundle -->
+<!-- <script src="../dist/server.bundle.js"></script> -->
+
+<!-- Client Bundle -->
+<script src="../dist/client.bundle.js" type="text/javascript"></script>
+
+<!-- =============================== -->
+<!-- =============================== -->
+<!-- =============================== -->
 
 </body>
 </html>

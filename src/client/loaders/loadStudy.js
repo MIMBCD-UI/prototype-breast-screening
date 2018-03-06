@@ -1,9 +1,10 @@
+var studiesPath = '/src/common/studies/';
 
 // Load JSON study information for each study
 function loadStudy(studyViewer, viewportModel, studyId) {
 
     // Get the JSON data for the selected studyId
-    $.getJSON('studies/' + studyId, function(data) {
+    $.getJSON(studiesPath + studyId, function(data) {
 
         var imageViewer = new ImageViewer(studyViewer, viewportModel);
         imageViewer.setLayout('1x1'); // default layout

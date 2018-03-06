@@ -32,7 +32,7 @@ http.createServer(function(request, response) {
 
   var filePath = '.' + request.url;
   if (filePath == './')
-    filePath = './index.html';
+    filePath = '../public/index.html';
 
   if (filePath == 'GetData') {
     myEventHandler();
@@ -64,7 +64,7 @@ http.createServer(function(request, response) {
   fs.readFile(filePath, function(error, content) {
     if (error) {
       if (error.code == 'ENOENT') {
-        fs.readFile('./404.html', function(error, content) {
+        fs.readFile('../public/404.html', function(error, content) {
           response.writeHead(200, {
             'Content-Type': contentType
           });
