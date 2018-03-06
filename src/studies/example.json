@@ -1,0 +1,19 @@
+{
+    "patientName" : "EXAMPLE",
+    "patientId" : "EXAMPLE",
+    "studyDate" : "EXAMPLE",
+    "modality" : "EXAMPLE",
+    "studyDescription" :"EXAMPLE",
+    "numImages" : 1,
+    "studyId" : "example",
+    "seriesList" : [
+        {
+            "StudyInstanceUID" : "1.3.6.1.4.1.5962.1.1.0.0.0.1196533885.18148.0.683",
+            "seriesDescription": "EX",
+            "seriesNumber" : "1",
+            "instanceList" : [
+                {"imageId" : "0785201f-3d114b99-2ef2aad9-9e261c32-4eeaf3f4/file"}
+            ]
+        }
+    ]
+}

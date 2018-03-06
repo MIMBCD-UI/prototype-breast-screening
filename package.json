@@ -1,21 +1,20 @@
 {
-  "name": "prototype-cornerstone",
+  "name": "prototype-breast-screening",
   "version": "0.1.0",
   "main": "src/js/index.js",
-  "description": "MIMBCD-UI Prototype Cornerstone",
+  "description": "MIMBCD-UI Prototype Breast Screening",
   "keywords": [
     "DICOM",
     "WADO",
-    "cornerstone",
     "medical",
     "imaging"
   ],
   "author": "Francisco Maria Calisto",
-  "homepage": "https://github.com/MIMBCD-UI/prototype-cornerstone",
+  "homepage": "https://github.com/MIMBCD-UI/prototype-breast-screening",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MIMBCD-UI/prototype-cornerstone"
+    "url": "https://github.com/MIMBCD-UI/prototype-breast-screening"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,6 +30,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "browserify": "^14.5.0",
+    "fs": "^0.0.1-security",
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-concat": "^0.3.0",
     "grunt-contrib-copy": "0.4.x",
@@ -39,6 +39,7 @@
     "grunt-contrib-uglify": "^0.4.0",
     "grunt-contrib-watch": "^0.6.1",
     "gulp-gh-pages": "^0.5.4",
+    "html-webpack-plugin": "^3.0.4",
     "jshint": "^2.9.5",
     "jshint-loader": "^0.8.4",
     "load-grunt-tasks": "^0.2.1",
@@ -53,10 +54,11 @@
     "corsproxy": "^1.5.0",
     "ecstatic": "^3.1.1",
     "express": "^4.16.2",
-    "fs": "0.0.1-security",
+    "fs": "^0.0.1-security",
     "grunt": "^0.4.5",
     "gulp-util": "^3.0.8",
     "http-server": "^0.9.0",
+    "requirejs": "^2.3.5",
     "semver": "^5.5.0"
   }
 }

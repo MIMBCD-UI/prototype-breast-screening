@@ -1,4 +1,4 @@
-// const fs = require('fs');
+//var fs = require('fs');
 // //const content = JSON.stringify(output);
 
 // fs.writeFile("../../dataset/testingFile.json", 'testing', 'utf8', function (err) {
@@ -160,16 +160,24 @@ const setupButtons = (studyViewer) => {
       //   'application/octet-stream'
       // );
 
-      var pathFileNameToSave = pathToSave + pathToSave;
+      var pathFileNameToSave = fileNameToSave;
+      var data = {
+        rawData : studyRoiData,
+        path : pathFileNameToSave
+      };
 
-      fs.writeFile(pathFileNameToSave, studyRoiData, 'utf8', function (err) {
-        if (err) {
-          return console.log(err);
-        }
-
-        console.log("The file was saved!");
-      });
-
+      $.ajax({
+        url: '/SaveFile',
+        data: JSON.stringify(data),
+        dataType: "text",
+        type: 'POST',
+        success: function (data) {
+            console.log('File saved successfully on server');
+        },
+        error: function (xhr, status, error) {
+          console.log('Error Occured while saving file');
+        },
+    });
     });
   });
 

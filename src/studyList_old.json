@@ -1,0 +1,13 @@
+{
+    "studyList": [
+        {
+            "patientName" : "EXAMPLE",
+            "patientId" : "EXAMPLE",
+            "studyDate" : "EXAMPLE",
+            "modality" : "EXAMPLE",
+            "studyDescription" :"EXAMPLE",
+            "numImages" : 1,
+            "studyId" : "example"
+        }
+    ]
+}
