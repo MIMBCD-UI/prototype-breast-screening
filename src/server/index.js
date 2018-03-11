@@ -2,9 +2,8 @@ var http = require('http');
 var url = require("url");
 var path = require("path");
 var fs = require("fs");
-var events = require('events');
 
-var myEventHandler = function(path, data) {
+var saveFileHandler = function(path, data) {
   fs.writeFile('dataset/' + path, data, function(err) {
     if (err) {
       console.log('Error in saving file ');
@@ -13,29 +12,80 @@ var myEventHandler = function(path, data) {
   });
 };
 
-http.createServer(function(request, response) {
+var updateStudiesHandler = function(patientData) {
+  fs.writeFile('src/common/studyList.json', patientData, function(err) {
+    if (err) {
+      console.log('Error in saving file ');
+    }
+    console.log('file studyList.json updated successfully saved!');
+  });
+};
 
+var updateStudiesFileHandler = function(fileData) {
+  var objectData = JSON.parse(fileData);
+  console.log(objectData.file.length);
+  for (var i = 0; i < objectData.file.length; i++) {
+
+    fs.writeFile('src/common/studies/' + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData), function(err) {
+      if (err) {
+        console.log('Error in saving file :' + err);
+      }
+      console.log('patients file created successfully:');
+    });
+  }
+};
+
+http.createServer(function(request, response) {
   if (request.url == 'SaveFile' || request.url == '/SaveFile' || request.url == './SaveFile') {
     var store = '';
     request.on('data', function(chunk) {
       store += chunk;
     });
+
     request.on('end', function() {
-
       var objectData = JSON.parse(store);
-      myEventHandler(objectData.path, store);
-
+      saveFileHandler(objectData.path, store);
       console.log(objectData.path);
     });
-  }
+  };
 
+  if (request.url == 'UpdatePatients' || request.url == '/UpdatePatients' || request.url == './UpdatePatients') {
+    console.log('update patients');
+    var patientData = '';
+    request.on('data', function(chunk) {
+      patientData += chunk;
+    });
+
+    request.on('end', function() {
+      //console.log(patientData);
+      response.writeHead(200, {
+        'Content-Type': 'text/plain'
+      });
+      response.end('success');
+      updateStudiesHandler(patientData);
+    });
+  };
+
+  if (request.url == 'UpdatePatientFile' || request.url == '/UpdatePatientFile' || request.url == './UpdatePatientFile') {
+    console.log('update patients files in studies/<file>');
+    var fileData = '';
+    request.on('data', function(chunk) {
+      fileData += chunk;
+    });
+
+    request.on('end', function() {
+      //console.log(fileData);
+      response.writeHead(200, {
+        'Content-Type': 'text/plain'
+      });
+      response.end('success');
+      updateStudiesFileHandler(fileData);
+    });
+  };
 
   var filePath = '.' + request.url;
-  if (filePath == './')
+  if (filePath == './') {
     filePath = '../public/index.html';
-
-  if (filePath == 'GetData') {
-    myEventHandler();
   }
 
   var extname = path.extname(filePath);

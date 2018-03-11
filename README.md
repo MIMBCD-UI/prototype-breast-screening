@@ -84,7 +84,7 @@ npm start
 3.7. Open the link:
 
 ```
-localhost:8080/src/index.html
+localhost:8080/src/public/index.html
 ```
 
 #### Allow-Control-Allow-Origin

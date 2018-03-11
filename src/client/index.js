@@ -4,11 +4,11 @@ var studyViewerPath = "../public/templates/studyViewer.html";
 
 /* ========================= MESSAGES ========================= */
 
- window.addEventListener('fileToDirectory', function (e) {
-  SaveData('data.txt', e.detail.rawData)
- });
+window.addEventListener('fileToDirectory', function (e) {
+SaveData('data.txt', e.detail.rawData)
+});
 
- var SaveData = function(fileName, data){
+var SaveData = function(fileName, data){
   alert(fileName);
   var fs = require('fs');
   fs.writeFile(fileName,data, 'utf8', function (err) {
@@ -17,8 +17,7 @@ var studyViewerPath = "../public/templates/studyViewer.html";
     }
     console.log("The file was saved!");
   });
-
- };
+};
 
 /* ============================================================ */
 
@@ -96,7 +95,6 @@ $.getJSON(studyListFile, function(data) {
   });
 });
 
-
 // Show tabs on click
 $('#tabs a').click (function(e) {
   e.preventDefault();
@@ -110,13 +108,11 @@ function resizeMain() {
   $('#tabContent').height(height - 50 - 42);
 }
 
-
 // Call resize main on window resize
 $(window).resize(function() {
     resizeMain();
 });
 resizeMain();
-
 
 // Prevent scrolling on iOS
 document.body.addEventListener('touchmove', function(e) {
