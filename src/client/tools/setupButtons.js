@@ -1,4 +1,3 @@
-
 // File Management
 var fileFormat = '.json';
 var pathToSave = '../../dataset/';
@@ -8,15 +7,15 @@ var currentDate = new Date();
 var year = currentDate.getFullYear();
 var yearString = year.toString();
 var month = currentDate.getMonth() + 1; //Be careful! January is 0 not 1
-var monthString = (month < 9 ? '0': '') + (month);
+var monthString = (month < 9 ? '0' : '') + (month);
 var date = currentDate.getDate();
-var dateString = (date < 9 ? '0': '') + (date);
+var dateString = (date < 9 ? '0' : '') + (date);
 var hours = currentDate.getHours();
-var hoursString = (hours < 9 ? '0': '') + (hours);
+var hoursString = (hours < 9 ? '0' : '') + (hours);
 var minutes = currentDate.getMinutes();
-var minutesString = (minutes < 9 ? '0': '') + (minutes);
+var minutesString = (minutes < 9 ? '0' : '') + (minutes);
 var seconds = currentDate.getSeconds();
-var secondsString = (seconds < 9 ? '0': '') + (seconds);
+var secondsString = (seconds < 9 ? '0' : '') + (seconds);
 var totalDate = yearString + monthString + dateString;
 var totalTime = hoursString + minutesString + secondsString;
 var timeStamp = totalDate + totalTime;
@@ -119,7 +118,7 @@ const setupButtons = (studyViewer) => {
       var dataStudyId = studyRoiData.studyId;
       var dataPatientId = studyRoiData.modality;
       var sourceNameToSave = '_' + dataStudyId + '_' + dataPatientId;
-      var fileNameToSave = timeStamp + sourceNameToSave + fileFormat;
+      var fileNameToSave = timeStamp + dataStudyId + fileFormat;
 
       console.log("Study ROI Data:\n", studyRoiData);
 
@@ -150,8 +149,8 @@ const setupButtons = (studyViewer) => {
 
       var pathFileNameToSave = fileNameToSave;
       var data = {
-        rawData : studyRoiData,
-        path : pathFileNameToSave
+        rawData: studyRoiData,
+        path: pathFileNameToSave
       };
 
       $.ajax({
@@ -159,13 +158,13 @@ const setupButtons = (studyViewer) => {
         data: JSON.stringify(data),
         dataType: "text",
         type: 'POST',
-        success: function (data) {
-            console.log('File saved successfully on server');
+        success: function(data) {
+          console.log('File saved successfully on server');
         },
-        error: function (xhr, status, error) {
+        error: function(xhr, status, error) {
           console.log('Error Occured while saving file');
         },
-    });
+      });
     });
   });
 

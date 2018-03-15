@@ -4,14 +4,14 @@ var studyViewerPath = "../public/templates/studyViewer.html";
 
 /* ========================= MESSAGES ========================= */
 
-window.addEventListener('fileToDirectory', function (e) {
-SaveData('data.txt', e.detail.rawData)
+window.addEventListener('fileToDirectory', function(e) {
+  SaveData('data.txt', e.detail.rawData)
 });
 
-var SaveData = function(fileName, data){
+var SaveData = function(fileName, data) {
   alert(fileName);
   var fs = require('fs');
-  fs.writeFile(fileName,data, 'utf8', function (err) {
+  fs.writeFile(fileName, data, 'utf8', function(err) {
     if (err) {
       return console.log(err);
     }
@@ -30,12 +30,12 @@ console.log('Read Study List File From: \n', studyListFile);
 
 var viewportTemplate; // the viewport template
 loadTemplate(viewportPath, function(element) {
-    viewportTemplate = element;
+  viewportTemplate = element;
 });
 
 var studyViewerTemplate; // the study viewer template
 loadTemplate(studyViewerPath, function(element) {
-    studyViewerTemplate = element;
+  studyViewerTemplate = element;
 });
 
 // Get study list from JSON manifest
@@ -44,13 +44,13 @@ $.getJSON(studyListFile, function(data) {
 
     // Create one table row for each study in the manifest
     var studyRow = '<tr><td>' +
-    study.patientName + '</td><td>' +
-    study.patientId + '</td><td>' +
-    study.studyDate + '</td><td>' +
-    study.modality + '</td><td>' +
-    study.studyDescription + '</td><td>' +
-    study.numImages + '</td><td>' +
-    '</tr>';
+      study.patientName + '</td><td>' +
+      study.patientId + '</td><td>' +
+      study.studyDate + '</td><td>' +
+      study.modality + '</td><td>' +
+      study.studyDescription + '</td><td>' +
+      study.numImages + '</td><td>' +
+      '</tr>';
 
     // Append the row to the study list
     var studyRowElement = $(studyRow).appendTo('#studyListData');
@@ -96,7 +96,7 @@ $.getJSON(studyListFile, function(data) {
 });
 
 // Show tabs on click
-$('#tabs a').click (function(e) {
+$('#tabs a').click(function(e) {
   e.preventDefault();
   $(this).tab('show');
 });
@@ -110,7 +110,7 @@ function resizeMain() {
 
 // Call resize main on window resize
 $(window).resize(function() {
-    resizeMain();
+  resizeMain();
 });
 resizeMain();
 

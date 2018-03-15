@@ -13,7 +13,8 @@ var saveFileHandler = function(path, data) {
 };
 
 var updateStudiesHandler = function(patientData) {
-  fs.writeFile('src/common/studyList.json', patientData, function(err) {
+  var studyList = JSON.parse(patientData)
+  fs.writeFile('src/common/studyList.json', JSON.stringify(studyList, null, 4), function(err) {
     if (err) {
       console.log('Error in saving file ');
     }
@@ -26,7 +27,7 @@ var updateStudiesFileHandler = function(fileData) {
   console.log(objectData.file.length);
   for (var i = 0; i < objectData.file.length; i++) {
 
-    fs.writeFile('src/common/studies/' + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData), function(err) {
+    fs.writeFile('src/common/studies/' + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
       if (err) {
         console.log('Error in saving file :' + err);
       }

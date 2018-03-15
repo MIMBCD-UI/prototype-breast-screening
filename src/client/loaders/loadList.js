@@ -1,3 +1,7 @@
+/* ==================== TESTING THINGS!!!! ==================== */
+// var message = require('./about');
+// alert(message);
+/* ============================================================ */
 var studyListData = [];
 var studyList = {};
 var studies = [];
@@ -13,7 +17,6 @@ const callAPI = (url, meta) => {
       })
   })
 }
-
 var patientList = {};
 var studiesList = [];
 var studiesObjectData = [];
@@ -149,6 +152,12 @@ getStudyList((studyList) => {})
 var UpdatePatientData = function(patients) {
   if (patients.length > 0) {
     for (var i = 0; i < patients.length; i++) {
+
+      var totalStudies = [];
+      var studyListDataStructure = {};
+      var studiesDataStructure = {};
+      var fileName;
+
       for (var j = 0; j < patients[i].StudyData.length; j++) {
         const slEach = patients[i].StudyData[j];
         const slPatientAttr = slEach.PatientMainDicomTags;
@@ -172,40 +181,42 @@ var UpdatePatientData = function(patients) {
         console.log("Number of Images: ", JSON.stringify(slNumImages));
         console.log("Study ID: ", JSON.stringify(slStudyId));
 
-        var studyListDataStructure = {
+        var fileName = slPatientName;
+        var seriesForFile = getSeriesForFile(patients[i].StudyData[j].SeriesData);
+
+        studyListDataStructure = {
           "patientName": slPatientName,
           "patientId": slPatientId,
           "studyDate": slStudyDate,
           "modality": slModality,
           "studyDescription": slStudyDescription,
-          "numImages": slNumImages,
-          "studyId": slPatientName
+          "numImages": seriesForFile.TotalInstance,
+          "studyId": fileName
         };
 
 
-        var studiesDataStructure = {
+        studiesDataStructure = {
           "patientName": slPatientName,
           "patientId": slPatientId,
           "studyDate": slStudyDate,
           "modality": slModality,
           "studyDescription": slStudyDescription,
-          "numImages": slNumImages,
+          "numImages": seriesForFile[0].instanceList.length, //slNumImages,
           "studyId": slStudyId,
-          "seriesList": getSeriesForFile(patients[i].StudyData[j].SeriesData)
+          "seriesList": seriesForFile
         };
 
-        var patientFile = {
-          "fileName": slPatientName,
-          "fileData": studiesDataStructure
-        }
-        studies[i] = patientFile;
-
-        //studies.push(patientFile);
-
-        studyListData[i] = studyListDataStructure;
-
+        totalStudies.push(studiesDataStructure);
       };
+      studyListData[i] = studyListDataStructure;
+
+      var patientFile = {
+        "fileName": fileName,
+        "fileData": totalStudies
+      }
+      studies[i] = patientFile;
     };
+
     studyList = {
       "studyList": studyListData
     };
@@ -247,17 +258,20 @@ var UpdatePatientData = function(patients) {
 
 var getSeriesForFile = function(seriesData) {
   var seriesFileData = new Array();
+  var totalInstanceCount = 0;
   for (var index = 0; index < seriesData.length; index++) {
     var series = seriesData[index];
+    var instanceForFile = getInstanceListForFile(series.InstanceData);
+    totalInstanceCount += instanceForFile.length;
     var seriesDataStructure = {
       "seriesDescription": series.MainDicomTags.Modality,
       "seriesNumber": series.MainDicomTags.SeriesNumber,
-      "instanceList": getInstanceListForFile(series.InstanceData)
+      "instanceList": instanceForFile
     };
 
     seriesFileData.push(seriesDataStructure);
   }
-  console.log(seriesFileData)
+  seriesFileData.TotalInstance = totalInstanceCount;
   return seriesFileData;
 }
 
