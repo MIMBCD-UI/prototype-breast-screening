@@ -170,7 +170,7 @@ var UpdatePatientData = function(patients) {
         const slModality = slMainAttr.StudyDescription;
         const slStudyDescription = slMainAttr.StudyDescription;
         const slNumImages = slSeries.length;
-        const slStudyId = slPatientAttr.PatientID;
+        const slStudyId = slEach.ID;
 
         console.log("Get Study List From: ", JSON.stringify(slEach));
         console.log("Patient Name: ", JSON.stringify(slPatientName));
@@ -262,14 +262,28 @@ var getSeriesForFile = function(seriesData) {
   for (var index = 0; index < seriesData.length; index++) {
     var series = seriesData[index];
     var instanceForFile = getInstanceListForFile(series.InstanceData);
-    totalInstanceCount += instanceForFile.length;
-    var seriesDataStructure = {
-      "seriesDescription": series.MainDicomTags.Modality,
-      "seriesNumber": series.MainDicomTags.SeriesNumber,
-      "instanceList": instanceForFile
-    };
+    if (series.InstanceData.length <= 1) {
+      totalInstanceCount += instanceForFile.length;
+      var seriesDataStructure = {
+        "seriesDescription": series.MainDicomTags.Modality,
+        "seriesNumber": series.MainDicomTags.SeriesNumber,
+        "instanceList": instanceForFile
+      };
+      seriesFileData.push(seriesDataStructure);
+    } else {
+      totalInstanceCount += instanceForFile.length;
+      for (var ins = 0; ins < series.InstanceData.length; ins++) {
+        var currentInstance = new Array();
+        currentInstance.push(instanceForFile[ins]);
+        var seriesDataStructure = {
+          "seriesDescription": series.MainDicomTags.Modality,
+          "seriesNumber": series.MainDicomTags.SeriesNumber,
+          "instanceList": currentInstance
+        };
+        seriesFileData.push(seriesDataStructure);
+      }
+    }
 
-    seriesFileData.push(seriesDataStructure);
   }
   seriesFileData.TotalInstance = totalInstanceCount;
   return seriesFileData;
@@ -304,3 +318,35 @@ var UpdatePatientDataDefault = function() {
     }
   });
 }
+
+
+// var getSeriesForFile = function(seriesData) {
+//     var seriesFileData = new Array();
+//     var totalInstanceCount = 0;
+//     for (var index = 0; index < seriesData.length; index++) {
+//         var series = seriesData[index];
+//         var instanceForFile = getInstanceListForFile(series.InstanceData);
+//         totalInstanceCount += instanceForFile.length;
+//         var seriesDataStructure = {
+//             "seriesDescription": series.MainDicomTags.Modality,
+//             "seriesNumber": series.MainDicomTags.SeriesNumber,
+//             "instanceList": instanceForFile
+//         };
+
+//         seriesFileData.push(seriesDataStructure);
+//     }
+//     seriesFileData.TotalInstance = totalInstanceCount;
+//     return seriesFileData;
+// }
+
+// var getInstanceListForFile = function(instanceData) {
+//     var instanceFileData = new Array();
+//     for (var index1 = 0; index1 < instanceData.length; index1++) {
+//         var series = instanceData[index1];
+//         var seriesDataStructure = {
+//             "imageId": instanceData[index1].ID + '/file'
+//         };
+//         instanceFileData.push(seriesDataStructure);
+//     }
+//     return instanceFileData;
+// }

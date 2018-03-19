@@ -6,7 +6,7 @@
         "modality": "ROUTINE MAMMOGRAPHY",
         "studyDescription": "ROUTINE MAMMOGRAPHY",
         "numImages": 1,
-        "studyId": "9AF6DD70-51D7-457E-AF53-30CCDC5D7126",
+        "studyId": "07dd3594-488e148b-e9271431-f33cd93f-9033c76e",
         "seriesList": [
             {
                 "seriesDescription": "MG",
@@ -52,8 +52,8 @@
         "studyDate": "20131101",
         "modality": "Breast",
         "studyDescription": "Breast",
-        "numImages": 2,
-        "studyId": "9AF6DD70-51D7-457E-AF53-30CCDC5D7126",
+        "numImages": 1,
+        "studyId": "5c40a82a-8ab286cb-c9c61cf8-b9dba753-f17cd1a2",
         "seriesList": [
             {
                 "seriesDescription": "US",
@@ -61,7 +61,13 @@
                 "instanceList": [
                     {
                         "imageId": "0e7c5fac-ef55ae7c-ec56e356-74ac42c2-f4f2a32a/file"
-                    },
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "1",
+                "instanceList": [
                     {
                         "imageId": "adf49420-c035cd33-64053e3c-fad3de69-ac9cead4/file"
                     }
