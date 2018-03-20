@@ -181,7 +181,8 @@ var UpdatePatientData = function(patients) {
         console.log("Number of Images: ", JSON.stringify(slNumImages));
         console.log("Study ID: ", JSON.stringify(slStudyId));
 
-        var fileName = slPatientName;
+        //var fileName = slPatientName;
+        var fileName = slPatientId;
         var seriesForFile = getSeriesForFile(patients[i].StudyData[j].SeriesData);
 
         studyListDataStructure = {
@@ -262,31 +263,33 @@ var getSeriesForFile = function(seriesData) {
   for (var index = 0; index < seriesData.length; index++) {
     var series = seriesData[index];
     var instanceForFile = getInstanceListForFile(series.InstanceData);
+    totalInstanceCount += instanceForFile.length;
     if (series.InstanceData.length <= 1) {
-      totalInstanceCount += instanceForFile.length;
-      var seriesDataStructure = {
-        "seriesDescription": series.MainDicomTags.Modality,
-        "seriesNumber": series.MainDicomTags.SeriesNumber,
-        "instanceList": instanceForFile
-      };
-      seriesFileData.push(seriesDataStructure);
+      seriesFileData.push(getSeriesDataStructure(series, instanceForFile));
     } else {
-      totalInstanceCount += instanceForFile.length;
-      for (var ins = 0; ins < series.InstanceData.length; ins++) {
-        var currentInstance = new Array();
-        currentInstance.push(instanceForFile[ins]);
-        var seriesDataStructure = {
-          "seriesDescription": series.MainDicomTags.Modality,
-          "seriesNumber": series.MainDicomTags.SeriesNumber,
-          "instanceList": currentInstance
-        };
-        seriesFileData.push(seriesDataStructure);
+      if (series.MainDicomTags.Modality == 'MR') {
+        seriesFileData.push(getSeriesDataStructure(series, instanceForFile));
+      } else {
+        for (var ins = 0; ins < series.InstanceData.length; ins++) {
+          var currentInstance = new Array();
+          currentInstance.push(instanceForFile[ins]);
+          seriesFileData.push(getSeriesDataStructure(series, currentInstance));
+        }
       }
     }
-
   }
   seriesFileData.TotalInstance = totalInstanceCount;
   return seriesFileData;
+}
+
+var getSeriesDataStructure = function(series, instance) {
+  var seriesDataStructure = {
+    "seriesDescription": series.MainDicomTags.Modality,
+    "seriesNumber": series.MainDicomTags.SeriesNumber,
+    "instanceList": instance
+  };
+
+  return seriesDataStructure;
 }
 
 var getInstanceListForFile = function(instanceData) {

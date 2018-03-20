@@ -7,7 +7,7 @@
             "modality": "Ecografia Mamaria",
             "studyDescription": "Ecografia Mamaria",
             "numImages": 1,
-            "studyId": "Anonymized5"
+            "studyId": "14037AA3-EA86-4E80-A0FF-14A2AA70B648"
         },
         {
             "patientName": "Anonymized2",
@@ -16,7 +16,7 @@
             "modality": "Breast",
             "studyDescription": "Breast",
             "numImages": 2,
-            "studyId": "Anonymized2"
+            "studyId": "9AF6DD70-51D7-457E-AF53-30CCDC5D7126"
         },
         {
             "patientName": "Anonymized11",
@@ -25,16 +25,7 @@
             "modality": "MAMA",
             "studyDescription": "MAMA",
             "numImages": 10,
-            "studyId": "Anonymized11"
-        },
-        {
-            "patientName": "Anonymized1",
-            "patientId": "5A7A314A-B881-4BEF-91AA-73258CA96675",
-            "studyDate": "20160216",
-            "modality": "Breast",
-            "studyDescription": "Breast",
-            "numImages": 1,
-            "studyId": "Anonymized1"
+            "studyId": "F73F6796-6640-4484-9D83-5B3E3A7C4AE4"
         },
         {
             "patientName": "Anonymized4",
@@ -43,7 +34,16 @@
             "modality": "Breast",
             "studyDescription": "Breast",
             "numImages": 1,
-            "studyId": "Anonymized4"
+            "studyId": "DBADCD25-1AB2-4B68-84B6-E7F1EAD1EDD2"
+        },
+        {
+            "patientName": "Anonymized1",
+            "patientId": "5A7A314A-B881-4BEF-91AA-73258CA96675",
+            "studyDate": "20160216",
+            "modality": "Breast",
+            "studyDescription": "Breast",
+            "numImages": 1,
+            "studyId": "5A7A314A-B881-4BEF-91AA-73258CA96675"
         },
         {
             "patientName": "Anonymized3",
@@ -52,7 +52,7 @@
             "modality": "Breast",
             "studyDescription": "Breast",
             "numImages": 1,
-            "studyId": "Anonymized3"
+            "studyId": "1E60E211-42B6-4556-A1F6-223E85AD38A6"
         },
         {
             "patientName": "Anonymized6",
@@ -61,7 +61,7 @@
             "modality": "Breast",
             "studyDescription": "Breast",
             "numImages": 1,
-            "studyId": "Anonymized6"
+            "studyId": "7FD9ADFC-B1AC-44AF-953A-E644003C7475"
         }
     ]
 }

@@ -116,11 +116,11 @@ const setupButtons = (studyViewer) => {
       var studyCurrentStack = studyRoiData.currentStack;
       var stack = studyRoiData.stacks[studyCurrentStack];
       var dataStudyId = studyRoiData.studyId;
-      var dataPatientId = studyRoiData.modality;
-      var sourceNameToSave = '_' + dataStudyId + '_' + dataPatientId;
-      var fileNameToSave = timeStamp + dataStudyId + fileFormat;
+      var dataPatientId = studyRoiData.patientId;
+      var sourceNameToSave = dataStudyId;
+      var fileNameToSave = sourceNameToSave + fileFormat;
 
-      console.log("Study ROI Data:\n", studyRoiData);
+      console.log("Study ROI Data: ", studyRoiData);
 
       if (toolData === undefined) {
         return;
