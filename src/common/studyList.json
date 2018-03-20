@@ -19,13 +19,13 @@
             "studyId": "Anonymized2"
         },
         {
-            "patientName": "Anonymized4",
-            "patientId": "DBADCD25-1AB2-4B68-84B6-E7F1EAD1EDD2",
-            "studyDate": "20160615",
-            "modality": "Breast",
-            "studyDescription": "Breast",
-            "numImages": 1,
-            "studyId": "Anonymized4"
+            "patientName": "Anonymized11",
+            "patientId": "F73F6796-6640-4484-9D83-5B3E3A7C4AE4",
+            "studyDate": "20150817",
+            "modality": "MAMA",
+            "studyDescription": "MAMA",
+            "numImages": 10,
+            "studyId": "Anonymized11"
         },
         {
             "patientName": "Anonymized1",
@@ -35,6 +35,15 @@
             "studyDescription": "Breast",
             "numImages": 1,
             "studyId": "Anonymized1"
+        },
+        {
+            "patientName": "Anonymized4",
+            "patientId": "DBADCD25-1AB2-4B68-84B6-E7F1EAD1EDD2",
+            "studyDate": "20160615",
+            "modality": "Breast",
+            "studyDescription": "Breast",
+            "numImages": 1,
+            "studyId": "Anonymized4"
         },
         {
             "patientName": "Anonymized3",
