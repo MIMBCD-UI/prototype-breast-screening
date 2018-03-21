@@ -1,7 +1,7 @@
 /* ================================================== */
 /** Configuration Variables */
 var configFileDir = '../../../config/';
-var configFileName = 'dev';
+var configFileName = 'dev'; // (e.g. dev, internal, prod) -> see config/
 var fileExtension = '.json';
 var requestValue = 'GET';
 var localDicomServerPath = 'http://localhost:8042/';
@@ -29,7 +29,7 @@ var instanceList = [];
 var instanceObjectData = [];
 /* ================================================== */
 
-console.log("Config File Path: ", configFilePath);
+// console.log("Config File Path: ", configFilePath);
 
 /* ================================================== */
 /**
@@ -45,17 +45,17 @@ request.send(null);
 
 var configObject = JSON.parse(request.responseText);
 var dicomServerValue = configObject.dicomServer;
-var httpProtocolValue = dicomServerValue[0].httpProtocol;
+var protocolValue = dicomServerValue[0].transferProtocol;
 var hostnameValue = dicomServerValue[0].hostname;
 var portValue = dicomServerValue[0].port;
 
-var refStartValue = httpProtocolValue + '://';
+var refStartValue = protocolValue + '://';
 var refEndValue = ':' + portValue + '/';
 
 var dicomServerPath = refStartValue + hostnameValue + refEndValue;
 
-console.log('Local DICOM Server Path:\n', localDicomServerPath);
-console.log('Current DICOM Server Path:\n', dicomServerPath);
+// console.log('Local DICOM Server Path:\n', localDicomServerPath);
+// console.log('Current DICOM Server Path:\n', dicomServerPath);
 
 /* ================================================== */
 /* ================================================== */
@@ -88,11 +88,11 @@ var instancesPath = dicomServerPath + instancesDirPath;
 const callAPI = (url, meta) => {
   return new Promise((resolve, reject) => {
     $.getJSON(url + '&_=' + new Date().getTime(), function(data) {
-        resolve([data, meta]);
-      },
-      function(err) {
-        reject(err);
-      })
+      resolve([data, meta]);
+    },
+    function(err) {
+      reject(err);
+    })
   })
 }
 
@@ -119,6 +119,7 @@ const callAPI = (url, meta) => {
   ]
 }
 */
+
 async function getStudyList(callback) {
   var patients = await callAPI(patientsExpandedPath, patientList);
   return Promise.all(patients).then(result => {
@@ -179,7 +180,6 @@ async function getInstanceListData(instanceList) {
     mapSeriesInStudies();
     mapStudiesInPatient();
     UpdatePatientData(patientList);
-
   })
 }
 
@@ -212,9 +212,6 @@ var mapStudiesInPatient = function() {
     })
   }
 }
-
-
-
 
 // Study List -> sl
 
@@ -324,8 +321,6 @@ var UpdatePatientData = function(patients) {
   } else {
     UpdatePatientDataDefault();
   }
-
-
 };
 
 var getSeriesForFile = function(seriesData) {
@@ -392,35 +387,3 @@ var UpdatePatientDataDefault = function() {
     }
   });
 }
-
-
-// var getSeriesForFile = function(seriesData) {
-//     var seriesFileData = new Array();
-//     var totalInstanceCount = 0;
-//     for (var index = 0; index < seriesData.length; index++) {
-//         var series = seriesData[index];
-//         var instanceForFile = getInstanceListForFile(series.InstanceData);
-//         totalInstanceCount += instanceForFile.length;
-//         var seriesDataStructure = {
-//             "seriesDescription": series.MainDicomTags.Modality,
-//             "seriesNumber": series.MainDicomTags.SeriesNumber,
-//             "instanceList": instanceForFile
-//         };
-
-//         seriesFileData.push(seriesDataStructure);
-//     }
-//     seriesFileData.TotalInstance = totalInstanceCount;
-//     return seriesFileData;
-// }
-
-// var getInstanceListForFile = function(instanceData) {
-//     var instanceFileData = new Array();
-//     for (var index1 = 0; index1 < instanceData.length; index1++) {
-//         var series = instanceData[index1];
-//         var seriesDataStructure = {
-//             "imageId": instanceData[index1].ID + '/file'
-//         };
-//         instanceFileData.push(seriesDataStructure);
-//     }
-//     return instanceFileData;
-// }

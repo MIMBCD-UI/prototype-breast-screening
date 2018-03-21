@@ -1,5 +1,73 @@
 var studiesPath = '/src/common/studies/';
 
+/* ================================================== */
+/** Configuration Variables */
+var configFileDir = '../../../config/';
+var configFileName = 'dev'; // (e.g. dev, internal, prod) -> see config/
+var fileExtension = '.json';
+var requestValue = 'GET';
+var responseProtocol = 'wadouri';
+var localDicomServerPath = 'http://localhost:8042/';
+var fileFull = configFileName + fileExtension;
+var configFilePath = configFileDir + fileFull;
+
+var allConfigsDicomServer = new Array();
+var allConfigsMainServer = new Array();
+
+var request = new XMLHttpRequest();
+/* ================================================== */
+
+console.log("Config File Path: ", configFilePath);
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+request.open(requestValue, configFilePath, false);
+request.send(null);
+
+var configObject = JSON.parse(request.responseText);
+var dicomServerValue = configObject.dicomServer;
+var protocolValue = dicomServerValue[0].serviceProtocol;
+var hostnameValue = dicomServerValue[0].hostname;
+var portValue = dicomServerValue[0].port;
+
+var refStartValue = protocolValue + '://';
+var refEndValue = ':' + portValue + '/';
+
+var dicomServerPath = refStartValue + hostnameValue + refEndValue;
+
+console.log('Local DICOM Server Path:\n', localDicomServerPath);
+console.log('Current DICOM Server Path:\n', dicomServerPath);
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var instancesDirPath = 'instances' + '/';
+
+var instancesPath = dicomServerPath + instancesDirPath;
+
+console.log();
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
 // Load JSON study information for each study
 function loadStudy(studyViewer, viewportModel, studyId) {
 
@@ -75,10 +143,7 @@ function loadStudy(studyViewer, viewportModel, studyId) {
           for (var i = 0; i < numberOfFrames; i++) {
             var imageId = series.instanceList[0].imageId + "?frame=" + i;
             if (imageId.substr(0, 4) !== 'http') {
-              //imageId = "dicomweb://cornerstonetech.org/images/ClearCanvas/" + imageId;
-              //imageId = "dicomweb://localhost:8042/instances/" + imageId;
-              imageId = "wadouri://localhost:8042/instances/" + imageId;
-              //imageId = "wadouri://localhost:8042/wado?objectUID=" + imageId + "&requestType=WADO&contentType=application/dicom";
+              imageId = instancesPath + imageId;
               console.log("DICOM ID: ", imageId);
               studyViewer.roiData.dicom_id = imageId;
             }
@@ -90,10 +155,7 @@ function loadStudy(studyViewer, viewportModel, studyId) {
             var imageId = image.imageId;
 
             if (image.imageId.substr(0, 4) !== 'http') {
-              //imageId = "dicomweb://cornerstonetech.org/images/ClearCanvas/" + image.imageId;
-              //imageId = "dicomweb://localhost:8042/instances/" + image.imageId;
-              imageId = "wadouri://localhost:8042/instances/" + image.imageId;
-              //imageId = "wadouri://localhost:8042/wado?objectUID=" + image.imageId + "&requestType=WADO&contentType=application/dicom";
+              imageId = instancesPath + image.imageId;
               console.log("DICOM Image ID: ", image.imageId);
             }
             stack.imageIds.push(imageId);

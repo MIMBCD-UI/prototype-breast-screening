@@ -1,6 +1,19 @@
-[
-  {
-    "hostname": "",
-    "port": ""
-  }
-]
+{
+  "dicomServer":
+  [
+    {
+      "transferProtocol": "http",
+      "hostname": "breastscreening.io",
+      "port": "8042",
+      "serviceProtocol": "wadouri"
+    }
+  ],
+  "mainServer":
+  [
+    {
+      "transferProtocol": "http",
+      "hostname": "breastscreening.io",
+      "port": "8080"
+    }
+  ]
+}
