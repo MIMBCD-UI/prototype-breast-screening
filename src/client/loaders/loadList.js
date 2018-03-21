@@ -1,11 +1,89 @@
-/* ==================== TESTING THINGS!!!! ==================== */
-// var message = require('./about');
-// alert(message);
-/* ============================================================ */
+/* ================================================== */
+/** Configuration Variables */
+var configFileDir = '../../../config/';
+var configFileName = 'dev';
+var fileExtension = '.json';
+var requestValue = 'GET';
+var localDicomServerPath = 'http://localhost:8042/';
+var fileFull = configFileName + fileExtension;
+var configFilePath = configFileDir + fileFull;
+
+var allConfigsDicomServer = new Array();
+var allConfigsMainServer = new Array();
+
+var request = new XMLHttpRequest();
+/* ================================================== */
+
+/* ================================================== */
+/** Source Variable Definitions */
 var studyListData = [];
 var studyList = {};
 var studies = [];
 var studiesDataStructure = {};
+var patientList = {};
+var studiesList = [];
+var studiesObjectData = [];
+var seriesList = [];
+var seriesObjectData = [];
+var instanceList = [];
+var instanceObjectData = [];
+/* ================================================== */
+
+console.log("Config File Path: ", configFilePath);
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+request.open(requestValue, configFilePath, false);
+request.send(null);
+
+var configObject = JSON.parse(request.responseText);
+var dicomServerValue = configObject.dicomServer;
+var httpProtocolValue = dicomServerValue[0].httpProtocol;
+var hostnameValue = dicomServerValue[0].hostname;
+var portValue = dicomServerValue[0].port;
+
+var refStartValue = httpProtocolValue + '://';
+var refEndValue = ':' + portValue + '/';
+
+var dicomServerPath = refStartValue + hostnameValue + refEndValue;
+
+console.log('Local DICOM Server Path:\n', localDicomServerPath);
+console.log('Current DICOM Server Path:\n', dicomServerPath);
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var patientsExpandedQuery = 'patients?expand';
+var patientsDirPath = 'patients' + '/';
+var studiesDirPath = 'studies' + '/';
+var seriesDirPath = 'series' + '/';
+var instancesDirPath = 'instances' + '/';
+
+var patientsExpandedPath = dicomServerPath + patientsExpandedQuery;
+var studiesPath = dicomServerPath + studiesDirPath;
+var seriesPath = dicomServerPath + seriesDirPath;
+var instancesPath = dicomServerPath + instancesDirPath;
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
 
 const callAPI = (url, meta) => {
   return new Promise((resolve, reject) => {
@@ -17,13 +95,6 @@ const callAPI = (url, meta) => {
       })
   })
 }
-var patientList = {};
-var studiesList = [];
-var studiesObjectData = [];
-var seriesList = [];
-var seriesObjectData = [];
-var instanceList = [];
-var instanceObjectData = [];
 
 
 /**
@@ -49,7 +120,7 @@ var instanceObjectData = [];
 }
 */
 async function getStudyList(callback) {
-  var patients = await callAPI('http://localhost:8042/patients?expand', patientList);
+  var patients = await callAPI(patientsExpandedPath, patientList);
   return Promise.all(patients).then(result => {
     patientList = result[0];
     for (var patientIndex = 0; patientIndex < patientList.length; patientIndex++) {
@@ -63,7 +134,7 @@ async function getStudyList(callback) {
 async function getStudyListData(studiesList) {
   var studiesDeferred = [];
   for (var studyIndex = 0; studyIndex < studiesList.length; studyIndex++) {
-    studiesDeferred[studyIndex] = await callAPI('http://localhost:8042/studies/' + studiesList[studyIndex] + '?', patientList);
+    studiesDeferred[studyIndex] = await callAPI(studiesPath + studiesList[studyIndex] + '?', patientList);
   }
   return Promise.all(studiesDeferred).then(deferredData => {
     for (var index = 0; index < deferredData.length; index++) {
@@ -80,7 +151,7 @@ async function getStudyListData(studiesList) {
 async function getSeriesListData(seriesList) {
   var studies = [];
   for (var seriesIndex = 0; seriesIndex < seriesList.length; seriesIndex++) {
-    studies[seriesIndex] = await callAPI('http://localhost:8042/series/' + seriesList[seriesIndex] + '?', patientList);
+    studies[seriesIndex] = await callAPI(seriesPath + seriesList[seriesIndex] + '?', patientList);
   }
   return Promise.all(studies).then(deferredData => {
     for (var index = 0; index < deferredData.length; index++) {
@@ -97,7 +168,7 @@ async function getSeriesListData(seriesList) {
 async function getInstanceListData(instanceList) {
   var instanceDeferred = [];
   for (var instanceIndex = 0; instanceIndex < instanceList.length; instanceIndex++) {
-    instanceDeferred[instanceIndex] = await callAPI('http://localhost:8042/instances/' + instanceList[instanceIndex] + '?', patientList);
+    instanceDeferred[instanceIndex] = await callAPI(instancesPath + instanceList[instanceIndex] + '?', patientList);
   }
   return Promise.all(instanceDeferred).then(deferredData => {
     for (var index = 0; index < deferredData.length; index++) {

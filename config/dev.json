@@ -1,0 +1,18 @@
+{
+  "dicomServer":
+  [
+    {
+      "httpProtocol": "http",
+      "hostname": "localhost",
+      "port": "8042"
+    }
+  ],
+  "mainServer":
+  [
+    {
+      "httpProtocol": "http",
+      "hostname": "localhost",
+      "port": "8080"
+    }
+  ]
+}
