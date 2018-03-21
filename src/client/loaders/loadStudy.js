@@ -1,22 +1,28 @@
 var studiesPath = '/src/common/studies/';
 
 /* ================================================== */
-/** Configuration Variables */
+/** Base Configuration Variables */
+/* ================================================== */
 
 var configFileDir = '../../../config/';
-var configFileName = 'dev'; // (e.g. dev, internal, prod) -> see config/
 var fileExtension = '.json';
 var requestValue = 'GET';
-var responseProtocol = 'wadouri';
 var localDicomServerPath = 'http://localhost:8042/';
-var fileFull = configFileName + fileExtension;
-var configFilePath = configFileDir + fileFull;
-
-var request = new XMLHttpRequest();
+var responseProtocol = 'wadouri';
 
 /* ================================================== */
 
-console.log("Config File Path: ", configFilePath);
+
+/* ================================================== */
+/** Environment Configuration Variables */
+/* ================================================== */
+
+var configEnvFileName = 'env';
+var envFileFull = configEnvFileName + fileExtension;
+var configEnvFilePath = configFileDir + envFileFull;
+
+/* ================================================== */
+
 
 /* ================================================== */
 /**
@@ -26,6 +32,43 @@ console.log("Config File Path: ", configFilePath);
  *
  */
 /* ================================================== */
+
+var requestEnv = new XMLHttpRequest();
+
+requestEnv.open(requestValue, configEnvFilePath, false);
+requestEnv.send(null);
+
+var configEnvObject = JSON.parse(requestEnv.responseText);
+var configFileName = configEnvObject.environment;
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+
+/* ================================================== */
+/** Main Configuration Variables */
+/* ================================================== */
+
+var fileFull = configFileName + fileExtension;
+var configFilePath = configFileDir + fileFull;
+
+/* ================================================== */
+
+
+console.log("Config File Path: ", configFilePath);
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var request = new XMLHttpRequest();
 
 request.open(requestValue, configFilePath, false);
 request.send(null);
@@ -48,6 +91,7 @@ console.log('Current DICOM Server Path:\n', dicomServerPath);
 /* ================================================== */
 /* ================================================== */
 
+
 /* ================================================== */
 /**
  *
@@ -66,6 +110,7 @@ console.log();
 /* ================================================== */
 /* ================================================== */
 /* ================================================== */
+
 
 // Load JSON study information for each study
 function loadStudy(studyViewer, viewportModel, studyId) {

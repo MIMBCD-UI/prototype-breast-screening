@@ -1,17 +1,88 @@
 /* ================================================== */
-/** Configuration Variables */
+/** Base Configuration Variables */
 /* ================================================== */
 
 var configFileDir = '../../../config/';
-var configFileName = 'dev'; // (e.g. dev, internal, prod) -> see config/
 var fileExtension = '.json';
 var requestValue = 'GET';
 var localDicomServerPath = 'http://localhost:8042/';
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Environment Configuration Variables */
+/* ================================================== */
+
+var configEnvFileName = 'env';
+var envFileFull = configEnvFileName + fileExtension;
+var configEnvFilePath = configFileDir + envFileFull;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var requestEnv = new XMLHttpRequest();
+
+requestEnv.open(requestValue, configEnvFilePath, false);
+requestEnv.send(null);
+
+var configEnvObject = JSON.parse(requestEnv.responseText);
+var configFileName = configEnvObject.environment;
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+
+/* ================================================== */
+/** Main Configuration Variables */
+/* ================================================== */
+
 var fileFull = configFileName + fileExtension;
 var configFilePath = configFileDir + fileFull;
 
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
 var request = new XMLHttpRequest();
 
+request.open(requestValue, configFilePath, false);
+request.send(null);
+
+var configObject = JSON.parse(request.responseText);
+var dicomServerValue = configObject.dicomServer;
+var protocolValue = dicomServerValue[0].transferProtocol;
+var hostnameValue = dicomServerValue[0].hostname;
+var portValue = dicomServerValue[0].port;
+
+var refStartValue = protocolValue + '://';
+var refEndValue = ':' + portValue + '/';
+
+var dicomServerPath = refStartValue + hostnameValue + refEndValue;
+
+// console.log('Local DICOM Server Path:\n', localDicomServerPath);
+// console.log('Current DICOM Server Path:\n', dicomServerPath);
+
+/* ================================================== */
+/* ================================================== */
 /* ================================================== */
 
 
@@ -35,37 +106,6 @@ var instanceObjectData = [];
 
 
 // console.log("Config File Path: ", configFilePath);
-
-
-/* ================================================== */
-/**
- *
- * Load JSON configuration data from the sercer using
- * GET HTTP request
- *
- */
-/* ================================================== */
-
-request.open(requestValue, configFilePath, false);
-request.send(null);
-
-var configObject = JSON.parse(request.responseText);
-var dicomServerValue = configObject.dicomServer;
-var protocolValue = dicomServerValue[0].transferProtocol;
-var hostnameValue = dicomServerValue[0].hostname;
-var portValue = dicomServerValue[0].port;
-
-var refStartValue = protocolValue + '://';
-var refEndValue = ':' + portValue + '/';
-
-var dicomServerPath = refStartValue + hostnameValue + refEndValue;
-
-// console.log('Local DICOM Server Path:\n', localDicomServerPath);
-// console.log('Current DICOM Server Path:\n', dicomServerPath);
-
-/* ================================================== */
-/* ================================================== */
-/* ================================================== */
 
 
 /* ================================================== */
