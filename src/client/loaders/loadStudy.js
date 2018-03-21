@@ -2,6 +2,7 @@ var studiesPath = '/src/common/studies/';
 
 /* ================================================== */
 /** Configuration Variables */
+
 var configFileDir = '../../../config/';
 var configFileName = 'dev'; // (e.g. dev, internal, prod) -> see config/
 var fileExtension = '.json';
@@ -11,10 +12,8 @@ var localDicomServerPath = 'http://localhost:8042/';
 var fileFull = configFileName + fileExtension;
 var configFilePath = configFileDir + fileFull;
 
-var allConfigsDicomServer = new Array();
-var allConfigsMainServer = new Array();
-
 var request = new XMLHttpRequest();
+
 /* ================================================== */
 
 console.log("Config File Path: ", configFilePath);

@@ -1,1 +1,5 @@
-alert('I am doing something!');
+const actualEnv = (env) => {
+  return env;
+}
+
+console.log('Configurations: OK');

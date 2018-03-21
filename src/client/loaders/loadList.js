@@ -1,5 +1,7 @@
 /* ================================================== */
 /** Configuration Variables */
+/* ================================================== */
+
 var configFileDir = '../../../config/';
 var configFileName = 'dev'; // (e.g. dev, internal, prod) -> see config/
 var fileExtension = '.json';
@@ -8,14 +10,15 @@ var localDicomServerPath = 'http://localhost:8042/';
 var fileFull = configFileName + fileExtension;
 var configFilePath = configFileDir + fileFull;
 
-var allConfigsDicomServer = new Array();
-var allConfigsMainServer = new Array();
-
 var request = new XMLHttpRequest();
+
 /* ================================================== */
+
 
 /* ================================================== */
 /** Source Variable Definitions */
+/* ================================================== */
+
 var studyListData = [];
 var studyList = {};
 var studies = [];
@@ -27,9 +30,12 @@ var seriesList = [];
 var seriesObjectData = [];
 var instanceList = [];
 var instanceObjectData = [];
+
 /* ================================================== */
 
+
 // console.log("Config File Path: ", configFilePath);
+
 
 /* ================================================== */
 /**
@@ -61,6 +67,7 @@ var dicomServerPath = refStartValue + hostnameValue + refEndValue;
 /* ================================================== */
 /* ================================================== */
 
+
 /* ================================================== */
 /**
  *
@@ -84,6 +91,7 @@ var instancesPath = dicomServerPath + instancesDirPath;
 /* ================================================== */
 /* ================================================== */
 /* ================================================== */
+
 
 const callAPI = (url, meta) => {
   return new Promise((resolve, reject) => {
