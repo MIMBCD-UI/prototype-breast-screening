@@ -21,9 +21,7 @@
     "install": "cd src npm install",
     "build": "webpack-dev-server",
     "build:prod": "webpack -p",
-    "start": "node src/server/index.js &",
-    "http-server": "node node_modules/http-server/bin/http-server",
-    "dicom-server": "./dicom-server/orthancAndPluginsOSX.stable/startOrthanc.command"
+    "start": "node src/server/index.js &"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
