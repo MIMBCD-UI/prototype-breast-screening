@@ -3,6 +3,82 @@ var url = require("url");
 var path = require("path");
 var fs = require("fs");
 
+/* ================================================== */
+/** Base Configuration Variables */
+/* ================================================== */
+
+var configFileDir = '../../../config/';
+var fileExtension = '.json';
+var requestValue = 'GET';
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Environment Configuration Variables */
+/* ================================================== */
+
+var configEnvFileName = 'env';
+var envFileFull = configEnvFileName + fileExtension;
+var configEnvFilePath = configFileDir + envFileFull;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var requestEnv = new XMLHttpRequest();
+
+requestEnv.open(requestValue, configEnvFilePath, false);
+requestEnv.send(null);
+
+var configEnvObject = JSON.parse(requestEnv.responseText);
+var configFileName = configEnvObject.environment;
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+
+/* ================================================== */
+/** Main Configuration Variables */
+/* ================================================== */
+
+var fileFull = configFileName + fileExtension;
+var configFilePath = configFileDir + fileFull;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var request = new XMLHttpRequest();
+
+request.open(requestValue, configFilePath, false);
+request.send(null);
+
+var configObject = JSON.parse(request.responseText);
+var mainServerValue = configObject.mainServer;
+var portValue = mainServerValue[0].port;
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
 var saveFileHandler = function(path, data) {
   fs.writeFile('dataset/' + path, data, function(err) {
     if (err) {
@@ -133,4 +209,4 @@ http.createServer(function(request, response) {
       response.end(content, 'utf-8');
     }
   });
-}).listen(8080);
+}).listen(portValue);
