@@ -70,11 +70,14 @@ request.send(null);
 var configObject = JSON.parse(request.responseText);
 var dicomServerValue = configObject.dicomServer;
 var protocolValue = dicomServerValue[0].transferProtocol;
+var prefixValue = dicomServerValue[0].prefix;
 var hostnameValue = dicomServerValue[0].hostname;
+var portEscapeValue = dicomServerValue[0].portEscape;
 var portValue = dicomServerValue[0].port;
+var suffixValue = dicomServerValue[0].suffix;
 
-var refStartValue = protocolValue + '://';
-var refEndValue = ':' + portValue + '/';
+var refStartValue = protocolValue + prefixValue;
+var refEndValue = portEscapeValue + portValue + suffixValue;
 
 var dicomServerPath = refStartValue + hostnameValue + refEndValue;
 

@@ -4,7 +4,7 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "10.0.2.72",
+      "hostname": "breastscreening.io",
       "portEscape": ":",
       "port": "8042",
       "suffix": "/",
@@ -16,9 +16,9 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "10.0.2.72",
+      "hostname": "breastscreening.io",
       "portEscape": ":",
-      "port": "8080",
+      "port": "8082",
       "suffix": "/",
     }
   ]

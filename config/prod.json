@@ -2,18 +2,24 @@
   "dicomServer":
   [
     {
+      "prefix": "://",
       "transferProtocol": "http",
       "hostname": "breastscreening.io",
+      "portEscape": ":",
       "port": "8042",
+      "suffix": "/",
       "serviceProtocol": "wadouri"
     }
   ],
   "mainServer":
   [
     {
+      "prefix": "://",
       "transferProtocol": "http",
       "hostname": "breastscreening.io",
-      "port": "8080"
+      "portEscape": ":",
+      "port": "8080",
+      "suffix": "/",
     }
   ]
 }
