@@ -1,10 +1,15 @@
 var http = require('http');
+var fs = require("fs");
 
 /* ================================================== */
 /** Base Configuration Variables */
 /* ================================================== */
 
-var configFileDir = '../../../config/';
+var configFilePrefix = '../../../';
+var configFileName = 'config';
+var configFileSuffix = '/';
+var configFileSet = configFileName + configFileSuffix;
+var configFileDir = configFilePrefix + configFileSet;
 var fileExtension = '.json';
 var requestValue = 'GET';
 
@@ -31,13 +36,13 @@ var configEnvFilePath = configFileDir + envFileFull;
  */
 /* ================================================== */
 
-var requestEnv = new XMLHttpRequest();
-
-requestEnv.open(requestValue, configEnvFilePath, false);
-requestEnv.send(null);
-
-var configEnvObject = JSON.parse(requestEnv.responseText);
+var readEnvConfigPath = fs.readFileSync(configEnvFilePath, 'utf8');
+var configEnvObject = JSON.parse(readEnvConfigPath);
 var configFileName = configEnvObject.environment;
+
+console.log("Response Read Env Config Path:\n", readEnvConfigPath);
+console.log("Response Config Env Object:\n", configEnvObject);
+console.log("Response Config File Name:\n", configFileName);
 
 /* ================================================== */
 /* ================================================== */
@@ -49,7 +54,7 @@ var configFileName = configEnvObject.environment;
 /* ================================================== */
 
 var fileFull = configFileName + fileExtension;
-var configFilePath = configFileDir + fileFull;
+var configFilePath = configFileSet + fileFull;
 
 /* ================================================== */
 
@@ -63,14 +68,15 @@ var configFilePath = configFileDir + fileFull;
  */
 /* ================================================== */
 
-var request = new XMLHttpRequest();
-
-request.open(requestValue, configFilePath, false);
-request.send(null);
-
-var configObject = JSON.parse(request.responseText);
+var readConfigPath = fs.readFileSync(configFilePath, 'utf8');
+var configObject = JSON.parse(readConfigPath);
 var mainServerValue = configObject.mainServer;
 var portValue = mainServerValue[0].port;
+
+console.log("Response Read Config Path:\n", readConfigPath);
+console.log("Response Config Object:\n", configObject);
+console.log("Response Main Server Value:\n", mainServerValue);
+console.log("Response Port Value:\n", portValue);
 
 /* ================================================== */
 /* ================================================== */

@@ -7,9 +7,16 @@ var fs = require("fs");
 /** Base Configuration Variables */
 /* ================================================== */
 
-var configFileDir = '../../../config/';
+// var configFilePrefix = '../../';
+var configFilePrefix = '';
+var configFileName = 'config';
+var configFileSuffix = '/';
+var configFileSet = configFileName + configFileSuffix;
+var configFileDir = configFilePrefix + configFileSet;
 var fileExtension = '.json';
 var requestValue = 'GET';
+var studyListPath = 'src/common/studyList.json';
+var seriesPath = 'src/common/studies/';
 
 /* ================================================== */
 
@@ -34,13 +41,13 @@ var configEnvFilePath = configFileDir + envFileFull;
  */
 /* ================================================== */
 
-var requestEnv = new XMLHttpRequest();
-
-requestEnv.open(requestValue, configEnvFilePath, false);
-requestEnv.send(null);
-
-var configEnvObject = JSON.parse(requestEnv.responseText);
+var readEnvConfigPath = fs.readFileSync(configEnvFilePath, 'utf8');
+var configEnvObject = JSON.parse(readEnvConfigPath);
 var configFileName = configEnvObject.environment;
+
+console.log("Index Read Env Config Path:\n", readEnvConfigPath);
+console.log("Index Config Env Object:\n", configEnvObject);
+console.log("Index Config File Name:\n", configFileName);
 
 /* ================================================== */
 /* ================================================== */
@@ -52,7 +59,7 @@ var configFileName = configEnvObject.environment;
 /* ================================================== */
 
 var fileFull = configFileName + fileExtension;
-var configFilePath = configFileDir + fileFull;
+var configFilePath = configFileSet + fileFull;
 
 /* ================================================== */
 
@@ -66,14 +73,15 @@ var configFilePath = configFileDir + fileFull;
  */
 /* ================================================== */
 
-var request = new XMLHttpRequest();
-
-request.open(requestValue, configFilePath, false);
-request.send(null);
-
-var configObject = JSON.parse(request.responseText);
+var readConfigPath = fs.readFileSync(configFilePath, 'utf8');
+var configObject = JSON.parse(readConfigPath);
 var mainServerValue = configObject.mainServer;
 var portValue = mainServerValue[0].port;
+
+console.log("Index Read Config Path:\n", readConfigPath);
+console.log("Index Config Object:\n", configObject);
+console.log("Index Main Server Value:\n", mainServerValue);
+console.log("Index Port Value:\n", portValue);
 
 /* ================================================== */
 /* ================================================== */
@@ -90,7 +98,7 @@ var saveFileHandler = function(path, data) {
 
 var updateStudiesHandler = function(patientData) {
   var studyList = JSON.parse(patientData)
-  fs.writeFile('src/common/studyList.json', JSON.stringify(studyList, null, 4), function(err) {
+  fs.writeFile(studyListPath, JSON.stringify(studyList, null, 4), function(err) {
     if (err) {
       console.log('Error in saving file ');
     }
@@ -103,9 +111,9 @@ var updateStudiesFileHandler = function(fileData) {
   console.log(objectData.file.length);
   for (var i = 0; i < objectData.file.length; i++) {
 
-    fs.writeFile('src/common/studies/' + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
+    fs.writeFile(seriesPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
       if (err) {
-        console.log('Error in saving file :' + err);
+        console.log('Error in saving file:\n' + err);
       }
       console.log('patients file created successfully:');
     });
