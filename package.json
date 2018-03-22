@@ -21,7 +21,13 @@
     "install": "cd src npm install",
     "build": "webpack-dev-server",
     "build:prod": "webpack -p",
-    "start": "node src/server/index.js &"
+    "start": "node src/server/index.js &",
+    "clean:dataset": "rimraf dataset/*",
+    "clean:studies": "rimraf src/common/studies/*",
+    "clean:study": "rimraf src/common/studyList.json",
+    "clean:dirs": "npm run clean:dataset & npm run clean:studies",
+    "clean:paths": "npm run clean:dirs & npm run clean:study",
+    "clean": "npm run clean:paths && touch src/common/studyList.json"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -43,6 +49,7 @@
     "jshint-loader": "^0.8.4",
     "load-grunt-tasks": "^0.2.1",
     "node-libs-browser": "^2.1.0",
+    "rimraf": "^2.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   },
