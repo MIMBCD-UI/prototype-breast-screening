@@ -57,13 +57,17 @@
     "catta": "^2.1.1",
     "common-js": "^0.3.8",
     "cors": "^2.8.4",
+    "cors-middleware": "^3.0.0",
     "corsproxy": "^1.5.0",
     "ecstatic": "^3.1.1",
+    "esdoc": "^1.0.4",
+    "esdoc-standard-plugin": "^1.0.0",
     "express": "^4.16.2",
     "fs": "^0.0.1-security",
     "grunt": "^0.4.5",
     "gulp-util": "^3.0.8",
     "http-server": "^0.9.0",
+    "merry": "^5.5.2",
     "requirejs": "^2.3.5",
     "semver": "^5.5.0"
   }

@@ -1,0 +1,69 @@
+[
+    {
+        "patientName": "LOPES^MARIA CLARA DA CONCEICAO BARATA",
+        "patientId": "1026832",
+        "studyDate": "20160229",
+        "modality": "Ecografia Mamaria",
+        "studyDescription": "Ecografia Mamaria",
+        "numImages": 1,
+        "studyId": "185198cb-e19fc797-c103191e-bb233775-10846c8d",
+        "seriesList": [
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "2",
+                "instanceList": [
+                    {
+                        "imageId": "ba565d13-8afe45e7-b0a12ec1-fe4830aa-1c627207/file"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patientName": "LOPES^MARIA CLARA DA CONCEICAO BARATA",
+        "patientId": "1026832",
+        "studyDate": "20160229",
+        "modality": "Mamografia Bilateral",
+        "studyDescription": "Mamografia Bilateral",
+        "numImages": 1,
+        "studyId": "fe280b4f-13b64ea6-f4096811-5e634709-c0c097f3",
+        "seriesList": [
+            {
+                "seriesDescription": "MG",
+                "seriesNumber": "2",
+                "instanceList": [
+                    {
+                        "imageId": "1ecd4495-2e990676-7a8a1ddb-e3092438-5e1499e1/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "MG",
+                "seriesNumber": "2",
+                "instanceList": [
+                    {
+                        "imageId": "da93f8e4-70b025d1-836d1350-9b28ae75-345ee665/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "MG",
+                "seriesNumber": "2",
+                "instanceList": [
+                    {
+                        "imageId": "7d94f2f0-73b5f412-67018541-f522e4d6-19183614/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "MG",
+                "seriesNumber": "2",
+                "instanceList": [
+                    {
+                        "imageId": "820d9dfa-83ed8bff-09c5b416-cd5c6bec-7a9bfe13/file"
+                    }
+                ]
+            }
+        ]
+    }
+]

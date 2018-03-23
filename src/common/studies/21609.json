@@ -1,0 +1,119 @@
+[
+    {
+        "patientName": "RODRIGUES^MARIA LURDES ALMEIDA",
+        "patientId": "21609",
+        "studyDate": "20150817",
+        "modality": "MAMA",
+        "studyDescription": "MAMA",
+        "numImages": 10,
+        "studyId": "fac2ed73-dee68e79-d02489e8-56c3f695-eee15aa0",
+        "seriesList": [
+            {
+                "seriesDescription": "MR",
+                "seriesNumber": "4",
+                "instanceList": [
+                    {
+                        "imageId": "871c4a11-e3126a79-77146b45-d8e1b89d-fbb0c92e/file"
+                    },
+                    {
+                        "imageId": "5b7c9ad4-19648a88-814038cc-54d45d7c-0d959b60/file"
+                    },
+                    {
+                        "imageId": "e366c44f-ef92e2d8-58b5cb0d-0bf298d7-64570f90/file"
+                    },
+                    {
+                        "imageId": "702d2359-e643b4d0-50e1b7e7-66800322-d1cb26b6/file"
+                    },
+                    {
+                        "imageId": "cde7961b-5541f00e-9096884a-52f9d756-1ba235aa/file"
+                    },
+                    {
+                        "imageId": "ec721392-38fa2a1a-ddbbd8d0-735ab09b-79a40c4a/file"
+                    },
+                    {
+                        "imageId": "3794e760-c6d6884b-b3c78d47-e487f6a5-b65df1b2/file"
+                    },
+                    {
+                        "imageId": "2b05d815-20ef6566-88628bee-81b4cb6d-2d3229b4/file"
+                    },
+                    {
+                        "imageId": "b378fb8b-5745d1e5-cb379b51-c3bda283-fa3ad0bb/file"
+                    },
+                    {
+                        "imageId": "04f9b7b0-ffdc1580-69253144-a43c5aa1-c0ac5fe4/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "MR",
+                "seriesNumber": "202",
+                "instanceList": [
+                    {
+                        "imageId": "b44375d2-d0c528ed-789d33c0-1de7e0a2-fc011c24/file"
+                    },
+                    {
+                        "imageId": "a8c4d26a-db737535-6f2472dc-28400897-b2358c2e/file"
+                    },
+                    {
+                        "imageId": "c2c85323-7180387b-75c573f3-ec6469dd-89d3df0a/file"
+                    },
+                    {
+                        "imageId": "11d51a22-183e7a64-54a62967-ea9578cc-96f441f8/file"
+                    },
+                    {
+                        "imageId": "fd1f9147-a523a9d1-0630e07d-c2702f3b-c04787d6/file"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patientName": "RODRIGUES^MARIA LURDES ALMEIDA",
+        "patientId": "21609",
+        "studyDate": "20150804",
+        "modality": "Breast",
+        "studyDescription": "Breast",
+        "numImages": 1,
+        "studyId": "33bc2fa6-1fbee65f-79e81ea8-241e654a-e3ccb6a1",
+        "seriesList": [
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "2",
+                "instanceList": [
+                    {
+                        "imageId": "d565b341-3671b202-081e7bcc-16cc6ec0-9ca0c37c/file"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patientName": "RODRIGUES^MARIA LURDES ALMEIDA",
+        "patientId": "21609",
+        "studyDate": "20150731",
+        "modality": "ROUTINE MAMMOGRAPHY",
+        "studyDescription": "ROUTINE MAMMOGRAPHY",
+        "numImages": 1,
+        "studyId": "09e22c66-8936ec6d-4cfa61cc-deaa1efd-d02b2e08",
+        "seriesList": [
+            {
+                "seriesDescription": "MG",
+                "seriesNumber": "4",
+                "instanceList": [
+                    {
+                        "imageId": "11a46d7b-ba66fb2e-3416cd7b-419dd4c3-5ef0acc5/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "MG",
+                "seriesNumber": "4",
+                "instanceList": [
+                    {
+                        "imageId": "9d547642-0e299281-c6d81c7d-7610e5fc-616660f3/file"
+                    }
+                ]
+            }
+        ]
+    }
+]

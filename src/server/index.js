@@ -75,17 +75,36 @@ var configFilePath = configFileSet + fileFull;
 
 var readConfigPath = fs.readFileSync(configFilePath, 'utf8');
 var configObject = JSON.parse(readConfigPath);
+var dicomServerValue = configObject.dicomServer;
+var portDicomValue = dicomServerValue[0].port;
 var mainServerValue = configObject.mainServer;
 var portValue = mainServerValue[0].port;
 
 console.log("Index Read Config Path:\n", readConfigPath);
 console.log("Index Config Object:\n", configObject);
 console.log("Index Main Server Value:\n", mainServerValue);
+console.log("Index DICOM Server Port Value:\n", portDicomValue);
 console.log("Index Port Value:\n", portValue);
 
 /* ================================================== */
 /* ================================================== */
 /* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * CORS Configuration
+ *
+ */
+/* ================================================== */
+
+
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
 
 var saveFileHandler = function(path, data) {
   fs.writeFile('dataset/' + path, data, function(err) {

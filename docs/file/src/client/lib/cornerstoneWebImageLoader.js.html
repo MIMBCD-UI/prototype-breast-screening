@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/client/lib/cornerstoneWebImageLoader.js | prototype-breast-screening</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="MIMBCD-UI Prototype Breast Screening"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="prototype-breast-screening"><meta property="twitter:description" content="MIMBCD-UI Prototype Breast Screening"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/MIMBCD-UI/prototype-breast-screening"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-lib">client/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PromiseCapability">PromiseCapability</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/client/lib/cornerstoneWebImageLoader.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/*! cornerstoneWebImageLoader - v0.5.2 - 2015-09-06 | (c) 2015 Chris Hafey | https://github.com/chafey/cornerstoneWebImageLoader */
+cornerstoneWebImageLoader = {};
+//
+// This is a cornerstone image loader for web images such as PNG and JPEG
+//
+
+(function ($, cornerstone, cornerstoneWebImageLoader) {
+
+    &quot;use strict&quot;;
+
+    var canvas = document.createElement(&apos;canvas&apos;);
+    var lastImageIdDrawn = &quot;&quot;;
+
+
+    var options = {
+      // callback allowing customization of the xhr (e.g. adding custom auth headers, cors, etc)
+      beforeSend : function(xhr) {}
+    };
+
+    function createImageObject(image, imageId)
+    {
+        // extract the attributes we need
+        var rows = image.naturalHeight;
+        var columns = image.naturalWidth;
+
+        function getPixelData()
+        {
+            var imageData = getImageData();
+            var imageDataData = imageData.data;
+            var numPixels = image.naturalHeight * image.naturalWidth;
+            var storedPixelData = new Uint8Array(numPixels * 4);
+            var imageDataIndex = 0;
+            var storedPixelDataIndex = 0;
+            for(var i=0; i &lt; numPixels; i++) {
+                storedPixelData[storedPixelDataIndex++] = imageDataData[imageDataIndex++];
+                storedPixelData[storedPixelDataIndex++] = imageDataData[imageDataIndex++];
+                storedPixelData[storedPixelDataIndex++] = imageDataData[imageDataIndex++];
+                storedPixelData[storedPixelDataIndex++] = 255; // alpha
+                imageDataIndex++;
+            }
+            return storedPixelData;
+        }
+
+        function getImageData()
+        {
+            var context;
+            if(lastImageIdDrawn !== imageId) {
+                canvas.height = image.naturalHeight;
+                canvas.width = image.naturalWidth;
+                context = canvas.getContext(&apos;2d&apos;);
+                context.drawImage(image, 0, 0);
+                lastImageIdDrawn = imageId;
+            }
+            else {
+                context = canvas.getContext(&apos;2d&apos;);
+            }
+            var imageData = context.getImageData(0, 0, image.naturalWidth, image.naturalHeight);
+            return imageData;
+        }
+
+        function getCanvas()
+        {
+            if(lastImageIdDrawn === imageId) {
+                return canvas;
+            }
+
+            canvas.height = image.naturalHeight;
+            canvas.width = image.naturalWidth;
+            var context = canvas.getContext(&apos;2d&apos;);
+            context.drawImage(image, 0, 0);
+            lastImageIdDrawn = imageId;
+            return canvas;
+        }
+
+        function getImage()
+        {
+            return image;
+        }
+
+        // Extract the various attributes we need
+        var imageObject = {
+            imageId : imageId,
+            minPixelValue : 0, // calculated below
+            maxPixelValue : 255, // calculated below
+            slope: 1.0,
+            intercept: 0,
+            windowCenter : 127,
+            windowWidth : 256,
+            render: cornerstone.renderColorImage,
+            getPixelData: getPixelData,
+            getImageData: getImageData,
+            getCanvas: getCanvas,
+            getImage: getImage,
+            //storedPixelData: extractStoredPixels(image),
+            rows: rows,
+            columns: columns,
+            height: rows,
+            width: columns,
+            color: true,
+            columnPixelSpacing: 1.0,
+            rowPixelSpacing: 1.0,
+            invert: false,
+            sizeInBytes : rows * columns * 4 // we don&apos;t know for sure so we over estimate to be safe
+        };
+
+        return imageObject;
+    }
+
+    // Loads an image given a url to an image
+    function loadImage(imageId) {
+
+      // create a deferred object
+      var deferred = $.Deferred();
+
+      var image = new Image();
+
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = &quot;arraybuffer&quot;;
+      xhr.open(&quot;GET&quot;, imageId, true);
+      options.beforeSend(xhr);
+      xhr.onload = function(e) {
+        var arrayBufferView = new Uint8Array(this.response);
+        var blob = new Blob([arrayBufferView], {type: &quot;image/jpeg&quot;});
+        var urlCreator = window.URL || window.webkitURL;
+        var imageUrl = urlCreator.createObjectURL(blob);
+        image.src = imageUrl;
+        image.onload = function() {
+          var imageObject = createImageObject(image, imageId);
+          deferred.resolve(imageObject);
+          urlCreator.revokeObjectURL(imageUrl);
+        };
+        image.onerror = function() {
+          urlCreator.revokeObjectURL(imageUrl);
+          deferred.reject();
+        };
+      }
+      xhr.onprogress = function(oProgress) {
+
+        if (oProgress.lengthComputable) {  //evt.loaded the bytes browser receive
+            //evt.total the total bytes seted by the header
+            //
+            var loaded = oProgress.loaded;
+            var total = oProgress.total;
+            var percentComplete = Math.round((loaded / total)*100);
+
+            $(cornerstone).trigger(&apos;CornerstoneImageLoadProgress&apos;, {
+                imageId: imageId,
+                loaded: loaded,
+                total: total,
+                percentComplete: percentComplete
+            });
+        }
+      };   
+      xhr.send();
+      return deferred;
+    }
+
+    function configure(opts) {
+      options = opts;
+    }
+
+    // steam the http and https prefixes so we can use standard web urls directly
+    cornerstone.registerImageLoader(&apos;http&apos;, loadImage);
+    cornerstone.registerImageLoader(&apos;https&apos;, loadImage);
+    cornerstoneWebImageLoader.configure = configure;
+    return cornerstone;
+}($, cornerstone, cornerstoneWebImageLoader));
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

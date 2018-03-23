@@ -1,0 +1,87 @@
+[
+    {
+        "patientName": "GUERRA^MARIA ETELVINA IRRA PATRICIO",
+        "patientId": "935164",
+        "studyDate": "20160308",
+        "modality": "Breast",
+        "studyDescription": "Breast",
+        "numImages": 1,
+        "studyId": "a75fbee6-3ec5890e-58cdd073-10f76207-ad2801a0",
+        "seriesList": [
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "1",
+                "instanceList": [
+                    {
+                        "imageId": "35d43709-d0107a32-ea4d8194-c419b6df-21345913/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "1",
+                "instanceList": [
+                    {
+                        "imageId": "aa3e641d-71d0bce2-6dfb94c6-cca01e75-3a67dc89/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "1",
+                "instanceList": [
+                    {
+                        "imageId": "4393f777-6dd75bbb-6e8b652e-30cc9bb3-a40772a2/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "1",
+                "instanceList": [
+                    {
+                        "imageId": "dd630571-039fae06-17c15e19-4e9a20d4-186ca072/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "1",
+                "instanceList": [
+                    {
+                        "imageId": "830ab7b6-d769d5bc-1657f06b-3fee4fc4-41f1d6f7/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "1",
+                "instanceList": [
+                    {
+                        "imageId": "4bd7e43e-cd87c103-efdb0362-8d5cf04c-1d6faff6/file"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patientName": "GUERRA^MARIA ETELVINA IRRA PATRICIO",
+        "patientId": "935164",
+        "studyDate": "20160615",
+        "modality": "Breast",
+        "studyDescription": "Breast",
+        "numImages": 1,
+        "studyId": "a3b74a34-9b96d587-d9920e6e-9e7feb63-672b3f4d",
+        "seriesList": [
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "2",
+                "instanceList": [
+                    {
+                        "imageId": "867146a0-e4319984-84a6f25f-42480095-b3ad57cd/file"
+                    }
+                ]
+            }
+        ]
+    }
+]

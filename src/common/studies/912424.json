@@ -1,0 +1,22 @@
+[
+    {
+        "patientName": "PEZZUOL^ANA ALICE",
+        "patientId": "912424",
+        "studyDate": "20151113",
+        "modality": "Breast",
+        "studyDescription": "Breast",
+        "numImages": 1,
+        "studyId": "f8e27bf8-89aeb041-a70e3891-85b33f15-0052a87c",
+        "seriesList": [
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "2",
+                "instanceList": [
+                    {
+                        "imageId": "5c220a94-3d5fbdef-d8ba23d0-d146c726-1f2e2257/file"
+                    }
+                ]
+            }
+        ]
+    }
+]

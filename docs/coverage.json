@@ -1,0 +1,311 @@
+{
+  "coverage": "11.01%",
+  "expectCount": 227,
+  "actualCount": 25,
+  "files": {
+    "src/client/index.js": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3,
+        11,
+        25,
+        26,
+        27,
+        105
+      ]
+    },
+    "src/client/lib/cornerstoneFileImageLoader.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        9
+      ]
+    },
+    "src/client/lib/cornerstoneMath.js": {
+      "expectCount": 9,
+      "actualCount": 2,
+      "undocumentLines": [
+        5,
+        934,
+        993,
+        1026,
+        1517,
+        1592,
+        1690
+      ]
+    },
+    "src/client/lib/cornerstoneWADOImageLoader.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        687,
+        688
+      ]
+    },
+    "src/client/lib/jpx.js": {
+      "expectCount": 64,
+      "actualCount": 2,
+      "undocumentLines": [
+        23,
+        2299,
+        2479,
+        2481,
+        2483,
+        2485,
+        2498,
+        2504,
+        2510,
+        2523,
+        2553,
+        2652,
+        2659,
+        2667,
+        2683,
+        2691,
+        2697,
+        2706,
+        2724,
+        2754,
+        2778,
+        2787,
+        2792,
+        2806,
+        2820,
+        2833,
+        2846,
+        2861,
+        2873,
+        2887,
+        2900,
+        2917,
+        2927,
+        2932,
+        2941,
+        2945,
+        2949,
+        2956,
+        2972,
+        2987,
+        3030,
+        3032,
+        3380,
+        3392,
+        3409,
+        3413,
+        3420,
+        3424,
+        3428,
+        3432,
+        3436,
+        3440,
+        3444,
+        3448,
+        3459,
+        3463,
+        3467,
+        3471,
+        3822,
+        3882,
+        3918,
+        4039
+      ]
+    },
+    "src/client/loaders/loadList.js": {
+      "expectCount": 57,
+      "actualCount": 8,
+      "undocumentLines": [
+        6,
+        7,
+        8,
+        18,
+        19,
+        38,
+        39,
+        51,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        79,
+        80,
+        82,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        124,
+        125,
+        126,
+        127,
+        129,
+        130,
+        131,
+        132,
+        139,
+        186,
+        203,
+        220,
+        237,
+        247,
+        257,
+        271,
+        377,
+        402,
+        412,
+        424
+      ]
+    },
+    "src/client/loaders/loadStudy.js": {
+      "expectCount": 29,
+      "actualCount": 6,
+      "undocumentLines": [
+        1,
+        8,
+        9,
+        10,
+        11,
+        21,
+        22,
+        41,
+        42,
+        54,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        85,
+        86,
+        88,
+        109,
+        119
+      ]
+    },
+    "src/client/loaders/loadTemplate.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/client/main.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/client/tools/disableAllTools.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "src/client/tools/displayThumbnail.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/client/tools/setupButtons.js": {
+      "expectCount": 19,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        31
+      ]
+    },
+    "src/client/viewport/forEachViewport.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/client/viewport/setupViewport.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/client/viewport/setupViewportOverlays.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/server/index.js": {
+      "expectCount": 30,
+      "actualCount": 6,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        29,
+        30,
+        45,
+        46,
+        62,
+        77,
+        78,
+        79,
+        80,
+        81,
+        118,
+        128
+      ]
+    },
+    "src/server/utils/fetchImage.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    }
+  }
+}
