@@ -17,7 +17,7 @@
     "url": "https://github.com/MIMBCD-UI/prototype-breast-screening"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest &",
     "install": "cd src npm install",
     "build": "webpack-dev-server",
     "build:prod": "webpack -p",
@@ -45,6 +45,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "gulp-gh-pages": "^0.5.4",
     "html-webpack-plugin": "^3.0.4",
+    "jest": "^22.4.3",
     "jshint": "^2.9.5",
     "jshint-loader": "^0.8.4",
     "load-grunt-tasks": "^0.2.1",

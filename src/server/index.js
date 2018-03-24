@@ -1,10 +1,26 @@
+/* ================================================== */
+/** IMPORT Node Modules                               */
+/* ================================================== */
+
 var http = require('http');
 var url = require("url");
 var path = require("path");
 var fs = require("fs");
 
 /* ================================================== */
-/** Base Configuration Variables */
+
+
+/* ================================================== */
+/** IMPORT Utils                                      */
+/* ================================================== */
+
+var requests = require("./utils/requests");
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Base Configuration Variables                      */
 /* ================================================== */
 
 // var configFilePrefix = '../../';
@@ -22,17 +38,6 @@ var seriesPath = 'src/common/studies/';
 
 
 /* ================================================== */
-/** Environment Configuration Variables */
-/* ================================================== */
-
-var configEnvFileName = 'env';
-var envFileFull = configEnvFileName + fileExtension;
-var configEnvFilePath = configFileDir + envFileFull;
-
-/* ================================================== */
-
-
-/* ================================================== */
 /**
  *
  * Load JSON configuration data from the sercer using
@@ -41,50 +46,7 @@ var configEnvFilePath = configFileDir + envFileFull;
  */
 /* ================================================== */
 
-var readEnvConfigPath = fs.readFileSync(configEnvFilePath, 'utf8');
-var configEnvObject = JSON.parse(readEnvConfigPath);
-var configFileName = configEnvObject.environment;
-
-console.log("Index Read Env Config Path:\n", readEnvConfigPath);
-console.log("Index Config Env Object:\n", configEnvObject);
-console.log("Index Config File Name:\n", configFileName);
-
-/* ================================================== */
-/* ================================================== */
-/* ================================================== */
-
-
-/* ================================================== */
-/** Main Configuration Variables */
-/* ================================================== */
-
-var fileFull = configFileName + fileExtension;
-var configFilePath = configFileSet + fileFull;
-
-/* ================================================== */
-
-
-/* ================================================== */
-/**
- *
- * Load JSON configuration data from the sercer using
- * GET HTTP request
- *
- */
-/* ================================================== */
-
-var readConfigPath = fs.readFileSync(configFilePath, 'utf8');
-var configObject = JSON.parse(readConfigPath);
-var dicomServerValue = configObject.dicomServer;
-var portDicomValue = dicomServerValue[0].port;
-var mainServerValue = configObject.mainServer;
-var portValue = mainServerValue[0].port;
-
-console.log("Index Read Config Path:\n", readConfigPath);
-console.log("Index Config Object:\n", configObject);
-console.log("Index Main Server Value:\n", mainServerValue);
-console.log("Index DICOM Server Port Value:\n", portDicomValue);
-console.log("Index Port Value:\n", portValue);
+var portValue = requests.getPortValue();
 
 /* ================================================== */
 /* ================================================== */
