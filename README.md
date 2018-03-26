@@ -4,6 +4,7 @@
 
 [MIMBCD-UI](https://mimbcd-ui.github.io/) is a Research Project that deals with the use of a recently proposed technique in literature: [Deep Convolutional Neural Networks (CNNs)](https://en.wikipedia.org/wiki/Convolutional_neural_network). These deep networks will incorporate information from several different modes by a User Interface (UI) implemented based on our [Prototype Cornerstone](https://github.com/MIMBCD-UI/prototype-cornerstone) repository. The [Prototype Cornerstone](https://github.com/MIMBCD-UI/prototype-cornerstone) repository is an Open Source Project with a goal to deliver an example of web based medical imaging platform for the breast cancer diagnosis. We also have several demos to see in our [YouTube Channel](https://www.youtube.com/channel/UCPz4aTIVHekHXTxHTUOLmXw), please follow us.
 
+
 ## Instructions
 
 First of all, you will need [NodeJS](https://nodejs.org/) installed locally on your machine. This project needs both [`npm`](https://www.npmjs.com/) and [`http-server`](https://github.com/indexzero/http-server) dependencies to install and run the core project. If you do not have those installed please follow the [`INSTALL`](src/INSTALL.md) instructions.
@@ -16,7 +17,7 @@ You can [download](https://www.orthanc-server.com/download.php) a latest version
 
 #### Clone
 
-1.1.1. Clone the DICOM Server repository:
+1.1.1. Clone the DICOM Server [repository](https://github.com/MIMBCD-UI/dicom-server):
 
 ```
 git clone git@github.com:MIMBCD-UI/dicom-server.git
@@ -42,11 +43,15 @@ npm install
 
 1.3.1. Inside the project folder:
 
-`cd dicom-server`
+```
+cd dicom-server
+```
 
 1.3.2. Start the DICOM Server (Orthanc) for [MacOS](https://www.orthanc-server.com/static.php?page=download-mac):
 
-`npm start`
+```
+npm start
+```
 
 **OR**
 
