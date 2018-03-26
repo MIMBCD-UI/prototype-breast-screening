@@ -19,6 +19,7 @@
   "scripts": {
     "test": "jest &",
     "install": "cd src npm install",
+    "dicom-server": "cd .. && cd dicom-server/ && npm start",
     "build": "webpack-dev-server",
     "build:prod": "webpack -p",
     "start": "node src/server/index.js &",
@@ -51,6 +52,11 @@
     "load-grunt-tasks": "^0.2.1",
     "node-libs-browser": "^2.1.0",
     "rimraf": "^2.6.2",
+    "webdash": "^1.0.0",
+    "webdash-npm-scripts": "^1.0.0",
+    "webdash-package-json": "^1.0.0",
+    "webdash-performance-budget": "^1.2.0",
+    "webdash-pwa-manifest": "^1.1.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   },

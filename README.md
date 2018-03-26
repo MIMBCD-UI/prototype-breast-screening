@@ -37,7 +37,7 @@ cd dicom-server/
 npm install
 ```
 
-1.2.2. You can now **Run** the project, just follow the next section.
+1.2.2. You can now **Run** the project, just follow the [next section](https://github.com/MIMBCD-UI/prototype-breast-screening#run).
 
 #### Run
 
@@ -97,7 +97,7 @@ cd prototype-breast-screening/
 npm install
 ```
 
-2.2.2. You can now **Run** the project, just follow the next section.
+2.2.2. You can now **Run** the project, just follow the [next section](https://github.com/MIMBCD-UI/prototype-breast-screening#run).
 
 #### Run
 
@@ -107,19 +107,25 @@ npm install
 cd prototype-breast-screening/
 ```
 
-2.3.2. Run the code:
+2.3.2. If you have already run the DICOM Server, please jump to the **2.3.3.** point, otherwise do:
+
+```
+npm run dicom-server
+```
+
+2.3.3. Run the code:
 
 ```
 npm run build:prod
 ```
 
-2.3.3. Start the project:
+2.3.4. Start the project:
 
 ```
 npm start
 ```
 
-2.3.4. Open the link:
+2.3.5. Open the link:
 
 ```
 localhost:8080/src/public/index.html
