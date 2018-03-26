@@ -107,7 +107,7 @@ npm install
 cd prototype-breast-screening/
 ```
 
-2.3.2. If you have already run the DICOM Server, please jump to the **2.3.3.** point, otherwise do:
+2.3.2. If you have already run the DICOM Server on a [previous section](https://github.com/MIMBCD-UI/prototype-breast-screening#dicom-server), please jump to the **2.3.3.** point, otherwise do:
 
 ```
 npm run dicom-server
