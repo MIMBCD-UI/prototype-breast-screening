@@ -19,7 +19,7 @@
       "hostname": "10.0.1.23",
       "portEscape": ":",
       "port": "8081",
-      "suffix": "/",
+      "suffix": "/"
     }
   ]
 }

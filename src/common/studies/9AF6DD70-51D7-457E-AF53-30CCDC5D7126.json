@@ -10,19 +10,19 @@
         "seriesList": [
             {
                 "seriesDescription": "MG",
-                "seriesNumber": "2",
+                "seriesNumber": "1",
                 "instanceList": [
                     {
-                        "imageId": "7aae3a41-051f2909-3e1bc940-1b75e78a-55915f67/file"
+                        "imageId": "3ea91193-d664157d-cdc5e876-fd2b7010-8b9f462f/file"
                     }
                 ]
             },
             {
                 "seriesDescription": "MG",
-                "seriesNumber": "1",
+                "seriesNumber": "2",
                 "instanceList": [
                     {
-                        "imageId": "3ea91193-d664157d-cdc5e876-fd2b7010-8b9f462f/file"
+                        "imageId": "7aae3a41-051f2909-3e1bc940-1b75e78a-55915f67/file"
                     }
                 ]
             },
