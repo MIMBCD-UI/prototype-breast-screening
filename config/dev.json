@@ -4,7 +4,7 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "193.136.138.62",
+      "hostname": "10.0.1.23",
       "portEscape": ":",
       "port": "8042",
       "suffix": "/",
@@ -16,7 +16,7 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "193.136.138.62",
+      "hostname": "10.0.1.23",
       "portEscape": ":",
       "port": "8084",
       "suffix": "/",
