@@ -13,6 +13,15 @@
                 "seriesNumber": "1",
                 "instanceList": [
                     {
+                        "imageId": "830ab7b6-d769d5bc-1657f06b-3fee4fc4-41f1d6f7/file"
+                    }
+                ]
+            },
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "1",
+                "instanceList": [
+                    {
                         "imageId": "35d43709-d0107a32-ea4d8194-c419b6df-21345913/file"
                     }
                 ]
@@ -41,15 +50,6 @@
                 "instanceList": [
                     {
                         "imageId": "dd630571-039fae06-17c15e19-4e9a20d4-186ca072/file"
-                    }
-                ]
-            },
-            {
-                "seriesDescription": "US",
-                "seriesNumber": "1",
-                "instanceList": [
-                    {
-                        "imageId": "830ab7b6-d769d5bc-1657f06b-3fee4fc4-41f1d6f7/file"
                     }
                 ]
             },
