@@ -102,6 +102,7 @@ var updateStudiesFileHandler = function(fileData) {
 };
 
 http.createServer(function(request, response) {
+
   if (request.url == 'SaveFile' || request.url == '/SaveFile' || request.url == './SaveFile') {
     var store = '';
     request.on('data', function(chunk) {
@@ -198,4 +199,5 @@ http.createServer(function(request, response) {
       response.end(content, 'utf-8');
     }
   });
+
 }).listen(portValue);
