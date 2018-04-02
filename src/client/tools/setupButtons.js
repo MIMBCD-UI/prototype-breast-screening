@@ -19,6 +19,7 @@ var secondsString = (seconds < 9 ? '0' : '') + (seconds);
 var totalDate = yearString + monthString + dateString;
 var totalTime = hoursString + minutesString + secondsString;
 var timeStamp = totalDate + totalTime;
+var currentElement;
 
 // var http = require('http');
 
@@ -90,6 +91,7 @@ const setupButtons = (studyViewer) => {
   // Freehand ROI draw
   $(buttons[5]).on('click touchstart', function() {
     forEachViewport(function(element) {
+      currentElement = element;
       cornerstoneTools.freehand.activate(element, 1);
     });
   });
@@ -211,3 +213,20 @@ const setupButtons = (studyViewer) => {
     link.dispatchEvent(event);
   }
 };
+
+$(document).keyup(function(e) {
+  if (e.keyCode == 27 && currentElement !== undefined) { // escape key maps to keycode `27`
+  var toolStateManager = cornerstoneTools.getElementToolStateManager(currentElement);
+  var freehandToolState = toolStateManager.get(currentElement, 'freehand');
+  if(freehandToolState){
+    freehandToolState.data[freehandToolState.data.length-1].handles.pop();
+    // for(var i=0; i<freehandToolState.data.length; i++){
+
+    // }
+    cornerstoneTools.freehand.getConfiguration().currentHandle--;
+
+    cornerstone.updateImage(currentElement);
+  }
+
+ }
+});
