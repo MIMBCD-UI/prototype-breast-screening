@@ -19,7 +19,7 @@
       "hostname": "",
       "portEscape": ":",
       "port": "8084",
-      "suffix": "/",
+      "suffix": "/"
     }
   ]
 }
