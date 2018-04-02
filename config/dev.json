@@ -4,9 +4,9 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "",
+      "hostname": "10.0.1.23",
       "portEscape": ":",
-      "port": "8042",
+      "port": "8045",
       "suffix": "/",
       "serviceProtocol": "wadouri"
     }
@@ -16,9 +16,9 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "",
+      "hostname": "10.0.1.23",
       "portEscape": ":",
-      "port": "8084",
+      "port": "8083",
       "suffix": "/"
     }
   ]
