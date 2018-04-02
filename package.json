@@ -22,7 +22,7 @@
     "dicom-server": "cd .. && cd dicom-server/ && npm start",
     "build": "webpack-dev-server",
     "build:prod": "webpack -p",
-    "serve:dataset": "http-server dataset",
+    "serve:dataset": "http-server dataset -p 3600",
     "start": "node src/server/index.js &",
     "clean:dataset": "rimraf dataset/*",
     "clean:studies": "rimraf src/common/studies/*",
