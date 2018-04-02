@@ -6,8 +6,8 @@
       "transferProtocol": "http",
       "hostname": "10.0.2.72",
       "portEscape": ":",
-      "port": "8042",
-      "suffix": "/",
+      "port": "82",
+      "suffix": "/integration/dicom-server/orthanc/",
       "serviceProtocol": "wadouri"
     }
   ],
@@ -16,10 +16,10 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "10.0.2.72",
+      "hostname": "10.0.1.23",
       "portEscape": ":",
       "port": "8081",
-      "suffix": "/",
+      "suffix": "/"
     }
   ]
 }
