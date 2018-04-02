@@ -6,8 +6,8 @@
       "transferProtocol": "http",
       "hostname": "10.0.2.72",
       "portEscape": ":",
-      "port": "8043",
-      "suffix": "/",
+      "port": "82",
+      "suffix": "/integration/dicom-server/orthanc/",
       "serviceProtocol": "wadouri"
     }
   ],
