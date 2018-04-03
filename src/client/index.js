@@ -57,46 +57,59 @@ $.getJSON(studyListFile, function(data) {
 
     // On study list row click
     $(studyRowElement).click(function() {
+      if ($('#tabs li').length >= 2) {
+        alert('Please close the opened patient first !');
+      } else {
+        // Add new tab for this study and switch to it
+        var studyTab = '<li><div id=complete-tab><a href="#x' + study.patientId + '" data-toggle="tab">' + study.patientName + '</a>' +
+          '<input type="button" class="closeBtn" onClick=closeTab(this.parentNode.parentNode) value="X" />' + '</li></div>';
+        $('#tabs').append(studyTab);
+        // Add tab content by making a copy of the studyViewerTemplate element
+        var studyViewerCopy = studyViewerTemplate.clone();
 
-      // Add new tab for this study and switch to it
-      var studyTab = '<li><a href="#x' + study.patientId + '" data-toggle="tab">' + study.patientName + '</a></li>';
-      $('#tabs').append(studyTab);
-
-      // Add tab content by making a copy of the studyViewerTemplate element
-      var studyViewerCopy = studyViewerTemplate.clone();
-
-      var viewportCopy = viewportTemplate.clone();
-      studyViewerCopy.find('.imageViewer').append(viewportCopy);
+        var viewportCopy = viewportTemplate.clone();
+        studyViewerCopy.find('.imageViewer').append(viewportCopy);
 
 
-      studyViewerCopy.attr("id", 'x' + study.patientId);
-      // Make the viewer visible
-      studyViewerCopy.removeClass('hidden');
-      // Add section to the tab content
-      studyViewerCopy.appendTo('#tabContent');
+        studyViewerCopy.attr("id", 'x' + study.patientId);
+        // Make the viewer visible
+        studyViewerCopy.removeClass('hidden');
+        // Add section to the tab content
+        studyViewerCopy.appendTo('#tabContent');
 
-      // Show the new tab (which will be the last one since it was just added
-      $('#tabs a:last').tab('show');
+        // Show the new tab (which will be the last one since it was just added
+        $('#tabs a:last').tab('show');
 
-      // Toggle window resize (?)
-      $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-        $(window).trigger('resize');
-      });
+        // Toggle window resize (?)
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+          $(window).trigger('resize');
+        });
 
-      studyViewerCopy.roiData = {
-        studyId: study.studyId,
-        modality: study.modality,
-        stacks: [],
-      };
+        studyViewerCopy.roiData = {
+          studyId: study.studyId,
+          modality: study.modality,
+          stacks: [],
+        };
 
-      // Now load the study.json
-      loadStudy(studyViewerCopy, viewportTemplate, study.studyId + fileFormat);
+        // Now load the study.json
+        loadStudy(studyViewerCopy, viewportTemplate, study.studyId + fileFormat);
+      }
     });
   });
 });
 
+// Resize main
+function closeTab(element) {
+  $('#tabs a:first').tab('show');
+  element.remove();
+  var tabDataElement = element.firstChild.firstChild.getAttribute('href');
+  if($(tabDataElement).length > 0){
+    $(tabDataElement)[0].remove();
+  }
+}
+
 // Show tabs on click
-$('#tabs a').click(function(e) {
+$('#tabs a').click (function(e) {
   e.preventDefault();
   $(this).tab('show');
 });
@@ -110,7 +123,7 @@ function resizeMain() {
 
 // Call resize main on window resize
 $(window).resize(function() {
-  resizeMain();
+    resizeMain();
 });
 resizeMain();
 
