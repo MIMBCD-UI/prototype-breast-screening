@@ -92,8 +92,7 @@ var updateStudiesFileHandler = function(fileData) {
   console.log(objectData.file.length);
   for (var i = 0; i < objectData.file.length; i++) {
 
-    // fs.writeFile(seriesPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
-    fs.writeFile(seriesPath + 'HELLO' + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
+    fs.writeFile(seriesPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
       if (err) {
         console.log('Error in saving file:\n' + err);
       }
