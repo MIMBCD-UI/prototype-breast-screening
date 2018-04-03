@@ -160,15 +160,6 @@ a.list-group-item.active:focus {
     padding: 3px 10px;
 }
 
-#complete-tab {
-    background-color: #202020;
-    border-color: #424242;
-    color: #424242;
-    padding: 3px 10px;
-    padding: 1px 0px 3px 10px;
-    margin-top: 2px;
-}
-
 .nav-tabs>li.active>a,
 .nav-tabs>li.active>a:hover,
 .nav-tabs>li.active>a:focus {
@@ -176,14 +167,6 @@ a.list-group-item.active:focus {
     border-color: #424242;
     color: #ffffff;
     padding: 3px 10px;
-}
-
-.closeBtn{
-    background-color: #424242;
-    float: right;
-    color: #ffffff;
-    margin-left: 10px;
-    border: none;
 }
 
 .dropdown-menu {
