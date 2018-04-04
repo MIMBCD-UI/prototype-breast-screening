@@ -19,7 +19,7 @@
       "hostname": "breastscreening.io",
       "portEscape": ":",
       "port": "8088",
-      "suffix": "/",
+      "suffix": "/"
     }
   ]
 }
