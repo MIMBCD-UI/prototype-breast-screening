@@ -29,7 +29,13 @@
     "clean:dirs": "npm run clean:dataset & npm run clean:studies &",
     "clean:paths": "npm run clean:dirs & npm run clean:study &",
     "clean": "npm run clean:paths & npm run create:sl &",
-    "serve:dataset": "http-server dataset -p 3600 &",
+    "dataset:local": "http-server dataset -p 3610 &",
+    "dataset:internal": "http-server dataset -p 3620 &",
+    "dataset:integration": "http-server dataset -p 3630 &",
+    "dataset:dev": "http-server dataset -p 3640 &",
+    "dataset:stage": "http-server dataset -p 3650 &",
+    "dataset:test": "http-server dataset -p 3660 &",
+    "dataset:prod": "http-server dataset -p 3670 &",
     "start": "node src/server/index.js &"
   },
   "devDependencies": {
