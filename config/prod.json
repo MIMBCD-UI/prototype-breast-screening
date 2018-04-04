@@ -18,7 +18,7 @@
       "transferProtocol": "http",
       "hostname": "breastscreening.io",
       "portEscape": ":",
-      "port": "8080",
+      "port": "8088",
       "suffix": "/",
     }
   ]
