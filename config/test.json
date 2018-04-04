@@ -19,7 +19,7 @@
       "hostname": "cromo.isrnet",
       "portEscape": ":",
       "port": "8081",
-      "suffix": "/",
+      "suffix": "/"
     }
   ]
 }
