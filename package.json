@@ -30,7 +30,7 @@
     "clean:paths": "npm run clean:dirs & npm run clean:study &",
     "clean": "npm run clean:paths & npm run create:sl &",
     "dataset:local": "http-server dataset -p 3610 &",
-    "dataset:internal": "http-server dataset -p 3620 &",
+    "dataset:internal": "http-server dataset -p 3600 &",
     "dataset:integration": "http-server dataset -p 3630 &",
     "dataset:dev": "http-server dataset -p 3640 &",
     "dataset:stage": "http-server dataset -p 3650 &",
