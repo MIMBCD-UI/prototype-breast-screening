@@ -4,7 +4,7 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "breastscreening.io",
+      "hostname": "cromo.isrnet",
       "portEscape": ":",
       "port": "8042",
       "suffix": "/",
@@ -16,7 +16,7 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "breastscreening.io",
+      "hostname": "cromo.isrnet",
       "portEscape": ":",
       "port": "8088",
       "suffix": "/"
