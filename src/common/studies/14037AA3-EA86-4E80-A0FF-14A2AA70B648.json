@@ -1,0 +1,22 @@
+[
+    {
+        "patientName": "Anonymized5",
+        "patientId": "14037AA3-EA86-4E80-A0FF-14A2AA70B648",
+        "studyDate": "20160229",
+        "modality": "Ecografia Mamaria",
+        "studyDescription": "Ecografia Mamaria",
+        "numImages": 1,
+        "studyId": "8fb7e775-87290ce7-86088cba-db57c5ee-86511ddb",
+        "seriesList": [
+            {
+                "seriesDescription": "US",
+                "seriesNumber": "2",
+                "instanceList": [
+                    {
+                        "imageId": "a12cba36-662c93c9-0a1bf320-585d3bee-8de13d1f/file"
+                    }
+                ]
+            }
+        ]
+    }
+]
