@@ -96,8 +96,16 @@ const setupButtons = (studyViewer) => {
     });
   });
 
-  // JSON Save Button
+  // Drag Probe
   $(buttons[6]).on('click touchstart', function() {
+    forEachViewport(function(element) {
+      currentElement = element;
+      cornerstoneTools.dragProbe.activate(element, 1);
+    });
+  });
+
+  // JSON Save Button
+  $(buttons[7]).on('click touchstart', function() {
     disableAllTools();
     forEachViewport(function(element) {
 
@@ -178,6 +186,7 @@ const setupButtons = (studyViewer) => {
   $(buttons[4]).tooltip();
   $(buttons[5]).tooltip();
   $(buttons[6]).tooltip();
+  $(buttons[7]).tooltip();
 
   const download = (data, name, type) => {
     var link = document.createElement("a");
