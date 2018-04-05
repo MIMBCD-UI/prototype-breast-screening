@@ -26,10 +26,6 @@ var clientConfig = {
   watch: true,
   node:{
     'fs':'empty'
-  },
-  devServer: {
-    host: hostnameValue,
-    port: portNumber
   }
 };
 

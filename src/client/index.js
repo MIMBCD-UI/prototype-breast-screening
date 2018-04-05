@@ -2,25 +2,6 @@
 var viewportPath = "../public/templates/viewport.html";
 var studyViewerPath = "../public/templates/studyViewer.html";
 
-/* ========================= MESSAGES ========================= */
-
-window.addEventListener('fileToDirectory', function(e) {
-  SaveData('data.txt', e.detail.rawData)
-});
-
-var SaveData = function(fileName, data) {
-  alert(fileName);
-  var fs = require('fs');
-  fs.writeFile(fileName, data, 'utf8', function(err) {
-    if (err) {
-      return console.log(err);
-    }
-    console.log("The file was saved!");
-  });
-};
-
-/* ============================================================ */
-
 // The file with the list of all studies.
 var fileName = '../common/studyList';
 var fileFormat = '.json';
@@ -62,7 +43,7 @@ $.getJSON(studyListFile, function(data) {
       } else {
         // Add new tab for this study and switch to it
         var studyTab = '<li><div id=complete-tab><a href="#x' + study.patientId + '" data-toggle="tab">' + study.patientName + '</a>' +
-          '<input type="button" class="closeBtn" onClick=closeTab(this.parentNode.parentNode) value="X" />' + '</li></div>';
+          '<input type="button" class="closeBtn" value="X" />' + '</li></div>';
         $('#tabs').append(studyTab);
         // Add tab content by making a copy of the studyViewerTemplate element
         var studyViewerCopy = studyViewerTemplate.clone();
@@ -91,6 +72,16 @@ $.getJSON(studyListFile, function(data) {
           stacks: [],
         };
 
+        $('.closeBtn').click(function() {
+          var element = this.parentNode.parentNode;
+          $('#tabs a:first').tab('show');
+          element.remove();
+          var tabDataElement = element.firstChild.firstChild.getAttribute('href');
+          if($(tabDataElement).length > 0){
+            $(tabDataElement)[0].remove();
+          }
+        });
+
         // Now load the study.json
         loadStudy(studyViewerCopy, viewportTemplate, study.studyId + fileFormat);
       }
@@ -99,14 +90,7 @@ $.getJSON(studyListFile, function(data) {
 });
 
 // Resize main
-function closeTab(element) {
-  $('#tabs a:first').tab('show');
-  element.remove();
-  var tabDataElement = element.firstChild.firstChild.getAttribute('href');
-  if($(tabDataElement).length > 0){
-    $(tabDataElement)[0].remove();
-  }
-}
+
 
 // Show tabs on click
 $('#tabs a').click (function(e) {
