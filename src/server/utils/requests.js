@@ -85,6 +85,7 @@ var dicomServerValue = configObject.dicomServer;
 var portDicomValue = dicomServerValue[0].port;
 var mainServerValue = configObject.mainServer;
 var portValue = mainServerValue[0].port;
+var hostnameValue = mainServerValue[0].hostname;
 
 // console.log("Index Read Config Path:\n", readConfigPath);
 // console.log("Index Config Object:\n", configObject);
@@ -107,6 +108,10 @@ exports.getConfigFileValue = function() {
 
 exports.getPortValue = function() {
   return portValue;
+}
+
+exports.getHostnameValue = function() {
+  return hostnameValue;
 }
 
 /* ================================================== */
