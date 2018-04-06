@@ -25,7 +25,6 @@ $.getJSON(studyListFile, function(data) {
 
     // Create one table row for each study in the manifest
     var studyRow = '<tr><td>' +
-      study.patientName + '</td><td>' +
       study.patientId + '</td><td>' +
       study.studyDate + '</td><td>' +
       study.modality + '</td><td>' +
@@ -42,7 +41,7 @@ $.getJSON(studyListFile, function(data) {
         alert('Please close the opened patient first !');
       } else {
         // Add new tab for this study and switch to it
-        var studyTab = '<li><div id=complete-tab><a href="#x' + study.patientId + '" data-toggle="tab">' + study.patientName + '</a>' +
+        var studyTab = '<li><div id=complete-tab><a href="#x' + study.patientId + '" data-toggle="tab">' + study.patientId + '</a>' +
           '<input type="button" class="closeBtn" value="X" />' + '</li></div>';
         $('#tabs').append(studyTab);
         // Add tab content by making a copy of the studyViewerTemplate element
