@@ -15,6 +15,7 @@ var fs = require('fs');
 /* ================================================== */
 
 var requests = require("./utils/requests");
+var hotjar = require("./utils/hotjar");
 
 /* ================================================== */
 
