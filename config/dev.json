@@ -19,7 +19,8 @@
       "hostname": "breastscreening.isr.tecnico.ulisboa.pt",
       "portEscape": ":",
       "port": "8083",
-      "suffix": "/"
+      "suffix": "/",
+      "hotjar": ""
     }
   ]
 }

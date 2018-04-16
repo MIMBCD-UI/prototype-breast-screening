@@ -81,17 +81,23 @@ var configFilePath = configFileSet + fileFull;
 
 var readConfigPath = fs.readFileSync(configFilePath, 'utf8');
 var configObject = JSON.parse(readConfigPath);
+
 var dicomServerValue = configObject.dicomServer;
-var portDicomValue = dicomServerValue[0].port;
 var mainServerValue = configObject.mainServer;
+
 var portValue = mainServerValue[0].port;
 var hostnameValue = mainServerValue[0].hostname;
 
-// console.log("Index Read Config Path:\n", readConfigPath);
-// console.log("Index Config Object:\n", configObject);
-// console.log("Index Main Server Value:\n", mainServerValue);
-// console.log("Index DICOM Server Port Value:\n", portDicomValue);
-// console.log("Index Port Value:\n", portValue);
+var portDicomValue = dicomServerValue[0].port;
+var hostnameDicomValue = dicomServerValue[0].hostname;
+var transferProtocolDicomValue = dicomServerValue[0].transferProtocol;
+var prefixDicomValue = dicomServerValue[0].prefix;
+var portEscapeDicomValue = dicomServerValue[0].portEscape;
+
+var urlHeaderDicomValue = transferProtocolDicomValue + prefixDicomValue;
+var urlPortSetDicomValue = portEscapeDicomValue + portDicomValue;
+var urlBodyDicomValue = hostnameDicomValue + urlPortSetDicomValue;
+var urlLinkDicomValue = urlHeaderDicomValue + urlBodyDicomValue;
 
 /* ================================================== */
 /* ================================================== */
@@ -112,6 +118,22 @@ exports.getPortValue = function() {
 
 exports.getHostnameValue = function() {
   return hostnameValue;
+}
+
+exports.getTransferProtocolValue = function() {
+  return transferProtocolDicomValue;
+}
+
+exports.getPrefixDicomValue = function() {
+  return prefixDicomValue;
+}
+
+exports.getPortEscapeDicomValue = function() {
+  return portEscapeDicomValue;
+}
+
+exports.getUrlLinkDicomValue = function() {
+  return urlLinkDicomValue;
 }
 
 /* ================================================== */

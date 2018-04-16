@@ -128,7 +128,7 @@ npm start
 2.3.5. Open the link:
 
 ```
-localhost:8080/src/public/index.html
+localhost:8086/src/public/index.html
 ```
 
 ##### Allow-Control-Allow-Origin

@@ -3,8 +3,11 @@ var webpack = require('webpack');
 
 var requests = require('./src/server/utils/requests');
 
-var portNumber = Number(requests.getPortValue());
 var hostnameValue = requests.getHostnameValue();
+var portNumber = Number(requests.getPortValue());
+
+console.log("Webpack Hostname Value:\n", hostnameValue);
+console.log("Webpack Port Number:\n", portNumber);
 
 var serverConfig = {
   entry: ["./src/server/index.js"],
@@ -26,6 +29,10 @@ var clientConfig = {
   watch: true,
   node:{
     'fs':'empty'
+  },
+  devServer: {
+    host: hostnameValue,
+    port: portNumber
   }
 };
 

@@ -33,6 +33,7 @@ var fileExtension = '.json';
 var requestValue = 'GET';
 var studyListPath = 'src/common/studyList.json';
 var seriesPath = 'src/common/studies/';
+var datasetFilePath = 'dataset/';
 
 /* ================================================== */
 
@@ -69,11 +70,13 @@ var portValue = requests.getPortValue();
 
 
 var saveFileHandler = function(path, data) {
-  fs.writeFile('dataset/' + path, data, function(err) {
+  var fileData = JSON.parse(data);
+  fs.writeFile(datasetFilePath + path, JSON.stringify(fileData, null, 4), function(err) {
     if (err) {
-      console.log('Error in saving file ');
-    }
+      console.log('Error in saving file :' + err);
+    }else{
     console.log('file saved!');
+    }
   });
 };
 
@@ -82,8 +85,9 @@ var updateStudiesHandler = function(patientData) {
   fs.writeFile(studyListPath, JSON.stringify(studyList, null, 4), function(err) {
     if (err) {
       console.log('Error in saving file ');
-    }
+    }else{
     console.log('file studyList.json updated successfully saved!');
+    }
   });
 };
 
@@ -112,7 +116,6 @@ http.createServer(function(request, response) {
     request.on('end', function() {
       var objectData = JSON.parse(store);
       saveFileHandler(objectData.path, store);
-      console.log(objectData.path);
     });
   };
 

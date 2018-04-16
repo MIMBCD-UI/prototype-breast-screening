@@ -90,17 +90,20 @@ const setupButtons = (studyViewer) => {
 
   // Freehand ROI draw
   $(buttons[5]).on('click touchstart', function() {
+    disableAllTools();
     forEachViewport(function(element) {
       currentElement = element;
+      cornerstoneTools.probe.disable(element);
       cornerstoneTools.freehand.activate(element, 1);
     });
   });
 
   // Drag Probe
   $(buttons[6]).on('click touchstart', function() {
+    disableAllTools();
     forEachViewport(function(element) {
       currentElement = element;
-      cornerstoneTools.dragProbe.activate(element, 1);
+      cornerstoneTools.probe.activate(element, 1);
     });
   });
 
@@ -121,7 +124,8 @@ const setupButtons = (studyViewer) => {
        *
        */
 
-      var toolData = cornerstoneTools.getToolState(element, 'freehand');
+      var freeHandToolData = cornerstoneTools.getToolState(element, 'freehand');
+      var probeToolData = cornerstoneTools.getToolState(element, 'probe');
       var studyRoiData = studyViewer.roiData;
       var studyCurrentStack = studyRoiData.currentStack;
       var stack = studyRoiData.stacks[studyCurrentStack];
@@ -132,7 +136,7 @@ const setupButtons = (studyViewer) => {
 
       console.log("Study ROI Data: ", studyRoiData);
 
-      if (toolData === undefined) {
+      if (freeHandToolData === undefined && probeToolData === undefined) {
         return;
       }
 
@@ -146,7 +150,14 @@ const setupButtons = (studyViewer) => {
       // 20180223203337123456789.json
 
       console.log("Saved File Name: ", fileNameToSave);
-      stack.freehand = toolData.data;
+      if(freeHandToolData !== undefined){
+        stack.freehand = freeHandToolData.data;
+      }
+      if(probeToolData !== undefined){
+        stack.probe = probeToolData.data;
+      }
+
+
 
       console.log(studyRoiData);
 
