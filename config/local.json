@@ -19,7 +19,8 @@
       "hostname": "localhost",
       "portEscape": ":",
       "port": "8086",
-      "suffix": "/"
+      "suffix": "/",
+      "hotjar": "850630"
     }
   ]
 }
