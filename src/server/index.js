@@ -33,7 +33,31 @@ var fileExtension = '.json';
 var requestValue = 'GET';
 var studyListPath = 'src/common/studyList.json';
 var seriesPath = 'src/common/studies/';
-var datasetFilePath = 'dataset/';
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Dataset File Path Manager                         */
+/* ================================================== */
+
+var configFileValue = requests.getConfigFileValue();
+
+if (configFileValue === "prod") {
+  var datasetFilePath = '../dataset-annotations/dataset/';
+} else if (configFileValue === "test") {
+  var datasetFilePath = '../dataset-annotations/dataset/';
+} else if (configFileValue === "stage") {
+  var datasetFilePath = '../dataset-annotations/dataset/';
+} else if (configFileValue === "integration") {
+  var datasetFilePath = '../dataset-annotations/dataset/';
+} else if (configFileValue === "internal") {
+  var datasetFilePath = '../dataset-annotations/dataset/';
+} else if (configFileValue === "dev") {
+  var datasetFilePath = '../dataset-annotations/dataset/';
+} else {
+  var datasetFilePath = 'dataset/';
+}
 
 /* ================================================== */
 
