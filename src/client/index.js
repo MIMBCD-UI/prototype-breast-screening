@@ -21,9 +21,11 @@ loadTemplate(studyViewerPath, function(element) {
 
 // Get study list from JSON manifest
 $.getJSON(studyListFile, function(data) {
-  if (typeof data.studyList === "function") {
+  console.log("Getting study list...");
+  if (typeof data.studyList === "object") {
+    console.log("Consuming study list...");
     data.studyList.forEach(function(study) {
-
+      console.log("Creating study list tables...");
       // Create one table row for each study in the manifest
       var studyRow = '<tr><td>' +
         study.patientId + '</td><td>' +
