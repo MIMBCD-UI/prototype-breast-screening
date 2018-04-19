@@ -19,7 +19,7 @@
   "scripts": {
     "test": "jest",
     "install": "cd src npm install",
-    "dicom-server": "cd .. && cd dicom-server/ && npm start",
+    "dicom-server:local": "cd .. && cd dicom-server/ && npm run start:local",
     "build": "webpack -p &",
     "build:prod": "webpack -p &",
     "build:dev": "webpack-dev-server --progress --colors",
