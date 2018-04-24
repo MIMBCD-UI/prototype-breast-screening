@@ -98,8 +98,8 @@ var saveFileHandler = function(path, data) {
   fs.writeFile(datasetFilePath + path, JSON.stringify(fileData, null, 4), function(err) {
     if (err) {
       console.log('Error in saving file :' + err);
-    }else{
-    console.log('file saved!');
+    } else {
+      console.log('file saved!');
     }
   });
 };
