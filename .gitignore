@@ -59,3 +59,9 @@ typings/
 
 # Configuration Environments
 config/env.json
+
+# DICOM Images Information
+src/common/studies/*
+
+# Dataset Information
+dataset/*
