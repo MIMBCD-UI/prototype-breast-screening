@@ -46,15 +46,15 @@ var configFileValue = requests.getConfigFileValue();
 if (configFileValue === "prod") {
   var datasetFilePath = '../dataset-annotations/dataset/';
 } else if (configFileValue === "test") {
-  var datasetFilePath = '../dataset-annotations/dataset/';
+  var datasetFilePath = 'dataset/';
 } else if (configFileValue === "stage") {
-  var datasetFilePath = '../dataset-annotations/dataset/';
+  var datasetFilePath = 'dataset/';
 } else if (configFileValue === "integration") {
-  var datasetFilePath = '../dataset-annotations/dataset/';
+  var datasetFilePath = 'dataset/';
 } else if (configFileValue === "internal") {
-  var datasetFilePath = '../dataset-annotations/dataset/';
+  var datasetFilePath = 'dataset/';
 } else if (configFileValue === "dev") {
-  var datasetFilePath = '../dataset-annotations/dataset/';
+  var datasetFilePath = 'dataset/';
 } else {
   var datasetFilePath = 'dataset/';
 }
