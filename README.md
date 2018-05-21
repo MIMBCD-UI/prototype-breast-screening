@@ -107,25 +107,53 @@ npm install
 cd prototype-breast-screening/
 ```
 
-2.3.2. If you have already run the DICOM Server on a [previous section](https://github.com/MIMBCD-UI/prototype-breast-screening#dicom-server), please jump to the **2.3.3.** point, otherwise do:
+2.3.2. Create the main conficuration file:
+
+```
+vim config/env.json
+```
+
+p.s.: we use `vim` but you can use yours.
+
+2.3.3. Fill the `env.json` file with:
+
+```
+{
+  "environment": ""
+}
+```
+
+2.3.4. Put the desire deployment environment:
+
+```
+{
+  "environment": "local"
+}
+```
+
+Note: by default the `local` environment should be the one to test in your machine.
+
+2.3.5. Save the file;
+
+2.3.6. If you have already run the DICOM Server on a [previous section](https://github.com/MIMBCD-UI/prototype-breast-screening#dicom-server), please jump to the **2.3.7.** point, otherwise do:
 
 ```
 npm run dicom-server
 ```
 
-2.3.3. Run the code:
+2.3.7. Run the code:
 
 ```
 npm run build:prod
 ```
 
-2.3.4. Start the project:
+2.3.8. Start the project:
 
 ```
 npm start
 ```
 
-2.3.5. Open the link:
+2.3.9. Open the link:
 
 ```
 localhost:8086/src/public/index.html
