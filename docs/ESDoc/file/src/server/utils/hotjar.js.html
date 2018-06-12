@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/server/utils/hotjar.js | prototype-breast-screening</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="MIMBCD-UI Prototype Breast Screening"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="prototype-breast-screening"><meta property="twitter:description" content="MIMBCD-UI Prototype Breast Screening"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/MIMBCD-UI/prototype-breast-screening"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-lib">client/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PromiseCapability">PromiseCapability</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/server/utils/hotjar.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/* ================================================== */
+/** Base Configuration Variables */
+/* ================================================== */
+
+var configFileDir = &apos;../../../config/&apos;;
+var fileExtension = &apos;.json&apos;;
+var requestValue = &apos;GET&apos;;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Environment Configuration Variables */
+/* ================================================== */
+
+var configEnvFileName = &apos;env&apos;;
+var envFileFull = configEnvFileName + fileExtension;
+var configEnvFilePath = configFileDir + envFileFull;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var requestEnv = new XMLHttpRequest();
+
+requestEnv.open(requestValue, configEnvFilePath, false);
+requestEnv.send(null);
+
+var configEnvObject = JSON.parse(requestEnv.responseText);
+var configFileName = configEnvObject.environment;
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+
+/* ================================================== */
+/** Main Configuration Variables */
+/* ================================================== */
+
+var fileFull = configFileName + fileExtension;
+var configFilePath = configFileDir + fileFull;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var request = new XMLHttpRequest();
+
+request.open(requestValue, configFilePath, false);
+request.send(null);
+
+var configObject = JSON.parse(request.responseText);
+var mainServerValue = configObject.mainServer;
+var hotjarValue = mainServerValue[0].hotjar;
+var hotjarNumber = Number(hotjarValue);
+
+console.log(&quot;Hotjar Number:\n&quot;, hotjarNumber);
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+/**
+ *
+ * Hotjar Tracking Code
+ *
+ * URL: breastscreening.isr.tecnico.ulisboa.pt
+ *
+ */
+
+(function(h,o,t,j,a,r){
+  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+  h._hjSettings={hjid:hotjarNumber,hjsv:6};
+  a=o.getElementsByTagName(&apos;head&apos;)[0];
+  r=o.createElement(&apos;script&apos;);r.async=1;
+  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  a.appendChild(r);
+  console.log(&quot;Append Child:\n&quot;, a.appendChild(r));
+})(window,document,&apos;https://static.hotjar.com/c/hotjar-&apos;,&apos;.js?sv=&apos;);
+
+console.log(&quot;Hotjar is running...&quot;);
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

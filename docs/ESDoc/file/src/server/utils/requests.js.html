@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/server/utils/requests.js | prototype-breast-screening</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="MIMBCD-UI Prototype Breast Screening"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="prototype-breast-screening"><meta property="twitter:description" content="MIMBCD-UI Prototype Breast Screening"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/MIMBCD-UI/prototype-breast-screening"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-lib">client/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PromiseCapability">PromiseCapability</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/server/utils/requests.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/* ================================================== */
+/** IMPORT Node Modules                               */
+/* ================================================== */
+
+var fs = require(&quot;fs&quot;);
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Base Configuration Variables                      */
+/* ================================================== */
+
+var exports = module.exports = {};
+
+// var configFilePrefix = &apos;../../&apos;;
+var configFilePrefix = &apos;&apos;;
+var configFileName = &apos;config&apos;;
+var configFileSuffix = &apos;/&apos;;
+var configFileSet = configFileName + configFileSuffix;
+var configFileDir = configFilePrefix + configFileSet;
+var fileExtension = &apos;.json&apos;;
+var requestValue = &apos;GET&apos;;
+var studyListPath = &apos;src/common/studyList.json&apos;;
+var seriesPath = &apos;src/common/studies/&apos;;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Environment Configuration Variables               */
+/* ================================================== */
+
+var configEnvFileName = &apos;env&apos;;
+var envFileFull = configEnvFileName + fileExtension;
+var configEnvFilePath = configFileDir + envFileFull;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var readEnvConfigPath = fs.readFileSync(configEnvFilePath, &apos;utf8&apos;);
+var configEnvObject = JSON.parse(readEnvConfigPath);
+var configFileName = configEnvObject.environment;
+
+// console.log(&quot;Index Read Env Config Path:\n&quot;, readEnvConfigPath);
+// console.log(&quot;Index Config Env Object:\n&quot;, configEnvObject);
+// console.log(&quot;Index Config File Name:\n&quot;, configFileName);
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+
+/* ================================================== */
+/** Main Configuration Variables */
+/* ================================================== */
+
+var fileFull = configFileName + fileExtension;
+var configFilePath = configFileSet + fileFull;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var readConfigPath = fs.readFileSync(configFilePath, &apos;utf8&apos;);
+var configObject = JSON.parse(readConfigPath);
+
+var dicomServerValue = configObject.dicomServer;
+var mainServerValue = configObject.mainServer;
+
+var portValue = mainServerValue[0].port;
+var hostnameValue = mainServerValue[0].hostname;
+
+var portDicomValue = dicomServerValue[0].port;
+var hostnameDicomValue = dicomServerValue[0].hostname;
+var transferProtocolDicomValue = dicomServerValue[0].transferProtocol;
+var prefixDicomValue = dicomServerValue[0].prefix;
+var portEscapeDicomValue = dicomServerValue[0].portEscape;
+
+var urlHeaderDicomValue = transferProtocolDicomValue + prefixDicomValue;
+var urlPortSetDicomValue = portEscapeDicomValue + portDicomValue;
+var urlBodyDicomValue = hostnameDicomValue + urlPortSetDicomValue;
+var urlLinkDicomValue = urlHeaderDicomValue + urlBodyDicomValue;
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+
+/* ================================================== */
+/** Getters                                           */
+/* ================================================== */
+
+exports.getConfigFileValue = function() {
+  return configFileName;
+}
+
+exports.getPortValue = function() {
+  return portValue;
+}
+
+exports.getHostnameValue = function() {
+  return hostnameValue;
+}
+
+exports.getTransferProtocolValue = function() {
+  return transferProtocolDicomValue;
+}
+
+exports.getPrefixDicomValue = function() {
+  return prefixDicomValue;
+}
+
+exports.getPortEscapeDicomValue = function() {
+  return portEscapeDicomValue;
+}
+
+exports.getUrlLinkDicomValue = function() {
+  return urlLinkDicomValue;
+}
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Module Exports                                    */
+/* ================================================== */
+
+
+
+/* ================================================== */
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

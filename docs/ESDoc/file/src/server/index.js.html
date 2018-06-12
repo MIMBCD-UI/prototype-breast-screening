@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/server/index.js | prototype-breast-screening</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="MIMBCD-UI Prototype Breast Screening"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="prototype-breast-screening"><meta property="twitter:description" content="MIMBCD-UI Prototype Breast Screening"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/MIMBCD-UI/prototype-breast-screening"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#client-lib">client/lib</a><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-PromiseCapability">PromiseCapability</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/server/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @file The main file and entry point for the Breast Screening
+ *       Prototype repository.
+ * @author Francisco Maria Calisto &lt;francisco.calisto@tecnico.ulisboa.pt&gt;
+ * @exports server
+ *
+ * @desc Contains the server-side logic of our prototype. The server can
+ *       read and consume the `studyList.json` list of DICOM image studies
+ *       and the respective studies of each patient. At the end the server
+ *       is serving an end-point from a specific port.
+ */
+
+/* ================================================== */
+/** IMPORT Node Modules                               */
+/* ================================================== */
+
+var http = require(&apos;http&apos;);
+var url = require(&apos;url&apos;);
+var path = require(&apos;path&apos;);
+var fs = require(&apos;fs&apos;);
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** IMPORT Utils                                      */
+/* ================================================== */
+
+var requests = require(&quot;./utils/requests&quot;);
+
+/**
+ *
+ */
+
+//var updateAll = require(&quot;./utils/npm-update-all&quot;);
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Base Configuration Variables                      */
+/* ================================================== */
+
+// var configFilePrefix = &apos;../../&apos;;
+var configFilePrefix = &apos;&apos;;
+var configFileName = &apos;config&apos;;
+var configFileSuffix = &apos;/&apos;;
+var configFileSet = configFileName + configFileSuffix;
+var configFileDir = configFilePrefix + configFileSet;
+var fileExtension = &apos;.json&apos;;
+var requestValue = &apos;GET&apos;;
+var studyListPath = &apos;src/common/studyList.json&apos;;
+var seriesPath = &apos;src/common/studies/&apos;;
+
+/* ================================================== */
+
+
+/* ================================================== */
+/** Dataset File Path Manager                         */
+/* ================================================== */
+
+var configFileValue = requests.getConfigFileValue();
+
+if (configFileValue === &quot;prod&quot;) {
+  var datasetFilePath = &apos;../dataset-annotations/dataset/&apos;;
+} else if (configFileValue === &quot;test&quot;) {
+  var datasetFilePath = &apos;dataset/&apos;;
+} else if (configFileValue === &quot;stage&quot;) {
+  var datasetFilePath = &apos;dataset/&apos;;
+} else if (configFileValue === &quot;integration&quot;) {
+  var datasetFilePath = &apos;dataset/&apos;;
+} else if (configFileValue === &quot;internal&quot;) {
+  var datasetFilePath = &apos;dataset/&apos;;
+} else if (configFileValue === &quot;dev&quot;) {
+  var datasetFilePath = &apos;dataset/&apos;;
+} else {
+  var datasetFilePath = &apos;dataset/&apos;;
+}
+
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * Load JSON configuration data from the sercer using
+ * GET HTTP request
+ *
+ */
+/* ================================================== */
+
+var portValue = requests.getPortValue();
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+
+/* ================================================== */
+/**
+ *
+ * CORS Configuration
+ *
+ */
+/* ================================================== */
+
+
+
+/* ================================================== */
+/* ================================================== */
+/* ================================================== */
+
+
+var saveFileHandler = function(path, data) {
+  var fileData = JSON.parse(data);
+  fs.writeFile(datasetFilePath + path, JSON.stringify(fileData, null, 4), function(err) {
+    if (err) {
+      console.log(&apos;Error in saving file :&apos; + err);
+    } else {
+      console.log(&apos;file saved!&apos;);
+    }
+  });
+};
+
+var updateStudiesHandler = function(patientData) {
+  var studyList = JSON.parse(patientData)
+  fs.writeFile(studyListPath, JSON.stringify(studyList, null, 4), function(err) {
+    if (err) {
+      console.log(&apos;Error in saving file &apos;);
+    }else{
+    console.log(&apos;file studyList.json updated successfully saved!&apos;);
+    }
+  });
+};
+
+var updateStudiesFileHandler = function(fileData) {
+  var objectData = JSON.parse(fileData);
+  console.log(objectData.file.length);
+  for (var i = 0; i &lt; objectData.file.length; i++) {
+
+    fs.writeFile(seriesPath + objectData.file[i].fileName + &apos;.json&apos;, JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
+      if (err) {
+        console.log(&apos;Error in saving file:\n&apos; + err);
+      }
+      console.log(&apos;patients file created successfully:&apos;);
+    });
+  }
+};
+
+http.createServer(function(request, response) {
+
+  if (request.url == &apos;SaveFile&apos; || request.url == &apos;/SaveFile&apos; || request.url == &apos;./SaveFile&apos;) {
+    var store = &apos;&apos;;
+    request.on(&apos;data&apos;, function(chunk) {
+      store += chunk;
+    });
+
+    request.on(&apos;end&apos;, function() {
+      var objectData = JSON.parse(store);
+      saveFileHandler(objectData.path, store);
+    });
+  };
+
+  if (request.url == &apos;UpdatePatients&apos; || request.url == &apos;/UpdatePatients&apos; || request.url == &apos;./UpdatePatients&apos;) {
+    console.log(&apos;update patients&apos;);
+    var patientData = &apos;&apos;;
+    request.on(&apos;data&apos;, function(chunk) {
+      patientData += chunk;
+    });
+
+    request.on(&apos;end&apos;, function() {
+      //console.log(patientData);
+      response.writeHead(200, {
+        &apos;Content-Type&apos;: &apos;text/plain&apos;
+      });
+      response.end(&apos;success&apos;);
+      updateStudiesHandler(patientData);
+    });
+  };
+
+  if (request.url == &apos;UpdatePatientFile&apos; || request.url == &apos;/UpdatePatientFile&apos; || request.url == &apos;./UpdatePatientFile&apos;) {
+    console.log(&apos;update patients files in studies/&lt;file&gt;&apos;);
+    var fileData = &apos;&apos;;
+    request.on(&apos;data&apos;, function(chunk) {
+      fileData += chunk;
+    });
+
+    request.on(&apos;end&apos;, function() {
+      //console.log(fileData);
+      response.writeHead(200, {
+        &apos;Content-Type&apos;: &apos;text/plain&apos;
+      });
+      response.end(&apos;success&apos;);
+      updateStudiesFileHandler(fileData);
+    });
+  };
+
+  var filePath = &apos;.&apos; + request.url;
+  if (filePath == &apos;./&apos;) {
+    filePath = &apos;../public/index.html&apos;;
+  }
+
+  var extname = path.extname(filePath);
+  var contentType = &apos;text/html&apos;;
+  switch (extname) {
+    case &apos;.js&apos;:
+      contentType = &apos;text/javascript&apos;;
+      break;
+    case &apos;.css&apos;:
+      contentType = &apos;text/css&apos;;
+      break;
+    case &apos;.json&apos;:
+      contentType = &apos;application/json&apos;;
+      break;
+    case &apos;.png&apos;:
+      contentType = &apos;image/png&apos;;
+      break;
+    case &apos;.jpg&apos;:
+      contentType = &apos;image/jpg&apos;;
+      break;
+    case &apos;.wav&apos;:
+      contentType = &apos;audio/wav&apos;;
+      break;
+  }
+
+  fs.readFile(filePath, function(error, content) {
+    if (error) {
+      if (error.code == &apos;ENOENT&apos;) {
+        fs.readFile(&apos;../public/404.html&apos;, function(error, content) {
+          response.writeHead(200, {
+            &apos;Content-Type&apos;: contentType
+          });
+          response.end(content, &apos;utf-8&apos;);
+        });
+      } else {
+        response.writeHead(500);
+        response.end(&apos;Sorry, check with the site admin for error: &apos; + error.code + &apos; ..\n&apos;);
+        response.end();
+      }
+    } else {
+      response.writeHead(200, {
+        &apos;Content-Type&apos;: contentType
+      });
+      response.end(content, &apos;utf-8&apos;);
+    }
+  });
+
+}).listen(portValue);
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

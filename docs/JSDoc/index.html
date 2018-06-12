@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>MIMBCD-UI Breast Screening Prototype</h1><p><img src="https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/assets/banner.png?raw=true"/></p>
+<p><a href="https://mimbcd-ui.github.io/">MIMBCD-UI</a> is a Research Project that deals with the use of a recently proposed technique in literature: <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Deep Convolutional Neural Networks (CNNs)</a>. These deep networks will incorporate information from several different modes by a User Interface (UI) implemented based on our <a href="https://github.com/MIMBCD-UI/prototype-cornerstone">Prototype Cornerstone</a> repository. The <a href="https://github.com/MIMBCD-UI/prototype-cornerstone">Prototype Cornerstone</a> repository is an Open Source Project with a goal to deliver an example of web based medical imaging platform for the breast cancer diagnosis. We also have several demos to see in our <a href="https://www.youtube.com/channel/UCPz4aTIVHekHXTxHTUOLmXw">YouTube Channel</a>, please follow us.</p>
+<h2>Instructions</h2><p>First of all, you will need <a href="https://nodejs.org/">NodeJS</a> installed locally on your machine. This project needs both <a href="https://www.npmjs.com/"><code>npm</code></a> and <a href="https://github.com/indexzero/http-server"><code>http-server</code></a> dependencies to install and run the core project. If you do not have those installed please follow the <a href="src/INSTALL.md"><code>INSTALL</code></a> instructions.</p>
+<h3>DICOM Server</h3><p>The following assumes you will be using a <a href="https://git-scm.com/">git</a> version control for this repository, storing thanks to <a href="https://github.com/">GitHub</a>. First, <a href="https://git-scm.com/downloads">Download</a> and <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Install</a> <a href="https://git-scm.com/">git</a>. Our system needs to be integrated with <a href="http://dicom.nema.org/dicom/2013/output/chtml/part18/sect_6.3.html">WADO-URI</a> servers, <a href="https://www.dicomstandard.org/dicomweb/">DICOMWeb</a> servers or any HTTP based server that returns a <a href="http://www.web3.lu/dicom-standard/">DICOM P10</a> instances. We suggest you to use an <a href="https://www.orthanc-server.com/">Orthanc</a> server, since it is a simple and powerful <a href="https://www.orthanc-server.com/static.php?page=about"><strong>standalone DICOM server</strong></a> by providing a <a href="https://en.wikipedia.org/wiki/Representational_state_transfer"><strong>RESTful API</strong></a>.</p>
+<p>You can <a href="https://www.orthanc-server.com/download.php">download</a> a latest version or you can use our own sample of an <a href="https://www.orthanc-server.com/">Orthanc</a> version with our examples of patient images. The instructions to use our solution are as follows.</p>
+<h4>Clone</h4><p>1.1.1. Clone the DICOM Server <a href="https://github.com/MIMBCD-UI/dicom-server">repository</a>:</p>
+<pre class="prettyprint source"><code>git clone git@github.com:MIMBCD-UI/dicom-server.git</code></pre><p>1.1.2. Go inside the project folder:</p>
+<pre class="prettyprint source"><code>cd dicom-server/</code></pre><h4>Install</h4><p>1.2.1. Install the local dependencies:</p>
+<pre class="prettyprint source"><code>npm install</code></pre><p>1.2.2. You can now <strong>Run</strong> the project, just follow the <a href="https://github.com/MIMBCD-UI/prototype-breast-screening#run">next section</a>.</p>
+<h4>Run</h4><p>1.3.1. Inside the project folder:</p>
+<pre class="prettyprint source"><code>cd dicom-server</code></pre><p>1.3.2. Start the DICOM Server (Orthanc) for <a href="https://www.orthanc-server.com/static.php?page=download-mac">MacOS</a>:</p>
+<pre class="prettyprint source"><code>npm start</code></pre><p><strong>OR</strong></p>
+<pre class="prettyprint source"><code>cd ..
+cd dicom-server/orthancAndPluginsOSX.stable/
+./startOrthanc.command</code></pre><p><strong>NOTE</strong>: If you are not using <a href="https://www.orthanc-server.com/static.php?page=download-mac">MacOS</a>, for instance, if you are using <a href="https://www.orthanc-server.com/download-windows.php">Windows</a> or <a href="https://packages.debian.org/search?keywords=orthanc&amp;searchon=names&amp;exact=1&amp;suite=all&amp;section=all">Debian</a> you have a <a href="https://www.orthanc-server.com/static.php?page=documentation">documentation</a> for that. Just follow the <a href="https://www.orthanc-server.com/resources/2015-02-09-emsy-tutorial/index.html">Windows</a> or <a href="https://packages.debian.org/sid/orthanc">Debian</a> documentations. You also have several <a href="https://www.orthanc-server.com/download.php">other options</a>.</p>
+<p>1.3.3. Open the link:</p>
+<pre class="prettyprint source"><code>localhost:8042</code></pre><p>NOTE: If you need some help see the <a href="https://youtu.be/tkzpT3KpY2A">Demo</a>.</p>
+<h3>Main Server</h3><p>Our main server uses <a href="https://nodejs.org/en/">NodeJS</a> and has several <a href="https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/package.json">dependencies</a>. For the following steps you must have already installed both <a href="https://nodejs.org/en/">NodeJS</a> and <a href="https://www.npmjs.com/"><code>npm</code></a> in your machine.</p>
+<h4>Clone</h4><p>2.1.1. Clone the project repository:</p>
+<pre class="prettyprint source"><code>git clone git@github.com:MIMBCD-UI/prototype-breast-screening.git</code></pre><p>2.1.2. Go inside the project folder:</p>
+<pre class="prettyprint source"><code>cd prototype-breast-screening/</code></pre><h4>Install</h4><p>2.2.1. Install the local dependencies:</p>
+<pre class="prettyprint source"><code>npm install</code></pre><p>2.2.2. You can now <strong>Run</strong> the project, just follow the <a href="https://github.com/MIMBCD-UI/prototype-breast-screening#run">next section</a>.</p>
+<h4>Run</h4><p>2.3.1. Inside the project folder:</p>
+<pre class="prettyprint source"><code>cd prototype-breast-screening/</code></pre><p>2.3.2. Create the main conficuration file:</p>
+<pre class="prettyprint source"><code>vim config/env.json</code></pre><p>p.s.: we use <code>vim</code> but you can use yours.</p>
+<p>2.3.3. Fill the <code>env.json</code> file with:</p>
+<pre class="prettyprint source"><code>{
+  &quot;environment&quot;: &quot;&quot;
+}</code></pre><p>2.3.4. Put the desire deployment environment:</p>
+<pre class="prettyprint source"><code>{
+  &quot;environment&quot;: &quot;local&quot;
+}</code></pre><p>Note: by default the <code>local</code> environment should be the one to test in your machine.</p>
+<p>2.3.5. Save the file;</p>
+<p>2.3.6. If you have already run the DICOM Server on a <a href="https://github.com/MIMBCD-UI/prototype-breast-screening#dicom-server">previous section</a>, please jump to the <strong>2.3.7.</strong> point, otherwise do:</p>
+<pre class="prettyprint source"><code>npm run dicom-server</code></pre><p>2.3.7. Run the code:</p>
+<pre class="prettyprint source"><code>npm run build:prod</code></pre><p>2.3.8. Start the project:</p>
+<pre class="prettyprint source"><code>npm start</code></pre><p>2.3.9. Open the link:</p>
+<pre class="prettyprint source"><code>localhost:8086/src/public/index.html</code></pre><h5>Allow-Control-Allow-Origin</h5><p>Access-Control-Allow-Origin is a <a href="https://www.html5rocks.com/en/tutorials/cors/">CORS (Cross-Origin Resource Sharing) header</a>. If you want to know <a href="https://stackoverflow.com/questions/10636611/how-does-access-control-allow-origin-header-work">How does Access-Control-Allow-Origin header work?</a> follow the link.</p>
+<h6>Google Chrome</h6><ul>
+<li>To deal with the CORS issue it is necessary to open <a href="https://www.google.com/intl/en/chrome/browser/desktop/">Google Chrome</a> with <code>--disable-web-security</code> flag on:</li>
+</ul>
+<pre class="prettyprint source"><code>open /Applications/Google\ Chrome.app --args --disable-web-security --user-data-dir</code></pre><ul>
+<li>Or install the  <a href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en">CORS</a> plugin for <a href="https://www.google.com/intl/en/chrome/browser/desktop/">Google Chrome</a>.</li>
+</ul>
+<h2>About</h2><p>For more information about the <a href="https://mimbcd-ui.github.io/">MIMBCD-UI</a> Project just follow the <a href="https://github.com/MIMBCD-UI/meta">link</a>. Pieces of information about details of this repository are also in a <a href="https://github.com/MIMBCD-UI/prototype-breast-screening/wiki">wiki</a>. This prototype was developed using several libraries and dependencies. Despite that all libraries had their importance and supported the development, one of it was of chief importance. The <a href="https://cornerstonejs.org/">CornerstoneJS</a> library and <a href="https://github.com/cornerstonejs">secondary libraries</a>, respectively, are supporting this prototype. We <a href="https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/README.md#acknowledgments">Acknowledge</a> all people involved in the path.</p>
+<h3>License</h3><p>Copyright © 2017 <a href="https://tecnico.ulisboa.pt/en/">Instituto Superior Técnico (IST)</a></p>
+<p>The <a href="https://github.com/MIMBCD-UI/prototype-breast-screening"><code>prototype-breast-screening</code></a> repository is distributed under the terms of both <a href="https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/ACADEMIC.md">Academic License</a> and <a href="https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/COMMERCIAL.md">Commercial License</a>, for academic and commercial purpose, respectively. For more information regarding the <a href="https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/LICENSE.md">License</a> of the hereby repository, just follow both <a href="https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/ACADEMIC.md">ACADEMIC</a> and <a href="https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/COMMERCIAL.md">COMMERCIAL</a> files.</p>
+<h3>Acknowledgments</h3><p>A special thanks to <a href="https://www.linkedin.com/in/chafey/">Chris Hafey</a>, the propelling person of <a href="https://cornerstonejs.org/">CornerstoneJS</a>, who also developed the <a href="https://github.com/chafey/cornerstoneDemo">cornerstoneDemo</a>. Not forgetting the three supporters of the CornerstoneJS library, <a href="https://www.linkedin.com/in/alois-dreyfus">Aloïs Dreyfus</a>, <a href="http://dannyrb.com/">Danny Brown</a> and <a href="https://www.npmjs.com/~swederik">Erik Ziegler</a>. We also would like to give a special thanks to <a href="https://www.npmjs.com/~swederik">Erik Ziegler</a> who support several <a href="https://groups.google.com/forum/#!forum/cornerstone-platform">issues</a> during this path.</p>
+<ul>
+<li><p><a href="https://www.linkedin.com/in/alois-dreyfus">Aloïs Dreyfus</a> (<a href="https://github.com/adreyfus">adreyfus</a>)</p>
+</li>
+<li><p><a href="https://www.linkedin.com/in/chafey/">Chris Hafey</a> (<a href="https://github.com/chafey">chafey</a>)</p>
+</li>
+<li><p><a href="http://dannyrb.com/">Danny Brown</a> (<a href="https://github.com/dannyrb">dannyrb</a>)</p>
+</li>
+<li><p><a href="https://www.npmjs.com/~swederik">Erik Ziegler</a> (<a href="https://github.com/swederik">swederik</a>)</p>
+</li>
+<li><p><a href="http://www.jasonhostetter.com/">Jason Hostetter</a></p>
+</li>
+<li><p><a href="http://www.sysline.inf.br/">Marcelo Ribeiro</a> (<a href="https://github.com/sysline">sysline</a>)</p>
+</li>
+<li><p><a href="https://www.linkedin.com/in/jodogne/">Sébastien Jodogne</a> (<a href="https://github.com/jodogne">jodogne</a>)</p>
+</li>
+<li><p><a href="https://lmi.med.harvard.edu/people/steve-pieper">Steve Pieper</a></p>
+</li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="server_index.module_js.html">server/index.js</a></li></ul><h3>Classes</h3><ul><li><a href="-_anonymous_-dicomParser.ByteStream.html">ByteStream</a></li><li><a href="-_anonymous_-dicomParser.DataSet.html">DataSet</a></li><li><a href="PDFJS.PageViewport.html">PageViewport</a></li></ul><h3>Global</h3><ul><li><a href="global.html#cornerstoneFileImageLoader">cornerstoneFileImageLoader</a></li><li><a href="global.html#cornerstoneMath">cornerstoneMath</a></li><li><a href="global.html#getStudyList">getStudyList</a></li><li><a href="global.html#requirejs">requirejs</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 12 2018 15:36:39 GMT+0100 (WEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

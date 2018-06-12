@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: client/lib/cornerstoneFileImageLoader.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: client/lib/cornerstoneFileImageLoader.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*! cornerstone-file-image-loader - v0.5.1 - 2015-04-04 | (c) 2014 Chris Hafey | https://github.com/chafey/cornerstoneFileImageLoader */
+//
+// This is a cornerstone image loader for DICOM P10 files.  It currently does not support compressed
+// transfer syntaxes or big endian transfer syntaxes.  It will support implicit little endian transfer
+// syntaxes but explicit little endian is strongly preferred to avoid any parsing issues related
+// to SQ elements.
+//
+
+var cornerstoneFileImageLoader = (function ($, cornerstone, cornerstoneFileImageLoader) {
+
+    "use strict";
+
+    if(cornerstoneFileImageLoader === undefined) {
+        cornerstoneFileImageLoader = {};
+    }
+
+
+
+    function isColorImage(photoMetricInterpretation)
+    {
+        if(photoMetricInterpretation === "RGB" ||
+            photoMetricInterpretation === "PALETTE COLOR" ||
+            photoMetricInterpretation === "YBR_FULL" ||
+            photoMetricInterpretation === "YBR_FULL_422" ||
+            photoMetricInterpretation === "YBR_PARTIAL_422" ||
+            photoMetricInterpretation === "YBR_PARTIAL_420" ||
+            photoMetricInterpretation === "YBR_RCT")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    function createImageObject(dataSet, imageId, frame)
+    {
+        if(frame === undefined) {
+            frame = 0;
+        }
+
+        // make the image based on whether it is color or not
+        var photometricInterpretation = dataSet.string('x00280004');
+        var isColor = isColorImage(photometricInterpretation);
+        if(isColor === false) {
+            return cornerstoneWADOImageLoader.makeGrayscaleImage(imageId, dataSet, dataSet.byteArray, photometricInterpretation, frame);
+        } else {
+            return cornerstoneWADOImageLoader.makeColorImage(imageId, dataSet, dataSet.byteArray, photometricInterpretation, frame);
+        }
+    }
+
+    var multiFrameCacheHack = {};
+
+    // Loads an image given an imageId
+    // wado url example:
+    // http://localhost:3333/wado?requestType=WADO&amp;studyUID=1.3.6.1.4.1.25403.166563008443.5076.20120418075541.1&amp;seriesUID=1.3.6.1.4.1.25403.166563008443.5076.20120418075541.2&amp;objectUID=1.3.6.1.4.1.25403.166563008443.5076.20120418075557.1&amp;contentType=application%2Fdicom&amp;transferSyntax=1.2.840.10008.1.2.1
+    // NOTE: supposedly the instance will be returned in Explicit Little Endian transfer syntax if you don't
+    // specify a transferSyntax but Osirix doesn't do this and seems to return it with the transfer syntax it is
+    // stored as.
+    function loadImage(imageId) {
+        // create a deferred object
+        // TODO: Consider not using jquery for deferred - maybe cujo's when library
+        var deferred = $.Deferred();
+
+        // build a url by parsing out the url scheme and frame index from the imageId
+        var url = imageId;
+        url = url.substring(12);
+        var frameIndex = url.indexOf('frame=');
+        var frame;
+        if(frameIndex !== -1) {
+            var frameStr = url.substr(frameIndex + 6);
+            frame = parseInt(frameStr);
+            url = url.substr(0, frameIndex-1);
+        }
+
+        // if multiframe and cached, use the cached data set to extract the frame
+        if(frame !== undefined &amp;&amp;
+            multiFrameCacheHack.hasOwnProperty(url))
+        {
+            var dataSet = multiFrameCacheHack[url];
+            var imagePromise = createImageObject(dataSet, imageId, frame);
+            imagePromise.then(function(image) {
+                deferred.resolve(image);
+            }, function() {
+                deferred.reject();
+            });
+            return deferred;
+        }
+
+        var fileIndex = parseInt(url);
+        var file = cornerstoneFileImageLoader.getFile(fileIndex);
+        if(file === undefined) {
+            deferred.reject('unknown file index ' + url);
+            return deferred;
+        }
+
+        // Read the DICOM Data
+        var fileReader = new FileReader();
+        fileReader.onload = function(e) {
+            // Parse the DICOM File
+            var dicomPart10AsArrayBuffer = e.target.result;
+            var byteArray = new Uint8Array(dicomPart10AsArrayBuffer);
+            var dataSet = dicomParser.parseDicom(byteArray);
+
+            // if multiframe, cache the parsed data set to speed up subsequent
+            // requests for the other frames
+            if(frame !== undefined) {
+                multiFrameCacheHack[url] = dataSet;
+            }
+
+            var imagePromise = createImageObject(dataSet, imageId, frame);
+            imagePromise.then(function(image) {
+                deferred.resolve(image);
+            }, function() {
+                deferred.reject();
+            });
+        };
+        fileReader.readAsArrayBuffer(file);
+
+        return deferred;
+    }
+
+    // steam the http and https prefixes so we can use wado URL's directly
+    cornerstone.registerImageLoader('dicomfile', loadImage);
+
+    return cornerstoneFileImageLoader;
+}($, cornerstone, cornerstoneFileImageLoader));
+/**
+ */
+var cornerstoneFileImageLoader = (function (cornerstoneFileImageLoader) {
+
+    "use strict";
+
+    if(cornerstoneFileImageLoader === undefined) {
+        cornerstoneFileImageLoader = {};
+    }
+
+    var files = [];
+
+    function addFile(file) {
+        var fileIndex =  files.push(file);
+        return fileIndex - 1;
+    }
+
+    function getFile(index) {
+        return files[index];
+    }
+
+    function purge() {
+        files = [];
+    }
+
+    // module exports
+    cornerstoneFileImageLoader.addFile = addFile;
+    cornerstoneFileImageLoader.getFile = getFile;
+    cornerstoneFileImageLoader.purge = purge;
+
+    return cornerstoneFileImageLoader;
+}(cornerstoneFileImageLoader));</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="server_index.module_js.html">server/index.js</a></li></ul><h3>Classes</h3><ul><li><a href="-_anonymous_-dicomParser.ByteStream.html">ByteStream</a></li><li><a href="-_anonymous_-dicomParser.DataSet.html">DataSet</a></li><li><a href="PDFJS.PageViewport.html">PageViewport</a></li></ul><h3>Global</h3><ul><li><a href="global.html#cornerstoneFileImageLoader">cornerstoneFileImageLoader</a></li><li><a href="global.html#cornerstoneMath">cornerstoneMath</a></li><li><a href="global.html#getStudyList">getStudyList</a></li><li><a href="global.html#requirejs">requirejs</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 12 2018 15:36:39 GMT+0100 (WEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

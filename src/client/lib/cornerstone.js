@@ -430,7 +430,7 @@ if(typeof cornerstone === 'undefined'){
             },
             invert : viewport.invert,
             pixelReplication: viewport.pixelReplication,
-            rotation: viewport.rotation, 
+            rotation: viewport.rotation,
             hflip: viewport.hflip,
             vflip: viewport.vflip
         };
@@ -1266,12 +1266,15 @@ if(typeof cornerstone === 'undefined'){
     "use strict";
 
     /**
-     * Converts a point in the pixel coordinate system to the canvas coordinate system
-     * system.  This can be used to render using canvas context without having the weird
-     * side effects that come from scaling and non square pixels
-     * @param element
-     * @param pt
-     * @returns {x: number, y: number}
+     * @desc Converts a point in the pixel coordinate system to the canvas
+     *       coordinate system system. This can be used to render using canvas
+     *       context without having the weird side effects that come from
+     *       scaling and non square pixels.
+     *
+     * @param {number} element - coordinate element number value
+     * @param {number} pt - point conversion number value
+     * @return {number} x - x coordinate of the pixel
+     * @return {return} y - y coordinate of the pixel
      */
     function pixelToCanvas(element, pt) {
         var enabledElement = cornerstone.getEnabledElement(element);
@@ -1285,7 +1288,8 @@ if(typeof cornerstone === 'undefined'){
 }(cornerstone));
 
 /**
- * This module is responsible for drawing an image to an enabled elements canvas element
+ * This module is responsible for drawing an image to an enabled elements
+ * canvas element.
  */
 
 (function (cornerstone) {
@@ -1337,7 +1341,7 @@ if(typeof cornerstone === 'undefined'){
             lastRenderedViewport.windowCenter !== enabledElement.viewport.voi.windowCenter ||
             lastRenderedViewport.windowWidth !== enabledElement.viewport.voi.windowWidth ||
             lastRenderedViewport.invert !== enabledElement.viewport.invert ||
-            lastRenderedViewport.rotation !== enabledElement.viewport.rotation ||  
+            lastRenderedViewport.rotation !== enabledElement.viewport.rotation ||
             lastRenderedViewport.hflip !== enabledElement.viewport.hflip ||
             lastRenderedViewport.vflip !== enabledElement.viewport.vflip
             )

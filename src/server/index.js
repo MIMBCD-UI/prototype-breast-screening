@@ -1,3 +1,15 @@
+/**
+ * @file The main file and entry point for the Breast Screening
+ *       Prototype repository.
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ * @exports server
+ *
+ * @desc Contains the server-side logic of our prototype. The server can
+ *       read and consume the `studyList.json` list of DICOM image studies
+ *       and the respective studies of each patient. At the end the server
+ *       is serving an end-point from a specific port.
+ */
+
 /* ================================================== */
 /** IMPORT Node Modules                               */
 /* ================================================== */
@@ -15,6 +27,12 @@ var fs = require('fs');
 /* ================================================== */
 
 var requests = require("./utils/requests");
+
+/**
+ *
+ */
+
+//var updateAll = require("./utils/npm-update-all");
 
 /* ================================================== */
 

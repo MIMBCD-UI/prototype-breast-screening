@@ -18,6 +18,8 @@
   },
   "scripts": {
     "test": "jest",
+    "jsdoc": "jsdoc -c jsdoc.conf.json",
+    "esdoc": "./node_modules/.bin/esdoc",
     "install": "cd src npm install",
     "dicom-server:local": "cd .. && cd dicom-server/ && npm run start:local",
     "build": "webpack -p &",
