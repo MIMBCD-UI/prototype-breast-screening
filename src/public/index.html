@@ -1,10 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+  <!-- =============================== -->
+  <!--           INFORMATION           -->
+  <!-- =============================== -->
+  <meta charset="UTF-8">
+  <meta name="description" content="The demo is developed under the MIMBCD-UI Project. The Project is hosted by ISR-Lisboa in collaboration with M-ITI and INESC-ID. Both ISR-Lisboa and M-ITI are interdisciplinary research laboratories from LARSyS. ISR-Lisboa and INESC-ID are associated laboratories of IST from ULisboa. The research is part of a protocol between ISR-Lisboa and Hospital Fernando Fonseca (HFF).">
+  <meta name="keywords" content="CornerstoneJS, WADO, DICOM, CADx, CADe">
+  <meta name="author" content="Francisco Maria Calisto">
+  <meta name="reply-to" content="francisco.calisto@tecnico.ulisboa.pt">
+  <meta name='url' content='http://www.breastscreening.io'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Support for mobile touch devices -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-
   <!-- FavIcons -->
   <link rel="shortcut icon" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-128.png" type="image/png">
   <link rel="icon" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-128.png" type="image/png">
@@ -27,27 +36,18 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-
   <!-- CSS -->
-
   <!-- Font awesome CSS for tool icons -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
   <!-- Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Cornerstone Demo CSS -->
   <link href="../client/css/style.css" rel="stylesheet">
-
   <!-- Hotjar Tracking Code -->
   <script src="../server/utils/hotjar.js" type="module"></script>
-
 </head>
-
 <body>
-
   <div id="wrap">
-
     <!-- Nav bar -->
     <nav class="myNav navbar navbar-default" role="navigation">
       <div class="container-fluid">
@@ -74,14 +74,11 @@
         </ul>
       </div>
     </nav>
-
     <div class='main'>
-
       <!-- Tabs bar -->
       <ul id="tabs" class="nav nav-tabs" >
         <li class="active"><a href="#studyList" data-toggle="tab">Study List</a></li>
       </ul>
-
       <!-- Tab content -->
       <div id="tabContent" class="tab-content">
         <!-- Study list -->
@@ -97,7 +94,6 @@
                   <th># Images</th>
                 </tr>
               </thead>
-
               <tbody id="studyListData">
                 <!-- Table rows get populated from the JSON studyList manifest -->
               </tbody>
@@ -105,54 +101,37 @@
           </div>
         </div>
       </div>
-
       <!-- Study viewer tab content template -->
   </div>
 </div>
-
-
 <!-- Javascripts -->
-
 <!-- Include JQuery -->
 <script src="../client/lib/jquery.min.js"></script>
-
 <!-- Include JQuery UI for drag/drop -->
 <script src="../client/lib/jquery-ui.min.js"></script>
-
 <!-- Include JQuery Hammerjs adapter for mobile touch-->
 <script src="../client/lib/hammer.min.js"></script>
-
 <!-- Include Bootstrap js -->
 <script src="../client/lib/bootstrap.min.js"></script>
-
 <!-- include the cornerstone library -->
 <script src="../client/lib/cornerstone.js"></script>
-
 <!-- include the cornerstone library -->
 <script src="../client/lib/cornerstoneMath.js"></script>
-
 <!-- include the cornerstone tools library -->
 <script src="../client/lib/cornerstoneTools.js"></script>
-
 <!-- include the cornerstoneWADOImageLoader library -->
 <script src="../client/lib/cornerstoneWADOImageLoader.js"></script>
-
 <!-- include the cornerstoneWebImageLoader library -->
 <script src="../client/lib/cornerstoneWebImageLoader.js"></script>
-
 <!-- include the cornerstoneFileImageLoader library -->
 <script src="../client/lib/cornerstoneFileImageLoader.js"></script>
-
 <!-- include the dicomParser library -->
 <script src="../client/lib/dicomParser.js"></script>
-
 <!-- =============================== -->
 <!-- include Source JavaScript files -->
 <!-- =============================== -->
-
 <!-- include Client viewports -->
 <script src="../client/viewport/setupViewport.js"></script>
-
 <script src="../client/tools/displayThumbnail.js"></script>
 <script src="../client/loaders/loadStudy.js"></script>
 <script src="../client/tools/setupButtons.js"></script>
@@ -166,36 +145,26 @@
 <script src="../client/loaders/loadList.js" type="module"></script>
 <script src="../client/index.js" type="module"></script>
 <script src="../client/main.js" type="module"></script>
-
 <!-- =============================== -->
 <!-- =============================== -->
 <!-- =============================== -->
-
 <!-- include Utils -->
 <script src="../server/utils/fetchImage.js"></script>
-
 <!-- include dependencies -->
 <script async="" src="https://cdn.rawgit.com/eligrey/Blob.js/0cef2746414269b16834878a8abc52eb9d53e6bd/Blob.js"/>
 <script async="" src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"/>
-
 <!-- include Other Tools -->
-
 <!-- Enable CORS -->
 <script src="../server/utils/cors.js" type="module"></script>
-
 <!-- =============================== -->
 <!--             Bundles             -->
 <!-- =============================== -->
-
 <!-- Server Bundle -->
 <!-- <script src="../dist/server.bundle.js" type="text/javascript"></script> -->
-
 <!-- Client Bundle -->
 <!-- <script src="../dist/client.bundle.js" type="text/javascript"></script> -->
-
 <!-- =============================== -->
 <!-- =============================== -->
 <!-- =============================== -->
-
 </body>
 </html>
