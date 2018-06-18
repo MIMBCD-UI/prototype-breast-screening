@@ -17,13 +17,17 @@ if(getConfigFileValue === 'local') {
   });
 } else if(getConfigFileValue === 'dev') {
   test('Port Value', () => {
-    expect(getPortValue).toBe('8080');
+    expect(getPortValue).toBe('8083');
+  });
+} else if(getConfigFileValue === 'internal') {
+  test('Port Value', () => {
+    expect(getPortValue).toBe('8085');
   });
 } else if(getConfigFileValue === 'integration') {
   test('Port Value', () => {
-    expect(getPortValue).toBe('8081');
+    expect(getPortValue).toBe('8084');
   });
-} else if(getConfigFileValue === 'internal') {
+} else if(getConfigFileValue === 'stage') {
   test('Port Value', () => {
     expect(getPortValue).toBe('8082');
   });
@@ -31,13 +35,9 @@ if(getConfigFileValue === 'local') {
   test('Port Value', () => {
     expect(getPortValue).toBe('8081');
   });
-} else if(getConfigFileValue === 'stage') {
-  test('Port Value', () => {
-    expect(getPortValue).toBe('8082');
-  });
 } else if(getConfigFileValue === 'prod') {
   test('Port Value', () => {
-    expect(getPortValue).toBe('8080');
+    expect(getPortValue).toBe('8088');
   });
 } else {
   console.log("ERROR: wrong environemnt");
