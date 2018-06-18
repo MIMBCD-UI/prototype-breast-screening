@@ -1153,7 +1153,472 @@ Patient = {
     
 
     
-    <h4 class="name" id="xdr"><span class="type-signature"></span>xdr<span class="signature">(url, method, data, callback, errback)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="studyViewerTemplate"><span class="type-signature">(static) </span>studyViewerTemplate<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Get study list from JSON manifest.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="client_index.js.html">client/index.js</a>, <a href="client_index.js.html#line47">line 47</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>data - The data object obtained from the
+                  <code>studyList.json</code> file.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="studyViewerTemplate"><span class="type-signature">(static) </span>studyViewerTemplate<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>From a Study Viewer Path it loads the template.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="client_index.js.html">client/index.js</a>, <a href="client_index.js.html#line33">line 33</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>element - The study viewer template element.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="updateAll"><span class="type-signature">(static) </span>updateAll<span class="signature">(json)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>This function uses the <code>npm-update-all</code> a NodeJS package from npm
+      that update all dependencies &amp; devDependencies in <code>package.json</code>
+      at once. <strong>Global</strong> installation is recommended for Cli usage.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>json</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The function receives the <code>package.json</code> that is
+                     a JSON file and updates all packages. At the end
+                     we will have the project updated. Still, be aware
+                     of possible issues regarding the package update.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="server_utils_npm-update-all.js.html">server/utils/npm-update-all.js</a>, <a href="server_utils_npm-update-all.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="viewportTemplate"><span class="type-signature">(static) </span>viewportTemplate<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>From a Viewport Path it loads the template.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="client_index.js.html">client/index.js</a>, <a href="client_index.js.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>element - The viewport template element.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="xdr"><span class="type-signature">(static) </span>xdr<span class="signature">(url, method, data, callback, errback)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1213,7 +1678,7 @@ Patient = {
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>The URL Link to the request.</p></td>
         </tr>
 
     
@@ -1236,7 +1701,7 @@ Patient = {
 
             
 
-            <td class="description last"><p>HTTP verb ('GET', 'POST', 'DELETE', etc.)</p></td>
+            <td class="description last"><p>HTTP verb ('GET', 'POST', 'DELETE', etc...).</p></td>
         </tr>
 
     
@@ -1259,7 +1724,7 @@ Patient = {
 
             
 
-            <td class="description last"><p>request body</p></td>
+            <td class="description last"><p>request body.</p></td>
         </tr>
 
     
@@ -1282,7 +1747,7 @@ Patient = {
 
             
 
-            <td class="description last"><p>to callback on completion</p></td>
+            <td class="description last"><p>to callback on completion.</p></td>
         </tr>
 
     
@@ -1305,7 +1770,7 @@ Patient = {
 
             
 
-            <td class="description last"><p>to callback on error</p></td>
+            <td class="description last"><p>to callback on error.</p></td>
         </tr>
 
     
@@ -1346,7 +1811,7 @@ Patient = {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="server_utils_cors.js.html">server/utils/cors.js</a>, <a href="server_utils_cors.js.html#line26">line 26</a>
+        <a href="server_utils_cors.js.html">server/utils/cors.js</a>, <a href="server_utils_cors.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -1564,13 +2029,13 @@ Patient = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="server_index.module_js.html">server/index.js</a></li><li><a href="server_utils_fetchImage.module_js.html">server/utils/fetchImage.js</a></li></ul><h3>Classes</h3><ul><li><a href="-_anonymous_-dicomParser.ByteStream.html">ByteStream</a></li><li><a href="-_anonymous_-dicomParser.DataSet.html">DataSet</a></li><li><a href="PDFJS.PageViewport.html">PageViewport</a></li></ul><h3>Global</h3><ul><li><a href="global.html#actualEnv">actualEnv</a></li><li><a href="global.html#cornerstoneFileImageLoader">cornerstoneFileImageLoader</a></li><li><a href="global.html#cornerstoneMath">cornerstoneMath</a></li><li><a href="global.html#displayThumbnail">displayThumbnail</a></li><li><a href="global.html#forEachViewport">forEachViewport</a></li><li><a href="global.html#getStudyList">getStudyList</a></li><li><a href="global.html#ImageViewer">ImageViewer</a></li><li><a href="global.html#loadTemplate">loadTemplate</a></li><li><a href="global.html#requirejs">requirejs</a></li><li><a href="global.html#setupViewport">setupViewport</a></li><li><a href="global.html#setupViewportOverlays">setupViewportOverlays</a></li><li><a href="global.html#studiesPath">studiesPath</a></li><li><a href="global.html#xdr">xdr</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="server_index.module_js.html">server/index.js</a></li><li><a href="server_utils_fetchImage.module_js.html">server/utils/fetchImage.js</a></li><li><a href="server_utils_requests.module_js.html">server/utils/requests.js</a></li></ul><h3>Classes</h3><ul><li><a href="-_anonymous_-dicomParser.ByteStream.html">ByteStream</a></li><li><a href="-_anonymous_-dicomParser.DataSet.html">DataSet</a></li><li><a href="PDFJS.PageViewport.html">PageViewport</a></li></ul><h3>Global</h3><ul><li><a href="global.html#actualEnv">actualEnv</a></li><li><a href="global.html#cornerstoneFileImageLoader">cornerstoneFileImageLoader</a></li><li><a href="global.html#cornerstoneMath">cornerstoneMath</a></li><li><a href="global.html#displayThumbnail">displayThumbnail</a></li><li><a href="global.html#forEachViewport">forEachViewport</a></li><li><a href="global.html#getStudyList">getStudyList</a></li><li><a href="global.html#ImageViewer">ImageViewer</a></li><li><a href="global.html#loadTemplate">loadTemplate</a></li><li><a href="global.html#requirejs">requirejs</a></li><li><a href="global.html#setupViewport">setupViewport</a></li><li><a href="global.html#setupViewportOverlays">setupViewportOverlays</a></li><li><a href="global.html#studiesPath">studiesPath</a></li><li><a href="global.html">studyViewerTemplate</a></li><li><a href="global.html">updateAll</a></li><li><a href="global.html">viewportTemplate</a></li><li><a href="global.html">xdr</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jun 18 2018 15:48:48 GMT+0100 (WEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Jun 18 2018 19:01:04 GMT+0100 (WEST)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -16,7 +16,9 @@
 /**
  *
  * Load JSON configuration data from the sercer using
- * GET HTTP request
+ * GET HTTP request. An export variable is therefore
+ * of chief importance to export the module over our
+ * server-side logic.
  *
  */
 /* ================================================== */
@@ -24,6 +26,10 @@
 var exports = module.exports = {};
 
 /**
+ * @function
+ * @name fetchImagePatients
+ * @static
+ *
  * @desc The function is programmatically making requests in
  *       the browser. This project is an implementation of a subset
  *       of the standard Fetch specification, enough to make fetch
@@ -35,9 +41,17 @@ var exports = module.exports = {};
  * @return {String} It fetch the DICOM Link URL list of patients.
  */
 
-exports.fetchImagePatients = function(urlLinkDicomValue) {
+fetchImagePatients = function(urlLinkDicomValue) {
   fetch(urlLinkDicomValue + '/patients')
   .then(data => data.json())
 }
+
+/* ================================================== */
+/** Module Exports                                    */
+/* ================================================== */
+
+exports.fetchImagePatients = fetchImagePatients;
+
+/* ================================================== */
 
 console.log('Fetch Image Patients: OK');

@@ -14,11 +14,15 @@ var updateAll = require('npm-update-all');
 var json = require('./../../../package.json');
 
 /**
+ * @function
+ * @name updateAll
+ * @static
+ *
  * @desc This function uses the `npm-update-all` a NodeJS package from npm
  *       that update all dependencies & devDependencies in `package.json`
  *       at once. **Global** installation is recommended for Cli usage.
  *
- * @param {String} json The function receives the `package.json` that is
+ * @param {string} json The function receives the `package.json` that is
  *                      a JSON file and updates all packages. At the end
  *                      we will have the project updated. Still, be aware
  *                      of possible issues regarding the package update.

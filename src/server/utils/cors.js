@@ -14,15 +14,18 @@
  */
 
 /**
- * Make a X-Domain request to url and callback.
+ * @function
+ * @name xdr
+ * @static
  *
- * @param url {String}
- * @param method {String} HTTP verb ('GET', 'POST', 'DELETE', etc.)
- * @param data {String} request body
- * @param callback {Function} to callback on completion
- * @param errback {Function} to callback on error
+ * @desc Make a X-Domain request to url and callback.
+ *
+ * @param url {String} The URL Link to the request.
+ * @param method {String} HTTP verb ('GET', 'POST', 'DELETE', etc...).
+ * @param data {String} request body.
+ * @param callback {Function} to callback on completion.
+ * @param errback {Function} to callback on error.
  */
-
 function xdr(url, method, data, callback, errback) {
   var req;
 

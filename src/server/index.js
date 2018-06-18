@@ -3,11 +3,6 @@
  *       Prototype repository.
  * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
  * @exports server
- *
- * @desc Contains the server-side logic of our prototype. The server can
- *       read and consume the `studyList.json` list of DICOM image studies
- *       and the respective studies of each patient. At the end the server
- *       is serving an end-point from a specific port.
  */
 
 /* ================================================== */
@@ -97,22 +92,17 @@ var urlLinkDicomValue = requests.getUrlLinkDicomValue();
 /* ================================================== */
 /* ================================================== */
 
-
-/* ================================================== */
 /**
+ * @function
+ * @name saveFileHandler
+ * @static
  *
- * CORS Configuration
+ * @desc This function aims to receive a `data` from a
+ *       `path` to be parsed in.
  *
+ * @param {string} path The path to the file.
+ * @param {Object} data The data for being parsed.
  */
-/* ================================================== */
-
-
-
-/* ================================================== */
-/* ================================================== */
-/* ================================================== */
-
-
 var saveFileHandler = function(path, data) {
   var fileData = JSON.parse(data);
   fs.writeFile(datasetFilePath + path, JSON.stringify(fileData, null, 4), function(err) {
@@ -124,6 +114,16 @@ var saveFileHandler = function(path, data) {
   });
 };
 
+/**
+ * @function
+ * @name updateStudiesHandler
+ * @static
+ *
+ * @desc This function aims to receive a `patientData` to update the
+ *       several studies by the use of a handler.
+ *
+ * @param {Object} patientData The patient data for being parsed.
+ */
 var updateStudiesHandler = function(patientData) {
   var studyList = JSON.parse(patientData)
   fs.writeFile(studyListPath, JSON.stringify(studyList, null, 4), function(err) {
@@ -135,6 +135,16 @@ var updateStudiesHandler = function(patientData) {
   });
 };
 
+/**
+ * @function
+ * @name updateStudiesFileHandler
+ * @static
+ *
+ * @desc This function aims to receive a `fileData` to update the
+ *       several studies file.
+ *
+ * @param {Object} fileData The file data for being parsed.
+ */
 var updateStudiesFileHandler = function(fileData) {
   var objectData = JSON.parse(fileData);
   console.log(objectData.file.length);
@@ -149,6 +159,18 @@ var updateStudiesFileHandler = function(fileData) {
   }
 };
 
+/**
+ * @function
+ * @global
+ *
+ * @desc Contains the server-side logic of our prototype. The server can
+ *       read and consume the `studyList.json` list of DICOM image studies
+ *       and the respective studies of each patient. At the end the server
+ *       is serving an end-point from a specific port.
+ *
+ * @param {Object} request The server request over patients information.
+ * @param {Object} response The answer of the server.
+ */
 http.createServer(function(request, response) {
 
   if (request.url == 'SaveFile' || request.url == '/SaveFile' || request.url == './SaveFile') {
