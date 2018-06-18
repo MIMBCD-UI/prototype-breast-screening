@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 function displayThumbnail(seriesList, seriesElement, element, stack, loaded) {
   // Deactivate other thumbnails
   $(seriesList).find('a').each(function() {

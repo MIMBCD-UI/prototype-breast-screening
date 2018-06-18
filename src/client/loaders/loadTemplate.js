@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 function loadTemplate(url, callback) {
   $.get(url, function(data) {
     var parsed = $.parseHTML(data);

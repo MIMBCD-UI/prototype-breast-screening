@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 // File Management
 var fileFormat = '.json';
 var pathToSave = '../../dataset/';

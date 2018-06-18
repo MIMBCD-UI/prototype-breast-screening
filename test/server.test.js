@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 var server = require('../src/server/index.js');
 var requests = require("../src/server/utils/requests");
 

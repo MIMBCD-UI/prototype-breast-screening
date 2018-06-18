@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 // Disable all tools
 function disableAllTools() {
   forEachViewport(function(element) {

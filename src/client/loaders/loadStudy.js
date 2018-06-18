@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 var studiesPath = '/src/common/studies/';
 
 /* ================================================== */

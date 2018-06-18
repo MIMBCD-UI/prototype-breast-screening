@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 // Load in HTML templates
 var viewportPath = "../public/templates/viewport.html";
 var studyViewerPath = "../public/templates/studyViewer.html";

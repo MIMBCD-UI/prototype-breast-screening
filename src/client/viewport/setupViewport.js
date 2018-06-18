@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 function setupViewport(element, stack, image) {
   // Display the image on the viewer element
   cornerstone.displayImage(element, image);

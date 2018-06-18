@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 function fetchImagePatients() {
   fetch('http://localhost:8042/patients')
   .then(data => data.json())

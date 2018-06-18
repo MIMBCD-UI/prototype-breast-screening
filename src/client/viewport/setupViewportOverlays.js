@@ -1,3 +1,7 @@
+/**
+ * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 function setupViewportOverlays(element, data) {
   var parent = $(element).parent();
 
