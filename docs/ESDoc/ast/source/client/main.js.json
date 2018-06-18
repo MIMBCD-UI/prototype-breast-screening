@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 81,
+  "end": 164,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 6,
+      "line": 10,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 81,
+    "end": 164,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 6,
+        "line": 10,
         "column": 0
       }
     },
@@ -30,80 +30,82 @@
     "body": [
       {
         "type": "VariableDeclaration",
-        "start": 0,
-        "end": 44,
+        "start": 83,
+        "end": 127,
         "loc": {
           "start": {
-            "line": 1,
+            "line": 5,
             "column": 0
           },
           "end": {
-            "line": 3,
+            "line": 7,
             "column": 1
           }
         },
         "declarations": [
           {
             "type": "VariableDeclarator",
-            "start": 6,
-            "end": 44,
+            "start": 89,
+            "end": 127,
             "loc": {
               "start": {
-                "line": 1,
+                "line": 5,
                 "column": 6
               },
               "end": {
-                "line": 3,
+                "line": 7,
                 "column": 1
               }
             },
             "id": {
               "type": "Identifier",
-              "start": 6,
-              "end": 15,
+              "start": 89,
+              "end": 98,
               "loc": {
                 "start": {
-                  "line": 1,
+                  "line": 5,
                   "column": 6
                 },
                 "end": {
-                  "line": 1,
+                  "line": 5,
                   "column": 15
                 },
                 "identifierName": "actualEnv"
               },
-              "name": "actualEnv"
+              "name": "actualEnv",
+              "leadingComments": null
             },
             "init": {
               "type": "ArrowFunctionExpression",
-              "start": 18,
-              "end": 44,
+              "start": 101,
+              "end": 127,
               "loc": {
                 "start": {
-                  "line": 1,
+                  "line": 5,
                   "column": 18
                 },
                 "end": {
-                  "line": 3,
+                  "line": 7,
                   "column": 1
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 6,
-                "end": 15,
+                "start": 89,
+                "end": 98,
                 "loc": {
                   "start": {
-                    "line": 1,
+                    "line": 5,
                     "column": 6
                   },
                   "end": {
-                    "line": 1,
+                    "line": 5,
                     "column": 15
                   },
                   "identifierName": "actualEnv"
                 },
-                "name": "actualEnv"
+                "name": "actualEnv",
+                "leadingComments": null
               },
               "generator": false,
               "expression": false,
@@ -111,15 +113,15 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 19,
-                  "end": 22,
+                  "start": 102,
+                  "end": 105,
                   "loc": {
                     "start": {
-                      "line": 1,
+                      "line": 5,
                       "column": 19
                     },
                     "end": {
-                      "line": 1,
+                      "line": 5,
                       "column": 22
                     },
                     "identifierName": "env"
@@ -129,44 +131,44 @@
               ],
               "body": {
                 "type": "BlockStatement",
-                "start": 27,
-                "end": 44,
+                "start": 110,
+                "end": 127,
                 "loc": {
                   "start": {
-                    "line": 1,
+                    "line": 5,
                     "column": 27
                   },
                   "end": {
-                    "line": 3,
+                    "line": 7,
                     "column": 1
                   }
                 },
                 "body": [
                   {
                     "type": "ReturnStatement",
-                    "start": 31,
-                    "end": 42,
+                    "start": 114,
+                    "end": 125,
                     "loc": {
                       "start": {
-                        "line": 2,
+                        "line": 6,
                         "column": 2
                       },
                       "end": {
-                        "line": 2,
+                        "line": 6,
                         "column": 13
                       }
                     },
                     "argument": {
                       "type": "Identifier",
-                      "start": 38,
-                      "end": 41,
+                      "start": 121,
+                      "end": 124,
                       "loc": {
                         "start": {
-                          "line": 2,
+                          "line": 6,
                           "column": 9
                         },
                         "end": {
-                          "line": 2,
+                          "line": 6,
                           "column": 12
                         },
                         "identifierName": "env"
@@ -177,64 +179,83 @@
                 ],
                 "directives": []
               }
-            }
+            },
+            "leadingComments": null
           }
         ],
-        "kind": "const"
+        "kind": "const",
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>\n ",
+            "start": 0,
+            "end": 81,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 3,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExpressionStatement",
-        "start": 46,
-        "end": 80,
+        "start": 129,
+        "end": 163,
         "loc": {
           "start": {
-            "line": 5,
+            "line": 9,
             "column": 0
           },
           "end": {
-            "line": 5,
+            "line": 9,
             "column": 34
           }
         },
         "expression": {
           "type": "CallExpression",
-          "start": 46,
-          "end": 79,
+          "start": 129,
+          "end": 162,
           "loc": {
             "start": {
-              "line": 5,
+              "line": 9,
               "column": 0
             },
             "end": {
-              "line": 5,
+              "line": 9,
               "column": 33
             }
           },
           "callee": {
             "type": "MemberExpression",
-            "start": 46,
-            "end": 57,
+            "start": 129,
+            "end": 140,
             "loc": {
               "start": {
-                "line": 5,
+                "line": 9,
                 "column": 0
               },
               "end": {
-                "line": 5,
+                "line": 9,
                 "column": 11
               }
             },
             "object": {
               "type": "Identifier",
-              "start": 46,
-              "end": 53,
+              "start": 129,
+              "end": 136,
               "loc": {
                 "start": {
-                  "line": 5,
+                  "line": 9,
                   "column": 0
                 },
                 "end": {
-                  "line": 5,
+                  "line": 9,
                   "column": 7
                 },
                 "identifierName": "console"
@@ -243,15 +264,15 @@
             },
             "property": {
               "type": "Identifier",
-              "start": 54,
-              "end": 57,
+              "start": 137,
+              "end": 140,
               "loc": {
                 "start": {
-                  "line": 5,
+                  "line": 9,
                   "column": 8
                 },
                 "end": {
-                  "line": 5,
+                  "line": 9,
                   "column": 11
                 },
                 "identifierName": "log"
@@ -263,15 +284,15 @@
           "arguments": [
             {
               "type": "StringLiteral",
-              "start": 58,
-              "end": 78,
+              "start": 141,
+              "end": 161,
               "loc": {
                 "start": {
-                  "line": 5,
+                  "line": 9,
                   "column": 12
                 },
                 "end": {
-                  "line": 5,
+                  "line": 9,
                   "column": 32
                 }
               },
@@ -287,8 +308,41 @@
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>\n ",
+      "start": 0,
+      "end": 81,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 3
+        }
+      }
+    }
+  ],
   "tokens": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>\n ",
+      "start": 0,
+      "end": 81,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 3
+        }
+      }
+    },
     {
       "type": {
         "label": "const",
@@ -304,15 +358,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 0,
-      "end": 5,
+      "start": 83,
+      "end": 88,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 0
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 5
         }
       }
@@ -330,15 +384,15 @@
         "binop": null
       },
       "value": "actualEnv",
-      "start": 6,
-      "end": 15,
+      "start": 89,
+      "end": 98,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 6
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 15
         }
       }
@@ -357,15 +411,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 16,
-      "end": 17,
+      "start": 99,
+      "end": 100,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 16
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 17
         }
       }
@@ -382,15 +436,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 18,
-      "end": 19,
+      "start": 101,
+      "end": 102,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 18
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 19
         }
       }
@@ -408,15 +462,15 @@
         "binop": null
       },
       "value": "env",
-      "start": 19,
-      "end": 22,
+      "start": 102,
+      "end": 105,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 19
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 22
         }
       }
@@ -433,15 +487,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 22,
-      "end": 23,
+      "start": 105,
+      "end": 106,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 22
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 23
         }
       }
@@ -459,15 +513,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 24,
-      "end": 26,
+      "start": 107,
+      "end": 109,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 24
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 26
         }
       }
@@ -484,15 +538,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 27,
-      "end": 28,
+      "start": 110,
+      "end": 111,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 27
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 28
         }
       }
@@ -512,15 +566,15 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 31,
-      "end": 37,
+      "start": 114,
+      "end": 120,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 6,
           "column": 2
         },
         "end": {
-          "line": 2,
+          "line": 6,
           "column": 8
         }
       }
@@ -538,15 +592,15 @@
         "binop": null
       },
       "value": "env",
-      "start": 38,
-      "end": 41,
+      "start": 121,
+      "end": 124,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 6,
           "column": 9
         },
         "end": {
-          "line": 2,
+          "line": 6,
           "column": 12
         }
       }
@@ -564,15 +618,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 41,
-      "end": 42,
+      "start": 124,
+      "end": 125,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 6,
           "column": 12
         },
         "end": {
-          "line": 2,
+          "line": 6,
           "column": 13
         }
       }
@@ -589,15 +643,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 43,
-      "end": 44,
+      "start": 126,
+      "end": 127,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 7,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 7,
           "column": 1
         }
       }
@@ -615,15 +669,15 @@
         "binop": null
       },
       "value": "console",
-      "start": 46,
-      "end": 53,
+      "start": 129,
+      "end": 136,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 9,
           "column": 7
         }
       }
@@ -641,15 +695,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 53,
-      "end": 54,
+      "start": 136,
+      "end": 137,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 9,
           "column": 7
         },
         "end": {
-          "line": 5,
+          "line": 9,
           "column": 8
         }
       }
@@ -667,15 +721,15 @@
         "binop": null
       },
       "value": "log",
-      "start": 54,
-      "end": 57,
+      "start": 137,
+      "end": 140,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 9,
           "column": 8
         },
         "end": {
-          "line": 5,
+          "line": 9,
           "column": 11
         }
       }
@@ -692,15 +746,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 57,
-      "end": 58,
+      "start": 140,
+      "end": 141,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 9,
           "column": 11
         },
         "end": {
-          "line": 5,
+          "line": 9,
           "column": 12
         }
       }
@@ -719,15 +773,15 @@
         "updateContext": null
       },
       "value": "Configurations: OK",
-      "start": 58,
-      "end": 78,
+      "start": 141,
+      "end": 161,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 9,
           "column": 12
         },
         "end": {
-          "line": 5,
+          "line": 9,
           "column": 32
         }
       }
@@ -744,15 +798,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 78,
-      "end": 79,
+      "start": 161,
+      "end": 162,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 9,
           "column": 32
         },
         "end": {
-          "line": 5,
+          "line": 9,
           "column": 33
         }
       }
@@ -770,15 +824,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 79,
-      "end": 80,
+      "start": 162,
+      "end": 163,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 9,
           "column": 33
         },
         "end": {
-          "line": 5,
+          "line": 9,
           "column": 34
         }
       }
@@ -796,15 +850,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 81,
-      "end": 81,
+      "start": 164,
+      "end": 164,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 10,
           "column": 0
         },
         "end": {
-          "line": 6,
+          "line": 10,
           "column": 0
         }
       }

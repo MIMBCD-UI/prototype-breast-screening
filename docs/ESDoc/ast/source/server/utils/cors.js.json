@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 970,
+  "end": 1635,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 33,
+      "line": 47,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 970,
+    "end": 1635,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 33,
+        "line": 47,
         "column": 0
       }
     },
@@ -30,57 +30,57 @@
     "body": [
       {
         "type": "ExpressionStatement",
-        "start": 941,
-        "end": 969,
+        "start": 1606,
+        "end": 1634,
         "loc": {
           "start": {
-            "line": 32,
+            "line": 46,
             "column": 0
           },
           "end": {
-            "line": 32,
+            "line": 46,
             "column": 28
           }
         },
         "expression": {
           "type": "CallExpression",
-          "start": 941,
-          "end": 968,
+          "start": 1606,
+          "end": 1633,
           "loc": {
             "start": {
-              "line": 32,
+              "line": 46,
               "column": 0
             },
             "end": {
-              "line": 32,
+              "line": 46,
               "column": 27
             }
           },
           "callee": {
             "type": "MemberExpression",
-            "start": 941,
-            "end": 952,
+            "start": 1606,
+            "end": 1617,
             "loc": {
               "start": {
-                "line": 32,
+                "line": 46,
                 "column": 0
               },
               "end": {
-                "line": 32,
+                "line": 46,
                 "column": 11
               }
             },
             "object": {
               "type": "Identifier",
-              "start": 941,
-              "end": 948,
+              "start": 1606,
+              "end": 1613,
               "loc": {
                 "start": {
-                  "line": 32,
+                  "line": 46,
                   "column": 0
                 },
                 "end": {
-                  "line": 32,
+                  "line": 46,
                   "column": 7
                 },
                 "identifierName": "console"
@@ -90,15 +90,15 @@
             },
             "property": {
               "type": "Identifier",
-              "start": 949,
-              "end": 952,
+              "start": 1614,
+              "end": 1617,
               "loc": {
                 "start": {
-                  "line": 32,
+                  "line": 46,
                   "column": 8
                 },
                 "end": {
-                  "line": 32,
+                  "line": 46,
                   "column": 11
                 },
                 "identifierName": "log"
@@ -111,15 +111,15 @@
           "arguments": [
             {
               "type": "StringLiteral",
-              "start": 953,
-              "end": 967,
+              "start": 1618,
+              "end": 1632,
               "loc": {
                 "start": {
-                  "line": 32,
+                  "line": 46,
                   "column": 12
                 },
                 "end": {
-                  "line": 32,
+                  "line": 46,
                   "column": 26
                 }
               },
@@ -135,112 +135,16 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": " ================================================== ",
+            "value": "*\n * @file CORS is a package providing us a middleware that can be used\n *       to enable CORS with various options.\n * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>\n *\n * @desc Cross-Origin Resource Sharing (CORS) is a mechanism that uses\n *       additional HTTP headers to tell a browser to let a web application\n *       running at one origin (domain) have permission to access selected\n *       resources from a server at a different origin. A web application\n *       makes a cross-origin HTTP request when it requests a resource that\n *       has a different origin (domain, protocol, and port) than its\n *       own origin.\n ",
             "start": 0,
-            "end": 56,
+            "end": 663,
             "loc": {
               "start": {
                 "line": 1,
                 "column": 0
               },
               "end": {
-                "line": 1,
-                "column": 56
-              }
-            }
-          },
-          {
-            "type": "CommentBlock",
-            "value": "* IMPORT Utils                                      ",
-            "start": 57,
-            "end": 113,
-            "loc": {
-              "start": {
-                "line": 2,
-                "column": 0
-              },
-              "end": {
-                "line": 2,
-                "column": 56
-              }
-            }
-          },
-          {
-            "type": "CommentBlock",
-            "value": " ================================================== ",
-            "start": 114,
-            "end": 170,
-            "loc": {
-              "start": {
-                "line": 3,
-                "column": 0
-              },
-              "end": {
-                "line": 3,
-                "column": 56
-              }
-            }
-          },
-          {
-            "type": "CommentLine",
-            "value": " var requests = require(\"./requests\");",
-            "start": 172,
-            "end": 212,
-            "loc": {
-              "start": {
-                "line": 5,
-                "column": 0
-              },
-              "end": {
-                "line": 5,
-                "column": 40
-              }
-            }
-          },
-          {
-            "type": "CommentBlock",
-            "value": " ================================================== ",
-            "start": 214,
-            "end": 270,
-            "loc": {
-              "start": {
-                "line": 7,
-                "column": 0
-              },
-              "end": {
-                "line": 7,
-                "column": 56
-              }
-            }
-          },
-          {
-            "type": "CommentBlock",
-            "value": " ================================================== ",
-            "start": 272,
-            "end": 328,
-            "loc": {
-              "start": {
-                "line": 9,
-                "column": 0
-              },
-              "end": {
-                "line": 9,
-                "column": 56
-              }
-            }
-          },
-          {
-            "type": "CommentBlock",
-            "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
-            "start": 329,
-            "end": 416,
-            "loc": {
-              "start": {
-                "line": 10,
-                "column": 0
-              },
-              "end": {
-                "line": 15,
+                "line": 13,
                 "column": 3
               }
             }
@@ -248,8 +152,24 @@
           {
             "type": "CommentBlock",
             "value": " ================================================== ",
-            "start": 417,
-            "end": 473,
+            "start": 665,
+            "end": 721,
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 56
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "* IMPORT Utils                                      ",
+            "start": 722,
+            "end": 778,
             "loc": {
               "start": {
                 "line": 16,
@@ -264,24 +184,24 @@
           {
             "type": "CommentBlock",
             "value": " ================================================== ",
-            "start": 475,
-            "end": 531,
+            "start": 779,
+            "end": 835,
             "loc": {
               "start": {
-                "line": 18,
+                "line": 17,
                 "column": 0
               },
               "end": {
-                "line": 18,
+                "line": 17,
                 "column": 56
               }
             }
           },
           {
-            "type": "CommentBlock",
-            "value": " ================================================== ",
-            "start": 532,
-            "end": 588,
+            "type": "CommentLine",
+            "value": " var requests = require(\"./requests\");",
+            "start": 837,
+            "end": 877,
             "loc": {
               "start": {
                 "line": 19,
@@ -289,6 +209,22 @@
               },
               "end": {
                 "line": 19,
+                "column": 40
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": " ================================================== ",
+            "start": 879,
+            "end": 935,
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 0
+              },
+              "end": {
+                "line": 21,
                 "column": 56
               }
             }
@@ -296,15 +232,95 @@
           {
             "type": "CommentBlock",
             "value": " ================================================== ",
-            "start": 589,
-            "end": 645,
+            "start": 937,
+            "end": 993,
             "loc": {
               "start": {
-                "line": 20,
+                "line": 23,
                 "column": 0
               },
               "end": {
-                "line": 20,
+                "line": 23,
+                "column": 56
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
+            "start": 994,
+            "end": 1081,
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 0
+              },
+              "end": {
+                "line": 29,
+                "column": 3
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": " ================================================== ",
+            "start": 1082,
+            "end": 1138,
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 0
+              },
+              "end": {
+                "line": 30,
+                "column": 56
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": " ================================================== ",
+            "start": 1140,
+            "end": 1196,
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 0
+              },
+              "end": {
+                "line": 32,
+                "column": 56
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": " ================================================== ",
+            "start": 1197,
+            "end": 1253,
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 0
+              },
+              "end": {
+                "line": 33,
+                "column": 56
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": " ================================================== ",
+            "start": 1254,
+            "end": 1310,
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 0
+              },
+              "end": {
+                "line": 34,
                 "column": 56
               }
             }
@@ -312,15 +328,15 @@
           {
             "type": "CommentBlock",
             "value": "*\n * Make a X-Domain request to url and callback.\n *\n * @param url {String}\n * @param method {String} HTTP verb ('GET', 'POST', 'DELETE', etc.)\n * @param data {String} request body\n * @param callback {Function} to callback on completion\n * @param errback {Function} to callback on error\n ",
-            "start": 647,
-            "end": 939,
+            "start": 1312,
+            "end": 1604,
             "loc": {
               "start": {
-                "line": 22,
+                "line": 36,
                 "column": 0
               },
               "end": {
-                "line": 30,
+                "line": 44,
                 "column": 3
               }
             }
@@ -333,112 +349,16 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": " ================================================== ",
+      "value": "*\n * @file CORS is a package providing us a middleware that can be used\n *       to enable CORS with various options.\n * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>\n *\n * @desc Cross-Origin Resource Sharing (CORS) is a mechanism that uses\n *       additional HTTP headers to tell a browser to let a web application\n *       running at one origin (domain) have permission to access selected\n *       resources from a server at a different origin. A web application\n *       makes a cross-origin HTTP request when it requests a resource that\n *       has a different origin (domain, protocol, and port) than its\n *       own origin.\n ",
       "start": 0,
-      "end": 56,
+      "end": 663,
       "loc": {
         "start": {
           "line": 1,
           "column": 0
         },
         "end": {
-          "line": 1,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "* IMPORT Utils                                      ",
-      "start": 57,
-      "end": 113,
-      "loc": {
-        "start": {
-          "line": 2,
-          "column": 0
-        },
-        "end": {
-          "line": 2,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": " ================================================== ",
-      "start": 114,
-      "end": 170,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 0
-        },
-        "end": {
-          "line": 3,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": " var requests = require(\"./requests\");",
-      "start": 172,
-      "end": 212,
-      "loc": {
-        "start": {
-          "line": 5,
-          "column": 0
-        },
-        "end": {
-          "line": 5,
-          "column": 40
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": " ================================================== ",
-      "start": 214,
-      "end": 270,
-      "loc": {
-        "start": {
-          "line": 7,
-          "column": 0
-        },
-        "end": {
-          "line": 7,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": " ================================================== ",
-      "start": 272,
-      "end": 328,
-      "loc": {
-        "start": {
-          "line": 9,
-          "column": 0
-        },
-        "end": {
-          "line": 9,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
-      "start": 329,
-      "end": 416,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 0
-        },
-        "end": {
-          "line": 15,
+          "line": 13,
           "column": 3
         }
       }
@@ -446,8 +366,24 @@
     {
       "type": "CommentBlock",
       "value": " ================================================== ",
-      "start": 417,
-      "end": 473,
+      "start": 665,
+      "end": 721,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* IMPORT Utils                                      ",
+      "start": 722,
+      "end": 778,
       "loc": {
         "start": {
           "line": 16,
@@ -462,24 +398,24 @@
     {
       "type": "CommentBlock",
       "value": " ================================================== ",
-      "start": 475,
-      "end": 531,
+      "start": 779,
+      "end": 835,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 18,
+          "line": 17,
           "column": 56
         }
       }
     },
     {
-      "type": "CommentBlock",
-      "value": " ================================================== ",
-      "start": 532,
-      "end": 588,
+      "type": "CommentLine",
+      "value": " var requests = require(\"./requests\");",
+      "start": 837,
+      "end": 877,
       "loc": {
         "start": {
           "line": 19,
@@ -487,6 +423,22 @@
         },
         "end": {
           "line": 19,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 879,
+      "end": 935,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
           "column": 56
         }
       }
@@ -494,15 +446,95 @@
     {
       "type": "CommentBlock",
       "value": " ================================================== ",
-      "start": 589,
-      "end": 645,
+      "start": 937,
+      "end": 993,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 23,
           "column": 0
         },
         "end": {
-          "line": 20,
+          "line": 23,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
+      "start": 994,
+      "end": 1081,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 1082,
+      "end": 1138,
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 1140,
+      "end": 1196,
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 0
+        },
+        "end": {
+          "line": 32,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 1197,
+      "end": 1253,
+      "loc": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 33,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 1254,
+      "end": 1310,
+      "loc": {
+        "start": {
+          "line": 34,
+          "column": 0
+        },
+        "end": {
+          "line": 34,
           "column": 56
         }
       }
@@ -510,15 +542,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n * Make a X-Domain request to url and callback.\n *\n * @param url {String}\n * @param method {String} HTTP verb ('GET', 'POST', 'DELETE', etc.)\n * @param data {String} request body\n * @param callback {Function} to callback on completion\n * @param errback {Function} to callback on error\n ",
-      "start": 647,
-      "end": 939,
+      "start": 1312,
+      "end": 1604,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 36,
           "column": 0
         },
         "end": {
-          "line": 30,
+          "line": 44,
           "column": 3
         }
       }
@@ -527,112 +559,16 @@
   "tokens": [
     {
       "type": "CommentBlock",
-      "value": " ================================================== ",
+      "value": "*\n * @file CORS is a package providing us a middleware that can be used\n *       to enable CORS with various options.\n * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>\n *\n * @desc Cross-Origin Resource Sharing (CORS) is a mechanism that uses\n *       additional HTTP headers to tell a browser to let a web application\n *       running at one origin (domain) have permission to access selected\n *       resources from a server at a different origin. A web application\n *       makes a cross-origin HTTP request when it requests a resource that\n *       has a different origin (domain, protocol, and port) than its\n *       own origin.\n ",
       "start": 0,
-      "end": 56,
+      "end": 663,
       "loc": {
         "start": {
           "line": 1,
           "column": 0
         },
         "end": {
-          "line": 1,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "* IMPORT Utils                                      ",
-      "start": 57,
-      "end": 113,
-      "loc": {
-        "start": {
-          "line": 2,
-          "column": 0
-        },
-        "end": {
-          "line": 2,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": " ================================================== ",
-      "start": 114,
-      "end": 170,
-      "loc": {
-        "start": {
-          "line": 3,
-          "column": 0
-        },
-        "end": {
-          "line": 3,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentLine",
-      "value": " var requests = require(\"./requests\");",
-      "start": 172,
-      "end": 212,
-      "loc": {
-        "start": {
-          "line": 5,
-          "column": 0
-        },
-        "end": {
-          "line": 5,
-          "column": 40
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": " ================================================== ",
-      "start": 214,
-      "end": 270,
-      "loc": {
-        "start": {
-          "line": 7,
-          "column": 0
-        },
-        "end": {
-          "line": 7,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": " ================================================== ",
-      "start": 272,
-      "end": 328,
-      "loc": {
-        "start": {
-          "line": 9,
-          "column": 0
-        },
-        "end": {
-          "line": 9,
-          "column": 56
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
-      "start": 329,
-      "end": 416,
-      "loc": {
-        "start": {
-          "line": 10,
-          "column": 0
-        },
-        "end": {
-          "line": 15,
+          "line": 13,
           "column": 3
         }
       }
@@ -640,8 +576,24 @@
     {
       "type": "CommentBlock",
       "value": " ================================================== ",
-      "start": 417,
-      "end": 473,
+      "start": 665,
+      "end": 721,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "* IMPORT Utils                                      ",
+      "start": 722,
+      "end": 778,
       "loc": {
         "start": {
           "line": 16,
@@ -656,24 +608,24 @@
     {
       "type": "CommentBlock",
       "value": " ================================================== ",
-      "start": 475,
-      "end": 531,
+      "start": 779,
+      "end": 835,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 18,
+          "line": 17,
           "column": 56
         }
       }
     },
     {
-      "type": "CommentBlock",
-      "value": " ================================================== ",
-      "start": 532,
-      "end": 588,
+      "type": "CommentLine",
+      "value": " var requests = require(\"./requests\");",
+      "start": 837,
+      "end": 877,
       "loc": {
         "start": {
           "line": 19,
@@ -681,6 +633,22 @@
         },
         "end": {
           "line": 19,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 879,
+      "end": 935,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
           "column": 56
         }
       }
@@ -688,15 +656,95 @@
     {
       "type": "CommentBlock",
       "value": " ================================================== ",
-      "start": 589,
-      "end": 645,
+      "start": 937,
+      "end": 993,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 23,
           "column": 0
         },
         "end": {
-          "line": 20,
+          "line": 23,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
+      "start": 994,
+      "end": 1081,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 1082,
+      "end": 1138,
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 1140,
+      "end": 1196,
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 0
+        },
+        "end": {
+          "line": 32,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 1197,
+      "end": 1253,
+      "loc": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 33,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 1254,
+      "end": 1310,
+      "loc": {
+        "start": {
+          "line": 34,
+          "column": 0
+        },
+        "end": {
+          "line": 34,
           "column": 56
         }
       }
@@ -704,15 +752,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n * Make a X-Domain request to url and callback.\n *\n * @param url {String}\n * @param method {String} HTTP verb ('GET', 'POST', 'DELETE', etc.)\n * @param data {String} request body\n * @param callback {Function} to callback on completion\n * @param errback {Function} to callback on error\n ",
-      "start": 647,
-      "end": 939,
+      "start": 1312,
+      "end": 1604,
       "loc": {
         "start": {
-          "line": 22,
+          "line": 36,
           "column": 0
         },
         "end": {
-          "line": 30,
+          "line": 44,
           "column": 3
         }
       }
@@ -730,15 +778,15 @@
         "binop": null
       },
       "value": "console",
-      "start": 941,
-      "end": 948,
+      "start": 1606,
+      "end": 1613,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 46,
           "column": 0
         },
         "end": {
-          "line": 32,
+          "line": 46,
           "column": 7
         }
       }
@@ -756,15 +804,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 948,
-      "end": 949,
+      "start": 1613,
+      "end": 1614,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 46,
           "column": 7
         },
         "end": {
-          "line": 32,
+          "line": 46,
           "column": 8
         }
       }
@@ -782,15 +830,15 @@
         "binop": null
       },
       "value": "log",
-      "start": 949,
-      "end": 952,
+      "start": 1614,
+      "end": 1617,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 46,
           "column": 8
         },
         "end": {
-          "line": 32,
+          "line": 46,
           "column": 11
         }
       }
@@ -807,15 +855,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 952,
-      "end": 953,
+      "start": 1617,
+      "end": 1618,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 46,
           "column": 11
         },
         "end": {
-          "line": 32,
+          "line": 46,
           "column": 12
         }
       }
@@ -834,15 +882,15 @@
         "updateContext": null
       },
       "value": "CORS loaded!",
-      "start": 953,
-      "end": 967,
+      "start": 1618,
+      "end": 1632,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 46,
           "column": 12
         },
         "end": {
-          "line": 32,
+          "line": 46,
           "column": 26
         }
       }
@@ -859,15 +907,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 967,
-      "end": 968,
+      "start": 1632,
+      "end": 1633,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 46,
           "column": 26
         },
         "end": {
-          "line": 32,
+          "line": 46,
           "column": 27
         }
       }
@@ -885,15 +933,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 968,
-      "end": 969,
+      "start": 1633,
+      "end": 1634,
       "loc": {
         "start": {
-          "line": 32,
+          "line": 46,
           "column": 27
         },
         "end": {
-          "line": 32,
+          "line": 46,
           "column": 28
         }
       }
@@ -911,15 +959,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 970,
-      "end": 970,
+      "start": 1635,
+      "end": 1635,
       "loc": {
         "start": {
-          "line": 33,
+          "line": 47,
           "column": 0
         },
         "end": {
-          "line": 33,
+          "line": 47,
           "column": 0
         }
       }

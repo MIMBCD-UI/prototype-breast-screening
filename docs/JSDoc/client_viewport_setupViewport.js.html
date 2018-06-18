@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: server/index.js</title>
+    <title>JSDoc: Source: client/viewport/setupViewport.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,168 +17,56 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: server/index.js</h1>
+    <h1 class="page-title">Source: client/viewport/setupViewport.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Contains the server-side logic of our prototype. The server can
-      read and consume the <code>studyList.json</code> list of DICOM image studies
-      and the respective studies of each patient. At the end the server
-      is serving an end-point from a specific port.</p></div>
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="mailto:francisco.calisto@tecnico.ulisboa.pt">Francisco Maria Calisto</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="server_index.js.html">server/index.js</a>, <a href="server_index.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="~updateAll"><span class="type-signature">(inner) </span>updateAll<span class="type-signature"></span></h4>
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="server_index.js.html">server/index.js</a>, <a href="server_index.js.html#line36">line 36</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @author Francisco Maria Calisto &lt;francisco.calisto@tecnico.ulisboa.pt>
+ */
+
+function setupViewport(element, stack, image) {
+  // Display the image on the viewer element
+  cornerstone.displayImage(element, image);
+
+  // If it's a movie (has frames), then play the clip
+  if (stack.frameRate !== undefined) {
+    cornerstone.playClip(element, stack.frameRate);
+  }
+
+  // Activate mouse clicks, mouse wheel and touch
+  cornerstoneTools.mouseInput.enable(element);
+  cornerstoneTools.mouseWheelInput.enable(element);
+  cornerstoneTools.touchInput.enable(element);
+
+  // Enable all tools we want to use with this element
+  cornerstoneTools.wwwc.activate(element, 1); // ww/wc is the default tool for left mouse button
+  cornerstoneTools.pan.activate(element, 2); // pan is the default tool for middle mouse button
+  cornerstoneTools.zoom.activate(element, 4); // zoom is the default tool for right mouse button
+  cornerstoneTools.probe.enable(element);
+  cornerstoneTools.length.enable(element);
+  cornerstoneTools.ellipticalRoi.enable(element);
+  cornerstoneTools.rectangleRoi.enable(element);
+  cornerstoneTools.wwwcTouchDrag.activate(element);
+  cornerstoneTools.zoomTouchPinch.activate(element);
+  cornerstoneTools.freehand.activate(element);
+
+  // Stack tools
+  cornerstoneTools.addStackStateManager(element, ['playClip']);
+  cornerstoneTools.addToolState(element, 'stack', stack);
+  cornerstoneTools.stackScrollWheel.activate(element);
+  cornerstoneTools.stackPrefetch.enable(element);
+
+
+}
+</code></pre>
+        </article>
+    </section>
 
 
 

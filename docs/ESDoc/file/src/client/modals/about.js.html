@@ -35,7 +35,11 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/client/modals/about.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">loadTemplate(&quot;templates/about.html&quot;, function(element) {
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @author Francisco Maria Calisto &lt;francisco.calisto@tecnico.ulisboa.pt&gt;
+ */
+
+loadTemplate(&quot;templates/about.html&quot;, function(element) {
   $(&apos;body&apos;).append(element);
   $(&quot;#about&quot;).click(function() {
     $(&quot;#aboutModal&quot;).modal();

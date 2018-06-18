@@ -27,12 +27,13 @@ var fs = require('fs');
 /* ================================================== */
 
 var requests = require("./utils/requests");
+var fetchImage = require("./utils/fetchImage");
 
 /**
  *
  */
 
-//var updateAll = require("./utils/npm-update-all");
+var updateAll = require("./utils/npm-update-all");
 
 /* ================================================== */
 
@@ -90,6 +91,7 @@ if (configFileValue === "prod") {
 /* ================================================== */
 
 var portValue = requests.getPortValue();
+var urlLinkDicomValue = requests.getUrlLinkDicomValue();
 
 /* ================================================== */
 /* ================================================== */
@@ -244,5 +246,7 @@ http.createServer(function(request, response) {
       response.end(content, 'utf-8');
     }
   });
+
+  fetchImage.fetchImagePatients(urlLinkDicomValue);
 
 }).listen(portValue);

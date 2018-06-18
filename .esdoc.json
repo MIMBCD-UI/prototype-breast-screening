@@ -1,6 +1,7 @@
 {
   "source":"./src",
   "destination":"./docs/ESDoc",
+  "excludes": ["(src/client/viewport/imageViewer)"],
   "plugins":[
     {
       "name":"esdoc-standard-plugin"

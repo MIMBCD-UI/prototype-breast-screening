@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: server/index.js</title>
+    <title>JSDoc: Source: server/utils/npm-update-all.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,168 +17,45 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: server/index.js</h1>
+    <h1 class="page-title">Source: server/utils/npm-update-all.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Contains the server-side logic of our prototype. The server can
-      read and consume the <code>studyList.json</code> list of DICOM image studies
-      and the respective studies of each patient. At the end the server
-      is serving an end-point from a specific port.</p></div>
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="mailto:francisco.calisto@tecnico.ulisboa.pt">Francisco Maria Calisto</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="server_index.js.html">server/index.js</a>, <a href="server_index.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="~updateAll"><span class="type-signature">(inner) </span>updateAll<span class="type-signature"></span></h4>
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="server_index.js.html">server/index.js</a>, <a href="server_index.js.html#line36">line 36</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file This file will update all the packages to the latest version. When
+ *       the project runs, it will do an ealry update and then run it.
+ *
+ * @requires npm-update-all
+ * @version 0.0.1
+ *
+ * @author Francisco Maria Calisto &lt;francisco.calisto@tecnico.ulisboa.pt>
+ */
+
+// In your server.js/index.js , run following code:
+
+var updateAll = require('npm-update-all');
+var json = require('./../../../package.json');
+
+/**
+ * @desc This function uses the `npm-update-all` a NodeJS package from npm
+ *       that update all dependencies &amp; devDependencies in `package.json`
+ *       at once. **Global** installation is recommended for Cli usage.
+ *
+ * @param {String} json The function receives the `package.json` that is
+ *                      a JSON file and updates all packages. At the end
+ *                      we will have the project updated. Still, be aware
+ *                      of possible issues regarding the package update.
+ */
+
+updateAll(json);
+</code></pre>
+        </article>
+    </section>
 
 
 

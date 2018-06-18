@@ -100,6 +100,7 @@
     "finalhandler": "^1.1.1",
     "grunt": "^1.0.3",
     "http-server": "^0.11.1",
+    "isomorphic-fetch": "^2.2.1",
     "merry": "^5.5.2",
     "requirejs": "^2.3.5",
     "semver": "^5.5.0",

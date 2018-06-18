@@ -35,7 +35,11 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/client/viewport/forEachViewport.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">function forEachViewport(callback) {
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @author Francisco Maria Calisto &lt;francisco.calisto@tecnico.ulisboa.pt&gt;
+ */
+
+function forEachViewport(callback) {
   var elements = $(&apos;.viewport&apos;);
   $.each(elements, function(index, value) {
     var element = value;

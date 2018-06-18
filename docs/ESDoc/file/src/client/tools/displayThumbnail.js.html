@@ -35,7 +35,11 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/client/tools/displayThumbnail.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">function displayThumbnail(seriesList, seriesElement, element, stack, loaded) {
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @author Francisco Maria Calisto &lt;francisco.calisto@tecnico.ulisboa.pt&gt;
+ */
+
+function displayThumbnail(seriesList, seriesElement, element, stack, loaded) {
   // Deactivate other thumbnails
   $(seriesList).find(&apos;a&apos;).each(function() {
     $(this).removeClass(&apos;active&apos;);

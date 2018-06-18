@@ -1,363 +1,892 @@
 {
   "type": "File",
   "start": 0,
-  "end": 147,
+  "end": 1326,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 7,
+      "line": 44,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 147,
+    "end": 1326,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 7,
+        "line": 44,
         "column": 0
       }
     },
     "sourceType": "module",
     "body": [
       {
-        "type": "FunctionDeclaration",
-        "start": 0,
-        "end": 104,
+        "type": "VariableDeclaration",
+        "start": 367,
+        "end": 409,
         "loc": {
           "start": {
-            "line": 1,
+            "line": 13,
+            "column": 1
+          },
+          "end": {
+            "line": 13,
+            "column": 43
+          }
+        },
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start": 373,
+            "end": 408,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 7
+              },
+              "end": {
+                "line": 13,
+                "column": 42
+              }
+            },
+            "id": {
+              "type": "Identifier",
+              "start": 373,
+              "end": 378,
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 7
+                },
+                "end": {
+                  "line": 13,
+                  "column": 12
+                },
+                "identifierName": "fetch"
+              },
+              "name": "fetch",
+              "leadingComments": null
+            },
+            "init": {
+              "type": "CallExpression",
+              "start": 381,
+              "end": 408,
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 15
+                },
+                "end": {
+                  "line": 13,
+                  "column": 42
+                }
+              },
+              "callee": {
+                "type": "Identifier",
+                "start": 381,
+                "end": 388,
+                "loc": {
+                  "start": {
+                    "line": 13,
+                    "column": 15
+                  },
+                  "end": {
+                    "line": 13,
+                    "column": 22
+                  },
+                  "identifierName": "require"
+                },
+                "name": "require"
+              },
+              "arguments": [
+                {
+                  "type": "StringLiteral",
+                  "start": 389,
+                  "end": 407,
+                  "loc": {
+                    "start": {
+                      "line": 13,
+                      "column": 23
+                    },
+                    "end": {
+                      "line": 13,
+                      "column": 41
+                    }
+                  },
+                  "extra": {
+                    "rawValue": "isomorphic-fetch",
+                    "raw": "'isomorphic-fetch'"
+                  },
+                  "value": "isomorphic-fetch"
+                }
+              ]
+            },
+            "leadingComments": null
+          }
+        ],
+        "kind": "const",
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @file Fetch for node and Browserify. This adds fetch as a global so\n *       that its API is consistent between client and server. You must\n *       bring your own ES6 Promise compatible polyfill.\n *\n * @exports utils/fetchImage\n * @requires isomorphic-fetch\n * @version 0.0.2\n *\n * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>\n ",
+            "start": 0,
+            "end": 364,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 11,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": " ================================================== ",
+            "start": 411,
+            "end": 467,
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 56
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
+            "start": 468,
+            "end": 555,
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 0
+              },
+              "end": {
+                "line": 21,
+                "column": 3
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": " ================================================== ",
+            "start": 556,
+            "end": 612,
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 0
+              },
+              "end": {
+                "line": 22,
+                "column": 56
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "VariableDeclaration",
+        "start": 614,
+        "end": 648,
+        "loc": {
+          "start": {
+            "line": 24,
             "column": 0
           },
           "end": {
-            "line": 4,
-            "column": 1
+            "line": 24,
+            "column": 34
           }
         },
-        "id": {
-          "type": "Identifier",
-          "start": 9,
-          "end": 27,
-          "loc": {
-            "start": {
-              "line": 1,
-              "column": 9
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start": 618,
+            "end": 647,
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 4
+              },
+              "end": {
+                "line": 24,
+                "column": 33
+              }
             },
-            "end": {
-              "line": 1,
-              "column": 27
-            },
-            "identifierName": "fetchImagePatients"
-          },
-          "name": "fetchImagePatients"
-        },
-        "generator": false,
-        "expression": false,
-        "async": false,
-        "params": [],
-        "body": {
-          "type": "BlockStatement",
-          "start": 30,
-          "end": 104,
-          "loc": {
-            "start": {
-              "line": 1,
-              "column": 30
-            },
-            "end": {
-              "line": 4,
-              "column": 1
-            }
-          },
-          "body": [
-            {
-              "type": "ExpressionStatement",
-              "start": 34,
-              "end": 102,
+            "id": {
+              "type": "Identifier",
+              "start": 618,
+              "end": 625,
               "loc": {
                 "start": {
-                  "line": 2,
-                  "column": 2
+                  "line": 24,
+                  "column": 4
                 },
                 "end": {
-                  "line": 3,
-                  "column": 28
+                  "line": 24,
+                  "column": 11
+                },
+                "identifierName": "exports"
+              },
+              "name": "exports",
+              "leadingComments": null
+            },
+            "init": {
+              "type": "AssignmentExpression",
+              "start": 628,
+              "end": 647,
+              "loc": {
+                "start": {
+                  "line": 24,
+                  "column": 14
+                },
+                "end": {
+                  "line": 24,
+                  "column": 33
                 }
               },
-              "expression": {
-                "type": "CallExpression",
-                "start": 34,
-                "end": 102,
+              "operator": "=",
+              "left": {
+                "type": "MemberExpression",
+                "start": 628,
+                "end": 642,
                 "loc": {
                   "start": {
-                    "line": 2,
-                    "column": 2
+                    "line": 24,
+                    "column": 14
                   },
                   "end": {
-                    "line": 3,
+                    "line": 24,
                     "column": 28
                   }
                 },
-                "callee": {
-                  "type": "MemberExpression",
-                  "start": 34,
-                  "end": 81,
+                "object": {
+                  "type": "Identifier",
+                  "start": 628,
+                  "end": 634,
                   "loc": {
                     "start": {
-                      "line": 2,
-                      "column": 2
+                      "line": 24,
+                      "column": 14
                     },
                     "end": {
-                      "line": 3,
-                      "column": 7
-                    }
-                  },
-                  "object": {
-                    "type": "CallExpression",
-                    "start": 34,
-                    "end": 73,
-                    "loc": {
-                      "start": {
-                        "line": 2,
-                        "column": 2
-                      },
-                      "end": {
-                        "line": 2,
-                        "column": 41
-                      }
+                      "line": 24,
+                      "column": 20
                     },
-                    "callee": {
-                      "type": "Identifier",
-                      "start": 34,
-                      "end": 39,
-                      "loc": {
-                        "start": {
-                          "line": 2,
-                          "column": 2
-                        },
-                        "end": {
-                          "line": 2,
-                          "column": 7
-                        },
-                        "identifierName": "fetch"
-                      },
-                      "name": "fetch"
-                    },
-                    "arguments": [
-                      {
-                        "type": "StringLiteral",
-                        "start": 40,
-                        "end": 72,
-                        "loc": {
-                          "start": {
-                            "line": 2,
-                            "column": 8
-                          },
-                          "end": {
-                            "line": 2,
-                            "column": 40
-                          }
-                        },
-                        "extra": {
-                          "rawValue": "http://localhost:8042/patients",
-                          "raw": "'http://localhost:8042/patients'"
-                        },
-                        "value": "http://localhost:8042/patients"
-                      }
-                    ]
+                    "identifierName": "module"
                   },
-                  "property": {
-                    "type": "Identifier",
-                    "start": 77,
-                    "end": 81,
-                    "loc": {
-                      "start": {
-                        "line": 3,
-                        "column": 3
-                      },
-                      "end": {
-                        "line": 3,
-                        "column": 7
-                      },
-                      "identifierName": "then"
-                    },
-                    "name": "then"
-                  },
-                  "computed": false
+                  "name": "module"
                 },
-                "arguments": [
-                  {
-                    "type": "ArrowFunctionExpression",
-                    "start": 82,
-                    "end": 101,
-                    "loc": {
-                      "start": {
-                        "line": 3,
-                        "column": 8
-                      },
-                      "end": {
-                        "line": 3,
-                        "column": 27
-                      }
+                "property": {
+                  "type": "Identifier",
+                  "start": 635,
+                  "end": 642,
+                  "loc": {
+                    "start": {
+                      "line": 24,
+                      "column": 21
                     },
-                    "id": null,
-                    "generator": false,
-                    "expression": true,
-                    "async": false,
-                    "params": [
-                      {
-                        "type": "Identifier",
-                        "start": 82,
-                        "end": 86,
-                        "loc": {
-                          "start": {
-                            "line": 3,
-                            "column": 8
-                          },
-                          "end": {
-                            "line": 3,
-                            "column": 12
-                          },
-                          "identifierName": "data"
-                        },
-                        "name": "data"
-                      }
-                    ],
-                    "body": {
-                      "type": "CallExpression",
-                      "start": 90,
-                      "end": 101,
-                      "loc": {
-                        "start": {
-                          "line": 3,
-                          "column": 16
-                        },
-                        "end": {
-                          "line": 3,
-                          "column": 27
-                        }
-                      },
-                      "callee": {
-                        "type": "MemberExpression",
-                        "start": 90,
-                        "end": 99,
-                        "loc": {
-                          "start": {
-                            "line": 3,
-                            "column": 16
-                          },
-                          "end": {
-                            "line": 3,
-                            "column": 25
-                          }
-                        },
-                        "object": {
-                          "type": "Identifier",
-                          "start": 90,
-                          "end": 94,
-                          "loc": {
-                            "start": {
-                              "line": 3,
-                              "column": 16
-                            },
-                            "end": {
-                              "line": 3,
-                              "column": 20
-                            },
-                            "identifierName": "data"
-                          },
-                          "name": "data"
-                        },
-                        "property": {
-                          "type": "Identifier",
-                          "start": 95,
-                          "end": 99,
-                          "loc": {
-                            "start": {
-                              "line": 3,
-                              "column": 21
-                            },
-                            "end": {
-                              "line": 3,
-                              "column": 25
-                            },
-                            "identifierName": "json"
-                          },
-                          "name": "json"
-                        },
-                        "computed": false
-                      },
-                      "arguments": []
-                    }
+                    "end": {
+                      "line": 24,
+                      "column": 28
+                    },
+                    "identifierName": "exports"
+                  },
+                  "name": "exports"
+                },
+                "computed": false
+              },
+              "right": {
+                "type": "ObjectExpression",
+                "start": 645,
+                "end": 647,
+                "loc": {
+                  "start": {
+                    "line": 24,
+                    "column": 31
+                  },
+                  "end": {
+                    "line": 24,
+                    "column": 33
                   }
-                ]
+                },
+                "properties": []
+              }
+            },
+            "leadingComments": null
+          }
+        ],
+        "kind": "var",
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": " ================================================== ",
+            "start": 411,
+            "end": 467,
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 56
               }
             }
-          ],
-          "directives": []
-        }
+          },
+          {
+            "type": "CommentBlock",
+            "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
+            "start": 468,
+            "end": 555,
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 0
+              },
+              "end": {
+                "line": 21,
+                "column": 3
+              }
+            }
+          },
+          {
+            "type": "CommentBlock",
+            "value": " ================================================== ",
+            "start": 556,
+            "end": 612,
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 0
+              },
+              "end": {
+                "line": 22,
+                "column": 56
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @desc The function is programmatically making requests in\n *       the browser. This project is an implementation of a subset\n *       of the standard Fetch specification, enough to make fetch\n *       a viable replacement for most uses of requests in traditional\n *       web applications. The function receives DICOM Link URL fetching\n *       it patient's list.\n *\n * @param {String} urlLinkDicomValue The DICOM Link URL.\n * @return {String} It fetch the DICOM Link URL list of patients.\n ",
+            "start": 650,
+            "end": 1151,
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 0
+              },
+              "end": {
+                "line": 36,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExpressionStatement",
-        "start": 106,
-        "end": 146,
+        "start": 1153,
+        "end": 1283,
         "loc": {
           "start": {
-            "line": 6,
+            "line": 38,
             "column": 0
           },
           "end": {
-            "line": 6,
+            "line": 41,
+            "column": 1
+          }
+        },
+        "expression": {
+          "type": "AssignmentExpression",
+          "start": 1153,
+          "end": 1283,
+          "loc": {
+            "start": {
+              "line": 38,
+              "column": 0
+            },
+            "end": {
+              "line": 41,
+              "column": 1
+            }
+          },
+          "operator": "=",
+          "left": {
+            "type": "MemberExpression",
+            "start": 1153,
+            "end": 1179,
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 0
+              },
+              "end": {
+                "line": 38,
+                "column": 26
+              }
+            },
+            "object": {
+              "type": "Identifier",
+              "start": 1153,
+              "end": 1160,
+              "loc": {
+                "start": {
+                  "line": 38,
+                  "column": 0
+                },
+                "end": {
+                  "line": 38,
+                  "column": 7
+                },
+                "identifierName": "exports"
+              },
+              "name": "exports",
+              "leadingComments": null
+            },
+            "property": {
+              "type": "Identifier",
+              "start": 1161,
+              "end": 1179,
+              "loc": {
+                "start": {
+                  "line": 38,
+                  "column": 8
+                },
+                "end": {
+                  "line": 38,
+                  "column": 26
+                },
+                "identifierName": "fetchImagePatients"
+              },
+              "name": "fetchImagePatients"
+            },
+            "computed": false,
+            "leadingComments": null
+          },
+          "right": {
+            "type": "FunctionExpression",
+            "start": 1182,
+            "end": 1283,
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 29
+              },
+              "end": {
+                "line": 41,
+                "column": 1
+              }
+            },
+            "id": {
+              "type": "Identifier",
+              "start": 1161,
+              "end": 1179,
+              "loc": {
+                "start": {
+                  "line": 38,
+                  "column": 8
+                },
+                "end": {
+                  "line": 38,
+                  "column": 26
+                },
+                "identifierName": "fetchImagePatients"
+              },
+              "name": "fetchImagePatients"
+            },
+            "generator": false,
+            "expression": false,
+            "async": false,
+            "params": [
+              {
+                "type": "Identifier",
+                "start": 1191,
+                "end": 1208,
+                "loc": {
+                  "start": {
+                    "line": 38,
+                    "column": 38
+                  },
+                  "end": {
+                    "line": 38,
+                    "column": 55
+                  },
+                  "identifierName": "urlLinkDicomValue"
+                },
+                "name": "urlLinkDicomValue"
+              }
+            ],
+            "body": {
+              "type": "BlockStatement",
+              "start": 1210,
+              "end": 1283,
+              "loc": {
+                "start": {
+                  "line": 38,
+                  "column": 57
+                },
+                "end": {
+                  "line": 41,
+                  "column": 1
+                }
+              },
+              "body": [
+                {
+                  "type": "ExpressionStatement",
+                  "start": 1214,
+                  "end": 1281,
+                  "loc": {
+                    "start": {
+                      "line": 39,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 40,
+                      "column": 28
+                    }
+                  },
+                  "expression": {
+                    "type": "CallExpression",
+                    "start": 1214,
+                    "end": 1281,
+                    "loc": {
+                      "start": {
+                        "line": 39,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 40,
+                        "column": 28
+                      }
+                    },
+                    "callee": {
+                      "type": "MemberExpression",
+                      "start": 1214,
+                      "end": 1260,
+                      "loc": {
+                        "start": {
+                          "line": 39,
+                          "column": 2
+                        },
+                        "end": {
+                          "line": 40,
+                          "column": 7
+                        }
+                      },
+                      "object": {
+                        "type": "CallExpression",
+                        "start": 1214,
+                        "end": 1252,
+                        "loc": {
+                          "start": {
+                            "line": 39,
+                            "column": 2
+                          },
+                          "end": {
+                            "line": 39,
+                            "column": 40
+                          }
+                        },
+                        "callee": {
+                          "type": "Identifier",
+                          "start": 1214,
+                          "end": 1219,
+                          "loc": {
+                            "start": {
+                              "line": 39,
+                              "column": 2
+                            },
+                            "end": {
+                              "line": 39,
+                              "column": 7
+                            },
+                            "identifierName": "fetch"
+                          },
+                          "name": "fetch"
+                        },
+                        "arguments": [
+                          {
+                            "type": "BinaryExpression",
+                            "start": 1220,
+                            "end": 1251,
+                            "loc": {
+                              "start": {
+                                "line": 39,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 39,
+                                "column": 39
+                              }
+                            },
+                            "left": {
+                              "type": "Identifier",
+                              "start": 1220,
+                              "end": 1237,
+                              "loc": {
+                                "start": {
+                                  "line": 39,
+                                  "column": 8
+                                },
+                                "end": {
+                                  "line": 39,
+                                  "column": 25
+                                },
+                                "identifierName": "urlLinkDicomValue"
+                              },
+                              "name": "urlLinkDicomValue"
+                            },
+                            "operator": "+",
+                            "right": {
+                              "type": "StringLiteral",
+                              "start": 1240,
+                              "end": 1251,
+                              "loc": {
+                                "start": {
+                                  "line": 39,
+                                  "column": 28
+                                },
+                                "end": {
+                                  "line": 39,
+                                  "column": 39
+                                }
+                              },
+                              "extra": {
+                                "rawValue": "/patients",
+                                "raw": "'/patients'"
+                              },
+                              "value": "/patients"
+                            }
+                          }
+                        ]
+                      },
+                      "property": {
+                        "type": "Identifier",
+                        "start": 1256,
+                        "end": 1260,
+                        "loc": {
+                          "start": {
+                            "line": 40,
+                            "column": 3
+                          },
+                          "end": {
+                            "line": 40,
+                            "column": 7
+                          },
+                          "identifierName": "then"
+                        },
+                        "name": "then"
+                      },
+                      "computed": false
+                    },
+                    "arguments": [
+                      {
+                        "type": "ArrowFunctionExpression",
+                        "start": 1261,
+                        "end": 1280,
+                        "loc": {
+                          "start": {
+                            "line": 40,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 40,
+                            "column": 27
+                          }
+                        },
+                        "id": null,
+                        "generator": false,
+                        "expression": true,
+                        "async": false,
+                        "params": [
+                          {
+                            "type": "Identifier",
+                            "start": 1261,
+                            "end": 1265,
+                            "loc": {
+                              "start": {
+                                "line": 40,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 40,
+                                "column": 12
+                              },
+                              "identifierName": "data"
+                            },
+                            "name": "data"
+                          }
+                        ],
+                        "body": {
+                          "type": "CallExpression",
+                          "start": 1269,
+                          "end": 1280,
+                          "loc": {
+                            "start": {
+                              "line": 40,
+                              "column": 16
+                            },
+                            "end": {
+                              "line": 40,
+                              "column": 27
+                            }
+                          },
+                          "callee": {
+                            "type": "MemberExpression",
+                            "start": 1269,
+                            "end": 1278,
+                            "loc": {
+                              "start": {
+                                "line": 40,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 40,
+                                "column": 25
+                              }
+                            },
+                            "object": {
+                              "type": "Identifier",
+                              "start": 1269,
+                              "end": 1273,
+                              "loc": {
+                                "start": {
+                                  "line": 40,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 40,
+                                  "column": 20
+                                },
+                                "identifierName": "data"
+                              },
+                              "name": "data"
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "start": 1274,
+                              "end": 1278,
+                              "loc": {
+                                "start": {
+                                  "line": 40,
+                                  "column": 21
+                                },
+                                "end": {
+                                  "line": 40,
+                                  "column": 25
+                                },
+                                "identifierName": "json"
+                              },
+                              "name": "json"
+                            },
+                            "computed": false
+                          },
+                          "arguments": []
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "directives": []
+            }
+          },
+          "leadingComments": null
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @desc The function is programmatically making requests in\n *       the browser. This project is an implementation of a subset\n *       of the standard Fetch specification, enough to make fetch\n *       a viable replacement for most uses of requests in traditional\n *       web applications. The function receives DICOM Link URL fetching\n *       it patient's list.\n *\n * @param {String} urlLinkDicomValue The DICOM Link URL.\n * @return {String} It fetch the DICOM Link URL list of patients.\n ",
+            "start": 650,
+            "end": 1151,
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 0
+              },
+              "end": {
+                "line": 36,
+                "column": 3
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ExpressionStatement",
+        "start": 1285,
+        "end": 1325,
+        "loc": {
+          "start": {
+            "line": 43,
+            "column": 0
+          },
+          "end": {
+            "line": 43,
             "column": 40
           }
         },
         "expression": {
           "type": "CallExpression",
-          "start": 106,
-          "end": 145,
+          "start": 1285,
+          "end": 1324,
           "loc": {
             "start": {
-              "line": 6,
+              "line": 43,
               "column": 0
             },
             "end": {
-              "line": 6,
+              "line": 43,
               "column": 39
             }
           },
           "callee": {
             "type": "MemberExpression",
-            "start": 106,
-            "end": 117,
+            "start": 1285,
+            "end": 1296,
             "loc": {
               "start": {
-                "line": 6,
+                "line": 43,
                 "column": 0
               },
               "end": {
-                "line": 6,
+                "line": 43,
                 "column": 11
               }
             },
             "object": {
               "type": "Identifier",
-              "start": 106,
-              "end": 113,
+              "start": 1285,
+              "end": 1292,
               "loc": {
                 "start": {
-                  "line": 6,
+                  "line": 43,
                   "column": 0
                 },
                 "end": {
-                  "line": 6,
+                  "line": 43,
                   "column": 7
                 },
                 "identifierName": "console"
@@ -366,15 +895,15 @@
             },
             "property": {
               "type": "Identifier",
-              "start": 114,
-              "end": 117,
+              "start": 1293,
+              "end": 1296,
               "loc": {
                 "start": {
-                  "line": 6,
+                  "line": 43,
                   "column": 8
                 },
                 "end": {
-                  "line": 6,
+                  "line": 43,
                   "column": 11
                 },
                 "identifierName": "log"
@@ -386,15 +915,15 @@
           "arguments": [
             {
               "type": "StringLiteral",
-              "start": 118,
-              "end": 144,
+              "start": 1297,
+              "end": 1323,
               "loc": {
                 "start": {
-                  "line": 6,
+                  "line": 43,
                   "column": 12
                 },
                 "end": {
-                  "line": 6,
+                  "line": 43,
                   "column": 38
                 }
               },
@@ -410,12 +939,136 @@
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @file Fetch for node and Browserify. This adds fetch as a global so\n *       that its API is consistent between client and server. You must\n *       bring your own ES6 Promise compatible polyfill.\n *\n * @exports utils/fetchImage\n * @requires isomorphic-fetch\n * @version 0.0.2\n *\n * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>\n ",
+      "start": 0,
+      "end": 364,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 11,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 411,
+      "end": 467,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
+      "start": 468,
+      "end": 555,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 556,
+      "end": 612,
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 0
+        },
+        "end": {
+          "line": 22,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @desc The function is programmatically making requests in\n *       the browser. This project is an implementation of a subset\n *       of the standard Fetch specification, enough to make fetch\n *       a viable replacement for most uses of requests in traditional\n *       web applications. The function receives DICOM Link URL fetching\n *       it patient's list.\n *\n * @param {String} urlLinkDicomValue The DICOM Link URL.\n * @return {String} It fetch the DICOM Link URL list of patients.\n ",
+      "start": 650,
+      "end": 1151,
+      "loc": {
+        "start": {
+          "line": 26,
+          "column": 0
+        },
+        "end": {
+          "line": 36,
+          "column": 3
+        }
+      }
+    }
+  ],
   "tokens": [
     {
+      "type": "CommentBlock",
+      "value": "*\n * @file Fetch for node and Browserify. This adds fetch as a global so\n *       that its API is consistent between client and server. You must\n *       bring your own ES6 Promise compatible polyfill.\n *\n * @exports utils/fetchImage\n * @requires isomorphic-fetch\n * @version 0.0.2\n *\n * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>\n ",
+      "start": 0,
+      "end": 364,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 11,
+          "column": 3
+        }
+      }
+    },
+    {
       "type": {
-        "label": "function",
-        "keyword": "function",
+        "label": "const",
+        "keyword": "const",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "const",
+      "start": 367,
+      "end": 372,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 1
+        },
+        "end": {
+          "line": 13,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
         "beforeExpr": false,
         "startsExpr": true,
         "rightAssociative": false,
@@ -425,16 +1078,550 @@
         "postfix": false,
         "binop": null
       },
-      "value": "function",
-      "start": 0,
-      "end": 8,
+      "value": "fetch",
+      "start": 373,
+      "end": 378,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 13,
+          "column": 7
+        },
+        "end": {
+          "line": 13,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 379,
+      "end": 380,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 13
+        },
+        "end": {
+          "line": 13,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "require",
+      "start": 381,
+      "end": 388,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 15
+        },
+        "end": {
+          "line": 13,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 388,
+      "end": 389,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 22
+        },
+        "end": {
+          "line": 13,
+          "column": 23
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "isomorphic-fetch",
+      "start": 389,
+      "end": 407,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 23
+        },
+        "end": {
+          "line": 13,
+          "column": 41
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 407,
+      "end": 408,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 41
+        },
+        "end": {
+          "line": 13,
+          "column": 42
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 408,
+      "end": 409,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 42
+        },
+        "end": {
+          "line": 13,
+          "column": 43
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 411,
+      "end": 467,
+      "loc": {
+        "start": {
+          "line": 15,
           "column": 0
         },
         "end": {
-          "line": 1,
+          "line": 15,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n *\n * Load JSON configuration data from the sercer using\n * GET HTTP request\n *\n ",
+      "start": 468,
+      "end": 555,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " ================================================== ",
+      "start": 556,
+      "end": 612,
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 0
+        },
+        "end": {
+          "line": 22,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "var",
+        "keyword": "var",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "var",
+      "start": 614,
+      "end": 617,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 24,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "exports",
+      "start": 618,
+      "end": 625,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 4
+        },
+        "end": {
+          "line": 24,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 626,
+      "end": 627,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 12
+        },
+        "end": {
+          "line": 24,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "module",
+      "start": 628,
+      "end": 634,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 14
+        },
+        "end": {
+          "line": 24,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 634,
+      "end": 635,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 20
+        },
+        "end": {
+          "line": 24,
+          "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "exports",
+      "start": 635,
+      "end": 642,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 21
+        },
+        "end": {
+          "line": 24,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 643,
+      "end": 644,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 29
+        },
+        "end": {
+          "line": 24,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 645,
+      "end": 646,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 31
+        },
+        "end": {
+          "line": 24,
+          "column": 32
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 646,
+      "end": 647,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 32
+        },
+        "end": {
+          "line": 24,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 647,
+      "end": 648,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 33
+        },
+        "end": {
+          "line": 24,
+          "column": 34
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @desc The function is programmatically making requests in\n *       the browser. This project is an implementation of a subset\n *       of the standard Fetch specification, enough to make fetch\n *       a viable replacement for most uses of requests in traditional\n *       web applications. The function receives DICOM Link URL fetching\n *       it patient's list.\n *\n * @param {String} urlLinkDicomValue The DICOM Link URL.\n * @return {String} It fetch the DICOM Link URL list of patients.\n ",
+      "start": 650,
+      "end": 1151,
+      "loc": {
+        "start": {
+          "line": 26,
+          "column": 0
+        },
+        "end": {
+          "line": 36,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "exports",
+      "start": 1153,
+      "end": 1160,
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 0
+        },
+        "end": {
+          "line": 38,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 1160,
+      "end": 1161,
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 7
+        },
+        "end": {
+          "line": 38,
           "column": 8
         }
       }
@@ -452,16 +1639,70 @@
         "binop": null
       },
       "value": "fetchImagePatients",
-      "start": 9,
-      "end": 27,
+      "start": 1161,
+      "end": 1179,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 9
+          "line": 38,
+          "column": 8
         },
         "end": {
-          "line": 1,
+          "line": 38,
+          "column": 26
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 1180,
+      "end": 1181,
+      "loc": {
+        "start": {
+          "line": 38,
           "column": 27
+        },
+        "end": {
+          "line": 38,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "function",
+        "keyword": "function",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "function",
+      "start": 1182,
+      "end": 1190,
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 29
+        },
+        "end": {
+          "line": 38,
+          "column": 37
         }
       }
     },
@@ -477,16 +1718,42 @@
         "postfix": false,
         "binop": null
       },
-      "start": 27,
-      "end": 28,
+      "start": 1190,
+      "end": 1191,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 27
+          "line": 38,
+          "column": 37
         },
         "end": {
-          "line": 1,
-          "column": 28
+          "line": 38,
+          "column": 38
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "urlLinkDicomValue",
+      "start": 1191,
+      "end": 1208,
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 38
+        },
+        "end": {
+          "line": 38,
+          "column": 55
         }
       }
     },
@@ -502,16 +1769,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 28,
-      "end": 29,
+      "start": 1208,
+      "end": 1209,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 28
+          "line": 38,
+          "column": 55
         },
         "end": {
-          "line": 1,
-          "column": 29
+          "line": 38,
+          "column": 56
         }
       }
     },
@@ -527,16 +1794,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 30,
-      "end": 31,
+      "start": 1210,
+      "end": 1211,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 30
+          "line": 38,
+          "column": 57
         },
         "end": {
-          "line": 1,
-          "column": 31
+          "line": 38,
+          "column": 58
         }
       }
     },
@@ -553,15 +1820,15 @@
         "binop": null
       },
       "value": "fetch",
-      "start": 34,
-      "end": 39,
+      "start": 1214,
+      "end": 1219,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 39,
           "column": 2
         },
         "end": {
-          "line": 2,
+          "line": 39,
           "column": 7
         }
       }
@@ -578,16 +1845,69 @@
         "postfix": false,
         "binop": null
       },
-      "start": 39,
-      "end": 40,
+      "start": 1219,
+      "end": 1220,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 39,
           "column": 7
         },
         "end": {
-          "line": 2,
+          "line": 39,
           "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "urlLinkDicomValue",
+      "start": 1220,
+      "end": 1237,
+      "loc": {
+        "start": {
+          "line": 39,
+          "column": 8
+        },
+        "end": {
+          "line": 39,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "+/-",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": true,
+        "postfix": false,
+        "binop": 9,
+        "updateContext": null
+      },
+      "value": "+",
+      "start": 1238,
+      "end": 1239,
+      "loc": {
+        "start": {
+          "line": 39,
+          "column": 26
+        },
+        "end": {
+          "line": 39,
+          "column": 27
         }
       }
     },
@@ -604,17 +1924,17 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "http://localhost:8042/patients",
-      "start": 40,
-      "end": 72,
+      "value": "/patients",
+      "start": 1240,
+      "end": 1251,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 8
+          "line": 39,
+          "column": 28
         },
         "end": {
-          "line": 2,
-          "column": 40
+          "line": 39,
+          "column": 39
         }
       }
     },
@@ -630,16 +1950,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 72,
-      "end": 73,
+      "start": 1251,
+      "end": 1252,
       "loc": {
         "start": {
-          "line": 2,
-          "column": 40
+          "line": 39,
+          "column": 39
         },
         "end": {
-          "line": 2,
-          "column": 41
+          "line": 39,
+          "column": 40
         }
       }
     },
@@ -656,15 +1976,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 76,
-      "end": 77,
+      "start": 1255,
+      "end": 1256,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 2
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 3
         }
       }
@@ -682,15 +2002,15 @@
         "binop": null
       },
       "value": "then",
-      "start": 77,
-      "end": 81,
+      "start": 1256,
+      "end": 1260,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 3
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 7
         }
       }
@@ -707,15 +2027,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 81,
-      "end": 82,
+      "start": 1260,
+      "end": 1261,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 8
         }
       }
@@ -733,15 +2053,15 @@
         "binop": null
       },
       "value": "data",
-      "start": 82,
-      "end": 86,
+      "start": 1261,
+      "end": 1265,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 8
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 12
         }
       }
@@ -759,15 +2079,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 87,
-      "end": 89,
+      "start": 1266,
+      "end": 1268,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 13
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 15
         }
       }
@@ -785,15 +2105,15 @@
         "binop": null
       },
       "value": "data",
-      "start": 90,
-      "end": 94,
+      "start": 1269,
+      "end": 1273,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 16
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 20
         }
       }
@@ -811,15 +2131,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 94,
-      "end": 95,
+      "start": 1273,
+      "end": 1274,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 20
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 21
         }
       }
@@ -837,15 +2157,15 @@
         "binop": null
       },
       "value": "json",
-      "start": 95,
-      "end": 99,
+      "start": 1274,
+      "end": 1278,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 21
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 25
         }
       }
@@ -862,15 +2182,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 99,
-      "end": 100,
+      "start": 1278,
+      "end": 1279,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 25
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 26
         }
       }
@@ -887,15 +2207,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 100,
-      "end": 101,
+      "start": 1279,
+      "end": 1280,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 26
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 27
         }
       }
@@ -912,15 +2232,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 101,
-      "end": 102,
+      "start": 1280,
+      "end": 1281,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 40,
           "column": 27
         },
         "end": {
-          "line": 3,
+          "line": 40,
           "column": 28
         }
       }
@@ -937,15 +2257,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 103,
-      "end": 104,
+      "start": 1282,
+      "end": 1283,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 41,
           "column": 0
         },
         "end": {
-          "line": 4,
+          "line": 41,
           "column": 1
         }
       }
@@ -963,15 +2283,15 @@
         "binop": null
       },
       "value": "console",
-      "start": 106,
-      "end": 113,
+      "start": 1285,
+      "end": 1292,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 43,
           "column": 0
         },
         "end": {
-          "line": 6,
+          "line": 43,
           "column": 7
         }
       }
@@ -989,15 +2309,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 113,
-      "end": 114,
+      "start": 1292,
+      "end": 1293,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 43,
           "column": 7
         },
         "end": {
-          "line": 6,
+          "line": 43,
           "column": 8
         }
       }
@@ -1015,15 +2335,15 @@
         "binop": null
       },
       "value": "log",
-      "start": 114,
-      "end": 117,
+      "start": 1293,
+      "end": 1296,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 43,
           "column": 8
         },
         "end": {
-          "line": 6,
+          "line": 43,
           "column": 11
         }
       }
@@ -1040,15 +2360,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 117,
-      "end": 118,
+      "start": 1296,
+      "end": 1297,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 43,
           "column": 11
         },
         "end": {
-          "line": 6,
+          "line": 43,
           "column": 12
         }
       }
@@ -1067,15 +2387,15 @@
         "updateContext": null
       },
       "value": "Fetch Image Patients: OK",
-      "start": 118,
-      "end": 144,
+      "start": 1297,
+      "end": 1323,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 43,
           "column": 12
         },
         "end": {
-          "line": 6,
+          "line": 43,
           "column": 38
         }
       }
@@ -1092,15 +2412,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 144,
-      "end": 145,
+      "start": 1323,
+      "end": 1324,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 43,
           "column": 38
         },
         "end": {
-          "line": 6,
+          "line": 43,
           "column": 39
         }
       }
@@ -1118,15 +2438,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 145,
-      "end": 146,
+      "start": 1324,
+      "end": 1325,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 43,
           "column": 39
         },
         "end": {
-          "line": 6,
+          "line": 43,
           "column": 40
         }
       }
@@ -1144,15 +2464,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 147,
-      "end": 147,
+      "start": 1326,
+      "end": 1326,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 44,
           "column": 0
         },
         "end": {
-          "line": 7,
+          "line": 44,
           "column": 0
         }
       }

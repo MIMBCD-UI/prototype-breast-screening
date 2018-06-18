@@ -35,7 +35,11 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/client/loaders/loadTemplate.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">function loadTemplate(url, callback) {
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * @author Francisco Maria Calisto &lt;francisco.calisto@tecnico.ulisboa.pt&gt;
+ */
+
+function loadTemplate(url, callback) {
   $.get(url, function(data) {
     var parsed = $.parseHTML(data);
     $.each(parsed, function(index, ele) {

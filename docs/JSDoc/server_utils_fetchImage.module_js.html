@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: DataSet</title>
+    <title>JSDoc: Module: server/utils/fetchImage.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: DataSet</h1>
+    <h1 class="page-title">Module: server/utils/fetchImage.js</h1>
 
     
 
@@ -28,20 +28,105 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>DataSet<span class="signature">(byteArrayParser, byteArray, elements)</span><span class="type-signature"></span></h2>
-        
-    
 </header>
 
 <article>
     <div class="container-overview">
     
         
+            <div class="description"><p>Fetch for node and Browserify. This adds fetch as a global so
+      that its API is consistent between client and server. You must
+      bring your own ES6 Promise compatible polyfill.</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+    <dt class="tag-version">Version:</dt>
+    <dd class="tag-version"><ul class="dummy"><li>0.0.2</li></ul></dd>
+    
+
+    
 
     
 
     
-    <h4 class="name" id="DataSet"><span class="type-signature"></span>new DataSet<span class="signature">(byteArrayParser, byteArray, elements)</span><span class="type-signature"></span></h4>
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li><a href="mailto:francisco.calisto@tecnico.ulisboa.pt">Francisco Maria Calisto</a></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="server_utils_fetchImage.js.html">server/utils/fetchImage.js</a>, <a href="server_utils_fetchImage.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+        <h3 class="subsection-title">Requires</h3>
+
+        <ul>
+            <li>module:isomorphic-fetch</li>
+        </ul>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".fetchImagePatients"><span class="type-signature">(static) </span>fetchImagePatients<span class="signature">(urlLinkDicomValue)</span><span class="type-signature"> &rarr; {String}</span></h4>
     
 
     
@@ -49,7 +134,12 @@
 
 
 <div class="description">
-    <p>Constructs a new DataSet given byteArray and collection of elements</p>
+    <p>The function is programmatically making requests in
+      the browser. This project is an implementation of a subset
+      of the standard Fetch specification, enough to make fetch
+      a viable replacement for most uses of requests in traditional
+      web applications. The function receives DICOM Link URL fetching
+      it patient's list.</p>
 </div>
 
 
@@ -85,10 +175,15 @@
 
         <tr>
             
-                <td class="name"><code>byteArrayParser</code></td>
+                <td class="name"><code>urlLinkDicomValue</code></td>
             
 
             <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
             
             </td>
 
@@ -96,43 +191,7 @@
 
             
 
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>byteArray</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>elements</code></td>
-            
-
-            <td class="type">
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
+            <td class="description last"><p>The DICOM Link URL.</p></td>
         </tr>
 
     
@@ -173,7 +232,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client_lib_dicomParser.js.html">client/lib/dicomParser.js</a>, <a href="client_lib_dicomParser.js.html#line1095">line 1095</a>
+        <a href="server_utils_fetchImage.js.html">server/utils/fetchImage.js</a>, <a href="server_utils_fetchImage.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -196,28 +255,34 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>It fetch the DICOM Link URL list of patients.</p>
+</div>
 
 
 
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
 
+
+    </dd>
+</dl>
 
     
-    </div>
 
-    
 
-    
 
-    
 
-    
 
-    
-
-    
-
-    
-
+        
     
 
     

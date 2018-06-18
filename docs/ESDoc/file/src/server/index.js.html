@@ -64,6 +64,7 @@ var fs = require(&apos;fs&apos;);
 /* ================================================== */
 
 var requests = require(&quot;./utils/requests&quot;);
+var fetchImage = require(&quot;./utils/fetchImage&quot;);
 
 /**
  *
@@ -127,6 +128,7 @@ if (configFileValue === &quot;prod&quot;) {
 /* ================================================== */
 
 var portValue = requests.getPortValue();
+var urlLinkDicomValue = requests.getUrlLinkDicomValue();
 
 /* ================================================== */
 /* ================================================== */
@@ -281,6 +283,8 @@ http.createServer(function(request, response) {
       response.end(content, &apos;utf-8&apos;);
     }
   });
+
+  fetchImage.fetchImagePatients(urlLinkDicomValue);
 
 }).listen(portValue);
 </code></pre>
