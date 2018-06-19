@@ -1,4 +1,9 @@
 /**
+ * @file This file aims to contain the several loading list methods. These
+ *       methods are a group of gets, maps and updates of the list.
+ *
+ * @version 0.0.1
+ *
  * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
  */
 
@@ -139,7 +144,16 @@ var instancesPath = dicomServerPath + instancesDirPath;
 /* ================================================== */
 /* ================================================== */
 
-
+/**
+ * @function
+ * @name callAPI
+ * @static
+ *
+ * @desc This function do the calls for our API.
+ *
+ * @param {string} url - The URL source for the API call.
+ * @param {string} meta - The meta information for the API call.
+ */
 const callAPI = (url, meta) => {
   return new Promise((resolve, reject) => {
     $.getJSON(url + '&_=' + new Date().getTime(), function(data) {
@@ -150,7 +164,6 @@ const callAPI = (url, meta) => {
     })
   })
 }
-
 
 /**
 * Method to generate the Hierarchical data for patient.
@@ -175,6 +188,15 @@ const callAPI = (url, meta) => {
 }
 */
 
+/**
+ * @async
+ * @function
+ * @name getStudyList
+ *
+ * @desc Our study list getter.
+ *
+ * @param {string} callback - Our call back argument.
+ */
 async function getStudyList(callback) {
   var patients = await callAPI(patientsExpandedPath, patientList);
   return Promise.all(patients).then(result => {
@@ -187,6 +209,15 @@ async function getStudyList(callback) {
   })
 }
 
+/**
+ * @async
+ * @function
+ * @name getStudyListData
+ *
+ * @desc Our study list data getter.
+ *
+ * @param {string} studiesList - List of studies argument.
+ */
 async function getStudyListData(studiesList) {
   var studiesDeferred = [];
   for (var studyIndex = 0; studyIndex < studiesList.length; studyIndex++) {
@@ -204,6 +235,15 @@ async function getStudyListData(studiesList) {
   })
 }
 
+/**
+ * @async
+ * @function
+ * @name getSeriesListData
+ *
+ * @desc Our series list getter.
+ *
+ * @param {string} studiesList - List of series argument.
+ */
 async function getSeriesListData(seriesList) {
   var studies = [];
   for (var seriesIndex = 0; seriesIndex < seriesList.length; seriesIndex++) {
@@ -221,6 +261,15 @@ async function getSeriesListData(seriesList) {
   })
 }
 
+/**
+ * @async
+ * @function
+ * @name getInstanceListData
+ *
+ * @desc Our instance list getter.
+ *
+ * @param {string} instanceList - List of instances argument.
+ */
 async function getInstanceListData(instanceList) {
   var instanceDeferred = [];
   for (var instanceIndex = 0; instanceIndex < instanceList.length; instanceIndex++) {
@@ -238,6 +287,13 @@ async function getInstanceListData(instanceList) {
   })
 }
 
+/**
+ * @function
+ * @name mapInstanceInSeries
+ * @static
+ *
+ * @desc Our instance in a set of series to map.
+ */
 var mapInstanceInSeries = function() {
   for (var x = 0; x < seriesObjectData.length; x++) {
     seriesObjectData[x].InstanceData = [];
@@ -248,6 +304,13 @@ var mapInstanceInSeries = function() {
   }
 }
 
+/**
+ * @function
+ * @name mapSeriesInStudies
+ * @static
+ *
+ * @desc Our list of series in a set of studies to map.
+ */
 var mapSeriesInStudies = function() {
   for (var x = 0; x < studiesObjectData.length; x++) {
     studiesObjectData[x].SeriesData = [];
@@ -258,6 +321,13 @@ var mapSeriesInStudies = function() {
   }
 }
 
+/**
+ * @function
+ * @name mapStudiesInPatient
+ * @static
+ *
+ * @desc Our list of studies from a patient to map.
+ */
 var mapStudiesInPatient = function() {
   for (var x = 0; x < patientList.length; x++) {
     patientList[x].StudyData = [];
@@ -272,6 +342,16 @@ var mapStudiesInPatient = function() {
 
 getStudyList((studyList) => {})
 
+/**
+ * @function
+ * @name UpdatePatientData
+ * @static
+ *
+ * @desc This function updates the patient data. At the end, it populates
+ *       with the new updates from the server.
+ *
+ * @param {Object} patients - Patients' source of information argument.
+ */
 var UpdatePatientData = function(patients) {
   if (patients.length > 0) {
     for (var i = 0; i < patients.length; i++) {
@@ -378,6 +458,16 @@ var UpdatePatientData = function(patients) {
   }
 };
 
+/**
+ * @function
+ * @name getSeriesForFile
+ * @static
+ *
+ * @desc This function receives the data source of the series and gets
+ *       the file to write on it.
+ *
+ * @param {Object} seriesData - Series' data source argument.
+ */
 var getSeriesForFile = function(seriesData) {
   var seriesFileData = new Array();
   var totalInstanceCount = 0;
@@ -403,6 +493,18 @@ var getSeriesForFile = function(seriesData) {
   return seriesFileData;
 }
 
+/**
+ * @function
+ * @name getSeriesDataStructure
+ * @static
+ *
+ * @desc The function receives both series and instance arguments and
+ *       gets the data structure from it.
+ *
+ * @param {Object} series - The object of series from a study of a patient.
+ * @param {Object} instance - The object of instance belonging to a series
+ *                            from a study of a patient.
+ */
 var getSeriesDataStructure = function(series, instance) {
   var seriesDataStructure = {
     "seriesDescription": series.MainDicomTags.Modality,
@@ -413,6 +515,16 @@ var getSeriesDataStructure = function(series, instance) {
   return seriesDataStructure;
 }
 
+/**
+ * @function
+ * @name getInstanceListForFile
+ * @static
+ *
+ * @desc The function receives data from an instance and gets the list
+ *       of instances for the file.
+ *
+ * @param {Object} instanceData - The object of instances data source.
+ */
 var getInstanceListForFile = function(instanceData) {
   var instanceFileData = new Array();
   for (var index1 = 0; index1 < instanceData.length; index1++) {
@@ -425,6 +537,13 @@ var getInstanceListForFile = function(instanceData) {
   return instanceFileData;
 }
 
+/**
+ * @function
+ * @name UpdatePatientDataDefault
+ * @static
+ *
+ * @desc The function updates the patient by default.
+ */
 var UpdatePatientDataDefault = function() {
   var studyListDefault = {
     "studyList": "default"
