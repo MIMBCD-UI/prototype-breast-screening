@@ -28,4 +28,4 @@ var json = require('./../../../package.json');
  *                      of possible issues regarding the package update.
  */
 
-updateAll(json);
+// updateAll(json);
