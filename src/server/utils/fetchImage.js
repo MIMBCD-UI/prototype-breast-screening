@@ -10,7 +10,7 @@
  * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
  */
 
- const fetch = require('isomorphic-fetch');
+// const fetch = require('isomorphic-fetch');
 
 /* ================================================== */
 /**
@@ -23,7 +23,7 @@
  */
 /* ================================================== */
 
-var exports = module.exports = {};
+// var exports = module.exports = {};
 
 /**
  * @function
@@ -41,16 +41,16 @@ var exports = module.exports = {};
  * @return {String} It fetch the DICOM Link URL list of patients.
  */
 
-fetchImagePatients = function(urlLinkDicomValue) {
-  fetch(urlLinkDicomValue + '/patients')
-  .then(data => data.json())
-}
+// fetchImagePatients = function(urlLinkDicomValue) {
+//   fetch(urlLinkDicomValue + '/patients')
+//   .then(data => data.json())
+// }
 
 /* ================================================== */
 /** Module Exports                                    */
 /* ================================================== */
 
-exports.fetchImagePatients = fetchImagePatients;
+// exports.fetchImagePatients = fetchImagePatients;
 
 /* ================================================== */
 
