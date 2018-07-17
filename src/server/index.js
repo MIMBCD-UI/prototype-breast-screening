@@ -22,7 +22,7 @@ var fs = require('fs');
 /* ================================================== */
 
 var requests = require("./utils/requests");
-var fetchImage = require("./utils/fetchImage");
+// var fetchImage = require("./utils/fetchImage");
 
 /**
  *
@@ -269,6 +269,6 @@ http.createServer(function(request, response) {
     }
   });
 
-  fetchImage.fetchImagePatients(urlLinkDicomValue);
+  // fetchImage.fetchImagePatients(urlLinkDicomValue);
 
 }).listen(portValue);
