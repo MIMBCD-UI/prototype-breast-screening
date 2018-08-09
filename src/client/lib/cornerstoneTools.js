@@ -2484,15 +2484,16 @@ if (typeof cornerstoneTools === 'undefined') {
         }
 
         var config = cornerstoneTools.freehand.getConfiguration();
-
+        
         // Get the toolData from the last-drawn drawing
         // (this should change when modification is added)
         var data = toolData.data[config.currentTool];
-
+        
         var handleData = {
             x: eventData.currentPoints.image.x, y: eventData.currentPoints.image.y, highlight: true, active: true, lines: []
         };
-
+        console.log('Add point! - data : ' + data.handles.length);
+        console.log('Add point! - currentHandle : ' + config.currentHandle);
         // If this is not the first handle
         if (data.handles.length){
             // Add the line from the current handle to the new handle
@@ -5082,7 +5083,7 @@ if (typeof cornerstoneTools === 'undefined') {
 
     'use strict';
 
-    var handleRadius = 6;
+    var handleRadius = 4;
 
     function drawHandles(context, renderData, handles, color, fill) {
         context.strokeStyle = color;
@@ -7290,7 +7291,7 @@ Display scroll progress bar across bottom of image.
     'use strict';
 
     function toolColorManager(){
-        var defaultColor = 'white',
+        var defaultColor = 'yellow',
             activeColor = 'greenyellow',
             fillColor = 'transparent';
 

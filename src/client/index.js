@@ -30,6 +30,7 @@ console.log('Read Study List File From: \n', studyListFile);
 var viewportTemplate;
 loadTemplate(viewportPath, function(element) {
   viewportTemplate = element;
+  console.log(viewportPath);
 });
 
 /**

@@ -247,7 +247,7 @@ $(document).keyup(function(e) {
     // for(var i=0; i<freehandToolState.data.length; i++){
 
     // }
-    cornerstoneTools.freehand.getConfiguration().currentHandle--;
+    if(cornerstoneTools.freehand.getConfiguration().currentHandle > 0) cornerstoneTools.freehand.getConfiguration().currentHandle--;
 
     cornerstone.updateImage(currentElement);
   }
