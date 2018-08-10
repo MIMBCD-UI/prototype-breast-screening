@@ -375,8 +375,8 @@ var UpdatePatientData = function(patients) {
         const slNumImages = slSeries.length;
         const slStudyId = slEach.ID;
 
-        console.log("Get Study List From: ", JSON.stringify(slEach));
-        console.log("Patient Name: ", JSON.stringify(slPatientName));
+        //console.log("Get Study List From: ", JSON.stringify(slEach));
+        //console.log("Patient Name: ", JSON.stringify(slPatientName));
         console.log("Patient ID: ", JSON.stringify(slPatientId));
         console.log("Study Date: ", JSON.stringify(slStudyDate));
         console.log("Modality: ", JSON.stringify(slModality));

@@ -2487,10 +2487,18 @@ if (typeof cornerstoneTools === 'undefined') {
         
         // Get the toolData from the last-drawn drawing
         // (this should change when modification is added)
-        var data = toolData.data[config.currentTool];
+        var data = toolData.data[config.currentTool]; 
+        
+        data.handles.forEach(function(d, i) {
+            if(i < data.handles.length - 1)
+                d.lastFlag = false;
+        }); 
+        
+        //if(data.handles.length > 0)
+            //console.log(data.handles[data.handles.length-1].lastFlag);
         
         var handleData = {
-            x: eventData.currentPoints.image.x, y: eventData.currentPoints.image.y, highlight: true, active: true, lines: []
+            x: eventData.currentPoints.image.x, y: eventData.currentPoints.image.y, highlight: true, active: true, lastFlag: true, lines: []
         };
         console.log('Add point! - data : ' + data.handles.length);
         console.log('Add point! - currentHandle : ' + config.currentHandle);

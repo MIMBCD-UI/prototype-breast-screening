@@ -243,14 +243,37 @@ $(document).keyup(function(e) {
   var toolStateManager = cornerstoneTools.getElementToolStateManager(currentElement);
   var freehandToolState = toolStateManager.get(currentElement, 'freehand');
   if(freehandToolState){
-    freehandToolState.data[freehandToolState.data.length-1].handles.pop();
+    
+    var freeToolArr = freehandToolState.data[freehandToolState.data.length-1];
+    //console.log(freeToolArr.handles.length);
+    
+    freeToolArr.handles.pop(); 
+    
+    if(cornerstoneTools.freehand.getConfiguration().currentHandle > 0) 
+      cornerstoneTools.freehand.getConfiguration().currentHandle--;
+    
+    if(freeToolArr.handles[freeToolArr.handles.length-1] !== undefined) {
+      freeToolArr.handles[freeToolArr.handles.length-1].lines.pop();
+      /*
+      if(freeToolArr.handles[freeToolArr.handles.length-1].lastFlag) {  
+        freeToolArr.handles.pop();
+        freeToolArr.handles[freeToolArr.handles.length-1].lines.pop();
+        if(cornerstoneTools.freehand.getConfiguration().currentHandle > 0) 
+          cornerstoneTools.freehand.getConfiguration().currentHandle--;
+      }
+      */
+    }
+
+    //console.log(freeToolArr.handles[freeToolArr.handles.length-1].lines);
+    //freehandToolState.data[freehandToolState.data.length-1].handles.pop();
     // for(var i=0; i<freehandToolState.data.length; i++){
 
     // }
-    if(cornerstoneTools.freehand.getConfiguration().currentHandle > 0) cornerstoneTools.freehand.getConfiguration().currentHandle--;
-
+    
     cornerstone.updateImage(currentElement);
+    
   }
 
  }
+
 });
