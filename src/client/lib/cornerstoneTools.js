@@ -738,7 +738,7 @@ if (typeof cornerstoneTools === 'undefined') {
             }
         }
 
-        function mouseDownCallback(e, eventData) {
+        function mouseDownCallback(e, eventData) { 
             var data;
 
             function handleDoneMove() {
@@ -753,14 +753,14 @@ if (typeof cornerstoneTools === 'undefined') {
                 $(eventData.element).on('CornerstoneToolsMouseMove', eventData, mouseMoveCallback);
             }
 
-            if (cornerstoneTools.isMouseButtonEnabled(eventData.which, e.data.mouseButtonMask)) {
+            if (cornerstoneTools.isMouseButtonEnabled(eventData.which, e.data.mouseButtonMask)) { 
                 var coords = eventData.startPoints.canvas;
                 var toolData = cornerstoneTools.getToolState(e.currentTarget, mouseToolInterface.toolType);
 
                 var i;
 
                 // now check to see if there is a handle we can move
-                if (toolData !== undefined) {
+                if (toolData !== undefined) { 
                     for (i = 0; i < toolData.data.length; i++) {
                         data = toolData.data[i];
                         var distanceSq = 25;
@@ -777,7 +777,7 @@ if (typeof cornerstoneTools === 'undefined') {
 
                 // Now check to see if there is a line we can move
                 // now check to see if we have a tool that we can move
-                if (toolData !== undefined && mouseToolInterface.pointNearTool !== undefined) {
+                if (toolData !== undefined && mouseToolInterface.pointNearTool !== undefined) { 
                     for (i = 0; i < toolData.data.length; i++) {
                         data = toolData.data[i];
                         if (mouseToolInterface.pointNearTool(eventData.element, data, coords)) {
@@ -790,7 +790,7 @@ if (typeof cornerstoneTools === 'undefined') {
                     }
                 }
             }
-        }
+        }   
         ///////// END DEACTIVE TOOL ///////
 
         // not visible, not interactive
@@ -955,7 +955,7 @@ if (typeof cornerstoneTools === 'undefined') {
 
         ///////// BEGIN DEACTIVE TOOL ///////
 
-        function mouseMoveCallback(e, eventData) {
+        function mouseMoveCallback(e, eventData) { 
             cornerstoneTools.toolCoordinates.setCoords(eventData);
             // if a mouse button is down, do nothing
             if (eventData.which !== 0) {
@@ -1006,7 +1006,7 @@ if (typeof cornerstoneTools === 'undefined') {
                 $(eventData.element).on('CornerstoneToolsMouseMove', mouseMoveCallback);
             }
 
-            if (cornerstoneTools.isMouseButtonEnabled(eventData.which, e.data.mouseButtonMask)) {
+            if (cornerstoneTools.isMouseButtonEnabled(eventData.which, e.data.mouseButtonMask)) { 
                 var coords = eventData.startPoints.canvas;
                 var toolData = cornerstoneTools.getToolState(e.currentTarget, mouseToolInterface.toolType);
 
@@ -2029,7 +2029,7 @@ if (typeof cornerstoneTools === 'undefined') {
         $(eventData.element).off('CornerstoneToolsMouseUp', mouseUpCallback);
     }
 
-    function mouseDownCallback(e, eventData) {
+    function mouseDownCallback(e, eventData) { 
         if (cornerstoneTools.isMouseButtonEnabled(eventData.which, e.data.mouseButtonMask)) {
             $(eventData.element).on('CornerstoneToolsMouseDrag', mouseDragCallback);
             $(eventData.element).on('CornerstoneToolsMouseUp', mouseUpCallback);
@@ -2477,7 +2477,8 @@ if (typeof cornerstoneTools === 'undefined') {
     };
 
     ///////// BEGIN ACTIVE TOOL ///////
-    function addPoint(eventData) {
+    function addPoint(eventData) { 
+        
         var toolData = cornerstoneTools.getToolState(eventData.element, toolType);
         if (toolData === undefined) {
             return;
@@ -2493,9 +2494,6 @@ if (typeof cornerstoneTools === 'undefined') {
             if(i < data.handles.length - 1)
                 d.lastFlag = false;
         }); 
-        
-        //if(data.handles.length > 0)
-            //console.log(data.handles[data.handles.length-1].lastFlag);
         
         var handleData = {
             x: eventData.currentPoints.image.x, y: eventData.currentPoints.image.y, highlight: true, active: true, lastFlag: true, lines: []
@@ -2518,7 +2516,7 @@ if (typeof cornerstoneTools === 'undefined') {
         config.freehand = false;
 
         // Force onImageRendered to fire
-        cornerstone.updateImage(eventData.element);
+        cornerstone.updateImage(eventData.element); 
     }
 
     function pointNearHandle(eventData, toolIndex) {
@@ -2569,7 +2567,7 @@ if (typeof cornerstoneTools === 'undefined') {
     // On next click, add another point -- continuously
     // On each click, if it intersects with a current point, end drawing loop
 
-    function mouseUpCallback(e, eventData) {
+    function mouseUpCallback(e, eventData) { 
         $(eventData.element).off('CornerstoneToolsMouseUp', mouseUpCallback);
 
         // Check if drawing is finished
@@ -2587,7 +2585,8 @@ if (typeof cornerstoneTools === 'undefined') {
         cornerstone.updateImage(eventData.element);
     }
 
-    function mouseMoveCallback(e, eventData) {
+    function mouseMoveCallback(e, eventData) { 
+        
         var toolData = cornerstoneTools.getToolState(eventData.element, toolType);
         if (toolData === undefined) {
             return;
@@ -2684,27 +2683,51 @@ if (typeof cornerstoneTools === 'undefined') {
         cornerstone.updateImage(eventData.element);
     }
 
-    function mouseDownCallback(e, eventData) {
+    function mouseDownCallback(e, eventData) { 
+        if(cornerstoneTools.freehand.getConfiguration().currentTool > -1) {
+            if(eventData.which == 3) {
+                $(eventData.element).on('CornerstoneToolsMouseMove', mouseMoveCallback);
+                $(eventData.element).on('CornerstoneToolsMouseUp', mouseUpCallback);
+            }
+        }
         if (cornerstoneTools.isMouseButtonEnabled(eventData.which, e.data.mouseButtonMask)) {
             var toolData = cornerstoneTools.getToolState(eventData.element, toolType);
 
             var handleNearby, toolIndex;
 
             var config = cornerstoneTools.freehand.getConfiguration();
-            var currentTool = config.currentTool;
+            var currentTool = config.currentTool; 
+            
+            //console.log(config);
 
-            if (config.modifying) {
+            if (config.modifying) { 
                 endDrawing(eventData);
+                
+                /*
+                var currentHandleLineLength = toolData.data[0].handles[config.currentHandle].lines.length;
+                if(currentHandleLineLength > 0) { 
+                    endDrawing(eventData);
+                } else { 
+                    startDrawing(eventData);
+                    addPoint(eventData);
+                    data.active = true;
+                    data.highlight = true;
+                    config.modifying = true;
+                    //config.currentHandle = cornerstoneTools.data[config.currentTool];
+                    config.currentTool = 0;
+                    
+                }
+                */
                 return;
             }
 
-            if (currentTool < 0) {
+            if (currentTool < 0) { 
                 var nearby = pointNearHandleAllTools(eventData);
                 if (nearby) {
                     handleNearby = nearby.handleNearby;
                     toolIndex = nearby.toolIndex;
                     // This means the user is trying to modify a point
-                    if (handleNearby !== undefined) {
+                    if (handleNearby !== undefined) { 
                         $(eventData.element).on('CornerstoneToolsMouseMove', mouseMoveCallback);
                         $(eventData.element).on('CornerstoneToolsMouseUp', mouseUpCallback);
                         config.modifying = true;
@@ -2718,9 +2741,9 @@ if (typeof cornerstoneTools === 'undefined') {
             } else if (currentTool >= 0 && toolData.data[currentTool].active) {
                 handleNearby = pointNearHandle(eventData, currentTool);
                 if (handleNearby !== undefined) {
-                    endDrawing(eventData, handleNearby);
+                    endDrawing(eventData, handleNearby); 
                 } else if (eventData.event.shiftKey) {
-                    config.freehand = true;
+                    config.freehand = false;
                 } else {
                     addPoint(eventData);
                 }
@@ -2842,7 +2865,7 @@ if (typeof cornerstoneTools === 'undefined') {
     }
 
     // visible, but not interactive
-    function deactivate(element) {
+    function deactivate(element) { //console.log(cornerstoneTools.freehand.getConfiguration().currentTool);
         $(element).off('CornerstoneToolsMouseDown', mouseDownCallback);
         $(element).off('CornerstoneToolsMouseUp', mouseUpCallback);
         $(element).off('CornerstoneToolsMouseMove', mouseMoveCallback);

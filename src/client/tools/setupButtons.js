@@ -93,13 +93,18 @@ const setupButtons = (studyViewer) => {
   });
 
   // Freehand ROI draw
-  $(buttons[5]).on('click touchstart', function() {
+  $(buttons[5]).on('click touchstart', function() { 
+    if(cornerstoneTools.freehand.getConfiguration().currentTool < 0) {
+      
+    }
     disableAllTools();
-    forEachViewport(function(element) {
+    forEachViewport(function(element) { 
       currentElement = element;
       cornerstoneTools.probe.disable(element);
       cornerstoneTools.freehand.activate(element, 1);
     });
+    
+    
   });
 
   // Drag Probe
@@ -240,39 +245,34 @@ const setupButtons = (studyViewer) => {
 
 $(document).keyup(function(e) {
   if (e.keyCode == 27 && currentElement !== undefined) { // escape key maps to keycode `27`
-  var toolStateManager = cornerstoneTools.getElementToolStateManager(currentElement);
-  var freehandToolState = toolStateManager.get(currentElement, 'freehand');
-  if(freehandToolState){
-    
-    var freeToolArr = freehandToolState.data[freehandToolState.data.length-1];
-    //console.log(freeToolArr.handles.length);
-    
-    freeToolArr.handles.pop(); 
-    
-    if(cornerstoneTools.freehand.getConfiguration().currentHandle > 0) 
-      cornerstoneTools.freehand.getConfiguration().currentHandle--;
-    
-    if(freeToolArr.handles[freeToolArr.handles.length-1] !== undefined) {
-      freeToolArr.handles[freeToolArr.handles.length-1].lines.pop();
-      /*
-      if(freeToolArr.handles[freeToolArr.handles.length-1].lastFlag) {  
-        freeToolArr.handles.pop();
+    var toolStateManager = cornerstoneTools.getElementToolStateManager(currentElement);
+    var freehandToolState = toolStateManager.get(currentElement, 'freehand');
+ 
+    if(freehandToolState){
+      
+      var freeToolArr = freehandToolState.data[freehandToolState.data.length-1];
+      //console.log(freeToolArr.handles.length);
+      
+      freeToolArr.handles.pop(); 
+      
+      if(cornerstoneTools.freehand.getConfiguration().currentHandle > 0) 
+        cornerstoneTools.freehand.getConfiguration().currentHandle--;
+      
+      if(freeToolArr.handles[freeToolArr.handles.length-1] !== undefined) {
         freeToolArr.handles[freeToolArr.handles.length-1].lines.pop();
-        if(cornerstoneTools.freehand.getConfiguration().currentHandle > 0) 
-          cornerstoneTools.freehand.getConfiguration().currentHandle--;
       }
-      */
+
+      //console.log(freeToolArr.handles[freeToolArr.handles.length-1]);
+
+      //console.log(freeToolArr.handles[freeToolArr.handles.length-1].lines);
+      //freehandToolState.data[freehandToolState.data.length-1].handles.pop();
+      // for(var i=0; i<freehandToolState.data.length; i++){
+
+      // }
+      
+      cornerstone.updateImage(currentElement);
+      
     }
-
-    //console.log(freeToolArr.handles[freeToolArr.handles.length-1].lines);
-    //freehandToolState.data[freehandToolState.data.length-1].handles.pop();
-    // for(var i=0; i<freehandToolState.data.length; i++){
-
-    // }
-    
-    cornerstone.updateImage(currentElement);
-    
-  }
 
  }
 
