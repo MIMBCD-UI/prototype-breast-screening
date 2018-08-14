@@ -66,11 +66,11 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-qunit": "^3.0.0",
+    "grunt-contrib-qunit": "^3.0.1",
     "grunt-contrib-uglify": "^3.4.0",
     "grunt-contrib-watch": "^1.1.0",
     "html-webpack-plugin": "^3.2.0",
-    "jest": "^23.4.2",
+    "jest": "^23.5.0",
     "jsdoc": "^3.5.5",
     "jshint": "^2.9.6",
     "jshint-loader": "^0.8.4",
@@ -102,12 +102,13 @@
     "finalhandler": "^1.1.1",
     "grunt": "^1.0.3",
     "hapi": "^17.5.3",
-    "hoek": "^5.0.3",
+    "hoek": "^5.0.4",
     "http-server": "^0.11.1",
     "isomorphic-fetch": "^2.2.1",
     "merry": "^5.5.2",
     "requirejs": "^2.3.5",
     "semver": "^5.5.0",
-    "serve-static": "^1.13.2"
+    "serve-static": "^1.13.2",
+    "url-parse": "^1.4.3"
   }
 }
