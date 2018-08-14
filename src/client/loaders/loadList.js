@@ -424,7 +424,7 @@ var UpdatePatientData = function(patients) {
     studyList = {
       "studyList": studyListData
     };
-    console.log(JSON.stringify(studies));
+    //console.log(JSON.stringify(studies));
 
     $.ajax({
       url: '/UpdatePatients',
