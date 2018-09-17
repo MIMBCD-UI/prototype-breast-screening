@@ -1,0 +1,13 @@
+{
+    "studyList": [
+        {
+            "patientName": "Anonymized2",
+            "patientId": "9AF6DD70-51D7-457E-AF53-30CCDC5D7126",
+            "studyDate": "20131101",
+            "modality": "Breast",
+            "studyDescription": "Breast",
+            "numImages": 3,
+            "studyId": "9AF6DD70-51D7-457E-AF53-30CCDC5D7126"
+        }
+    ]
+}

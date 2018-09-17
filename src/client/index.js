@@ -112,7 +112,9 @@ $.getJSON(studyListFile, function(data) {
           };
 
           $('.closeBtn').click(function() {
+            alert("Save Image?");///rjaf_save
             var element = this.parentNode.parentNode;
+            // cornerstoneTools.saveAs(element, "aaa.png");
             $('#tabs a:first').tab('show');
             element.remove();
             var tabDataElement = element.firstChild.firstChild.getAttribute('href');
