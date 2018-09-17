@@ -47,7 +47,7 @@
   <script src="../server/utils/hotjar.js" type="module"></script>
   <style>
     body {font-family: Arial, Helvetica, sans-serif;}
-    
+
     /* Full-width input fields */
     input[type=text], input[type=password] {
         width: 80%;
@@ -57,20 +57,20 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
     }
-    
+
     button:hover {
         opacity: 0.8;
     }
-    
+
     .container {
         padding: 16px;
     }
-    
+
     span.psw {
         float: right;
         padding-top: 16px;
     }
-    
+
     /* The Modal (background) */
     .modal {
         display: none; /* Hidden by default */
@@ -85,7 +85,7 @@
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         padding-top: 60px;
     }
-    
+
     /* Modal Content/Box */
     .modal-content {
         background-color: #222020;
@@ -93,29 +93,29 @@
         border: 1px solid #888;
         width: 80%; /* Could be more or less, depending on screen size */
     }
-    
+
     .close:hover,
     .close:focus {
         color: red;
         cursor: pointer;
     }
-    
+
     /* Add Zoom Animation */
     .animate {
         -webkit-animation: animatezoom 0.6s;
         animation: animatezoom 0.6s
     }
-    
+
     @-webkit-keyframes animatezoom {
-        from {-webkit-transform: scale(0)} 
+        from {-webkit-transform: scale(0)}
         to {-webkit-transform: scale(1)}
     }
-        
+
     @keyframes animatezoom {
-        from {transform: scale(0)} 
+        from {transform: scale(0)}
         to {transform: scale(1)}
     }
-    
+
     /* Change styles for span and cancel button on extra small screens */
     @media screen and (max-width: 300px) {
         span.psw {
@@ -188,7 +188,7 @@
       <!-- Study viewer tab content template -->
   </div>
 </div>
-<div id="id01" class="modal">  
+<div id="id01" class="modal">
   <form action="javascript:compare()" class="modal-content animate">
 
     <div class="container">
@@ -197,7 +197,7 @@
 
       <label><b>Password</b></label>
       <input id="pswinput" type="password" placeholder="Enter Password" name="psw" required>
-        
+
       <button style="background-color: #4CAF50; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer;      width: 50%;margin-left: 25%;">Login</button>
 
     </div>
@@ -269,7 +269,7 @@
 <!-- =============================== -->
 <!-- =============================== -->
 <!-- =============================== -->
-<script type="text/javascript" src="data.json"></script>
+<script type="text/javascript" src="../server/auth/credentials.json"></script>
 <script>
   var modal = document.getElementById('id01');
   var myArr;
@@ -282,7 +282,7 @@
           myArr = JSON.parse(this.responseText);
       }
   };
-  xmlhttp.open("GET", "data.json", true);
+  xmlhttp.open("GET", "../server/auth/credentials.json", true);
   xmlhttp.send();
   function compare(){
       var usernm = document.getElementById("usernm").value;
@@ -292,7 +292,7 @@
               modal.style.display = "none";
               break;
           }
-          if(i == myArr.length - 1)    alert("Username or Password is wrong");                  
+          if(i == myArr.length - 1)    alert("Username or Password is wrong");
       }
   }
 </script>
