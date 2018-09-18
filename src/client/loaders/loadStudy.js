@@ -112,7 +112,7 @@ var instancesDirPath = 'instances' + '/';
 
 var instancesPath = dicomServerPath + instancesDirPath;
 
-console.log();
+// console.log();
 
 /* ================================================== */
 /* ================================================== */

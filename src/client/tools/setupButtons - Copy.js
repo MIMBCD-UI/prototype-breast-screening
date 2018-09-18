@@ -34,17 +34,19 @@ var currentElement;
 // server.listen(8080);
 
 const setupButtons = (studyViewer) => {
+  disableAllTools();
   // Get the button elements
   var buttons = $(studyViewer).find('button');
 
   // Tool button event handlers that set the new active tool
-  // cornerstoneTools.zoomWheel.activate(element, 5)
 
   // WW/WL
   $(buttons[0]).on('click touchstart', function() {
     disableAllTools();
     forEachViewport(function(element) {
-      cornerstoneTools.wwwc.activate(element, 1);
+      cornerstoneTools.freehand.deactivate(element); // rjaf
+      cornerstoneTools.wwwc.activate(element, 5);
+      cornerstoneTools.pan.deactivate(element, 1); // rjaf
       cornerstoneTools.wwwcTouchDrag.activate(element);
     });
   });
@@ -52,7 +54,9 @@ const setupButtons = (studyViewer) => {
   // Invert
   $(buttons[1]).on('click touchstart', function() {
     disableAllTools();
+    // cornerstoneTools.pan.deactivate(element, 1); // rjaf
     forEachViewport(function(element) {
+      cornerstoneTools.freehand.deactivate(element); // rjaf
       var viewport = cornerstone.getViewport(element);
       // Toggle invert
       if (viewport.invert === true) {
@@ -68,9 +72,10 @@ const setupButtons = (studyViewer) => {
   $(buttons[2]).on('click touchstart', function() {
     disableAllTools();
     forEachViewport(function(element) {
+      cornerstoneTools.freehand.deactivate(element); // rjaf
       // 5 is right mouse button and left mouse button
-      cornerstoneTools.pan.activate(element, 1);
       cornerstoneTools.zoomWheel.activate(element, 5);
+      // console.log(element);
       cornerstoneTools.zoomTouchDrag.activate(element);
     });
   });
@@ -79,10 +84,9 @@ const setupButtons = (studyViewer) => {
   $(buttons[3]).on('click touchstart', function() {
     disableAllTools();
     forEachViewport(function(element) {
+      cornerstoneTools.freehand.deactivate(element); // rjaf
       // 3 is middle mouse button and left mouse button
-      cornerstoneTools.pan.activate(element, 1);
-      cornerstoneTools.zoomWheel.activate(element, 5);
-      // cornerstoneTools.pan.activate(element, 3);
+      cornerstoneTools.pan.activate(element, 3);
       cornerstoneTools.panTouchDrag.activate(element);
     });
   });
@@ -90,7 +94,9 @@ const setupButtons = (studyViewer) => {
   // Stack scroll
   $(buttons[4]).on('click touchstart', function() {
     disableAllTools();
+    // cornerstoneTools.pan.deactivate(element, 1); // rjaf
     forEachViewport(function(element) {
+      cornerstoneTools.freehand.deactivate(element); // rjaf
       cornerstoneTools.stackScroll.activate(element, 1);
       cornerstoneTools.stackScrollTouchDrag.activate(element);
     });
@@ -102,6 +108,7 @@ const setupButtons = (studyViewer) => {
       
     }
     disableAllTools();
+    // cornerstoneTools.pan.deactivate(element, 1); // rjaf
     forEachViewport(function(element) { 
       currentElement = element;
       cornerstoneTools.probe.disable(element);
@@ -114,6 +121,7 @@ const setupButtons = (studyViewer) => {
   // Drag Probe
   $(buttons[6]).on('click touchstart', function() {
     disableAllTools();
+    // cornerstoneTools.pan.deactivate(element, 1); // rjaf
     forEachViewport(function(element) {
       currentElement = element;
       cornerstoneTools.probe.activate(element, 1);
@@ -123,7 +131,9 @@ const setupButtons = (studyViewer) => {
   // JSON Save Button
   $(buttons[7]).on('click touchstart', function() {
     disableAllTools();
+    // cornerstoneTools.pan.deactivate(element, 1); // rjaf
     forEachViewport(function(element) {
+      // cornerstoneTools.saveAs(element, "vvv");//rjaf_save
 
       /**
        * time_stamp => YYYYMMDDHHmmSS

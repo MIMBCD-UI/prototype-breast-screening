@@ -46,8 +46,9 @@
   <!-- Hotjar Tracking Code -->
   <script src="../server/utils/hotjar.js" type="module"></script>
   <style>
+    /* add by rjaf */
     body {font-family: Arial, Helvetica, sans-serif;}
-
+    
     /* Full-width input fields */
     input[type=text], input[type=password] {
         width: 80%;
@@ -57,22 +58,22 @@
         border: 1px solid #ccc;
         box-sizing: border-box;
     }
-
+    
     button:hover {
         opacity: 0.8;
     }
-
+    
     .container {
         padding: 16px;
     }
-
+    
     span.psw {
         float: right;
         padding-top: 16px;
     }
-
+    
     /* The Modal (background) */
-    .modal {
+    .modal_login {
         display: none; /* Hidden by default */
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
@@ -85,37 +86,37 @@
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         padding-top: 60px;
     }
-
+    
     /* Modal Content/Box */
-    .modal-content {
+    .modal-content_login {
         background-color: #222020;
         margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
         border: 1px solid #888;
         width: 80%; /* Could be more or less, depending on screen size */
     }
-
+    
     .close:hover,
     .close:focus {
         color: red;
         cursor: pointer;
     }
-
+    
     /* Add Zoom Animation */
     .animate {
         -webkit-animation: animatezoom 0.6s;
         animation: animatezoom 0.6s
     }
-
+    
     @-webkit-keyframes animatezoom {
-        from {-webkit-transform: scale(0)}
+        from {-webkit-transform: scale(0)} 
         to {-webkit-transform: scale(1)}
     }
-
+        
     @keyframes animatezoom {
-        from {transform: scale(0)}
+        from {transform: scale(0)} 
         to {transform: scale(1)}
     }
-
+    
     /* Change styles for span and cancel button on extra small screens */
     @media screen and (max-width: 300px) {
         span.psw {
@@ -128,9 +129,9 @@
     }
     </style>
 </head>
-<!-- <body>    -->
-  <!-- rjaf -->
-<body onload="login()">
+<body>   
+  <!-- rjaf login -->
+<!-- <body onload="login()"> -->
   <div id="wrap">
     <!-- Nav bar -->
     <nav class="myNav navbar navbar-default" role="navigation">
@@ -188,16 +189,16 @@
       <!-- Study viewer tab content template -->
   </div>
 </div>
-<div id="id01" class="modal">
-  <form action="javascript:compare()" class="modal-content animate">
+<div id="id01" class="modal_login">  
+  <form action="javascript:compare()" class="modal-content_login animate">
 
     <div class="container">
       <label><b>Username</b></label>
       <input id="usernm" type="text" placeholder="Enter Username" name="uname"><br>
 
       <label><b>Password</b></label>
-      <input id="pswinput" type="password" placeholder="Enter Password" name="psw" required>
-
+      <input id="pswinput" type="password" placeholder="Enter Password" autocomplete="off" name="psw" required>
+        
       <button style="background-color: #4CAF50; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer;      width: 50%;margin-left: 25%;">Login</button>
 
     </div>
@@ -242,6 +243,7 @@
 <script src="../client/loaders/loadTemplate.js"></script>
 <script src="../client/modals/help.js"></script>
 <script src="../client/modals/about.js"></script>
+<script src="../client/modals/save.js"></script>
 <script src="../client/viewport/setupViewportOverlays.js"></script>
 <script src="../client/loaders/loadList.js" type="module"></script>
 <script src="../client/index.js" type="module"></script>
@@ -269,9 +271,11 @@
 <!-- =============================== -->
 <!-- =============================== -->
 <!-- =============================== -->
-<script type="text/javascript" src="../server/auth/credentials.json"></script>
+<script type="text/javascript" src="data.json"></script>
 <script>
   var modal = document.getElementById('id01');
+      document.getElementById("usernm").setAttribute('autocomplete', "off");   ///autocomplete="off"  
+      // $("#usernm").prop("autocomplete", "off");
   var myArr;
   function login() {
       modal.style.display = "block";
@@ -282,7 +286,7 @@
           myArr = JSON.parse(this.responseText);
       }
   };
-  xmlhttp.open("GET", "../server/auth/credentials.json", true);
+  xmlhttp.open("GET", "data.json", true);
   xmlhttp.send();
   function compare(){
       var usernm = document.getElementById("usernm").value;
@@ -292,7 +296,7 @@
               modal.style.display = "none";
               break;
           }
-          if(i == myArr.length - 1)    alert("Username or Password is wrong");
+          if(i == myArr.length - 1)    alert("Username or Password is wrong");                  
       }
   }
 </script>

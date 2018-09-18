@@ -620,20 +620,20 @@ if (typeof cornerstoneTools === 'undefined') {
 
     'use strict';
 
-    function simpleMouseButtonTool(mouseDownCallback) {
+    function simpleMouseButtonTool(mouseWheelCallback) {
         var configuration = {};
 
         var toolInterface = {
             activate: function(element, mouseButtonMask, options) {
-                $(element).off('CornerstoneToolsMouseDownActivate', mouseDownCallback);
+                $(element).off('CornerstoneToolsMouseDownActivate', mouseWheelCallback);
                 var eventData = {
                     mouseButtonMask: mouseButtonMask, options: options
                 };
-                $(element).on('CornerstoneToolsMouseDownActivate', eventData, mouseDownCallback);
+                $(element).on('CornerstoneToolsMouseDownActivate', eventData, mouseWheelCallback);
             },
-            disable: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseDownCallback);},
-            enable: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseDownCallback);},
-            deactivate: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseDownCallback);},
+            disable: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseWheelCallback);},
+            enable: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseWheelCallback);},
+            deactivate: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseWheelCallback);},
             getConfiguration: function() { return configuration;},
             setConfiguration: function(config) {configuration = config;}
         };

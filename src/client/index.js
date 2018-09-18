@@ -82,7 +82,7 @@ $.getJSON(studyListFile, function(data) {
         } else {
           // Add new tab for this study and switch to it
           var studyTab = '<li><div id=complete-tab><a href="#x' + study.patientId + '" data-toggle="tab">' + study.patientId + '</a>' +
-            '<input type="button" class="closeBtn" value="X" />' + '</li></div>';
+            '<input id="close" href="#" type="button" class="closeBtn" value="X" />' + '</li></div>'; ///rjaf
           $('#tabs').append(studyTab);
           // Add tab content by making a copy of the studyViewerTemplate element
           var studyViewerCopy = studyViewerTemplate.clone();
@@ -112,9 +112,9 @@ $.getJSON(studyListFile, function(data) {
           };
 
           $('.closeBtn').click(function() {
-            alert("Save Image?");///rjaf_save
+            // alert("Save Image?");///rjaf_save
             var element = this.parentNode.parentNode;
-            // cornerstoneTools.saveAs(element, "aaa.png");
+            $('#saveModal').modal('show');//rjaf_savemodal
             $('#tabs a:first').tab('show');
             element.remove();
             var tabDataElement = element.firstChild.firstChild.getAttribute('href');
