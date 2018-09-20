@@ -112,7 +112,7 @@ var instancesDirPath = 'instances' + '/';
 
 var instancesPath = dicomServerPath + instancesDirPath;
 
-// console.log();
+console.log();
 
 /* ================================================== */
 /* ================================================== */
@@ -321,8 +321,7 @@ function loadStudy(studyViewer, viewportModel, studyId) {
         function resizeStudyViewer() {
             var studyRow = $(studyViewer).find('.studyContainer')[0];
             var height = $(studyRow).height();
-            var width = $(studyRow).width();
-            console.log($(studyRow).innerWidth(),$(studyRow).outerWidth(),$(studyRow).width());
+            var width = $(studyRow).width();console.log($(studyRow).innerWidth(),$(studyRow).outerWidth(),$(studyRow).width());
             $(seriesList).height("100%");
             $(parentDiv).width(width - $(studyViewer).find('.thumbnailSelector:eq(0)').width());
             $(parentDiv).css({height : '100%'});

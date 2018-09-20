@@ -38,7 +38,6 @@ const setupButtons = (studyViewer) => {
   var buttons = $(studyViewer).find('button');
 
   // Tool button event handlers that set the new active tool
-  // cornerstoneTools.zoomWheel.activate(element, 5)
 
   // WW/WL
   $(buttons[0]).on('click touchstart', function() {
@@ -69,8 +68,7 @@ const setupButtons = (studyViewer) => {
     disableAllTools();
     forEachViewport(function(element) {
       // 5 is right mouse button and left mouse button
-      cornerstoneTools.pan.activate(element, 1);
-      cornerstoneTools.zoomWheel.activate(element, 5);
+      cornerstoneTools.zoom.activate(element, 5);
       cornerstoneTools.zoomTouchDrag.activate(element);
     });
   });
@@ -80,9 +78,7 @@ const setupButtons = (studyViewer) => {
     disableAllTools();
     forEachViewport(function(element) {
       // 3 is middle mouse button and left mouse button
-      cornerstoneTools.pan.activate(element, 1);
-      cornerstoneTools.zoomWheel.activate(element, 5);
-      // cornerstoneTools.pan.activate(element, 3);
+      cornerstoneTools.pan.activate(element, 3);
       cornerstoneTools.panTouchDrag.activate(element);
     });
   });

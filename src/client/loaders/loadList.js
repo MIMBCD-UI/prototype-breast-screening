@@ -140,8 +140,6 @@ var studiesPath = dicomServerPath + studiesDirPath;
 var seriesPath = dicomServerPath + seriesDirPath;
 var instancesPath = dicomServerPath + instancesDirPath;
 
-var imageNumber = 0;//rjaf
-
 /* ================================================== */
 /* ================================================== */
 /* ================================================== */
@@ -355,9 +353,9 @@ getStudyList((studyList) => {})
  * @param {Object} patients - Patients' source of information argument.
  */
 var UpdatePatientData = function(patients) {
-  if (patients.length > 0) {    
-    // console.log("pl:",patients.length);
+  if (patients.length > 0) {
     for (var i = 0; i < patients.length; i++) {
+
       var totalStudies = [];
       var studyListDataStructure = {};
       var studiesDataStructure = {};
@@ -376,6 +374,7 @@ var UpdatePatientData = function(patients) {
         const slStudyDescription = slMainAttr.StudyDescription;
         const slNumImages = slSeries.length;
         const slStudyId = slEach.ID;
+        const slInternalId = "Patient-" + (i+1);
 
         //console.log("Get Study List From: ", JSON.stringify(slEach));
         //console.log("Patient Name: ", JSON.stringify(slPatientName));
@@ -393,11 +392,11 @@ var UpdatePatientData = function(patients) {
         studyListDataStructure = {
           "patientName": slPatientName,
           "patientId": slPatientId,
+          "internalId": slInternalId,
           "studyDate": slStudyDate,
           "modality": slModality,
           "studyDescription": slStudyDescription,
-          // "numImages": seriesForFile.TotalInstance,
-          "numImages": imageNumber,//rjaf
+          "numImages": seriesForFile.TotalInstance,
           "studyId": fileName
         };
 
@@ -405,11 +404,11 @@ var UpdatePatientData = function(patients) {
         studiesDataStructure = {
           "patientName": slPatientName,
           "patientId": slPatientId,
+          "internalId": slInternalId,
           "studyDate": slStudyDate,
           "modality": slModality,
           "studyDescription": slStudyDescription,
           "numImages": seriesForFile[0].instanceList.length, //slNumImages,
-          // "numImages": imageNumber, //slNumImages,
           "studyId": slStudyId,
           "seriesList": seriesForFile
         };
@@ -475,12 +474,10 @@ var UpdatePatientData = function(patients) {
 var getSeriesForFile = function(seriesData) {
   var seriesFileData = new Array();
   var totalInstanceCount = 0;
-  // console.log("sl",seriesData.length);
   for (var index = 0; index < seriesData.length; index++) {
     var series = seriesData[index];
     var instanceForFile = getInstanceListForFile(series.InstanceData);
     totalInstanceCount += instanceForFile.length;
-    // imageNumber++;//rjaf
     if (series.InstanceData.length <= 1) {
       seriesFileData.push(getSeriesDataStructure(series, instanceForFile));
     } else {
@@ -494,7 +491,7 @@ var getSeriesForFile = function(seriesData) {
         }
       }
     }
-  }  
+  }
   seriesFileData.TotalInstance = totalInstanceCount;
   return seriesFileData;
 }
@@ -539,7 +536,6 @@ var getInstanceListForFile = function(instanceData) {
       "imageId": instanceData[index1].ID + '/file'
     };
     instanceFileData.push(seriesDataStructure);
-    imageNumber++;//rjaf
   }
   return instanceFileData;
 }
