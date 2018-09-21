@@ -374,7 +374,7 @@ var UpdatePatientData = function(patients) {
         const slStudyDescription = slMainAttr.StudyDescription;
         const slNumImages = slSeries.length;
         const slStudyId = slEach.ID;
-        const slInternalId = "Patient-" + (i+1);
+        const slInternalId = Math.floor(Math.random() * 1000000)+1;
 
         //console.log("Get Study List From: ", JSON.stringify(slEach));
         //console.log("Patient Name: ", JSON.stringify(slPatientName));
