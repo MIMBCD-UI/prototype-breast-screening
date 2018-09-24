@@ -374,6 +374,10 @@ var UpdatePatientData = function(patients) {
         const slStudyDescription = slMainAttr.StudyDescription;
         const slNumImages = slSeries.length;
         const slStudyId = slEach.ID;
+        //const slInternalId = Math.floor(Math.random() * 1000000)+1;
+
+        var tem_str = slPatientId.replace(/-/g, "");
+        const slInternalId = md5(tem_str).substr(0, 6);
 
         //console.log("Get Study List From: ", JSON.stringify(slEach));
         //console.log("Patient Name: ", JSON.stringify(slPatientName));
@@ -391,6 +395,7 @@ var UpdatePatientData = function(patients) {
         studyListDataStructure = {
           "patientName": slPatientName,
           "patientId": slPatientId,
+          "internalId": slInternalId,
           "studyDate": slStudyDate,
           "modality": slModality,
           "studyDescription": slStudyDescription,
@@ -402,6 +407,7 @@ var UpdatePatientData = function(patients) {
         studiesDataStructure = {
           "patientName": slPatientName,
           "patientId": slPatientId,
+          "internalId": slInternalId,
           "studyDate": slStudyDate,
           "modality": slModality,
           "studyDescription": slStudyDescription,
