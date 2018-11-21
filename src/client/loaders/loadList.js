@@ -129,6 +129,8 @@ var instanceObjectData = [];
  */
 /* ================================================== */
 
+// TODO: Convert paths for system like methods...
+
 var patientsExpandedQuery = 'patients?expand';
 var patientsDirPath = 'patients' + '/';
 var studiesDirPath = 'studies' + '/';
