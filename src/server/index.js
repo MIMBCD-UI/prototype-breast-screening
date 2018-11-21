@@ -47,6 +47,7 @@ var fileExtension = '.json';
 var requestValue = 'GET';
 var studyListPath = 'src/common/studyList.json';
 var seriesPath = 'src/common/studies/';
+var seriesMetadataPath = '../' + 'dataset-patients-metadata/dataset/';
 
 /* ================================================== */
 
@@ -149,12 +150,17 @@ var updateStudiesFileHandler = function(fileData) {
   var objectData = JSON.parse(fileData);
   console.log(objectData.file.length);
   for (var i = 0; i < objectData.file.length; i++) {
-
     fs.writeFile(seriesPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
       if (err) {
         console.log('Error in saving file:\n' + err);
       }
-      console.log('patients file created successfully:');
+      console.log('Patients file created successfully:');
+    });
+    fs.writeFile(seriesMetadataPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
+      if (err) {
+        console.log('Error for Patients Metadata in saving file:\n' + err);
+      }
+      console.log('Patients Metadata file created successfully:');
     });
   }
 };
