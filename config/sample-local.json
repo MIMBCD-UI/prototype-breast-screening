@@ -1,0 +1,26 @@
+{
+  "dicomServer":
+  [
+    {
+      "prefix": "://",
+      "transferProtocol": "http",
+      "hostname": "localhost",
+      "portEscape": ":",
+      "port": "",
+      "suffix": "/",
+      "serviceProtocol": "wadouri"
+    }
+  ],
+  "mainServer":
+  [
+    {
+      "prefix": "://",
+      "transferProtocol": "http",
+      "hostname": "localhost",
+      "portEscape": ":",
+      "port": "",
+      "suffix": "/",
+      "hotjar": ""
+    }
+  ]
+}
