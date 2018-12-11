@@ -1,11 +1,10 @@
 /**
  * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
  */
+
 // File Management
 var fileFormat = '.json';
 var pathToSave = '../../dataset/';
-
-//  var pathbirads = '../../dataset/birads/';
 
 // Time Stamp
 var currentDate = new Date();
@@ -35,130 +34,29 @@ var currentElement;
 // server.listen(8080);
 
 const setupButtons = (studyViewer) => {
+  disableAllTools();
   // Get the button elements
   var buttons = $(studyViewer).find('button');
 
   // Tool button event handlers that set the new active tool
-  // cornerstoneTools.zoomWheel.activate(element, 5)
 
   // WW/WL
-  var myArr;
-
-
-
-  $(buttons[10]).on('click touchstart', function () {
+  $(buttons[0]).on('click touchstart', function() {
     disableAllTools();
-
-    var studyRoiData = studyViewer.roiData;
-    var dataPatientName = studyRoiData.patientId;
-    document.getElementById("patientusernmid").innerHTML = dataPatientName;
-    console.log(dataPatientName);
-    Patientshowbirads();
-
-    var result = pathToSave + dataPatientName + ".json";
-    console.log(result);
-    $.getJSON(result, function (data) {
-      if (data && data.birads != undefined && data.birads != null) {
-        var dataPatientName = studyRoiData.patientId;
-        var birads = data.birads;
-        var currentSelectedImage = document.getElementById('biradsnm').innerHTML;
-        $("#birselect").val("");
-        for(var i= 0; i<data.birads.length; i++)
-        {
-          if(data.birads[i].ImageId == currentSelectedImage)
-          {
-            $("#birselect").val(data.birads[i].birads);
-            break;
-          }
-        }
-        
-        $("#patientusernm")[0].value = dataPatientName;
-      }
-      else{
-        $("#birselect").val("");
-      }
-    }, 'text')
-    .error(function(error){
-      $("#birselect").val("");
-    });
-    var dataPatientName = studyRoiData.patientId;
-    
-  });
-
-
-  $(buttons[9]).on('click touchstart', function () {
-    disableAllTools();
-
-    var studyRoiData = studyViewer.roiData;
-    var studyCurrentStack = studyRoiData.currentStack;
-    var stack = studyRoiData.stacks[studyCurrentStack];
-    var dataPatientId = studyRoiData.patientId;
-    var dataPatientName = studyRoiData.patientId;
-
-    document.getElementById("patientusernm").innerHTML = dataPatientName;
-    Patientshow(dataPatientId);
-
-    $("#patientusernm")[0].value = dataPatientName;
-    var patientData = {
-      PatientId: dataPatientName
-    }
-    console.log(pathToSave + dataPatientName);
-    var req = $.getJSON(pathToSave + dataPatientName + ".json", function (data) {
-      console.log(data);
-      if (data && (data.patientdata != null || data.patientdata != undefined)) {
-        var patientnmdata = studyRoiData.patientId;
-        var agedata = data.patientdata.agedata;
-        var pbdata = data.patientdata.pbdata;
-        var fbdata = data.patientdata.fbdata;
-        var obesitydata = data.patientdata.obesitydata;
-        var densitydata = data.patientdata.densitydata;
-        var pathologydata = data.patientdata.pathologydata;
-        $("#patientusernm")[0].value = patientnmdata;
-        $("#ageinput")[0].value = agedata;
-        $("#pb")[0].value = pbdata;
-        $("#fb")[0].value = fbdata;
-        $("#obesity")[0].value = obesitydata;
-        $("#density")[0].value = densitydata;
-        $("#pathology")[0].value = pathologydata;
-      }
-      else {
-        ResetPatientForm(studyRoiData);
-      }
-
-    }, 'text')
-      .error(function (error) {
-        //Reset all control value if file not found for patient
-        ResetPatientForm(studyRoiData);
-      })
-    // req.complete(function(){
-    //  alert("Welcome to visit infomation about '"+usernm+"'!");
-  });
-
-  function ResetPatientForm(studyRoiData) {
-    $("#patientusernm")[0].value = studyRoiData.patientId;
-    $("#ageinput").val("");
-    $("#pb").val("");
-    $("#fb").val("");
-    $("#obesity").val("");
-    $("#density").val("");
-    $("#pathology").val("");
-
-  }
-
-
-  $(buttons[0]).on('click touchstart', function () {
-
-    disableAllTools();
-    forEachViewport(function (element) {
-      cornerstoneTools.wwwc.activate(element, 1);
+    forEachViewport(function(element) {
+      cornerstoneTools.freehand.deactivate(element); // fmc
+      cornerstoneTools.wwwc.activate(element, 5);
+      cornerstoneTools.pan.deactivate(element, 1); // fmc
       cornerstoneTools.wwwcTouchDrag.activate(element);
     });
   });
 
   // Invert
-  $(buttons[1]).on('click touchstart', function () {
+  $(buttons[1]).on('click touchstart', function() {
     disableAllTools();
-    forEachViewport(function (element) {
+    // cornerstoneTools.pan.deactivate(element, 1); // fmc
+    forEachViewport(function(element) {
+      cornerstoneTools.freehand.deactivate(element); // fmc
       var viewport = cornerstone.getViewport(element);
       // Toggle invert
       if (viewport.invert === true) {
@@ -171,9 +69,9 @@ const setupButtons = (studyViewer) => {
   });
 
   // Zoom
-  $(buttons[2]).on('click touchstart', function () {
+  $(buttons[2]).on('click touchstart', function() {
     disableAllTools();
-    forEachViewport(function (element) {
+    forEachViewport(function(element) {
       cornerstoneTools.freehand.deactivate(element); // fmc
       // 5 is right mouse button and left mouse button
       cornerstoneTools.zoomWheel.activate(element, 5);
@@ -183,57 +81,59 @@ const setupButtons = (studyViewer) => {
   });
 
   // Pan
-  $(buttons[3]).on('click touchstart', function () {
+  $(buttons[3]).on('click touchstart', function() {
     disableAllTools();
-    forEachViewport(function (element) {
+    forEachViewport(function(element) {
+      cornerstoneTools.freehand.deactivate(element); // fmc
       // 3 is middle mouse button and left mouse button
-      cornerstoneTools.pan.activate(element, 1);
-      cornerstoneTools.zoomWheel.activate(element, 5);
-      // cornerstoneTools.pan.activate(element, 3);
+      cornerstoneTools.pan.activate(element, 3);
       cornerstoneTools.panTouchDrag.activate(element);
     });
   });
 
   // Stack scroll
-  $(buttons[4]).on('click touchstart', function () {
+  $(buttons[4]).on('click touchstart', function() {
     disableAllTools();
-    forEachViewport(function (element) {
+    // cornerstoneTools.pan.deactivate(element, 1); // fmc
+    forEachViewport(function(element) {
+      cornerstoneTools.freehand.deactivate(element); // fmc
       cornerstoneTools.stackScroll.activate(element, 1);
       cornerstoneTools.stackScrollTouchDrag.activate(element);
     });
   });
 
   // Freehand ROI draw
-  $(buttons[5]).on('click touchstart', function () {
-    if (cornerstoneTools.freehand.getConfiguration().currentTool < 0) {
+  $(buttons[5]).on('click touchstart', function() {
+    if(cornerstoneTools.freehand.getConfiguration().currentTool < 0) {
 
     }
     disableAllTools();
-    forEachViewport(function (element) {
+    // cornerstoneTools.pan.deactivate(element, 1); // fmc
+    forEachViewport(function(element) {
       currentElement = element;
       cornerstoneTools.probe.disable(element);
       cornerstoneTools.freehand.activate(element, 1);
-      $('#modifiedStar').css('display', 'inline');
     });
 
 
   });
 
   // Drag Probe
-  $(buttons[6]).on('click touchstart', function () {
+  $(buttons[6]).on('click touchstart', function() {
     disableAllTools();
-    forEachViewport(function (element) {
+    // cornerstoneTools.pan.deactivate(element, 1); // fmc
+    forEachViewport(function(element) {
       currentElement = element;
       cornerstoneTools.probe.activate(element, 1);
-      $('#modifiedStar').css('display', 'inline');
     });
   });
 
   // JSON Save Button
-  $(buttons[7]).on('click touchstart', function () {
+  $(buttons[7]).on('click touchstart', function() {
     disableAllTools();
-
-    forEachViewport(function (element) {
+    // cornerstoneTools.pan.deactivate(element, 1); // fmc
+    forEachViewport(function(element) {
+      // cornerstoneTools.saveAs(element, "vvv");//fmc_save
 
       /**
        * time_stamp => YYYYMMDDHHmmSS
@@ -252,15 +152,6 @@ const setupButtons = (studyViewer) => {
       var studyRoiData = studyViewer.roiData;
       var studyCurrentStack = studyRoiData.currentStack;
       var stack = studyRoiData.stacks[studyCurrentStack];
-
-      console.log(stack);
-      var bb = stack.imageIds;
-      var cc = bb[0].substring(35, 79);
-      console.log(cc);
-      //    var imageId = stack[imageids];
-      //    console.log(imageId);
-
-
       var dataStudyId = studyRoiData.studyId;
       var dataPatientId = studyRoiData.patientId;
       var sourceNameToSave = dataStudyId;
@@ -282,10 +173,10 @@ const setupButtons = (studyViewer) => {
       // 20180223203337123456789.json
 
       console.log("Saved File Name: ", fileNameToSave);
-      if (freeHandToolData !== undefined) {
+      if(freeHandToolData !== undefined){
         stack.freehand = freeHandToolData.data;
       }
-      if (probeToolData !== undefined) {
+      if(probeToolData !== undefined){
         stack.probe = probeToolData.data;
       }
 
@@ -311,11 +202,10 @@ const setupButtons = (studyViewer) => {
         data: JSON.stringify(data),
         dataType: "text",
         type: 'POST',
-        success: function (data) {
-          $('#modifiedStar').css('display', 'none');
+        success: function(data) {
           console.log('File saved successfully on server');
         },
-        error: function (xhr, status, error) {
+        error: function(xhr, status, error) {
           console.log('Error Occured while saving file');
         },
       });
@@ -331,8 +221,6 @@ const setupButtons = (studyViewer) => {
   $(buttons[5]).tooltip();
   $(buttons[6]).tooltip();
   $(buttons[7]).tooltip();
-  $(buttons[9]).tooltip();
-  $(buttons[10]).tooltip();
 
   const download = (data, name, type) => {
     var link = document.createElement("a");
@@ -367,27 +255,25 @@ const setupButtons = (studyViewer) => {
     );
     link.dispatchEvent(event);
   }
-
-  
 };
 
-$(document).keyup(function (e) {
+$(document).keyup(function(e) {
   if (e.keyCode == 27 && currentElement !== undefined) { // escape key maps to keycode `27`
     var toolStateManager = cornerstoneTools.getElementToolStateManager(currentElement);
     var freehandToolState = toolStateManager.get(currentElement, 'freehand');
 
-    if (freehandToolState) {
+    if(freehandToolState){
 
-      var freeToolArr = freehandToolState.data[freehandToolState.data.length - 1];
+      var freeToolArr = freehandToolState.data[freehandToolState.data.length-1];
       //console.log(freeToolArr.handles.length);
 
       freeToolArr.handles.pop();
 
-      if (cornerstoneTools.freehand.getConfiguration().currentHandle > 0)
+      if(cornerstoneTools.freehand.getConfiguration().currentHandle > 0)
         cornerstoneTools.freehand.getConfiguration().currentHandle--;
 
-      if (freeToolArr.handles[freeToolArr.handles.length - 1] !== undefined) {
-        freeToolArr.handles[freeToolArr.handles.length - 1].lines.pop();
+      if(freeToolArr.handles[freeToolArr.handles.length-1] !== undefined) {
+        freeToolArr.handles[freeToolArr.handles.length-1].lines.pop();
       }
 
       //console.log(freeToolArr.handles[freeToolArr.handles.length-1]);
@@ -402,22 +288,6 @@ $(document).keyup(function (e) {
 
     }
 
-  }
+ }
 
 });
-
-function saveImage(saveValue){
-  var buttons = $('.viewer').find('button');;
-  if(saveValue){
-    $(buttons[7]).click();
-    $('#modifiedStar').css('display', 'none');
-    $('#close').click();
-  }
-  else{
-    $('#modifiedStar').css('display', 'none');
-    $('#close').click();
-  }
-}
-
-
-

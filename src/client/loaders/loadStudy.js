@@ -112,7 +112,7 @@ var instancesDirPath = 'instances' + '/';
 
 var instancesPath = dicomServerPath + instancesDirPath;
 
-console.log();
+// console.log();
 
 /* ================================================== */
 /* ================================================== */
@@ -180,6 +180,7 @@ function loadStudy(studyViewer, viewportModel, studyId) {
                 seriesDescription: series.seriesDescription,
                 stackId: series.seriesNumber,
                 imageIds: [],
+                imageName : series.instanceList[0].imageId,
                 seriesIndex: seriesIndex,
                 currentImageIdIndex: 0,
                 frameRate: series.frameRate
@@ -292,6 +293,7 @@ function loadStudy(studyViewer, viewportModel, studyId) {
 
             // Handle thumbnail click
             $(seriesElement).on('click touchstart', function() {
+              $('.loader').css('display', 'block');  
               useItemStack(0, stackIndex);
             }).data('stack', stackIndex);
         });
@@ -299,6 +301,7 @@ function loadStudy(studyViewer, viewportModel, studyId) {
         function useItemStack(item, stack) {
             studyViewer.roiData.currentStack = stack;
             var imageId = imageViewer.stacks[stack].imageIds[0], element = imageViewer.getElement(item);
+            $('#biradsnm').html(imageViewer.stacks[stack].imageName);
             if ($(element).data('waiting')) {
                 imageViewer.viewports[item].find('.overlay-text').remove();
                 $(element).data('waiting', false);
@@ -320,8 +323,10 @@ function loadStudy(studyViewer, viewportModel, studyId) {
         // Resize study viewer
         function resizeStudyViewer() {
             var studyRow = $(studyViewer).find('.studyContainer')[0];
+          
             var height = $(studyRow).height();
-            var width = $(studyRow).width();console.log($(studyRow).innerWidth(),$(studyRow).outerWidth(),$(studyRow).width());
+            var width = $(studyRow).width();
+            console.log($(studyRow).innerWidth(),$(studyRow).outerWidth(),$(studyRow).width());
             $(seriesList).height("100%");
             $(parentDiv).width(width - $(studyViewer).find('.thumbnailSelector:eq(0)').width());
             $(parentDiv).css({height : '100%'});

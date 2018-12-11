@@ -1,172 +1,747 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-  <!-- =============================== -->
-  <!--           INFORMATION           -->
-  <!-- =============================== -->
-  <meta charset="UTF-8">
-  <meta name="description" content="The demo is developed under the MIMBCD-UI Project. The Project is hosted by ISR-Lisboa in collaboration with M-ITI and INESC-ID. Both ISR-Lisboa and M-ITI are interdisciplinary research laboratories from LARSyS. ISR-Lisboa and INESC-ID are associated laboratories of IST from ULisboa. The research is part of a protocol between ISR-Lisboa and Hospital Fernando Fonseca (HFF).">
-  <meta name="keywords" content="CornerstoneJS, WADO, DICOM, CADx, CADe">
-  <meta name="author" content="Francisco Maria Calisto">
-  <meta name="reply-to" content="francisco.calisto@tecnico.ulisboa.pt">
-  <meta name='url' content='http://www.breastscreening.io'>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Support for mobile touch devices -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-  <!-- FavIcons -->
-  <link rel="shortcut icon" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-128.png" type="image/png">
-  <link rel="icon" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-128.png" type="image/png">
-  <link rel="shortcut icon" href="https://raw.githubusercontent.com/MIMBCD-UI/mimbcd-ui.github.io/master/images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="https://raw.githubusercontent.com/MIMBCD-UI/mimbcd-ui.github.io/master/images/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-16x16.png">
-  <link rel="manifest" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  <!-- CSS -->
-  <!-- Font awesome CSS for tool icons -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <!-- Bootstrap CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Cornerstone Demo CSS -->
-  <link href="../client/css/style.css" rel="stylesheet">
-  <!-- Hotjar Tracking Code -->
-  <script src="../server/utils/hotjar.js" type="module"></script>
+    <!-- =============================== -->
+    <!--           INFORMATION           -->
+    <!-- =============================== -->
+    <meta charset="UTF-8">
+    <meta name="description" content="The demo is developed under the MIMBCD-UI Project. The Project is hosted by ISR-Lisboa in collaboration with M-ITI and INESC-ID. Both ISR-Lisboa and M-ITI are interdisciplinary research laboratories from LARSyS. ISR-Lisboa and INESC-ID are associated laboratories of IST from ULisboa. The research is part of a protocol between ISR-Lisboa and Hospital Fernando Fonseca (HFF).">
+    <meta name="keywords" content="CornerstoneJS, WADO, DICOM, CADx, CADe">
+    <meta name="author" content="Francisco Maria Calisto">
+    <meta name="reply-to" content="francisco.calisto@tecnico.ulisboa.pt">
+    <meta name='url' content='http://www.breastscreening.io'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Support for mobile touch devices -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <!-- FavIcons -->
+    <link rel="shortcut icon" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-128.png"
+        type="image/png">
+    <link rel="icon" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-128.png" type="image/png">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/MIMBCD-UI/mimbcd-ui.github.io/master/images/favicon.ico"
+        type="image/x-icon">
+    <link rel="icon" href="https://raw.githubusercontent.com/MIMBCD-UI/mimbcd-ui.github.io/master/images/favicon.ico"
+        type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/favicon-16x16.png">
+    <link rel="manifest" href="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://github.com/MIMBCD-UI/mimbcd-ui.github.io/blob/master/images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- CSS -->
+    <!-- Font awesome CSS for tool icons -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Cornerstone Demo CSS -->
+    <link href="../client/css/style.css" rel="stylesheet">
+    <!-- Hotjar Tracking Code -->
+    <script src="../server/utils/hotjar.js" type="module"></script>
+    <style>
+        /* add by fmc */
+    body {font-family: Arial, Helvetica, sans-serif;}
+
+    /* Full-width input fields */
+    input[type=text], input[type=password]{
+        width: 28%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    /* input[type=text], input[type=text]{
+      width: 71%;
+      padding: 9px 20px;
+      margin: 12px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    } */
+
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal_login {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        padding-top: 60px;
+    }
+    .modal_sign {
+        display: none; /* Hidden by default */
+        position:fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        padding-top: 60px;
+
+
+    }
+
+     .modal_sign4 {
+        display: none; /* Hidden by default */
+        position:fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        padding-top: 60px;
+
+
+    }
+    .modal_sign4 form {
+        width: 35%; /* Full width */
+        height: auto; /* Full height */
+        margin: 5% auto 15% auto;
+    }
+
+
+    /* Modal Content/Box */
+    .modal-content_login {
+        background-color: #222020;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 30%; /* Could be more or less, depending on screen size */
+    }
+    .modal-content_Edit {
+        background-color: #222020;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 30%; /* Could be more or less, depending on screen size */
+    }
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+    /* Add Zoom Animation */
+     /*   .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+        from {-webkit-transform: scale(0)}
+        to {-webkit-transform: scale(1)}
+    }
+
+    @keyframes animatezoom {
+        from {transform: scale(0)}
+        to {transform: scale(1)}
+    } */
+
+     .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+        from {-webkit-transform: scale(0)}
+        to {-webkit-transform: scale(1)}
+    }
+
+    @keyframes animatezoom {
+        from {transform: scale(0)}
+        to {transform: scale(1)}
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+           display: block;
+           float: none;
+        }
+        .cancelbtn {
+           width: 100%;
+        }
+    }
+    .margin-div{
+        margin-top: 2.5%;
+    }
+    .loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -68px;
+    margin-top: -68px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
 </head>
-<body>
-  <div id="wrap">
-    <!-- Nav bar -->
-    <nav class="myNav navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">
-            BreastScreening
-          </a>
-          <a class="navbar-brand" target="_blank" href="https://mimbcd-ui.github.io/">
-            <i class="fa fa-link fa-lg" aria-hidden="true"></i>
-          </a>
-          <a class="navbar-brand" target="_blank" href="https://github.com/MIMBCD-UI">
-            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
-          </a>
-          <a class="navbar-brand" target="_blank" href="https://www.researchgate.net/project/MIMBCD-UI">
-            <i class="fa fa-flask fa-lg" aria-hidden="true"></i>
-          </a>
-          <a class="navbar-brand" target="_blank" href="https://www.youtube.com/channel/UCPz4aTIVHekHXTxHTUOLmXw">
-            <i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
-          </a>
+<!-- <body> -->
+<!-- fmc login -->
+
+<body onload="login()">
+    <div id="wrap">
+        <!-- Nav bar -->
+        <nav class="myNav navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        BreastScreening
+                    </a>
+                    <a class="navbar-brand" target="_blank" href="https://mimbcd-ui.github.io/">
+                        <i class="fa fa-link fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a class="navbar-brand" target="_blank" href="https://github.com/MIMBCD-UI">
+                        <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a class="navbar-brand" target="_blank" href="https://www.researchgate.net/project/MIMBCD-UI">
+                        <i class="fa fa-flask fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a class="navbar-brand" target="_blank" href="https://www.youtube.com/channel/UCPz4aTIVHekHXTxHTUOLmXw">
+                        <i class="fa fa-youtube fa-lg" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- <li><a id="personsave" href="#" class="button hidden-xs">personsave</a></li> -->
+                    <li><a id="personsave" href="#" class="button hidden-xs">Patientsave</a></li>
+                    <li><a id="help" href="#" class="button hidden-xs">Help</a></li>
+                    <li><a id="about" href="#" class="button hidden-xs">About</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class='main'>
+            <!-- Tabs bar -->
+            <ul id="tabs" class="nav nav-tabs">
+                <li class="active"><a href="#studyList" data-toggle="tab">Study List</a></li>
+            </ul>
+            <!-- Tab content -->
+            <div id="tabContent" class="tab-content">
+                <!-- Study list -->
+                <div id="studyList" class="tab-pane active">
+                    <div class="row">
+                        <table class="col-md-12 table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Patient ID</th>
+                                    <th>Study Date</th>
+                                    <th>Modality</th>
+                                    <th>Study Description</th>
+                                    <th># Images</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studyListData">
+                                <!-- Table rows get populated from the JSON studyList manifest -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Study viewer tab content template -->
         </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a id="help" href="#" class="button hidden-xs">Help</a></li>
-          <li><a id="about" href="#" class="button hidden-xs">About</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div class='main'>
-      <!-- Tabs bar -->
-      <ul id="tabs" class="nav nav-tabs" >
-        <li class="active"><a href="#studyList" data-toggle="tab">Study List</a></li>
-      </ul>
-      <!-- Tab content -->
-      <div id="tabContent" class="tab-content">
-        <!-- Study list -->
-        <div id="studyList" class="tab-pane active">
-          <div class="row">
-            <table  class="col-md-12 table table-striped">
-              <thead>
-                <tr>
-                  <!-- <th>Patient ID</th> -->
-                  <th>Internal ID</th>
-                  <th>Study Date</th>
-                  <th>Modality</th>
-                  <th>Study Description</th>
-                  <th># Images</th>
-                </tr>
-              </thead>
-              <tbody id="studyListData">
-                <!-- Table rows get populated from the JSON studyList manifest -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <!-- Study viewer tab content template -->
-  </div>
-</div>
-<!-- Javascripts -->
-<!-- Include JQuery -->
-<script src="../client/lib/jquery.min.js"></script>
-<!-- Include JQuery UI for drag/drop -->
-<script src="../client/lib/jquery-ui.min.js"></script>
-<!-- Include JQuery Hammerjs adapter for mobile touch-->
-<script src="../client/lib/hammer.min.js"></script>
-<!-- Include Bootstrap js -->
-<script src="../client/lib/bootstrap.min.js"></script>
-<!-- include the cornerstone library -->
-<script src="../client/lib/cornerstone.js"></script>
-<!-- include the cornerstone library -->
-<script src="../client/lib/cornerstoneMath.js"></script>
-<!-- include the cornerstone tools library -->
-<script src="../client/lib/cornerstoneTools.js"></script>
-<!-- include the cornerstoneWADOImageLoader library -->
-<script src="../client/lib/cornerstoneWADOImageLoader.js"></script>
-<!-- include the cornerstoneWebImageLoader library -->
-<script src="../client/lib/cornerstoneWebImageLoader.js"></script>
-<!-- include the cornerstoneFileImageLoader library -->
-<script src="../client/lib/cornerstoneFileImageLoader.js"></script>
-<!-- include the dicomParser library -->
-<script src="../client/lib/dicomParser.js"></script>
-<!-- =============================== -->
-<!-- include Source JavaScript files -->
-<script src="../client/lib/md5.min.js"></script>
-<!-- =============================== -->
-<!-- include Client viewports -->
-<script src="../client/viewport/setupViewport.js"></script>
-<script src="../client/tools/displayThumbnail.js"></script>
-<script src="../client/loaders/loadStudy.js"></script>
-<script src="../client/tools/setupButtons.js"></script>
-<script src="../client/tools/disableAllTools.js"></script>
-<script src="../client/viewport/forEachViewport.js"></script>
-<script src="../client/viewport/imageViewer.js"></script>
-<script src="../client/loaders/loadTemplate.js"></script>
-<script src="../client/modals/help.js"></script>
-<script src="../client/modals/about.js"></script>
-<script src="../client/viewport/setupViewportOverlays.js"></script>
-<script src="../client/loaders/loadList.js" type="module"></script>
-<script src="../client/index.js" type="module"></script>
-<script src="../client/main.js" type="module"></script>
-<!-- =============================== -->
-<!-- =============================== -->
-<!-- =============================== -->
-<!-- include Utils -->
-<!-- <script src="../server/utils/fetchImage.js"></script> -->
-<!-- include dependencies -->
-<script async="" src="https://cdn.rawgit.com/eligrey/Blob.js/0cef2746414269b16834878a8abc52eb9d53e6bd/Blob.js"/>
-<script async="" src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"/>
+    </div>
+    <div id="id01" class="modal_login">
+        <form action="javascript:compare()" class="modal-content_login animate">
+
+
+            <div class="row margin-div">
+                <div class="col-md-3">
+                    <label style="margin-top: 20px;"><b>Username</b></label>
+                </div>
+                <div class="col-md-9">
+                    <input id="usernm" type="text" placeholder="Enter Username" name="uname" style=" width: 90%;padding: 9px 20px;  margin: 12px 0; display: inline-block; border: 1px solid #ccc ; box-sizing: border-box;"><br>
+                </div>
+            </div>
+
+            <div class="row margin-div">
+                <div class="col-md-3">
+                    <label style="margin-top: 20px;"><b>Password</b></label>
+                </div>
+                <div class="col-md-9">
+                    <input id="pswinput" type="password" placeholder="Enter Password" autocomplete="off" name="psw"
+                        style=" width: 90%;padding: 9px 20px;  margin: 12px 0; display: inline-block; border: 1px solid #ccc ; box-sizing: border-box;"
+                        required><br>
+                </div>
+            </div>
+
+
+            <div class="row margin-div">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    <button style="background-color: #4CAF50; color: white; margin-left: 30%; padding: 14px 41px; margin: 8px 0; border: none; cursor: pointer; margin-left: 25%;">Login</button>
+                </div>
+
+
+
+            </div>
+        </form>
+    </div>
+    <div id="id02" class="modal_sign">
+        <form action="javascript:" class="modal-content_Edit animate" style="padding:15px;">
+
+            <div class="row margin-div">
+                <div class="col-md-3">
+                    <label><b> PatientID</b></label>
+                </div>
+                <div class="col-md-9">
+                    <label id="patientusernm"> </label>
+                </div>
+            </div>
+            <div class="row margin-div">
+                <div class="col-md-3">
+                    <label style="margin-top: 20px;"><b> Age </b></label>
+                </div>
+                <div class="col-md-9">
+                    <input id="ageinput" type="text" placeholder="Enter Age" autocomplete="off" name="psw" style=" width: 90%;padding: 9px 20px;  margin: 12px 0; display: inline-block; border: 1px solid #ccc ; box-sizing: border-box;"
+                        required>
+                </div>
+            </div>
+
+
+            <div class="row margin-div">
+                <div class="col-md-6">
+                    <label><b>Personal Background (PB)</b></label>
+                </div>
+                <div class="col-md-6">
+                    <select id="pb">
+                        <option value="1">YES</option>
+                        <option value="0">NO</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row margin-div">
+                <div class="col-md-6">
+                    <label><b>Family Background (FB)</b></label>
+                </div>
+                <div class="col-md-6">
+                    <select id="fb">
+                        <option value="0">No</option>
+                        <option value="1">Low</option>
+                        <option value="2">High</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row margin-div">
+                <div class="col-md-6">
+                    <label><b>Obesity</b></label>
+                </div>
+                <div class="col-md-6">
+                    <select id="obesity">
+                        <option value="1">YES</option>
+                        <option value="0">NO</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row margin-div">
+                <div class="col-md-6">
+                    <label><b>Density</b></label>
+                </div>
+                <div class="col-md-6">
+                    <select id="density" style="margin-right:50px,width = 60%">
+                        <option value="0">A</option>
+                        <option value="1">B</option>
+                        <option value="2">C</option>
+                        <option value="3">D</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row margin-div">
+                <div class="col-md-6">
+                    <label><b>Pathology</b></label>
+                </div>
+                <div class="col-md-6">
+                    <select id="pathology">
+                        <option value="0">No Findings</option>
+                        <option value="1">Benign</option>
+                        <option value="2">Malign</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row margin-div">
+                <div class="col-md-6">
+
+
+                </div>
+                <div class="col-md-6">
+                    <button style="background-color:black; color:rosybrown; margin-left: 7%" onclick="savepatient()">SAVE</button>
+                    <button style="background-color: black; color:rosybrown; margin-left: 7%" onclick="editcancel()">cancel</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+
+    <div id="id03" class="modal_sign4">
+        <form action="javascript:" class="modal-content_Edit animate" style="padding:15px;">
+
+            <div class="row margin-div">
+                <div class="col-md-3">
+                    <label><b> PatientID</b></label>
+                </div>
+                <div class="col-md-9">
+                    <label id="patientusernmid" style="margin-top: 0px;"></label>
+                </div>
+            </div>
+
+            <div class="row margin-div">
+                <div class="col-md-3">
+                    <label style="margin-top: 0px;"><b> ImageId</b></label>
+                </div>
+                <div class="col-md-9">
+                    <!-- <input id="biradsnm" type="text" placeholder="Image Name" name="uname" style=" width:107%;padding: 9px 20px;  margin: 12px 0; display: inline-block; border: 1px solid #ccc ; box-sizing: border-box;"> -->
+                    <label id="biradsnm" style="margin-left:1px;"></label>
+                </div>
+            </div>
+
+            <div class="row margin-div">
+                <div class="col-md-3">
+                    <label style="margin-top: 0px;"><b> BIRADS:</b></label>
+                </div>
+                <div class="col-md-9">
+                    <select id="birselect">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row margin-div">
+                <div class="col-md-6">
+
+
+                </div>
+                <div class="col-md-6">
+                    <button style="background-color:black; color:rosybrown; margin-left: 14%" onclick="savebirads()">SAVE</button>
+                    <button style="background-color: black; color:rosybrown; margin-left: 14%" onclick="editcancelbirds()">cancel</button>
+                </div>
+            </div>
+
+
+
+
+
+        </form>
+
+    </div>
+    
+    <!-- fmc -->
+    <!-- <script>window.cornerstoneTools || document.write('<script src="https://unpkg.com/cornerstone-tools">\x3C/script>')</script> -->
+    <!-- Javascripts -->
+    <!-- Include JQuery -->
+    <script src="../client/lib/jquery.min.js"></script>
+    <!-- Include JQuery UI for drag/drop -->
+    <script src="../client/lib/jquery-ui.min.js"></script>
+    <!-- Include JQuery Hammerjs adapter for mobile touch-->
+    <script src="../client/lib/hammer.min.js"></script>
+    <!-- Include Bootstrap js -->
+    <script src="../client/lib/bootstrap.min.js"></script>
+    <!-- include the cornerstone library -->
+    <script src="../client/lib/cornerstone.js"></script>
+    <!-- include the cornerstone library -->
+    <script src="../client/lib/cornerstoneMath.js"></script>
+    <!-- include the cornerstone tools library -->
+    <script src="../client/lib/cornerstoneTools.js"></script>
+    <!-- include the cornerstoneWADOImageLoader library -->
+    <script src="../client/lib/cornerstoneWADOImageLoader.js"></script>
+    <!-- include the cornerstoneWebImageLoader library -->
+    <script src="../client/lib/cornerstoneWebImageLoader.js"></script>
+    <!-- include the cornerstoneFileImageLoader library -->
+    <script src="../client/lib/cornerstoneFileImageLoader.js"></script>
+    <!-- include the dicomParser library -->
+    <script src="../client/lib/dicomParser.js"></script>
+    <!-- =============================== -->
+    <!-- include Source JavaScript files -->
+    <!-- =============================== -->
+    <!-- include Client viewports -->
+    <script src="../client/viewport/setupViewport.js"></script>
+    <script src="../client/tools/displayThumbnail.js"></script>
+    <script src="../client/loaders/loadStudy.js"></script>
+    <script src="../client/tools/setupButtons.js"></script>
+    <script src="../client/tools/disableAllTools.js"></script>
+    <script src="../client/viewport/forEachViewport.js"></script>
+    <script src="../client/viewport/imageViewer.js"></script>
+    <script src="../client/loaders/loadTemplate.js"></script>
+    <script src="../client/modals/help.js"></script>
+    <script src="../client/modals/about.js"></script>
+    <script src="../client/modals/save.js"></script>
+    <script src="../client/viewport/setupViewportOverlays.js"></script>
+    <script src="../client/loaders/loadList.js" type="module"></script>
+    <script src="../client/index.js" type="module"></script>
+    <script src="../client/main.js" type="module"></script>
+    <script src="../client/modals/personsave.js"></script>
+    <!-- <script src="../client/lib/util/triggerEvent.js"></script> -->
+    <!-- <script src="../client/tools/pan-zoom_sync.js" type="module"></script> -->
+    <!-- =============================== -->
+    <!-- =============================== -->
+    <!-- =============================== -->
+    <!-- include Utils -->
+    <!-- <script src="../server/utils/fetchImage.js"></script> -->
+    <!-- include dependencies -->
+    <script async="" src="https://cdn.rawgit.com/eligrey/Blob.js/0cef2746414269b16834878a8abc52eb9d53e6bd/Blob.js" />
+    <script async="" src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"/>
 <!-- include Other Tools -->
 <!-- Enable CORS -->
 <script src="../server/utils/cors.js" type="module"></script>
-<!-- =============================== -->
-<!--             Bundles             -->
-<!-- =============================== -->
-<!-- Server Bundle -->
-<!-- <script src="../dist/server.bundle.js" type="text/javascript"></script> -->
-<!-- Client Bundle -->
-<!-- <script src="../dist/client.bundle.js" type="text/javascript"></script> -->
-<!-- =============================== -->
-<!-- =============================== -->
-<!-- =============================== -->
+    <!-- =============================== -->
+    <!--             Bundles             -->
+    <!-- =============================== -->
+    <!-- Server Bundle -->
+    <!-- <script src="../dist/server.bundle.js" type="text/javascript"></script> -->
+    <!-- Client Bundle -->
+    <!-- <script src="../dist/client.bundle.js" type="text/javascript"></script> -->
+    <!-- =============================== -->
+    <!-- =============================== -->
+    <!-- =============================== -->
+    <script type="text/javascript" src="data.json"></script>
+    <script type="text/javascript" src="cov_ [patientID] .json"></script>
+    <script>
+        var modal = document.getElementById('id01');
+        var modals = document.getElementById('id02');
+        var modals1 = document.getElementById('id03');
+        document.getElementById("usernm").setAttribute('autocomplete', "off");   ///autocomplete="off"
+        // $("#usernm").prop("autocomplete", "off");
+        var myArr;
+        function login() {
+            if (!checkCookie()) modal.style.display = "block";
+        }
+        function Patientshow(patient_id) {
+            modals.style.display = "block";
+        }
+        function editcancel() {
+            modals.style.display = "none";
+
+        }
+        function editcancelbirds() {
+            modals1.style.display = "none";
+        }
+
+        function Patientshowbirads() {
+            modals1.style.display = "block";
+        }
+        //   var xmlhttp = new XMLHttpRequest();
+        //   xmlhttp.onreadystatechange = function() {
+        //       if (this.readyState == 4 && this.status == 200) {
+        //           myArr = JSON.parse(this.responseText);
+        //       }
+        //   };
+        //xmlhttp.open("GET", "data.json", true);
+        //xmlhttp.send();
+        function compare() {
+            username = document.getElementById("usernm").value;
+            password = document.getElementById("pswinput").value;
+            var user = {
+                username: username,
+                password: password
+            }
+            var isCookie = checkCookie();
+            if (!isCookie) {
+                $.ajax({
+                    url: '/ValidateUser',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(user),
+                    success: function (data) {
+                        if (data == 'success') {
+                            setCookie('otanc', username + password, 1);
+                            $('.modal_login').css('display', 'none');
+                        }
+                        else {
+                            window.location.href = 'UnAuthorized.html';
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('login failed');
+                    }
+                });
+
+            }
+            else
+            {
+                $('.modal_login').css('display', 'none');
+            }
+
+            //   for(var i = 0; i < myArr.length; i++){
+            //       if(myArr[i].name == usernm && myArr[i].pass == psw){
+            //           setCookie('otanc', usernm+psw, 1);
+            //           modal.style.display = "none";
+            //           break;
+            //       }
+            //       if(i == myArr.length - 1)    alert("Username or Password is wrong");
+            //   }
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            var user = getCookie("otanc");
+            if (user != "") {
+                // alert("Welcome again " + user);
+                return true;
+            } else {
+                // user = prompt("Please enter your name:", "");
+                // if (user != "" && user != null) {
+                //     setCookie("username", user, 365);
+                // }
+                return false;
+            }
+        }
+        
+
+        function savepatient() {
+            modals.style.display = "none";
+            var patientnm = document.getElementById("patientusernm").value;
+            console.log(patientnm);
+            var age = document.getElementById("ageinput").value;
+            console.log(age);
+            var pb = document.getElementById("pb").value;
+            var fb = document.getElementById("fb").value;
+            var obesity = document.getElementById("obesity").value;
+            var density = document.getElementById("density").value;
+            var pathology = document.getElementById("pathology").value;
+            var fileFormat = '.json';
+            var patientdata = {
+                patientnmdata: patientnm,
+                agedata: age,
+                pbdata: pb,
+                fbdata: fb,
+                obesitydata: obesity,
+                densitydata: density,
+                pathologydata: pathology
+            };
+            var data = {
+                patientdata: patientdata,
+                path: patientdata.patientnmdata + fileFormat
+            }
+            $.ajax({
+                url: '/datasavefile',
+                data: JSON.stringify(data),
+                type: 'POST',
+                dataType: "text",
+                success: function (data) {
+
+                },
+                error: function (xhr, status, error) {
+                }
+            });
+        }
+
+        function savebirads() {
+            modals1.style.display = "none";
+
+            var patientName = document.getElementById("patientusernmid").innerHTML;
+            var imageName = document.getElementById("biradsnm").innerHTML;
+            var birselect = document.getElementById("birselect").value;
+            var filePath = patientName + ".json";
+            var birads = [{
+                ImageId: imageName,
+                birads: birselect
+            }];
+            var data = {
+                birads: birads,
+                path: filePath
+            }
+            $.ajax({
+                url: '/datasavefileBirads',
+                data: JSON.stringify(data),
+                type: 'POST',
+                dataType: "text",
+                success: function (data) {
+                },
+                error: function (xhr, status, error) {
+                }
+            });
+        }
+
+  //document.getElementById("patientusernmid").innerHTML = document.getElementById("patientusernm").value;
+  //document.getElementById("biradsnm").innerHTML = document.getElementById("biradsnm").innerHTML;
+    </script>
 </body>
+
 </html>

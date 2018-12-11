@@ -65,8 +65,8 @@ $.getJSON(studyListFile, function(data) {
       console.log("Creating study list tables...");
       // Create one table row for each study in the manifest
       var studyRow = '<tr><td>' +
-        //study.patientId + '</td><td>' +
-        study.internalId + '</td><td>' +
+        study.patientId + '</td><td>' +
+        //study.internalId + '</td><td>' +
         study.studyDate + '</td><td>' +
         study.modality + '</td><td>' +
         study.studyDescription + '</td><td>' +
@@ -78,13 +78,16 @@ $.getJSON(studyListFile, function(data) {
 
       // On study list row click
       $(studyRowElement).click(function() {
+
+        // var session = require('client-sessions');
+
         if ($('#tabs li').length >= 2) {
           alert('Please close the opened patient first !');
         } else {
           // Add new tab for this study and switch to it
-          //var studyTab = '<li><div id=complete-tab><a href="#x' + study.patientId + '" data-toggle="tab">' + study.patientId + '</a>' +
-          var studyTab = '<li><div id=complete-tab><a href="#x' + study.patientId + '" data-toggle="tab">' + study.internalId + '</a>' +
-            '<input type="button" class="closeBtn" value="X" />' + '</li></div>';
+          var studyTab = '<li><div id=complete-tab><a href="#x' + study.patientId + '" data-toggle="tab">' + study.patientId + '</a>' +
+          //var studyTab = '<li><div id=complete-tab><a href="#x' + study.patientId + '" data-toggle="tab">' + study.internalId + '</a>' +
+            '<input id="close" href="#" type="button" class="closeBtn" value="X" />' +'<span id="modifiedStar" style="color: white;padding-left: 2px; display:none;">*</span>' +  '</li></div>'; ///fmc
           $('#tabs').append(studyTab);
           // Add tab content by making a copy of the studyViewerTemplate element
           var studyViewerCopy = studyViewerTemplate.clone();
@@ -108,6 +111,9 @@ $.getJSON(studyListFile, function(data) {
           });
 
           studyViewerCopy.roiData = {
+
+            patientId: study.patientId,
+            patientName : study.patientName,
             studyId: study.studyId,
             modality: study.modality,
             stacks: [],
@@ -115,12 +121,18 @@ $.getJSON(studyListFile, function(data) {
 
           $('.closeBtn').click(function() {
             var element = this.parentNode.parentNode;
-            $('#tabs a:first').tab('show');
-            element.remove();
-            var tabDataElement = element.firstChild.firstChild.getAttribute('href');
-            if($(tabDataElement).length > 0){
-              $(tabDataElement)[0].remove();
+            if($('#modifiedStar').css('display') == 'inline')
+            {
+              $('#saveModal').modal('show');
+            } else {
+              $('#tabs a:first').tab('show');
+              element.remove();
+              var tabDataElement = element.firstChild.firstChild.getAttribute('href');
+              if($(tabDataElement).length > 0) {
+                $(tabDataElement)[0].remove();
+              }
             }
+            
           });
 
           // Now load the study.json
@@ -146,7 +158,7 @@ $('#tabs a').click (function(e) {
 function resizeMain() {
   var height = $(window).height();
   $('#main').height(height - 50);
-  $('#tabContent').height(height - 50 - 42);
+  $('#tabContent').height(height - 100 - 42);
 }
 
 // Call resize main on window resize

@@ -63,7 +63,7 @@ var readEnvConfigPath = fs.readFileSync(configEnvFilePath, 'utf8');
 var configEnvObject = JSON.parse(readEnvConfigPath);
 var configFileName = configEnvObject.environment;
 
-// console.log("Index Read Env Config Path:\n", readEnvConfigPath);
+// console.log("Index Read Env Config Path:\n", readConfigPath);
 // console.log("Index Config Env Object:\n", configEnvObject);
 // console.log("Index Config File Name:\n", configFileName);
 
