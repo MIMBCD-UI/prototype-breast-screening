@@ -113,7 +113,6 @@ var seriesList = [];
 var seriesObjectData = [];
 var instanceList = [];
 var instanceObjectData = [];
-var simplifiedTagsData = [];
 
 /* ================================================== */
 
@@ -140,8 +139,6 @@ var patientsExpandedPath = dicomServerPath + patientsExpandedQuery;
 var studiesPath = dicomServerPath + studiesDirPath;
 var seriesPath = dicomServerPath + seriesDirPath;
 var instancesPath = dicomServerPath + instancesDirPath;
-
-var imageNumber = 0;//fmc
 
 /* ================================================== */
 /* ================================================== */
@@ -283,20 +280,6 @@ async function getInstanceListData(instanceList) {
       var instanceData = deferredData[index][0];
       instanceObjectData.push(instanceData)
     }
-    getSimplifiedTags(instanceList);
-  })
-}
-
-async function getSimplifiedTags(instanceList){
-  var instanceDeferred = [];
-  for (var instanceIndex = 0; instanceIndex < instanceList.length; instanceIndex++) {
-    instanceDeferred[instanceIndex] = await callAPI(instancesPath + instanceList[instanceIndex] + '/simplified-tags?', patientList);
-  }
-  return Promise.all(instanceDeferred).then(deferredData => {
-    for (var index = 0; index < deferredData.length; index++) {
-      var tagsData = deferredData[index][0];
-      simplifiedTagsData.push(tagsData);
-    }
     mapInstanceInSeries();
     mapSeriesInStudies();
     mapStudiesInPatient();
@@ -371,21 +354,12 @@ getStudyList((studyList) => {})
  */
 var UpdatePatientData = function(patients) {
   if (patients.length > 0) {
-    // console.log("pl:",patients.length);
     for (var i = 0; i < patients.length; i++) {
+
       var totalStudies = [];
       var studyListDataStructure = {};
       var studiesDataStructure = {};
       var fileName;
-      var totalImages = 0;
-      var seriesDescriptionData = [];
-      var patientTags = [];
-      
-      simplifiedTagsData.filter(function(item, index, data){
-        if(item.PatientID == patients[i].MainDicomTags.PatientID){
-          patientTags.push(item.ModalitiesInStudy);
-        }
-      });
 
       for (var j = 0; j < patients[i].StudyData.length; j++) {
         const slEach = patients[i].StudyData[j];
@@ -400,7 +374,10 @@ var UpdatePatientData = function(patients) {
         const slStudyDescription = slMainAttr.StudyDescription;
         const slNumImages = slSeries.length;
         const slStudyId = slEach.ID;
-        const slInternalId = "Patient-" + (i+1);
+        //const slInternalId = Math.floor(Math.random() * 1000000)+1;
+
+        var tem_str = slPatientId.replace(/-/g, "");
+        const slInternalId = md5(tem_str).substr(0, 6);
 
         //console.log("Get Study List From: ", JSON.stringify(slEach));
         //console.log("Patient Name: ", JSON.stringify(slPatientName));
@@ -414,18 +391,15 @@ var UpdatePatientData = function(patients) {
         //var fileName = slPatientName;
         var fileName = slPatientId;
         var seriesForFile = getSeriesForFile(patients[i].StudyData[j].SeriesData);
-        var totalImages = totalImages + seriesForFile.length;
-        seriesDescriptionData.push.apply(seriesDescriptionData, seriesForFile.seriesDescription);
 
         studyListDataStructure = {
           "patientName": slPatientName,
           "patientId": slPatientId,
-          //"internalId": slInternalId,
+          "internalId": slInternalId,
           "studyDate": slStudyDate,
           "modality": slModality,
           "studyDescription": slStudyDescription,
-          // "numImages": seriesForFile.TotalInstance,
-          "numImages": seriesForFile.length,//fmc
+          "numImages": seriesForFile.TotalInstance,
           "studyId": fileName
         };
 
@@ -433,33 +407,18 @@ var UpdatePatientData = function(patients) {
         studiesDataStructure = {
           "patientName": slPatientName,
           "patientId": slPatientId,
-          //"internalId": slInternalId,
+          "internalId": slInternalId,
           "studyDate": slStudyDate,
           "modality": slModality,
           "studyDescription": slStudyDescription,
-          "numImages": seriesForFile.length, //slNumImages,
-          // "numImages": imageNumber, //slNumImages,
+          "numImages": seriesForFile[0].instanceList.length, //slNumImages,
           "studyId": slStudyId,
           "seriesList": seriesForFile
         };
 
         totalStudies.push(studiesDataStructure);
       };
-      studyListDataStructure.numImages = totalImages;
-      var unique = seriesDescriptionData.filter(function(itm, i, a) {
-        return i == a.indexOf(itm);
-      });
-      
-      var uniquePatientTags = patientTags.filter(function(itm, i, a) {
-        return i == a.indexOf(itm);
-      });
-      var modalityForStudies = unique.join(' + ');
-      studyListDataStructure.modality = modalityForStudies;
-
-      var studiesDescriptionForStudy = uniquePatientTags.join(' + ');
-      studyListDataStructure.studyDescription = studiesDescriptionForStudy;
       studyListData[i] = studyListDataStructure;
-      
 
       var patientFile = {
         "fileName": fileName,
@@ -517,14 +476,11 @@ var UpdatePatientData = function(patients) {
  */
 var getSeriesForFile = function(seriesData) {
   var seriesFileData = new Array();
-  var seriesDescription = new Array();
   var totalInstanceCount = 0;
-  // console.log("sl",seriesData.length);
   for (var index = 0; index < seriesData.length; index++) {
     var series = seriesData[index];
     var instanceForFile = getInstanceListForFile(series.InstanceData);
     totalInstanceCount += instanceForFile.length;
-    // imageNumber++;//fmc
     if (series.InstanceData.length <= 1) {
       seriesFileData.push(getSeriesDataStructure(series, instanceForFile));
     } else {
@@ -538,10 +494,8 @@ var getSeriesForFile = function(seriesData) {
         }
       }
     }
-    seriesDescription.push(series.MainDicomTags.Modality);
   }
   seriesFileData.TotalInstance = totalInstanceCount;
-  seriesFileData.seriesDescription = seriesDescription;
   return seriesFileData;
 }
 
@@ -585,7 +539,6 @@ var getInstanceListForFile = function(instanceData) {
       "imageId": instanceData[index1].ID + '/file'
     };
     instanceFileData.push(seriesDataStructure);
-    imageNumber++;//fmc
   }
   return instanceFileData;
 }

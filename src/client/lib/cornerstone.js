@@ -1809,7 +1809,6 @@ if(typeof cornerstone === 'undefined'){
         if(enabledElement.image === undefined) {
             throw "updateImage: image has not been loaded yet";
         }
-        $('.loader').css('display', 'none');
 
         cornerstone.drawImage(enabledElement, invalidated);
     }

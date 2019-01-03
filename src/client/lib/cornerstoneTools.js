@@ -1,5 +1,36 @@
-/*! cornerstoneTools - v0.7.2 - 2015-09-07 | (c) 2014 Chris Hafey | https://github.com/chafey/cornerstoneTools */
+/**
+ * @file The cornerstoneTools is a library built on
+ *       top of cornerstone that provides a set of
+ *       common tools needed in medical imaging to
+ *       work with images and stacks of images. The
+ *       hereby file is a modified version of v0.7.2
+ *       from the official cornerstoneTools library.
+ *       The base code was made by (c) 2014 Chris Hafey
+ *       at 2015-09-07 and modified by Francisco Maria
+ *       Calisto during the developement of the MIMBCD-UI
+ *       Project and the respective BreastScreening
+ *       prototypes, systems and assitants.
+ *
+ * @desc Cornerstone.js provides a rock solid foundation
+ *       for creating a web medical image viewer. However,
+ *       it is purposefully light weight and extensible. After
+ *       configuring an image loader (getting your images
+ *       to display), the next thing you'll want to do is
+ *       manipulate those images, apply annotations, and
+ *       provide additional tools for diagnosis and
+ *       research. CornerstoneTools sets out to provide
+ *       tools for these common use cases.
+ *
+ * @version 0.7.2
+ *
+ * @author Chris Hafey
+ *         <chafey@gmail.com>
+ * @author Francisco Maria Calisto
+ *         <francisco.calisto@tecnico.ulisboa.pt>
+ */
+
 // Begin Source: src/header.js
+
 if (typeof cornerstone === 'undefined') {
     cornerstone = {};
 }
@@ -16,6 +47,7 @@ if (typeof cornerstoneTools === 'undefined') {
 (function($, cornerstone, cornerstoneTools) {
 
     'use strict';
+
     function mouseWheel(e) {
         // !!!HACK/NOTE/WARNING!!!
         // for some reason I am getting mousewheel and DOMMouseScroll events on my
@@ -38,24 +70,10 @@ if (typeof cornerstoneTools === 'undefined') {
         var direction = Math.max(-1, Math.min(1, (wheelDelta)));
 
         var mouseWheelData = {
-            element: element,
-            viewport: cornerstone.getViewport(element),
-            image: cornerstone.getEnabledElement(element).image,
-            direction: direction,
-            pageX: e.pageX || e.originalEvent.pageX,
-            pageY: e.pageY || e.originalEvent.pageY,
-            imageX: startingCoords.x,
-            imageY: startingCoords.y
+            element: element, viewport: cornerstone.getViewport(element), image: cornerstone.getEnabledElement(element).image, direction: direction, pageX: e.pageX || e.originalEvent.pageX, pageY: e.pageY || e.originalEvent.pageY, imageX: startingCoords.x, imageY: startingCoords.y
         };
-        // $(element).scale = 0.1;
-        // var canvas = document.getElementsByTagName('canvas')[3];
-        // var ctx = canvas.getContext('2d');
-        // console.log(ctx);
-        // ctx.scale(2,2);
 
-        // cornerstoneTools.changeViewportScale(element);
         $(element).trigger('CornerstoneToolsMouseWheel', mouseWheelData);
-        // triggerEvent(element, EVENTS.MOUSE_WHEEL, mouseWheelData);
     }
 
     var mouseWheelEvents = 'mousewheel DOMMouseScroll';
@@ -65,20 +83,16 @@ if (typeof cornerstoneTools === 'undefined') {
     }
 
     function disable(element) {
-        // $(element).unbind(mouseWheelEvents, mouseWheel);
-        disable(element);//fmc
-        mouseWheelEvents.forEach((eventType) => {
-            element.addEventListener(eventType, mouseWheel);
-        });
+        $(element).unbind(mouseWheelEvents, mouseWheel);
     }
 
     // module exports
     cornerstoneTools.mouseWheelInput = {
-        enable: enable,
-        disable: disable
+        enable: enable, disable: disable
     };
 
 })($, cornerstone, cornerstoneTools);
+
 // End Source; src/inputSources/mouseWheelInput.js
 
 // Begin Source: src/inputSources/mouseInput.js
@@ -620,20 +634,20 @@ if (typeof cornerstoneTools === 'undefined') {
 
     'use strict';
 
-    function simpleMouseButtonTool(mouseWheelCallback) {
+    function simpleMouseButtonTool(mouseDownCallback) {
         var configuration = {};
 
         var toolInterface = {
             activate: function(element, mouseButtonMask, options) {
-                $(element).off('CornerstoneToolsMouseDownActivate', mouseWheelCallback);
+                $(element).off('CornerstoneToolsMouseDownActivate', mouseDownCallback);
                 var eventData = {
                     mouseButtonMask: mouseButtonMask, options: options
                 };
-                $(element).on('CornerstoneToolsMouseDownActivate', eventData, mouseWheelCallback);
+                $(element).on('CornerstoneToolsMouseDownActivate', eventData, mouseDownCallback);
             },
-            disable: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseWheelCallback);},
-            enable: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseWheelCallback);},
-            deactivate: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseWheelCallback);},
+            disable: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseDownCallback);},
+            enable: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseDownCallback);},
+            deactivate: function(element) {$(element).off('CornerstoneToolsMouseDownActivate', mouseDownCallback);},
             getConfiguration: function() { return configuration;},
             setConfiguration: function(config) {configuration = config;}
         };
@@ -4781,9 +4795,8 @@ if (typeof cornerstoneTools === 'undefined') {
 
     var startPoints;
 
-    function changeViewportScale(viewport, ticks) {////////fmc zoom
+    function changeViewportScale(viewport, ticks) {
         var config = cornerstoneTools.zoom.getConfiguration();
-        // console.log(config);
         var pow = 1.7;
 
         var oldFactor = Math.log(viewport.scale) / Math.log(pow);
@@ -4942,7 +4955,7 @@ if (typeof cornerstoneTools === 'undefined') {
         $(eventData.element).off('CornerstoneToolsMouseUp', mouseUpCallback);
     }
 
-    function mouseDownCallback(e, eventData) {//fmc zoom mousedown
+    function mouseDownCallback(e, eventData) {
         if (cornerstoneTools.isMouseButtonEnabled(eventData.which, e.data.mouseButtonMask)) {
             startPoints = eventData.startPoints; // Used for translateStrategy
             $(eventData.element).on('CornerstoneToolsMouseDrag', dragCallback);
@@ -5002,15 +5015,7 @@ if (typeof cornerstoneTools === 'undefined') {
         e = window.event || e; // old IE support
 
         var keyPressData = {
-            element: element,
-            viewport: cornerstone.getViewport(element),
-            image: cornerstone.getEnabledElement(element).image,
-            pageX: mouseX,
-            pageY: mouseY,
-            imageX: startingCoords.x,
-            imageY: startingCoords.y,
-            keyCode: e.keyCode,
-            which: e.which
+            element: element, viewport: cornerstone.getViewport(element), image: cornerstone.getEnabledElement(element).image, pageX: mouseX, pageY: mouseY, imageX: startingCoords.x, imageY: startingCoords.y, keyCode: e.keyCode, which: e.which
         };
 
         if (e.type === 'keydown') {
@@ -5069,7 +5074,6 @@ if (typeof cornerstoneTools === 'undefined') {
 
         function handleTap(type, e) {
             var now = Date.now();
-            // console.log(now);//fmc
             if (type !== lastInteractionType) {
                 if (now - lastInteractionTime <= antiGhostDelay) {
                     e.preventDefault();
@@ -8557,7 +8561,6 @@ Display scroll progress bar across bottom of image.
         /*jshint bitwise: false*/
         var mouseButton = (1 << (which - 1));
         return ((mouseButtonMask & mouseButton) !== 0);
-        // return (true);
     }
 
     // module exports

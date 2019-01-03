@@ -37,64 +37,17 @@ var updateAll = require("./utils/npm-update-all");
 /** Base Configuration Variables                      */
 /* ================================================== */
 
-// Variables to use
+// var configFilePrefix = '../../';
 var configFilePrefix = '';
-var returnBackPath = '..';
-var configFileSuffix = '/';
-var srcFileName = 'src';
 var configFileName = 'config';
-var credentialsFileNamePath = 'credentials';
-var usersNamePath = 'users';
-var commonNamePath = 'common';
-var studiesNamePath = 'studies';
-var studyListName = 'studyList';
-var covPatientIdName = 'cov_[patientID]';
+var configFileSuffix = '/';
+var configFileSet = configFileName + configFileSuffix;
+var configFileDir = configFilePrefix + configFileSet;
 var fileExtension = '.json';
 var requestValue = 'GET';
-
-// Variables name combinations
-var usersFileName = usersNamePath + fileExtension;
-var studyListFileName = studyListName + fileExtension;
-var covPatientIdFileName = covPatientIdName + fileExtension;
-
-// Acronym normal variables
-var cfp = configFilePrefix;
-var rbp = returnBackPath;
-var cfs = configFileSuffix;
-var unp = usersNamePath;
-var ufn = usersFileName;
-var sfn = srcFileName;
-var cnp = commonNamePath;
-var snp = studiesNamePath;
-
-// Acronym name variables
-var cfnp = credentialsFileNamePath;
-var cpfn = covPatientIdFileName;
-var slfn = studyListFileName;
-
-// Join Configuration folder names
-configFileNameSuffixJoin = path.join(configFileName, configFilePrefix);
-configFilePrefixSetJoin = path.join(configFilePrefix, configFileName);
-
-// Join Credentials folder names
-credentialsJoin = path.join(rbp, cfnp);
-usersFolderJoin = path.join(credentialsJoin, unp);
-usersFileJoin = path.join(usersFolderJoin, ufn);
-
-// Join Common folder names
-srcCommonJoin = path.join(sfn, cnp);
-studyListJoin = path.join(srcCommonJoin, slfn);
-seriesListJoin = path.join(srcCommonJoin, studiesNamePath, cfs);
-patientDataJoin = path.join(srcCommonJoin, cpfn);
-
-
-// Variable paths
-var configFileSet = configFileNameSuffixJoin;
-var configFileDir = configFilePrefixSetJoin;
-var studyListPath = studyListJoin;
-var seriesPath = seriesListJoin;
-var patientDataPath = patientDataJoin;
-var usersDataPath = usersFileJoin;
+var studyListPath = 'src/common/studyList.json';
+var seriesPath = 'src/common/studies/';
+var seriesMetadataPath = '../' + 'dataset-patients-metadata/dataset/';
 
 /* ================================================== */
 
@@ -151,65 +104,16 @@ var urlLinkDicomValue = requests.getUrlLinkDicomValue();
  * @param {string} path The path to the file.
  * @param {Object} data The data for being parsed.
  */
-var saveFileHandler = function(path, data, dataType) {
-  var dataToSave = JSON.parse(data);
-  var filePath = datasetFilePath + path;
-  if(fs.existsSync(filePath))
-  {
-    var currentFile = fs.readFileSync(filePath);
-    var currentData = JSON.parse(currentFile);
-    switch(dataType)
-    {
-      case 'rawData':{
-        currentData.rawData = dataToSave.rawData;
-      }
-      break;
-      case 'patientdata':{
-        currentData.patientdata = dataToSave.patientdata;
-      }
-      break;
-      case 'birads':{
-        if(currentData.birads != undefined && currentData.birads.length > 0)
-        {
-          var checkAlreadyExist = false;
-          for(var i= 0; i< currentData.birads.length; i++)
-          {
-            if(currentData.birads[i].ImageId == dataToSave.birads[0].ImageId)
-            {
-              currentData.birads[i].birads = dataToSave.birads[0].birads;
-              checkAlreadyExist = true;
-            }
-          }
-          if(!checkAlreadyExist)
-          {
-            currentData.birads.push(dataToSave.birads[0]);
-          }
-        }
-        else{
-          currentData.birads = [];
-          currentData.birads.push(dataToSave.birads[0]);
-        }
-      }
-      break;
-    }
-    SaveFile(filePath, currentData);
-  }
-  else{
-    SaveFile(filePath, dataToSave);
-  }
-};
-
-function SaveFile(filePath, fileData){
-  fs.writeFile(filePath, JSON.stringify(fileData, null, 4), function(err) {
+var saveFileHandler = function(path, data) {
+  var fileData = JSON.parse(data);
+  fs.writeFile(datasetFilePath + path, JSON.stringify(fileData, null, 4), function(err) {
     if (err) {
       console.log('Error in saving file :' + err);
     } else {
       console.log('file saved!');
     }
   });
-}
-
-
+};
 
 /**
  * @function
@@ -246,12 +150,17 @@ var updateStudiesFileHandler = function(fileData) {
   var objectData = JSON.parse(fileData);
   console.log(objectData.file.length);
   for (var i = 0; i < objectData.file.length; i++) {
-
     fs.writeFile(seriesPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
       if (err) {
         console.log('Error in saving file:\n' + err);
       }
-      console.log('patients file created successfully:');
+      console.log('Patients file created successfully:');
+    });
+    fs.writeFile(seriesMetadataPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
+      if (err) {
+        console.log('Error for Patients Metadata in saving file:\n' + err);
+      }
+      console.log('Patients Metadata file created successfully:');
     });
   }
 };
@@ -268,7 +177,7 @@ var updateStudiesFileHandler = function(fileData) {
  * @param {Object} request The server request over patients information.
  * @param {Object} response The answer of the server.
  */
-var app = http.createServer(function(request, response) {
+http.createServer(function(request, response) {
 
   if (request.url == 'SaveFile' || request.url == '/SaveFile' || request.url == './SaveFile') {
     var store = '';
@@ -278,9 +187,8 @@ var app = http.createServer(function(request, response) {
 
     request.on('end', function() {
       var objectData = JSON.parse(store);
-      saveFileHandler(objectData.path, store, 'rawData');
+      saveFileHandler(objectData.path, store);
     });
-    response.end('success');
   };
 
   if (request.url == 'UpdatePatients' || request.url == '/UpdatePatients' || request.url == './UpdatePatients') {
@@ -299,54 +207,7 @@ var app = http.createServer(function(request, response) {
       updateStudiesHandler(patientData);
     });
   };
-  /* *************************************************************************************************/
-  /* datasavefile _ test */
-  if (request.url == 'datasavefile' || request.url == '/datasavefile' || request.url == './datasavefile') {
 
-    var store = '';
-    request.on('data', function(chunk) {
-      store += chunk;
-    });
-
-    request.on('end', function() {
-      var objectData = JSON.parse(store);
-      saveFileHandler(objectData.path, store, 'patientdata');
-    });
-    response.end('success');
-  }
-
-  if (request.url == 'datasavefileBirads' || request.url == '/datasavefileBirads' || request.url == './datasavefileBirads') {
-
-    var store = '';
-    request.on('data', function(chunk) {
-      store += chunk;
-    });
-
-    request.on('end', function() {
-      var objectData = JSON.parse(store);
-      saveFileHandler(objectData.path, store, 'birads');
-    });
-    response.end('success');
-  }
-  /* *************************************************************************************************/
-  /* get_patient_info _ test */
-  if (request.url == 'get_patient_info' || request.url == '/get_patient_info' || request.url == './get_patient_info') {
-    response.end('success');
-    // var store = '';
-    // request.on('data', function(chunk) {
-    //   store += chunk;
-    //   console.log(store);
-    // });
-    // request.on('end', function() {
-    //   fs.readFile(datasetFilePath+"a.json", function(error, content) {
-    //     response.end(content, 'utf-8');
-    //   });
-    // });
-
-  }
-
-
-  /*************************************************************************************************** */
   if (request.url == 'UpdatePatientFile' || request.url == '/UpdatePatientFile' || request.url == './UpdatePatientFile') {
     console.log('update patients files in studies/<file>');
     var fileData = '';
@@ -370,86 +231,50 @@ var app = http.createServer(function(request, response) {
   }
 
   var extname = path.extname(filePath);
-  if(extname != null)
-  {
-    var contentType = 'text/html';
-    switch (extname) {
-      case '.js':
-        contentType = 'text/javascript';
-        break;
-      case '.css':
-        contentType = 'text/css';
-        break;
-      case '.json':
-        contentType = 'application/json';
-        break;
-      case '.png':
-        contentType = 'image/png';
-        break;
-      case '.jpg':
-        contentType = 'image/jpg';
-        break;
-      case '.wav':
-        contentType = 'audio/wav';
-        break;
-    }
-
-    fs.readFile(filePath, function(error, content) {
-      if (error) {
-        if (error.code == 'ENOENT') {
-          fs.readFile('../public/404.html', function(error, content) {
-            response.writeHead(200, {
-              'Content-Type': contentType
-            });
-            response.end(content, 'utf-8');
-          });
-        } else {
-          response.writeHead(500);
-          response.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
-          response.end();
-        }
-      } else {
-        response.writeHead(200, {
-          'Content-Type': contentType
-        });
-        response.end(content, 'utf-8');
-      }
-    });
+  var contentType = 'text/html';
+  switch (extname) {
+    case '.js':
+      contentType = 'text/javascript';
+      break;
+    case '.css':
+      contentType = 'text/css';
+      break;
+    case '.json':
+      contentType = 'application/json';
+      break;
+    case '.png':
+      contentType = 'image/png';
+      break;
+    case '.jpg':
+      contentType = 'image/jpg';
+      break;
+    case '.wav':
+      contentType = 'audio/wav';
+      break;
   }
 
+  fs.readFile(filePath, function(error, content) {
+    if (error) {
+      if (error.code == 'ENOENT') {
+        fs.readFile('../public/404.html', function(error, content) {
+          response.writeHead(200, {
+            'Content-Type': contentType
+          });
+          response.end(content, 'utf-8');
+        });
+      } else {
+        response.writeHead(500);
+        response.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
+        response.end();
+      }
+    } else {
+      response.writeHead(200, {
+        'Content-Type': contentType
+      });
+      response.end(content, 'utf-8');
+    }
+  });
 
   // fetchImage.fetchImagePatients(urlLinkDicomValue);
 
-  if (request.url == 'ValidateUser' || request.url == '/ValidateUser' || request.url == './ValidateUser') {
-    var store = '';
-    request.on('data', function(chunk) {
-      store += chunk;
-    });
-
-    request.on('end', function() {
-      var loginResult = 'fail';
-      var userData = JSON.parse(store);
-      var stream = fs.readFileSync(usersDataPath);
-
-      var data = JSON.parse(stream);
-      var user = data.Users.User;
-      for(var x = 0; x <user.length; x++)
-      {
-        if(user[x].Username == userData.username && user[x].Password == userData.password)
-        {
-          console.log('login success');
-          loginResult = 'success';
-         }
-      }
-      if(loginResult == 'fail')
-      {
-        console.log('login failure for '+ userData.username + ' with password ' + userData.password);
-      }
-      response.end(loginResult);
-    });
-  }
-
-
-
 }).listen(portValue);
-
