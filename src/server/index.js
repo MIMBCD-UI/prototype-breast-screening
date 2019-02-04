@@ -150,13 +150,16 @@ var updateStudiesFileHandler = function(fileData) {
   var objectData = JSON.parse(fileData);
   console.log(objectData.file.length);
   for (var i = 0; i < objectData.file.length; i++) {
-    fs.writeFile(seriesPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
+    var spFileName = seriesPath + objectData.file[i].fileName + '.json';
+    var smpFileName = seriesMetadataPath + objectData.file[i].fileName + '.json';
+    var eachFileData = JSON.stringify(objectData.file[i].fileData, null, 4);
+    fs.writeFile(spFileName, eachFileData, function(err) {
       if (err) {
         console.log('Error in saving file:\n' + err);
       }
       console.log('Patients file created successfully:');
     });
-    fs.writeFile(seriesMetadataPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
+    fs.writeFile(smpFileName, eachFileData, function(err) {
       if (err) {
         console.log('Error for Patients Metadata in saving file:\n' + err);
       }
@@ -179,7 +182,19 @@ var updateStudiesFileHandler = function(fileData) {
  */
 http.createServer(function(request, response) {
 
-  if (request.url == 'SaveFile' || request.url == '/SaveFile' || request.url == './SaveFile') {
+  var rurl = request.url;
+
+  var s001 = 'SaveFile';
+  var s002 = '/SaveFile';
+  var s003 = './SaveFile';
+  var s004 = 'UpdatePatients';
+  var s005 = '/UpdatePatients';
+  var s006 = './UpdatePatients';
+  var s007 = 'UpdatePatientFile';
+  var s008 = '/UpdatePatientFile';
+  var s009 = './UpdatePatientFile';
+
+  if (rurl == s001 || rurl == s002 || rurl == s003) {
     var store = '';
     request.on('data', function(chunk) {
       store += chunk;
@@ -191,7 +206,7 @@ http.createServer(function(request, response) {
     });
   };
 
-  if (request.url == 'UpdatePatients' || request.url == '/UpdatePatients' || request.url == './UpdatePatients') {
+  if (rurl == s004 || rurl == s005 || rurl == s006) {
     console.log('update patients');
     var patientData = '';
     request.on('data', function(chunk) {
@@ -208,7 +223,7 @@ http.createServer(function(request, response) {
     });
   };
 
-  if (request.url == 'UpdatePatientFile' || request.url == '/UpdatePatientFile' || request.url == './UpdatePatientFile') {
+  if (rurl == s007 || rurl == s008 || rurl == s009) {
     console.log('update patients files in studies/<file>');
     var fileData = '';
     request.on('data', function(chunk) {
@@ -225,7 +240,7 @@ http.createServer(function(request, response) {
     });
   };
 
-  var filePath = '.' + request.url;
+  var filePath = '.' + rurl;
   if (filePath == './') {
     filePath = '../public/index.html';
   }
