@@ -8,6 +8,8 @@
  * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
  */
 
+console.log('Matomo imported correctly...');
+
 var _paq = window._paq || [];
 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
 _paq.push(['trackPageView']);
@@ -30,3 +32,5 @@ _paq.push(['enableLinkTracking']);
   s.parentNode.insertBefore(g, s);
 
 })();
+
+console.log('Matomo initialized correctly...');
