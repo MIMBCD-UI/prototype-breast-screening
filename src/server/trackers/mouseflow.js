@@ -12,8 +12,8 @@
 /** Base Declarable Variables                        **/
 /* ================================================== */
 
-var msg001 = 'Mouseflow imported correctly...';
-var msg002 = 'Mouseflow initialized correctly...';
+var msg001 = "Mouseflow imported correctly...";
+var msg002 = "Mouseflow initialized correctly...";
 
 var str001 = "script";
 var str002 = "text/javascript";
@@ -27,7 +27,7 @@ var mrg001 = str003 + str004;
 
 window._mfq = window._mfq || [];
 
-console.log(msg001);
+Console.log(msg001);
 
 (function() {
 	var mf = document.createElement(str001);
@@ -37,4 +37,4 @@ console.log(msg001);
 	document.getElementsByTagName(str005)[0].appendChild(mf);
 })();
 
-console.log(msg002);
+Console.log(msg002);
