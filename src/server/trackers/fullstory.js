@@ -3,7 +3,6 @@
  *       aims to track and manage the several server environments of
  *       the hereby project.
  *
- * @requires logrocket
  * @version 0.0.1
  *
  * @author Francisco Maria Calisto <francisco.calisto@tecnico.ulisboa.pt>
