@@ -27,7 +27,7 @@ var mrg001 = str003 + str004;
 
 window._mfq = window._mfq || [];
 
-Console.log(msg001);
+console.log(msg001);
 
 (function() {
 	var mf = document.createElement(str001);
@@ -37,4 +37,4 @@ Console.log(msg001);
 	document.getElementsByTagName(str005)[0].appendChild(mf);
 })();
 
-Console.log(msg002);
+console.log(msg002);
