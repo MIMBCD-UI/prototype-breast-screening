@@ -32,18 +32,72 @@ var updateAll = require("./utils/npm-update-all");
 
 /* ================================================== */
 
+/* ================================================== */
+/** IMPORT Trackers                                   */
+/* ================================================== */
+
+var logRocket = require("./trackers/logrocket");
+
+/* ================================================== */
+
+/* ================================================== */
+/** Base Declarable String Variables                  */
+/* ================================================== */
+
+var s001 = 'SaveFile';
+var s002 = '/SaveFile';
+var s003 = './SaveFile';
+var s004 = 'UpdatePatients';
+var s005 = '/UpdatePatients';
+var s006 = './UpdatePatients';
+var s007 = 'UpdatePatientFile';
+var s008 = '/UpdatePatientFile';
+var s009 = './UpdatePatientFile';
+var s010 = '';
+var s011 = 'data';
+var s012 = 'end';
+var s013 = 'success';
+var s014 = 'update patients';
+var s015 = ' ';
+var s016 = 'files in studies/<file>';
+var s017 = 'Content-Type';
+var s018 = 'text/plain';
+var s019 = '.';
+var s020 = './';
+var s021 = '../public/index.html';
+var s022 = 'text/html';
+var s023 = '.js';
+var s024 = 'text/javascript';
+var s025 = '.css';
+var s026 = '.json';
+var s027 = 'text/css';
+var s028 = 'application/json';
+var s029 = '.png';
+var s030 = 'image/png';
+var s031 = '.jpg';
+var s032 = 'image/jpg';
+var s033 = '.wav';
+var s034 = 'audio/wav';
+var s035 = 'ENOENT';
+var s036 = '../public/404.html';
+var s037 = 'utf-8';
+var s038 = 'Sorry, check with the site admin for error: ';
+var s039 = ' ..\n';
+
+/* ================================================== */
+
 
 /* ================================================== */
 /** Base Configuration Variables                      */
 /* ================================================== */
 
 // var configFilePrefix = '../../';
-var configFilePrefix = '';
+var configFilePrefix = s010;
 var configFileName = 'config';
 var configFileSuffix = '/';
 var configFileSet = configFileName + configFileSuffix;
 var configFileDir = configFilePrefix + configFileSet;
-var fileExtension = '.json';
+var fileExtension = s026;
 var requestValue = 'GET';
 var studyListPath = 'src/common/studyList.json';
 var seriesPath = 'src/common/studies/';
@@ -150,13 +204,16 @@ var updateStudiesFileHandler = function(fileData) {
   var objectData = JSON.parse(fileData);
   console.log(objectData.file.length);
   for (var i = 0; i < objectData.file.length; i++) {
-    fs.writeFile(seriesPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
+    var spFileName = seriesPath + objectData.file[i].fileName + s026;
+    var smpFileName = seriesMetadataPath + objectData.file[i].fileName + s026;
+    var eachFileData = JSON.stringify(objectData.file[i].fileData, null, 4);
+    fs.writeFile(spFileName, eachFileData, function(err) {
       if (err) {
         console.log('Error in saving file:\n' + err);
       }
       console.log('Patients file created successfully:');
     });
-    fs.writeFile(seriesMetadataPath + objectData.file[i].fileName + '.json', JSON.stringify(objectData.file[i].fileData, null, 4), function(err) {
+    fs.writeFile(smpFileName, eachFileData, function(err) {
       if (err) {
         console.log('Error for Patients Metadata in saving file:\n' + err);
       }
@@ -179,102 +236,100 @@ var updateStudiesFileHandler = function(fileData) {
  */
 http.createServer(function(request, response) {
 
-  if (request.url == 'SaveFile' || request.url == '/SaveFile' || request.url == './SaveFile') {
-    var store = '';
-    request.on('data', function(chunk) {
+  var rurl = request.url;
+
+  if (rurl == s001 || rurl == s002 || rurl == s003) {
+    var store = s010;
+    request.on(s011, function(chunk) {
       store += chunk;
     });
 
-    request.on('end', function() {
+    request.on(s012, function() {
       var objectData = JSON.parse(store);
       saveFileHandler(objectData.path, store);
     });
   };
 
-  if (request.url == 'UpdatePatients' || request.url == '/UpdatePatients' || request.url == './UpdatePatients') {
-    console.log('update patients');
-    var patientData = '';
-    request.on('data', function(chunk) {
+  if (rurl == s004 || rurl == s005 || rurl == s006) {
+    console.log(s014);
+    var patientData = s010;
+    request.on(s011, function(chunk) {
       patientData += chunk;
     });
 
-    request.on('end', function() {
-      //console.log(patientData);
+    request.on(s012, function() {
       response.writeHead(200, {
-        'Content-Type': 'text/plain'
+        'Content-Type': s018
       });
-      response.end('success');
+      response.end(s013);
       updateStudiesHandler(patientData);
     });
   };
 
-  if (request.url == 'UpdatePatientFile' || request.url == '/UpdatePatientFile' || request.url == './UpdatePatientFile') {
-    console.log('update patients files in studies/<file>');
-    var fileData = '';
-    request.on('data', function(chunk) {
+  if (rurl == s007 || rurl == s008 || rurl == s009) {
+    console.log(s014 + s015 + s016);
+    var fileData = s010;
+    request.on(s011, function(chunk) {
       fileData += chunk;
     });
 
-    request.on('end', function() {
-      //console.log(fileData);
+    request.on(s012, function() {
       response.writeHead(200, {
-        'Content-Type': 'text/plain'
+        'Content-Type': s018
       });
-      response.end('success');
+      response.end(s013);
       updateStudiesFileHandler(fileData);
     });
   };
 
-  var filePath = '.' + request.url;
-  if (filePath == './') {
-    filePath = '../public/index.html';
+  var filePath = s019 + rurl;
+  if (filePath == s020) {
+    filePath = s021;
   }
 
   var extname = path.extname(filePath);
-  var contentType = 'text/html';
+  var contentType = s022;
   switch (extname) {
-    case '.js':
-      contentType = 'text/javascript';
+    case s023:
+      contentType = s024;
       break;
-    case '.css':
-      contentType = 'text/css';
+    case s025:
+      contentType = s027;
       break;
-    case '.json':
-      contentType = 'application/json';
+    case s026:
+      contentType = s028;
       break;
-    case '.png':
-      contentType = 'image/png';
+    case s029:
+      contentType = s030;
       break;
-    case '.jpg':
-      contentType = 'image/jpg';
+    case s031:
+      contentType = s032;
       break;
-    case '.wav':
-      contentType = 'audio/wav';
+    case s033:
+      contentType = s034;
       break;
   }
 
   fs.readFile(filePath, function(error, content) {
     if (error) {
-      if (error.code == 'ENOENT') {
-        fs.readFile('../public/404.html', function(error, content) {
+      if (error.code == s035) {
+        fs.readFile(s036, function(error, content) {
           response.writeHead(200, {
             'Content-Type': contentType
           });
-          response.end(content, 'utf-8');
+          response.end(content, s037);
         });
       } else {
         response.writeHead(500);
-        response.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
+        response.end(s038 + error.code + s039);
         response.end();
       }
     } else {
       response.writeHead(200, {
         'Content-Type': contentType
       });
-      response.end(content, 'utf-8');
+      response.end(content, s037);
     }
   });
-
-  // fetchImage.fetchImagePatients(urlLinkDicomValue);
 
 }).listen(portValue);
