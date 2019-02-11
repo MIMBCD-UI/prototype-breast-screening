@@ -536,10 +536,38 @@ var getInstanceListForFile = function(instanceData) {
   for (var index1 = 0; index1 < instanceData.length; index1++) {
     var series = instanceData[index1];
     var seriesDataStructure = {
+      "instanceNumber" : instanceData[index1].IndexInSeries,
       "imageId": instanceData[index1].ID + '/file'
     };
+    // console.log(instanceData[index1].IndexInSeries);
+    // if (index1 > 0) {
+    //   if (instanceData[index1].IndexInSeries > instanceData[index1-1].IndexInSeries ) {
+    //     // instanceFileData.splice(index1, 0 ,seriesDataStructure);
+    //     instanceFileData[index1] = seriesDataStructure;
+    //     console.log("push up")
+    //     console.log(seriesDataStructure)
+    //   }else {
+    //     instanceFileData.splice(index1-1,0,seriesDataStructure);
+    //     console.log("Unshift")
+    //     console.log(seriesDataStructure)
+    //   }
+    // } else {
+    //   instanceFileData.push(seriesDataStructure);
+    //   console.log("push down")
+    //   console.log(seriesDataStructure)
+    // }
+
     instanceFileData.push(seriesDataStructure);
   }
+  console.log(instanceFileData)
+  // use slice() to copy the array and not just make a reference
+    var byInstance = instanceFileData.slice(0);
+    byInstance.sort(function(a,b) {
+        return a.instanceNumber - b.instanceNumber;
+    });
+
+    instanceFileData = byInstance;
+    console.log(instanceFileData)
   return instanceFileData;
 }
 
