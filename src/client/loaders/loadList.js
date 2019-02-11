@@ -221,7 +221,8 @@ async function getStudyList(callback) {
 async function getStudyListData(studiesList) {
   var studiesDeferred = [];
   for (var studyIndex = 0; studyIndex < studiesList.length; studyIndex++) {
-    studiesDeferred[studyIndex] = await callAPI(studiesPath + studiesList[studyIndex] + '?', patientList);
+    var callarg001 = studiesPath + studiesList[studyIndex] + '?';
+    studiesDeferred[studyIndex] = await callAPI(callarg001, patientList);
   }
   return Promise.all(studiesDeferred).then(deferredData => {
     for (var index = 0; index < deferredData.length; index++) {
@@ -247,7 +248,8 @@ async function getStudyListData(studiesList) {
 async function getSeriesListData(seriesList) {
   var studies = [];
   for (var seriesIndex = 0; seriesIndex < seriesList.length; seriesIndex++) {
-    studies[seriesIndex] = await callAPI(seriesPath + seriesList[seriesIndex] + '?', patientList);
+    var callarg002 = seriesPath + seriesList[seriesIndex] + '?';
+    studies[seriesIndex] = await callAPI(callarg002, patientList);
   }
   return Promise.all(studies).then(deferredData => {
     for (var index = 0; index < deferredData.length; index++) {
@@ -273,7 +275,8 @@ async function getSeriesListData(seriesList) {
 async function getInstanceListData(instanceList) {
   var instanceDeferred = [];
   for (var instanceIndex = 0; instanceIndex < instanceList.length; instanceIndex++) {
-    instanceDeferred[instanceIndex] = await callAPI(instancesPath + instanceList[instanceIndex] + '?', patientList);
+    var callarg003 = instancesPath + instanceList[instanceIndex] + '?';
+    instanceDeferred[instanceIndex] = await callAPI(callarg003, patientList);
   }
   return Promise.all(instanceDeferred).then(deferredData => {
     for (var index = 0; index < deferredData.length; index++) {
