@@ -4,7 +4,7 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "localhost",
+      "hostname": "breastscreening.isr.tecnico.ulisboa.pt",
       "portEscape": ":",
       "port": "8045",
       "suffix": "/",
@@ -16,7 +16,7 @@
     {
       "prefix": "://",
       "transferProtocol": "http",
-      "hostname": "localhost",
+      "hostname": "breastscreening.isr.tecnico.ulisboa.pt",
       "portEscape": ":",
       "port": "8083",
       "suffix": "/",
