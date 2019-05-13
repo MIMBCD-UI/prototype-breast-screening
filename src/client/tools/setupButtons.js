@@ -166,7 +166,24 @@ const setupButtons = (studyViewer) => {
         stack.probe = probeToolData.data;
       }
 
+      //logic to warn to user if he has any missing annotations
+      if(studyRoiData.stacks.length > 2){
+        var filledIndex = [];
+        for(var i=0; i<studyRoiData.stacks.length; i++){
+          if(studyRoiData.stacks[i].freehand != undefined || studyRoiData.stacks[i].freehand != null
+            && studyRoiData.stacks[i].seriesDescription == 'MRI'){
+            filledIndex.push(i+1);
+          }
+        }
+        var occupied = filledIndex[filledIndex.length -1] - filledIndex[0] + 1;
+        var totalLength = filledIndex.length;
 
+        if(occupied != totalLength){
+          stack.freehand = null;
+          alert('Warning!' + '\n'  + 'There are missing annotations in between slices. Please annotate and save it first.');
+          return;
+        }
+      }
 
       console.log(studyRoiData);
 
