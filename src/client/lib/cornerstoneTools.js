@@ -9,7 +9,7 @@
  *       at 2015-09-07 and modified by Francisco Maria
  *       Calisto during the developement of the MIMBCD-UI
  *       Project and the respective BreastScreening
- *       prototypes, systems and assitants.
+ *       prototypes, systems and assistants.
  *
  * @desc Cornerstone.js provides a rock solid foundation
  *       for creating a web medical image viewer. However,
