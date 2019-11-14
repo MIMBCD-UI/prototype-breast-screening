@@ -68,8 +68,8 @@ config/env.json
 # config/test.json
 
 # DICOM Images Information
-src/common/studies/*
-src/common/studyList.json
+#src/common/studies/*
+#src/common/studyList.json
 
 # Dataset Information
 dataset/*
