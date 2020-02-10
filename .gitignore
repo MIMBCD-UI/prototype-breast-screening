@@ -68,7 +68,7 @@ config/stage.json
 config/test.json
 config/demopc.json
 config/uta7.json
-config/uta8.json
+config/uta9.json
 
 # DICOM Images Information
 src/common/studies/*
