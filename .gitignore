@@ -59,17 +59,17 @@ typings/
 
 # Configuration Environments
 config/env.json
-# config/dev.json
-# config/integration.json
-# config/internal.json
-# config/local.json
-# config/prod.json
-# config/stage.json
-# config/test.json
+config/dev.json
+config/integration.json
+config/internal.json
+config/local.json
+config/prod.json
+config/stage.json
+config/test.json
 
 # DICOM Images Information
-#src/common/studies/*
-#src/common/studyList.json
+src/common/studies/*
+src/common/studyList.json
 
 # Dataset Information
 dataset/*
