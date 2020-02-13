@@ -58,17 +58,9 @@ typings/
 .env
 
 # Configuration Environments
-config/env.json
-config/dev.json
-config/integration.json
-config/internal.json
-config/local.json
-config/prod.json
-config/stage.json
-config/test.json
-config/demopc.json
-config/uta7.json
-config/uta9.json
+config/*
+!config/sample-env.json
+!config/sample-local.json
 
 # DICOM Images Information
 src/common/studies/*
