@@ -62,7 +62,7 @@ config/env.json
 config/dev.json
 config/integration.json
 config/internal.json
-# config/local.json
+config/local.json
 config/prod.json
 config/stage.json
 config/test.json
