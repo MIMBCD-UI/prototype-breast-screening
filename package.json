@@ -22,6 +22,7 @@
     "esdoc": "./node_modules/.bin/esdoc",
     "install": "cd src npm install",
     "dicom-server:local": "cd .. && cd dicom-server/ && npm run start:local",
+    "dicom-server:uta4": "cd .. && cd dicom-server/ && npm run start:uta4",
     "dicom-server:uta9": "cd .. && cd dicom-server/ && npm run start:uta9",
     "build": "webpack -p &",
     "build:local": "webpack -p &",

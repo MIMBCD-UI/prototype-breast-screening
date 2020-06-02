@@ -178,11 +178,11 @@ const setupButtons = (studyViewer) => {
         var occupied = filledIndex[filledIndex.length -1] - filledIndex[0] + 1;
         var totalLength = filledIndex.length;
 
-        if(occupied != totalLength){
-          stack.freehand = null;
-          alert('Warning!' + '\n'  + 'There are missing annotations in between slices. Please annotate and save it first.');
-          return;
-        }
+        // if(occupied != totalLength){
+        //   stack.freehand = null;
+        //   alert('Warning!' + '\n'  + 'There are missing annotations in between slices. Please annotate and save it first.');
+        //   return;
+        // }
       }
 
       console.log(studyRoiData);
