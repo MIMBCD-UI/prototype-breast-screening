@@ -64,6 +64,7 @@ config/*
 
 # DICOM Images Information
 src/common/studies/*
+!src/common/studies/.gitkeep
 src/common/studyList.json
 
 # Dataset Information
