@@ -1,62 +1,61 @@
 {
     "studyList": [
         {
-            "patientName": "Anonymized3",
-            "patientId": "70a15c33-e38e-4270-b37f-a8aa1dff6fdf",
-            "internalId": "dca23c",
-            "studyDate": "",
-            "modality": "Breast",
-            "studyDescription": "Breast",
-            "numImages": 2,
-            "studyId": "70a15c33-e38e-4270-b37f-a8aa1dff6fdf"
+            "patientName": "Anonymized",
+            "patientId": "0",
+            "internalId": "cfcd20",
+            "numImages": 1,
+            "studyId": "0"
+        },
+        {
+            "patientName": "MR/BRAIN/GRASE/1024",
+            "patientId": "7",
+            "internalId": "8f14e4",
+            "studyDate": "19950330",
+            "modality": "BRAIN",
+            "studyDescription": "BRAIN",
+            "numImages": 1,
+            "studyId": "7"
+        },
+        {
+            "patientName": "Rubo DEMO",
+            "patientId": "123-45-6789",
+            "internalId": "25f9e7",
+            "studyDate": "19940323",
+            "modality": "Echocardiogram",
+            "studyDescription": "Echocardiogram",
+            "numImages": 1,
+            "studyId": "123-45-6789"
+        },
+        {
+            "patientName": "Rubo DEMO",
+            "patientId": "10-55-87",
+            "internalId": "d19ce2",
+            "studyDate": "19960308",
+            "modality": "5",
+            "studyDescription": "5",
+            "numImages": 1,
+            "studyId": "10-55-87"
         },
         {
             "patientName": "Anonymized2",
-            "patientId": "71a90290-c9b6-42be-ae8b-d3d90915be52",
-            "internalId": "55cdb0",
+            "patientId": "3bbf8700-a530-48c7-8ea6-0d782bad0f72",
+            "internalId": "d761c4",
             "studyDate": "",
-            "modality": "Mamografia",
-            "studyDescription": "Mamografia",
-            "numImages": 4,
-            "studyId": "71a90290-c9b6-42be-ae8b-d3d90915be52"
-        },
-        {
-            "patientName": "Anonymized4",
-            "patientId": "97b1bd32-5c13-4715-9506-a172267990c9",
-            "internalId": "21df10",
-            "studyDate": "",
-            "modality": "Mammo",
-            "studyDescription": "Mammo",
-            "numImages": 4,
-            "studyId": "97b1bd32-5c13-4715-9506-a172267990c9"
-        },
-        {
-            "patientName": "Anonymized1",
-            "patientId": "89417be6-8e7a-428d-ac6f-ca73a7c5e029",
-            "internalId": "f15ecd",
-            "studyDate": "",
-            "modality": "01",
-            "studyDescription": "01",
-            "numImages": 4,
-            "studyId": "89417be6-8e7a-428d-ac6f-ca73a7c5e029"
-        },
-        {
-            "patientName": "Anonymized5",
-            "patientId": "27079376-03e2-4762-aed4-7300c827850c",
-            "internalId": "01990e",
-            "studyDate": "",
+            "modality": "Breast",
+            "studyDescription": "Breast",
             "numImages": 1,
-            "studyId": "27079376-03e2-4762-aed4-7300c827850c"
+            "studyId": "3bbf8700-a530-48c7-8ea6-0d782bad0f72"
         },
         {
-            "patientName": "Anonymized6",
-            "patientId": "ec154883-b4f6-4df7-a3f9-bb83fe88e9ae",
-            "internalId": "298343",
+            "patientName": "Anonymized3",
+            "patientId": "8630cf31-7543-4f9b-9c25-13ee4c9e57e7",
+            "internalId": "bf4fd3",
             "studyDate": "",
-            "modality": "Mammo",
-            "studyDescription": "Mammo",
-            "numImages": 2,
-            "studyId": "ec154883-b4f6-4df7-a3f9-bb83fe88e9ae"
+            "modality": "Breast",
+            "studyDescription": "Breast",
+            "numImages": 1,
+            "studyId": "8630cf31-7543-4f9b-9c25-13ee4c9e57e7"
         }
     ]
 }
