@@ -1,0 +1,72 @@
+{
+    "studyList": [
+        {
+            "patientName": "Anonymized1",
+            "patientId": "89417be6-8e7a-428d-ac6f-ca73a7c5e029",
+            "internalId": "f15ecd",
+            "studyDate": "",
+            "modality": "01",
+            "studyDescription": "01",
+            "numImages": 4,
+            "studyId": "89417be6-8e7a-428d-ac6f-ca73a7c5e029"
+        },
+        {
+            "patientName": "Anonymized3",
+            "patientId": "70a15c33-e38e-4270-b37f-a8aa1dff6fdf",
+            "internalId": "dca23c",
+            "studyDate": "",
+            "modality": "Mamografia",
+            "studyDescription": "Mamografia",
+            "numImages": 4,
+            "studyId": "70a15c33-e38e-4270-b37f-a8aa1dff6fdf"
+        },
+        {
+            "patientName": "Anonymized2",
+            "patientId": "71a90290-c9b6-42be-ae8b-d3d90915be52",
+            "internalId": "55cdb0",
+            "studyDate": "",
+            "modality": "ROUTINE MAMMOGRAPHY",
+            "studyDescription": "ROUTINE MAMMOGRAPHY",
+            "numImages": 4,
+            "studyId": "71a90290-c9b6-42be-ae8b-d3d90915be52"
+        },
+        {
+            "patientName": "Anonymized4",
+            "patientId": "97b1bd32-5c13-4715-9506-a172267990c9",
+            "internalId": "21df10",
+            "studyDate": "",
+            "modality": "ROUTINE MAMMOGRAPHY",
+            "studyDescription": "ROUTINE MAMMOGRAPHY",
+            "numImages": 4,
+            "studyId": "97b1bd32-5c13-4715-9506-a172267990c9"
+        },
+        {
+            "patientName": "Anonymized5",
+            "patientId": "27079376-03e2-4762-aed4-7300c827850c",
+            "internalId": "01990e",
+            "studyDate": "",
+            "numImages": 1,
+            "studyId": "27079376-03e2-4762-aed4-7300c827850c"
+        },
+        {
+            "patientName": "Anonymized6",
+            "patientId": "ec154883-b4f6-4df7-a3f9-bb83fe88e9ae",
+            "internalId": "298343",
+            "studyDate": "",
+            "modality": "Mammo",
+            "studyDescription": "Mammo",
+            "numImages": 2,
+            "studyId": "ec154883-b4f6-4df7-a3f9-bb83fe88e9ae"
+        },
+        {
+            "patientName": "Anonymized13",
+            "patientId": "d1f3d33d-a121-4eec-927c-f8473bcf77cb",
+            "internalId": "8ff7af",
+            "studyDate": "",
+            "modality": "MAMA^ROTINA",
+            "studyDescription": "MAMA^ROTINA",
+            "numImages": 2824,
+            "studyId": "d1f3d33d-a121-4eec-927c-f8473bcf77cb"
+        }
+    ]
+}
