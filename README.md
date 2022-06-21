@@ -4,14 +4,15 @@
 
 [MIMBCD-UI](https://mimbcd-ui.github.io/) is a Research Project that deals with the use of a recently proposed technique in literature: [Deep Convolutional Neural Networks (CNNs)](https://en.wikipedia.org/wiki/Convolutional_neural_network). These deep networks will incorporate information from several different modes by a User Interface (UI) implemented based on our [Prototype Cornerstone](https://github.com/MIMBCD-UI/prototype-cornerstone) repository. The [Prototype Cornerstone](https://github.com/MIMBCD-UI/prototype-cornerstone) repository is an Open Source Project with a goal to deliver an example of web based medical imaging platform for the breast cancer diagnosis. We also have several demos to see in our [YouTube Channel](https://www.youtube.com/channel/UCPz4aTIVHekHXTxHTUOLmXw), please follow us.
 
-
 ## Research
 
 Like the fact that these projects are research projects, we underline and ask for the support of our noble scientific community to help us across the path. With this project, we hope to provide valuable information regarding our research topics and theories. Also, you can follow and support our project on [ResearchGate](https://www.researchgate.net/project/Medical-Imaging-Multimodality-Breast-Cancer-Diagnosis-User-Interface).
 
-### Citing Master Thesis
+### Citing
 
-We kindly ask **scientific works and studies** that make use of Master Thesis to cite Master Thesis in their associated publications. Similarly, we ask **open-source** and **closed-source** works that make use of Master Thesis to warn us about this use. You can cite our work using the following BibTeX entry:
+We kindly ask **scientific works and studies** that make use of the repository to cite it in their associated publications. Similarly, we ask **open-source** and **closed-source** works that make use of the repository to warn us about this use.
+
+You can cite our work using the following BibTeX entry:
 
 ```
 @mastersthesis{calisto2017mimbcdui,
@@ -220,10 +221,31 @@ open /Applications/Google\ Chrome.app --args --disable-web-security --user-data-
 
 * Or install the  [CORS](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en) plugin for [Google Chrome](https://www.google.com/intl/en/chrome/browser/desktop/).
 
-
 ## About
 
-For more information about the [MIMBCD-UI](https://mimbcd-ui.github.io/) Project just follow the [link](https://github.com/MIMBCD-UI/meta). Pieces of information about details of this repository are also in the [Wiki](https://github.com/MIMBCD-UI/prototype-breast-screening/wiki) of the project. This prototype was developed using several libraries and dependencies. Despite that all libraries had their importance and supported the development, one of it was of chief importance. The [CornerstoneJS](https://cornerstonejs.org/) library and [secondary libraries](https://github.com/cornerstonejs), respectively, are supporting this prototype. We [Acknowledge](https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/README.md#acknowledgments) all people involved in the path.
+For more information about the [MIMBCD-UI](https://mimbcd-ui.github.io/) project just follow the [link](https://github.com/MIMBCD-UI/meta). Pieces of information about details of this repository are also in the [Wiki](https://github.com/MIMBCD-UI/prototype-breast-screening/wiki) of the project. This prototype was developed using several libraries and dependencies. Despite that all libraries had their importance and supported the development, one of it was of chief importance. The [CornerstoneJS](https://cornerstonejs.org/) library and [secondary libraries](https://github.com/cornerstonejs), respectively, are supporting this prototype. We [Acknowledge](https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/README.md#acknowledgments) all people involved in the path.
+
+## Information
+
+The current information will summarize important items of this repository. In this section, we address all fundamental items that were crucial to the current information.
+
+### Related Repositories
+
+The following list, represents the set of related repositories for the presented one:
+
+- [`prototypes-high-fi-web-based`](https://github.com/MIMBCD-UI/prototypes-high-fi-web-based)
+
+- [`prototype-cornerstone-touch`](https://github.com/MIMBCD-UI/prototype-cornerstone-touch)
+
+- [`prototype-cornerstone`](https://github.com/MIMBCD-UI/prototype-cornerstone)
+
+- [`prototype-single-modality`](https://github.com/MIMBCD-UI/prototype-single-modality)
+
+- [`prototype-multi-modality`](https://github.com/MIMBCD-UI/prototype-multi-modality)
+
+- [`prototype-time-bar`](https://github.com/MIMBCD-UI/prototype-time-bar)
+
+- [`prototype-scalable-interactions`](https://github.com/MIMBCD-UI/prototype-scalable-interactions)
 
 ### License
 
@@ -239,7 +261,26 @@ When source code, documentation and other content is contributed to one of our r
 
 The content of the present repository has obtained the patent right of [World Intellectual Property Organization (WIPO)](https://www.wipo.int) invention. Moreover, the hereby invention for this repository is under protection of the patent number **[WO2022071818A1](https://patents.google.com/patent/WO2022071818A1)** with the application number **PCT/PT2021/050029**. The title of the invention is "*Computational Method and System for Improved Identification of Breast Lesions*", registered under the WO patent office.
 
-### Acknowledgments
+### Team
+
+Our team brings everything together sharing ideas and the same purpose, developing even better work. In this section, we will nominate the full list of important people for this repository, as well as respective links.
+
+#### Authors
+
+* Francisco Maria Calisto [ [Website](http://www.franciscocalisto.me/) | [ResearchGate](https://www.researchgate.net/profile/Francisco_Maria_Calisto) | [GitHub](https://github.com/FMCalisto) | [Twitter](https://twitter.com/FMCalisto) | [LinkedIn](https://www.linkedin.com/in/fmcalisto/) ]
+
+#### Companions
+
+* Bruno Oliveira
+* Luís Ribeiro Gomes
+* Carlos Santiago
+* Jacinto C. Nascimento
+* Pedro Miraldo
+* Nuno Nunes
+
+#### Acknowledgments
+
+This work was partially supported by national funds through [FCT](http://fct.pt/) and [IST](http://tecnico.ulisboa.pt/) through the [UID/EEA/50009/2013](https://www.fct.pt/apoios/projectos/consulta/vglobal_projecto.phtml.en?idProjecto=147329&idElemConcurso=8999) project, [BL89/2017-IST-ID](http://ist-id.pt/en/) grant. We thank [Dr. Clara Aleluia](https://www.researchgate.net/profile/Clara_Aleluia) and her [radiology team](https://repositorio.hff.min-saude.pt/handle/10400.10/4?locale=en) of [HFF](https://hff.min-saude.pt/) for valuable insights and helping using the *Assistant* on their daily basis. From [IPO-Lisboa](http://www.ipolisboa.min-saude.pt/), we would like to thank the medical imaging teams of [Dr. José Carlos Marques](https://www.researchgate.net/profile/Jose_Marques42) and [Dr. José Venâncio](http://www.ipolisboa.min-saude.pt/servicosclinicos/radiologia/). From [IPO-Coimbra](https://ipocoimbra.com), we would like to thank the radiology department director and the all team of [Dr. Idílio Gomes](https://ipocoimbra.com/servico-de-imagiologia/). Also, we would like to provide our acknowledgments to Dr. Emília Vieira and Dr. Cátia Pedro from [Hospital Santa Maria](http://www.chln.min-saude.pt/). Furthermore, we want to thank all team from the radiology department of [HB](http://www.chbm.min-saude.pt/) for participation. Last but not least, a great thanks to [Dr. Cristina Ribeiro da Fonseca](http://imi.pt/pt/content/31-corpo-clnico/32-profissionais-imi?content=55), who among others is giving us crucial information for the [BreastScreening](https://github.com/BreastScreening) project.
 
 A special thanks to [Chris Hafey](https://www.linkedin.com/in/chafey/), the propelling person of [CornerstoneJS](https://cornerstonejs.org/), who also developed the [cornerstoneDemo](https://github.com/chafey/cornerstoneDemo). Not forgetting the three supporters of the CornerstoneJS library, [Aloïs Dreyfus](https://www.linkedin.com/in/alois-dreyfus), [Danny Brown](http://dannyrb.com/) and [Erik Ziegler](https://www.npmjs.com/~swederik). We also would like to give a special thanks to [Erik Ziegler](https://www.npmjs.com/~swederik) who support several [issues](https://groups.google.com/forum/#!forum/cornerstone-platform) during this path.
 
@@ -258,3 +299,125 @@ A special thanks to [Chris Hafey](https://www.linkedin.com/in/chafey/), the prop
 - [Sébastien Jodogne](https://www.linkedin.com/in/jodogne/) ([jodogne](https://github.com/jodogne))
 
 - [Steve Pieper](https://lmi.med.harvard.edu/people/steve-pieper)
+
+### Supporting
+
+Our organization is a non-profit organization. However, we have many needs across our activity. From infrastructure to service needs, we need some time and contribution, as well as help, to support our team and projects.
+
+<span>
+  <a href="https://opencollective.com/oppr" target="_blank">
+    <img src="https://opencollective.com/oppr/tiers/backer.svg" width="220">
+  </a>
+</span>
+
+#### Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+
+<span class="image">
+  <a href="graphs/contributors">
+    <img src="https://opencollective.com/oppr/contributors.svg?width=890" />
+  </a>
+</span>
+
+#### Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/oppr#backer)]
+
+<span>
+  <a href="https://opencollective.com/oppr#backers" target="_blank">
+    <img src="https://opencollective.com/oppr/backers.svg?width=890">
+  </a>
+</span>
+
+#### Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/oppr#sponsor)]
+
+<span>
+  <a href="https://opencollective.com/oppr/sponsor/0/website" target="_blank">
+    <img src="https://opencollective.com/oppr/sponsor/0/avatar.svg">
+  </a>
+</span>
+
+<br />
+
+<span>
+  <a href="http://www.fct.pt/" title="FCT" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/fct_footer.png?raw=true" alt="fct" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="https://www.fccn.pt/en/" title="FCCN" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/fccn_footer.png?raw=true" alt="fccn" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="https://www.ulisboa.pt/en/" title="ULisboa" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/ulisboa_footer.png?raw=true" alt="ulisboa" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="http://tecnico.ulisboa.pt/" title="IST" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/ist_footer.png?raw=true" alt="ist" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="http://hff.min-saude.pt/" title="HFF" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/hff_footer.png?raw=true" alt="hff" width="20%" />
+  </a>
+</span>
+
+##### Departments
+
+<span>
+  <a href="http://dei.tecnico.ulisboa.pt" title="DEI" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/dei_footer.png?raw=true" alt="dei" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="http://deec.tecnico.ulisboa.pt" title="DEEC" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/deec_footer.png?raw=true" alt="dei" width="20%" />
+  </a>
+</span>
+
+##### Laboratories
+
+<span>
+  <a href="http://sipg.isr.tecnico.ulisboa.pt/" title="SIPG" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/sipg_footer.png?raw=true" alt="sipg" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="http://welcome.isr.tecnico.ulisboa.pt/" title="ISR" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/isr-lisboa_footer.png?raw=true" alt="isr" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="http://larsys.pt/" title="LARSys" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/larsys_footer.png?raw=true" alt="larsys" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="https://www.m-iti.org/" title="M-ITI" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/iti_footer.png?raw=true" alt="iti" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="http://www.inesc-id.pt/" title="INESC-ID" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/inesc-id_footer.png?raw=true" alt="inesc-id" width="20%" />
+  </a>
+</span>
+
+##### Domain
+
+<span>
+  <a href="https://europa.eu/" title="EU" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/eu_footer.png?raw=true" alt="eu" width="20%" />
+  </a>
+</span>
+<span>
+  <a href="https://www.portugal.gov.pt/" title="Portugal" target="_blank">
+    <img src="https://github.com/mida-project/meta/blob/master/brands/pt_footer.png?raw=true" alt="pt" width="20%" />
+  </a>
+</span>
