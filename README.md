@@ -1,9 +1,56 @@
-# MIMBCD-UI Breast Screening Prototype
+# MIMBCD-UI BreastScreening Prototype
 
 <img src="https://github.com/MIMBCD-UI/prototype-breast-screening/blob/master/assets/banner.png?raw=true"/>
 
 [MIMBCD-UI](https://mimbcd-ui.github.io/) is a Research Project that deals with the use of a recently proposed technique in literature: [Deep Convolutional Neural Networks (CNNs)](https://en.wikipedia.org/wiki/Convolutional_neural_network). These deep networks will incorporate information from several different modes by a User Interface (UI) implemented based on our [Prototype Cornerstone](https://github.com/MIMBCD-UI/prototype-cornerstone) repository. The [Prototype Cornerstone](https://github.com/MIMBCD-UI/prototype-cornerstone) repository is an Open Source Project with a goal to deliver an example of web based medical imaging platform for the breast cancer diagnosis. We also have several demos to see in our [YouTube Channel](https://www.youtube.com/channel/UCPz4aTIVHekHXTxHTUOLmXw), please follow us.
 
+
+## Research
+
+Like the fact that these projects are research projects, we underline and ask for the support of our noble scientific community to help us across the path. With this project, we hope to provide valuable information regarding our research topics and theories. Also, you can follow and support our project on [ResearchGate](https://www.researchgate.net/project/Medical-Imaging-Multimodality-Breast-Cancer-Diagnosis-User-Interface).
+
+### Citing Master Thesis
+
+We kindly ask **scientific works and studies** that make use of Master Thesis to cite Master Thesis in their associated publications. Similarly, we ask **open-source** and **closed-source** works that make use of Master Thesis to warn us about this use. You can cite our work using the following BibTeX entry:
+
+```
+@mastersthesis{calisto2017mimbcdui,
+  doi = {10.13140/RG.2.2.15187.02084},
+  url = {http://rgdoi.net/10.13140/RG.2.2.15187.02084},
+  author = {Francisco Maria Calisto},
+  title = {Medical Imaging Multimodality Breast Cancer Diagnosis User Interface},
+  school = {Instituto Superior T\'{e}cnico},
+  year = 2017,
+  address = {Avenida Rovisco Pais 1, 1049-001 Lisboa - Portugal (EU)},
+  month = 10,
+  note = {A Medical Imaging Tool for a Multimodality use of Breast Cancer Diagnosis on an User Interface.}
+}
+```
+
+### Recent Publications
+
+We have several publications published across several research conferences and journals. In this section, we provide a short list of our recent publications. To see a more complete list, please follow [our publications](https://github.com/MIMBCD-UI/meta/wiki/Publications).
+
+***
+
+Francisco Maria Calisto, Carlos Santiago, Nuno Nunes, Jacinto C. Nascimento,
+
+Introduction of Human-Centric AI Assistant to Aid Radiologists for Multimodal Breast Image Classification,
+
+International Journal of Human-Computer Studies,
+
+Volume 150,
+2021,
+102607,
+ISSN 1071-5819,
+
+https://doi.org/10.1016/j.ijhcs.2021.102607.
+
+(https://www.sciencedirect.com/science/article/pii/S1071581921000252)
+
+Abstract: In this research, we take an HCI perspective on the opportunities provided by AI techniques in medical imaging, focusing on workflow efficiency and quality, preventing errors and variability of diagnosis in Breast Cancer. Starting from a holistic understanding of the clinical context, we developed BreastScreening to support Multimodality and integrate AI techniques (using a deep neural network to support automatic and reliable classification) in the medical diagnosis workflow. This was assessed by using a significant number of clinical settings and radiologists. Here we present: i) user study findings of 45 physicians comprising nine clinical institutions; ii) list of design recommendations for visualization to support breast screening radiomics; iii) evaluation results of a proof-of-concept BreastScreening prototype for two conditions Current (without AI assistant) and AI-Assisted; and iv) evidence from the impact of a Multimodality and AI-Assisted strategy in diagnosing and severity classification of lesions. The above strategies will allow us to conclude about the behaviour of clinicians when an AI module is present in a diagnostic system. This behaviour will have a direct impact in the clinicians workflow that is thoroughly addressed herein. Our results show a high level of acceptance of AI techniques from radiologists and point to a significant reduction of cognitive workload and improvement in diagnosis execution.
+
+Keywords: Human-computer interaction; Artificial intelligence; Healthcare; Medical imaging; Breast cancer
 
 ## Instructions
 
