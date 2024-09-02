@@ -114,7 +114,7 @@
     "logrocket": "^0.6.19",
     "merry": "^5.5.2",
     "npm": "^10.5.2",
-    "requirejs": "^2.3.5",
+    "requirejs": "^2.3.7",
     "semver": "^7.5.2",
     "serve-static": "^1.13.2",
     "url-parse": "^1.4.3"
