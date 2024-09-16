@@ -104,7 +104,7 @@
     "ecstatic": "^4.1.4",
     "esdoc": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
-    "express": "^4.16.3",
+    "express": "^4.21.0",
     "finalhandler": "^1.1.1",
     "grunt": "^1.5.3",
     "hapi": "^17.5.3",
@@ -116,7 +116,7 @@
     "npm": "^10.5.2",
     "requirejs": "^2.3.7",
     "semver": "^7.5.2",
-    "serve-static": "^1.13.2",
+    "serve-static": "^1.16.2",
     "url-parse": "^1.4.3"
   }
 }
