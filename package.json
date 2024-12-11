@@ -104,7 +104,7 @@
     "ecstatic": "^4.1.4",
     "esdoc": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "finalhandler": "^1.1.1",
     "grunt": "^1.5.3",
     "hapi": "^17.5.3",
