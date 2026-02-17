@@ -93,7 +93,7 @@
     "webpack-dev-server": "^5.2.1"
   },
   "dependencies": {
-    "ajv": "^6.5.2",
+    "ajv": "^8.18.0",
     "ajv-keywords": "^3.2.0",
     "catta": "^2.1.2",
     "common-js": "^0.3.8",
