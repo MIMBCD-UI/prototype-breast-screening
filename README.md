@@ -231,7 +231,7 @@ The current information will summarize important items of this repository. In th
 
 ### Related Repositories
 
-The following list, represents the set of related repositories for the presented one:
+The following list represents the set of related repositories for the presented one:
 
 - [`prototypes-high-fi-web-based`](https://github.com/MIMBCD-UI/prototypes-high-fi-web-based)
 
